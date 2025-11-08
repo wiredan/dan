@@ -41,6 +41,7 @@ export function Footer() {
                 <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase">Company</h3>
                 <ul className="mt-4 space-y-4">
                   <li><Link to="/education" className="text-base text-muted-foreground hover:text-primary">Education Hub</Link></li>
+                  <li><Link to="/dan-ai" className="text-base text-muted-foreground hover:text-primary">DAN. AI</Link></li>
                 </ul>
               </div>
             </div>
@@ -48,7 +49,7 @@ export function Footer() {
         </div>
         <div className="mt-12 border-t border-border pt-8">
           <p className="text-base text-muted-foreground xl:text-center">&copy; {new Date().getFullYear()} DAN Platform. All rights reserved.</p>
-          <p className="text-sm text-muted-foreground/80 xl:text-center mt-2">Built with ❤️ at Cloudflare</p>
+          <p className="text-sm text-muted-foreground/80 xl:text-center mt-2">Built with ��️ at Cloudflare</p>
         </div>
       </div>
     </footer>

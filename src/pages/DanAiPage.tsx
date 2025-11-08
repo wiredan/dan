@@ -1,5 +1,5 @@
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Bot, Send, User as UserIcon, Loader2, TrendingUp, Clock, Volume2, VolumeX } from "lucide-react";
+import { Bot, Send, User as UserIcon, Loader2, TrendingUp, Clock } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useState, useRef, useEffect } from "react";
 import { Input } from "@/components/ui/input";
@@ -7,9 +7,9 @@ import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { api } from "@/lib/api-client";
+import { useAuthStore } from "@/lib/authStore";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 interface ChatMessage {
   sender: 'user' | 'ai';
   text: string;
@@ -32,22 +32,9 @@ export function DanAiPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [marketData, setMarketData] = useState<MarketDataItem[]>(generateMockData());
   const [lastUpdated, setLastUpdated] = useState(new Date());
-  const [isVoiceReaderEnabled, setIsVoiceReaderEnabled] = useState(false);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
-  const speak = (text: string) => {
-    if ('speechSynthesis' in window && isVoiceReaderEnabled) {
-      speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(text);
-      speechSynthesis.speak(utterance);
-    }
-  };
   useEffect(() => {
     setMessages([{ sender: 'ai', text: t('education.aiChat.greeting') }]);
-    return () => {
-      if ('speechSynthesis' in window) {
-        speechSynthesis.cancel();
-      }
-    };
   }, [t]);
   useEffect(() => {
     const interval = setInterval(() => {
@@ -67,17 +54,16 @@ export function DanAiPage() {
     setMessages(prev => [...prev, userMessage]);
     setInput('');
     setIsLoading(true);
-    console.log("handleSendMessage: Before API call");
     try {
-      const response = await api<{ reply: string }>('/api/dan/message', { method: 'POST', body: JSON.stringify({ message: input }) });
+      const response = await api<{ reply: string }>('/api/ai/chat', {
+        method: 'POST',
+        body: JSON.stringify({ message: input }),
+      });
       const aiMessage: ChatMessage = { sender: 'ai', text: response.reply };
       setMessages(prev => [...prev, aiMessage]);
-      speak(response.reply);
     } catch (error) {
-      console.log("handleSendMessage: Error in API call", error);
-      const errorMessage: ChatMessage = { sender: 'ai', text: "Sorry, the AI assistant is currently offline. Please try again later." };
+      const errorMessage: ChatMessage = { sender: 'ai', text: "Sorry, I'm having trouble connecting right now." };
       setMessages(prev => [...prev, errorMessage]);
-      speak(errorMessage.text);
     } finally {
       setIsLoading(false);
     }
@@ -92,23 +78,9 @@ export function DanAiPage() {
         <div className="mt-12 grid gap-8 lg:grid-cols-3">
           <Card className="lg:col-span-2">
             <CardHeader>
-              <div className="flex justify-between items-center">
-                <CardTitle className="flex items-center gap-2">
-                  <Bot /> {t('education.aiChat.title')}
-                </CardTitle>
-                <TooltipProvider>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <Button variant="ghost" size="icon" onClick={() => setIsVoiceReaderEnabled(prev => !prev)}>
-                        {isVoiceReaderEnabled ? <Volume2 className="h-5 w-5 text-primary" /> : <VolumeX className="h-5 w-5 text-muted-foreground" />}
-                      </Button>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p>{t('danAI.voiceReader.toggleTooltip')}</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
-              </div>
+              <CardTitle className="flex items-center gap-2">
+                <Bot /> {t('education.aiChat.title')}
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <ScrollArea className="h-[400px] w-full pr-4" ref={scrollAreaRef}>

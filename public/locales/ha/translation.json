@@ -30,6 +30,7 @@
     "links": {
       "dashboard": "Dashboard",
       "marketplace": "Kasuwa",
+      "educationHub": "Cibiyar Ilimi",
       "danAI": "DAN. AI"
     },
     "createListing": "Ƙirƙiri Lissafi",
@@ -190,13 +191,59 @@
     }
   },
   "education": {
-    "title": "DAN. AI",
-    "description": "Makamashin ku na AI don ilimin kasuwancin noma da basira.",
+    "title": "Cibiyar Ilimi",
+    "description": "Makamashin ku don ilimin kasuwancin noma da basira.",
+    "readMore": "Kara karantawa",
+    "categories": {
+      "technology": "Fasaha",
+      "farming": "Noma",
+      "markets": "Kasuwa",
+      "security": "Tsaro",
+      "logistics": "Kayan Aiki",
+      "investment": "Saka Hannun Jari"
+    },
+    "articles": {
+      "defi": {
+        "title": "Fahimtar Kuɗin da aka Rarraba a Aikin Noma",
+        "description": "Bincika yadda blockchain da DeFi ke canza hanyoyin samar da noma."
+      },
+      "sustainable": {
+        "title": "Mafi Kyawun Ayyuka don Noma Mai Dorewa",
+        "description": "Koyi game da dabarun zamani da ke inganta amfanin gona yayin kare muhalli."
+      },
+      "markets": {
+        "title": "Kewaya Kasuwannin Abinci na Duniya",
+        "description": "Binciken yanayin kasuwa na yanzu, sauye-sauyen farashi, da yadda ake yanke shawara."
+      },
+      "kyc": {
+        "title": "Matsayin KYC wajen Gina Amincewa",
+        "description": "Dalilin da ya sa tabbatar da ainihi yana da mahimmanci don ƙirƙirar kasuwar noma mai aminci."
+      },
+      "logistics": {
+        "title": "Inganta Kayan Aiki da Sarkar Samarwa",
+        "description": "Tukwici da dabaru ga masu rarrabawa don daidaita ayyukansu da rage farashi."
+      },
+      "tokenization": {
+        "title": "Gabatarwa ga Tokenization na Noma",
+        "description": "Jagora ga masu farawa kan yadda za a iya wakiltar kadarorin noma a matsayin alamun dijital."
+      }
+    },
     "aiChat": {
       "title": "Mataimakin DAN AI",
       "greeting": "Sannu! Ni ne AI na Decentralized Agribusiness Network. Tambaye ni komai game da farashin kasuwa, kayan aiki, ko fasalulluka na dandalinmu.",
       "placeholder": "Tambaya game da yanayin kasuwa...",
       "send": "Aika"
+    }
+  },
+  "danAI": {
+    "title": "DAN. AI",
+    "description": "Mataimakin ku na AI don bayanan kasuwa na ainihi da basira.",
+    "marketData": {
+      "title": "Bayanin Kasuwa na Ainihi",
+      "crop": "Amfanin gona",
+      "price": "Farashi (USD)",
+      "change": "Canjin 24h",
+      "lastUpdated": "An sabunta a: {{time}}"
     }
   },
   "currency": {

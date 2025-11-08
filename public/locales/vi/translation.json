@@ -30,9 +30,10 @@
     "links": {
       "dashboard": "Bảng điều khiển",
       "marketplace": "Thị trường",
+      "educationHub": "Trung tâm Giáo dục",
       "danAI": "DAN. AI"
     },
-    "createListing": "Tạo danh sách",
+    "createListing": "Tạo danh s��ch",
     "signIn": "Đăng nhập",
     "signUp": "Đăng ký",
     "dropdown": {
@@ -190,13 +191,59 @@
     }
   },
   "education": {
-    "title": "DAN. AI",
-    "description": "Nguồn tài nguyên do AI cung cấp cho kiến thức và thông tin chi tiết về kinh doanh nông nghiệp.",
+    "title": "Trung tâm Giáo dục",
+    "description": "Nguồn tài nguyên của bạn cho kiến thức và thông tin chi tiết về kinh doanh nông nghiệp.",
+    "readMore": "Đọc thêm",
+    "categories": {
+      "technology": "Công nghệ",
+      "farming": "Nông nghiệp",
+      "markets": "Thị trường",
+      "security": "Bảo mật",
+      "logistics": "Hậu cần",
+      "investment": "Đầu tư"
+    },
+    "articles": {
+      "defi": {
+        "title": "Hiểu về Tài chính Phi tập trung trong Nông nghiệp",
+        "description": "Khám phá cách blockchain và DeFi đang biến đổi chuỗi cung ứng nông nghiệp."
+      },
+      "sustainable": {
+        "title": "Các phương pháp tốt nhất cho Nông nghiệp Bền vững",
+        "description": "Tìm hiểu về các kỹ thuật hiện đại giúp cải thiện năng suất cây trồng đồng thời bảo vệ môi trường."
+      },
+      "markets": {
+        "title": "Điều hướng Thị trường Cây lương th��c Toàn cầu",
+        "description": "Phân tích xu hướng thị trường hiện tại, biến động giá cả và cách đưa ra quyết định giao dịch."
+      },
+      "kyc": {
+        "title": "Vai trò của KYC trong việc Xây dựng Lòng tin",
+        "description": "Tại sao xác minh danh tính lại quan trọng để tạo ra một thị trường kinh doanh nông nghiệp an toàn."
+      },
+      "logistics": {
+        "title": "Tối ưu hóa Hậu cần và Chuỗi cung ứng",
+        "description": "Mẹo và chiến lược cho các nhà phân phối để hợp lý hóa hoạt động và giảm chi phí."
+      },
+      "tokenization": {
+        "title": "Giới thiệu về Token hóa Nông nghiệp",
+        "description": "Hướng dẫn cho người mới bắt đầu về cách tài sản nông nghiệp có thể được biểu diễn dưới dạng token kỹ thuật số."
+      }
+    },
     "aiChat": {
       "title": "Trợ lý DAN AI",
       "greeting": "Xin chào! Tôi là AI của Mạng lưới Kinh doanh Nông nghiệp Phi tập trung. Hãy hỏi tôi bất cứ điều gì về giá cả thị trường, hậu cần, hoặc các tính năng của nền tảng.",
       "placeholder": "Hỏi về xu hướng thị trường...",
       "send": "Gửi"
+    }
+  },
+  "danAI": {
+    "title": "DAN. AI",
+    "description": "Trợ lý do AI cung cấp của bạn cho d�� liệu và thông tin chi tiết thị trường thời gian thực.",
+    "marketData": {
+      "title": "Dữ liệu Thị trường Thời gian thực",
+      "crop": "Cây trồng",
+      "price": "Giá (USD)",
+      "change": "Thay đổi 24h",
+      "lastUpdated": "Cập nhật lần cuối: {{time}}"
     }
   },
   "currency": {

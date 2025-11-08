@@ -24,7 +24,8 @@ export function Navbar() {
   const navLinks = [
     { to: '/dashboard', label: t('navbar.links.dashboard') },
     { to: '/marketplace', label: t('navbar.links.marketplace') },
-    { to: '/education', label: t('navbar.links.danAI') },
+    { to: '/education', label: t('navbar.links.educationHub') },
+    { to: '/dan-ai', label: t('navbar.links.danAI') },
   ];
   const getInitials = (name: string) => {
     const names = name.split(' ');

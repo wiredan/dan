@@ -30,6 +30,7 @@
     "links": {
       "dashboard": "Dashboard",
       "marketplace": "Marketplace",
+      "educationHub": "Education Hub",
       "danAI": "DAN. AI"
     },
     "createListing": "Create Listing",
@@ -322,8 +323,8 @@
     }
   },
   "education": {
-    "title": "DAN. AI",
-    "description": "Your AI-powered resource for agribusiness knowledge and insights.",
+    "title": "Education Hub",
+    "description": "Your resource for agribusiness knowledge and insights.",
     "readMore": "Read more",
     "categories": {
       "technology": "Technology",
@@ -364,6 +365,17 @@
       "greeting": "Hello! I'm the Decentralized Agribusiness Network AI. Ask me anything about market prices, logistics, or our platform features.",
       "placeholder": "Ask about market trends...",
       "send": "Send"
+    }
+  },
+  "danAI": {
+    "title": "DAN. AI",
+    "description": "Your AI-powered assistant for real-time market data and insights.",
+    "marketData": {
+      "title": "Real-Time Market Data",
+      "crop": "Crop",
+      "price": "Price (USD)",
+      "change": "24h Change",
+      "lastUpdated": "Last updated: {{time}}"
     }
   },
   "createListing": {

@@ -1,10 +1,10 @@
 {
   "getStarted": "开始使用",
   "exploreMarket": "探索市场",
-  "heroTitle": "��业综合企业的未来是去中心化的",
+  "heroTitle": "��业综合���业的未来是去中心化的",
   "heroSubtitle": "DAN 在一个安全、�����的平台上连接农民、分销商和投资者。充满信心地进行贸易、追踪和交易。",
   "featuresTitle": "农产品贸易的新��元",
-  "featuresSubtitle": "我们的平台建立在尖端技术��上，以确保公平、透明和高效。",
+  "featuresSubtitle": "我们的平台建立在尖端技术��上，��确保公平、透明和高效。",
   "featureDirectSourcingTitle": "直接采购",
   "featureDirectSourcingDesc": "直接与农民联���，无需中间商即可采购最新鲜的农作物。",
   "featureSecureEscrowTitle": "安全托管",
@@ -14,22 +14,23 @@
   "featureMarketInsightsTitle": "市场洞察",
   "featureMarketInsightsDesc": "获取实时数据和分析，以做出更明智的采购和投资决策。",
   "testimonialsTitle": "深受社区信��",
-  "testimonial1Quote": "DAN 彻底改变了我销售农产品的方式。我获得了更好的价格和更快的付款。",
+  "testimonial1Quote": "DAN 彻底改变了我销���农产品的方式。我获得了更好的价格和更快的付款。",
   "testimonial1Author": "阿米娜·优素福",
   "testimonial1Role": "农民，尼日��亚",
   "testimonial2Quote": "平台的透明度和安全性改变了我们���销网络的游戏规则。",
   "testimonial2Author": "卡洛斯·戈麦斯",
   "testimonial2Role": "���销商，越南",
-  "testimonial3Quote": "作为一名投资者，���终���可以充满信心和清晰地参与农业市场。",
+  "testimonial3Quote": "作为一名投资者，���������可以充满信心和清晰地参与农业市场。",
   "testimonial3Author": "法蒂玛·赛义��",
   "testimonial3Role": "投资者，阿联酋",
-  "ctaTitle": "准备好加入这场革命了吗？",
+  "ctaTitle": "准备好加入���场革命了吗？",
   "ctaSubtitle": "立即创建账户，体验农业综合企业的未来。",
-  "ctaButton": "立即注册",
+  "ctaButton": "立即���册",
   "navbar": {
     "links": {
       "dashboard": "仪表盘",
       "marketplace": "市场",
+      "educationHub": "教育中心",
       "danAI": "DAN. AI"
     },
     "createListing": "创建���表",
@@ -47,10 +48,10 @@
     "cards": {
       "revenue": {
         "title": "总收入",
-        "subtitle": "比上个月增长20.1%"
+        "subtitle": "���上个月增长20.1%"
       },
       "activeOrders": {
-        "title": "活动订单",
+        "title": "活动���单",
         "subtitle": "总共 {{count}} 个订单"
       },
       "connections": {
@@ -70,14 +71,14 @@
       "description": "您最近的交易。",
       "table": {
         "id": "订单ID",
-        "status": "状态",
+        "status": "状���",
         "amount": "金额"
       }
     }
   },
   "marketplace": {
     "title": "市场",
-    "description": "浏览和交易来自全��经过验证的农民的粮食作物。",
+    "description": "浏览和交易来自全����过验证的农民的粮食作物。",
     "filters": {
       "searchPlaceholder": "搜索作物...",
       "categoryPlaceholder": "类别",
@@ -97,7 +98,7 @@
   "listingDetail": {
     "error": {
       "fetch": "获取列表详情失败",
-      "invalidQuantity": "无效数量。"
+      "invalidQuantity": "无效��量。"
     },
     "notFound": {
       "title": "未找到列表",
@@ -117,7 +118,7 @@
     },
     "order": {
       "success": "下���成功！",
-      "error": "下单失败。",
+      "error": "下���失败。",
       "placing": "正在下单...",
       "isOwner": "这是您的列表",
       "place": "下单"
@@ -131,7 +132,7 @@
     "status": {
       "title": "订单状态",
       "placed": "��下单",
-      "paid": "付款已托管",
+      "paid": "��款已托管",
       "logisticsPickedUp": "已��货",
       "shipped": "已发货",
       "delivered": "已送达"
@@ -156,10 +157,10 @@
       "markShipped": "标记为已发货",
       "confirmDelivery": "确认收货",
       "confirmPickup": "确认取货",
-      "dispute": "争议订单",
+      "dispute": "��议订单",
       "resolveRelease": "解决�����放资金",
       "resolveRefund": "解决并退款给买家",
-      "cancelOrder": "取消订单��管理员）"
+      "cancelOrder": "取消订单�����理员）"
     },
     "error": {
       "fetch": "获取订单详情失败"
@@ -208,7 +209,7 @@
     },
     "kyc": {
       "title": "KYC 验证",
-      "description": "验证您的身份以解锁全部平台功能。",
+      "description": "验证您的身份以解��全部平台功能。",
       "verified": {
         "title": "您的账户已通过验证！",
         "description": "您拥��所有平台功能的完全访问权限。"
@@ -268,7 +269,7 @@
       "error": "获取用户���败。",
       "promoteCard": {
         "title": "提升用户为管理员",
-        "description": "输入用户的电子邮件地址以授予其管理员权限。",
+        "description": "输入用户���电子邮件地址以授予其管理员权限。",
         "emailLabel": "用户邮箱",
         "promoteButton": "提升",
         "promotingButton": "提升中..."
@@ -305,7 +306,7 @@
     "form": {
       "email": "电子邮件",
       "password": "密��",
-      "name": "姓名",
+      "name": "���名",
       "namePlaceholder": "张三"
     },
     "social": {
@@ -316,14 +317,14 @@
     },
     "toast": {
       "fillFields": "���填写所有字段。",
-      "loginSuccess": "登录成功！正在重定向...",
+      "loginSuccess": "���录成功！正在重定向...",
       "signupSuccess": "注册成功！请登录。",
       "socialNotImplemented": "{{provider}} 登录尚未实现。"
     }
   },
   "education": {
-    "title": "DAN. AI",
-    "description": "您的人工智能农业��合企业知识和见解资源。",
+    "title": "教育中��",
+    "description": "您的农业综合企业知识和见解资源。",
     "readMore": "阅读更多",
     "categories": {
       "technology": "技��",
@@ -343,7 +344,7 @@
         "description": "了解提高作物��量同时保护环境以造福后代的现代技术。"
       },
       "markets": {
-        "title": "驾驭全球粮��作物市场",
+        "title": "驾驭全球粮����物市场",
         "description": "分析当前市场趋势、价格波动以及如何在平台上做出明智的交易决策。"
       },
       "kyc": {
@@ -356,14 +357,25 @@
       },
       "tokenization": {
         "title": "农业��币化简��",
-        "description": "关于如何将农业资产���示为数字代币，从��释放流动性和投资的初学者指南。"
+        "description": "关于如何将农业资产���示为数字代币，从��释放流动性和投资的初���者指南。"
       }
     },
     "aiChat": {
       "title": "DAN AI 助手",
-      "greeting": "您好！���是去中心化农业综合企业网络AI。您可以��我任何关于市场价格、物流或我们平台功能的问题。",
+      "greeting": "您好！���是去中心化农业综合企业网络AI。您可以��我任何关于���场价格、物流或我们平台功能的问题。",
       "placeholder": "询问市场趋势...",
       "send": "发���"
+    }
+  },
+  "danAI": {
+    "title": "DAN. AI",
+    "description": "您的人工智能助手，提供实时市场数据和见解。",
+    "marketData": {
+      "title": "实时市场数据",
+      "crop": "作物",
+      "price": "价格 (美元)",
+      "change": "24小时变化",
+      "lastUpdated": "最后更新: {{time}}"
     }
   },
   "createListing": {
@@ -372,7 +384,7 @@
     "form": {
       "productName": {
         "label": "产品名称",
-        "placeholder": "例如：有机哈斯牛油��"
+        "placeholder": "例如：有机哈斯牛����"
       },
       "description": {
         "label": "描述",
@@ -391,7 +403,7 @@
       },
       "unit": {
         "label": "单位",
-        "placeholder": "例如：公��、吨、个"
+        "placeholder": "例如：公��、吨、��"
       },
       "quantity": {
         "label": "可用数量"
@@ -424,7 +436,7 @@
     "c": "C级"
   },
   "currency": {
-    "switcherTooltip": "更改货币",
+    "switcherTooltip": "更改货���",
     "names": {
       "usd": "美元",
       "ngn": "尼日利亚奈拉",

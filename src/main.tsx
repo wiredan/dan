@@ -21,6 +21,7 @@ import { CreateListingPage } from '@/pages/CreateListingPage';
 import { AdminPage } from '@/pages/AdminPage';
 import { ProtectedAdminRoute } from '@/components/ProtectedAdminRoute';
 import { FullPageLoader } from './components/FullPageLoader';
+import { DanAiPage } from './pages/DanAiPage';
 const router = createBrowserRouter([
   {
     element: <AppRoot />,
@@ -34,6 +35,7 @@ const router = createBrowserRouter([
       { path: "/order/:id", element: <OrderTrackingPage /> },
       { path: "/profile", element: <ProfilePage /> },
       { path: "/education", element: <EducationHubPage /> },
+      { path: "/dan-ai", element: <DanAiPage /> },
       { path: "/create-listing", element: <CreateListingPage /> },
       {
         path: "/admin",

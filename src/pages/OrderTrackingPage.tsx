@@ -2,7 +2,7 @@ import { useEffect, useState, useCallback } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle, Circle, Home, Truck, Package, ShieldAlert } from 'lucide-react';
+import { CheckCircle, Circle, Home, Truck, Package, ShieldAlert, Bot, Loader2 } from 'lucide-react';
 import { useAuthStore } from '@/lib/authStore';
 import { api } from '@/lib/api-client';
 import { Order, Listing, User, OrderStatus } from '@shared/types';
@@ -12,7 +12,7 @@ import { useTranslation } from 'react-i18next';
 import { DisputeModal } from '@/components/DisputeModal';
 import { useCurrencyStore } from '@/lib/currencyStore';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts';
-import { format, differenceInHours } from 'date-fns';
+import { differenceInHours } from 'date-fns';
 interface ChartData {
   name: string;
   duration: number;
@@ -30,6 +30,8 @@ export function OrderTrackingPage() {
   const [isUpdating, setIsUpdating] = useState(false);
   const [isDisputeModalOpen, setDisputeModalOpen] = useState(false);
   const [chartData, setChartData] = useState<ChartData[]>([]);
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [aiAnalysis, setAiAnalysis] = useState<string | null>(null);
   const { isAuthenticated, user } = useAuthStore(state => ({ isAuthenticated: state.isAuthenticated, user: state.user }));
   const { selectedCurrency } = useCurrencyStore();
   const formatCurrency = (amount: number) => {
@@ -43,13 +45,7 @@ export function OrderTrackingPage() {
     { name: t('orderTracking.status.delivered'), icon: <Home /> },
   ];
   const statusMap: { [key in OrderStatus]: number } = {
-    'Placed': 0,
-    'Paid': 1,
-    'LogisticsPickedUp': 2,
-    'Shipped': 3,
-    'Delivered': 4,
-    'Disputed': -1,
-    'Cancelled': -1,
+    'Placed': 0, 'Paid': 1, 'LogisticsPickedUp': 2, 'Shipped': 3, 'Delivered': 4, 'Disputed': -1, 'Cancelled': -1,
   };
   const fetchData = useCallback(async () => {
     if (!id) return;
@@ -84,7 +80,7 @@ export function OrderTrackingPage() {
         const duration = differenceInHours(end, start);
         data.push({
           name: t(`orderTracking.status.${order.statusHistory[i].status.charAt(0).toLowerCase() + order.statusHistory[i].status.slice(1)}`),
-          duration: duration > 0 ? duration : 1, // Min 1 hour for visibility
+          duration: duration > 0 ? duration : 1,
           fill: colors[i % colors.length],
         });
       }
@@ -95,10 +91,7 @@ export function OrderTrackingPage() {
     if (!order) return;
     setIsUpdating(true);
     try {
-      const updatedOrder = await api<Order>(`/api/orders/${order.id}/status`, {
-        method: 'POST',
-        body: JSON.stringify({ status: newStatus }),
-      });
+      const updatedOrder = await api<Order>(`/api/orders/${order.id}/status`, { method: 'POST', body: JSON.stringify({ status: newStatus }) });
       setOrder(updatedOrder);
       toast.success(t('orderTracking.toast.statusUpdated', { status: newStatus }));
     } catch (error) {
@@ -107,14 +100,11 @@ export function OrderTrackingPage() {
       setIsUpdating(false);
     }
   };
-  const handleDisputeSubmit = async (reason: string) => {
+  const handleDisputeSubmit = async (reason: string, evidenceUrl: string) => {
     if (!order) return;
     setIsUpdating(true);
     try {
-      const updatedOrder = await api<Order>(`/api/orders/${order.id}/dispute`, {
-        method: 'POST',
-        body: JSON.stringify({ reason }),
-      });
+      const updatedOrder = await api<Order>(`/api/orders/${order.id}/dispute`, { method: 'POST', body: JSON.stringify({ reason, evidenceUrl }) });
       setOrder(updatedOrder);
       toast.success(t('orderTracking.toast.disputeSubmitted'));
       setDisputeModalOpen(false);
@@ -128,16 +118,26 @@ export function OrderTrackingPage() {
     if (!order) return;
     setIsUpdating(true);
     try {
-      const updatedOrder = await api<Order>(`/api/orders/${order.id}/resolve`, {
-        method: 'POST',
-        body: JSON.stringify({ status: resolutionStatus }),
-      });
+      const updatedOrder = await api<Order>(`/api/orders/${order.id}/resolve`, { method: 'POST', body: JSON.stringify({ status: resolutionStatus }) });
       setOrder(updatedOrder);
       toast.success(t('orderTracking.toast.disputeResolved'));
     } catch (error) {
       toast.error(t('orderTracking.toast.resolveFailed'));
     } finally {
       setIsUpdating(false);
+    }
+  };
+  const handleAiAnalysis = async () => {
+    if (!order) return;
+    setIsAnalyzing(true);
+    setAiAnalysis(null);
+    try {
+      const response = await api<{ recommendation: string }>(`/api/orders/${order.id}/ai-dispute-analysis`, { method: 'POST' });
+      setAiAnalysis(response.recommendation);
+    } catch (error) {
+      toast.error("Failed to get AI analysis.");
+    } finally {
+      setIsAnalyzing(false);
     }
   };
   if (!isAuthenticated) return <Navigate to="/auth" replace />;
@@ -152,11 +152,10 @@ export function OrderTrackingPage() {
     );
   }
   const currentStepIndex = statusMap[order.status] ?? -1;
+  const isDisputed = order.status === 'Disputed';
   const renderActionButtons = () => {
     if (!user) return null;
-    const isDisputed = order.status === 'Disputed';
     const isFinished = order.status === 'Delivered' || order.status === 'Cancelled';
-    // Admin Actions
     if (user.role === 'Admin') {
       return (
         <div className="flex gap-2 justify-center">
@@ -172,30 +171,12 @@ export function OrderTrackingPage() {
     }
     if (isFinished) return <p className="text-muted-foreground">{t('orderTracking.orderComplete')}</p>;
     if (isDisputed) return <p className="text-destructive font-semibold flex items-center justify-center gap-2"><ShieldAlert size={16} /> {t('orderTracking.underReview')}</p>;
-    // Participant Actions
     switch (user.role) {
-      case 'Farmer':
-        if (order.status === 'LogisticsPickedUp' && user.id === seller.id) {
-          return <Button onClick={() => handleUpdateStatus('Shipped')} disabled={isUpdating}>{isUpdating ? t('orderTracking.actions.updating') : t('orderTracking.actions.markShipped')}</Button>;
-        }
-        break;
-      case 'Distributor':
-        if (order.status === 'Shipped' && user.id === buyer.id) {
-          return <Button onClick={() => handleUpdateStatus('Delivered')} disabled={isUpdating}>{isUpdating ? t('orderTracking.actions.updating') : t('orderTracking.actions.confirmDelivery')}</Button>;
-        }
-        break;
-      case 'Logistics':
-        if (order.status === 'Paid') {
-          return <Button onClick={() => handleUpdateStatus('LogisticsPickedUp')} disabled={isUpdating}>{isUpdating ? t('orderTracking.actions.updating') : t('orderTracking.actions.confirmPickup')}</Button>;
-        }
-        break;
-      default:
-        break;
+      case 'Farmer': if (order.status === 'LogisticsPickedUp' && user.id === seller.id) return <Button onClick={() => handleUpdateStatus('Shipped')} disabled={isUpdating}>{isUpdating ? t('orderTracking.actions.updating') : t('orderTracking.actions.markShipped')}</Button>; break;
+      case 'Distributor': if (order.status === 'Shipped' && user.id === buyer.id) return <Button onClick={() => handleUpdateStatus('Delivered')} disabled={isUpdating}>{isUpdating ? t('orderTracking.actions.updating') : t('orderTracking.actions.confirmDelivery')}</Button>; break;
+      case 'Logistics': if (order.status === 'Paid') return <Button onClick={() => handleUpdateStatus('LogisticsPickedUp')} disabled={isUpdating}>{isUpdating ? t('orderTracking.actions.updating') : t('orderTracking.actions.confirmPickup')}</Button>; break;
     }
-    // Dispute button for buyer/seller if not finished/disputed
-    if (user.id === buyer.id || user.id === seller.id) {
-      return <Button variant="outline" onClick={() => setDisputeModalOpen(true)}>{t('orderTracking.actions.dispute')}</Button>;
-    }
+    if (user.id === buyer.id || user.id === seller.id) return <Button variant="outline" onClick={() => setDisputeModalOpen(true)}>{t('orderTracking.actions.dispute')}</Button>;
     return null;
   };
   return (
@@ -233,16 +214,9 @@ export function OrderTrackingPage() {
                   <BarChart data={chartData} layout="vertical" margin={{ top: 5, right: 20, left: 20, bottom: 5 }}>
                     <XAxis type="number" unit="h" />
                     <YAxis type="category" dataKey="name" width={120} />
-                    <Tooltip
-                      cursor={{ fill: 'hsl(var(--secondary))' }}
-                      contentStyle={{ backgroundColor: 'hsl(var(--background))', border: '1px solid hsl(var(--border))' }}
-                      labelFormatter={(value) => t('orderTracking.timelineChart.tooltipLabel', { status: value })}
-                      formatter={(value) => [`${value} ${t('orderTracking.timelineChart.tooltipIntro')}`]}
-                    />
+                    <Tooltip cursor={{ fill: 'hsl(var(--secondary))' }} contentStyle={{ backgroundColor: 'hsl(var(--background))', border: '1px solid hsl(var(--border))' }} labelFormatter={(value) => t('orderTracking.timelineChart.tooltipLabel', { status: value })} formatter={(value) => [`${value} ${t('orderTracking.timelineChart.tooltipIntro')}`]} />
                     <Bar dataKey="duration" background={{ fill: 'hsl(var(--muted))' }}>
-                      {chartData.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={entry.fill} />
-                      ))}
+                      {chartData.map((entry, index) => (<Cell key={`cell-${index}`} fill={entry.fill} />))}
                     </Bar>
                   </BarChart>
                 </ResponsiveContainer>
@@ -253,18 +227,7 @@ export function OrderTrackingPage() {
             <Card>
               <CardHeader><CardTitle>{t('orderTracking.summary.title')}</CardTitle></CardHeader>
               <CardContent className="space-y-4">
-                <div className="flex items-center gap-4">
-                  <img src={listing.imageUrl} alt={listing.name} className="w-24 h-24 object-cover rounded-md" />
-                  <div>
-                    <h3 className="font-semibold">{listing.name}</h3>
-                    <p className="text-sm text-muted-foreground">{t('orderTracking.summary.quantity')}: {order.quantity} {listing.unit}</p>
-                    <p className="text-sm text-muted-foreground">{t('orderTracking.summary.price')}: {formatCurrency(listing.price)} / {listing.unit}</p>
-                  </div>
-                </div>
-                <hr />
-                <div className="flex justify-between"><p>{t('orderTracking.summary.subtotal')}</p><p>{formatCurrency(order.quantity * listing.price)}</p></div>
-                <div className="flex justify-between"><p>{t('orderTracking.summary.fees')}</p><p>{formatCurrency(order.fees)}</p></div>
-                <div className="flex justify-between font-bold text-lg"><p>{t('orderTracking.summary.total')}</p><p>{formatCurrency(order.total)}</p></div>
+                <div className="flex items-center gap-4"><img src={listing.imageUrl} alt={listing.name} className="w-24 h-24 object-cover rounded-md" /><div><h3 className="font-semibold">{listing.name}</h3><p className="text-sm text-muted-foreground">{t('orderTracking.summary.quantity')}: {order.quantity} {listing.unit}</p><p className="text-sm text-muted-foreground">{t('orderTracking.summary.price')}: {formatCurrency(listing.price)} / {listing.unit}</p></div></div><hr /><div className="flex justify-between"><p>{t('orderTracking.summary.subtotal')}</p><p>{formatCurrency(order.quantity * listing.price)}</p></div><div className="flex justify-between"><p>{t('orderTracking.summary.fees')}</p><p>{formatCurrency(order.fees)}</p></div><div className="flex justify-between font-bold text-lg"><p>{t('orderTracking.summary.total')}</p><p>{formatCurrency(order.total)}</p></div>
               </CardContent>
             </Card>
             <Card>
@@ -275,10 +238,31 @@ export function OrderTrackingPage() {
                 <div><h4 className="font-semibold">{t('orderTracking.participants.logistics')}</h4><p>{t('orderTracking.participants.logisticsPartner')}</p></div>
               </CardContent>
             </Card>
+            {isDisputed && (
+              <Card className="md:col-span-2">
+                <CardHeader><CardTitle>{t('orderTracking.disputeDetails.title')}</CardTitle></CardHeader>
+                <CardContent className="space-y-4">
+                  <div><h4 className="font-semibold">{t('orderTracking.disputeModal.reasonLabel')}</h4><p className="text-muted-foreground">{order.disputeReason}</p></div>
+                  {order.disputeEvidenceUrl && (<div><h4 className="font-semibold">{t('orderTracking.disputeDetails.evidence')}</h4><img src={order.disputeEvidenceUrl} alt="Dispute evidence" className="mt-2 rounded-md border max-h-64 w-auto" /></div>)}
+                </CardContent>
+              </Card>
+            )}
+            {isDisputed && user?.role === 'Admin' && (
+              <Card className="md:col-span-2">
+                <CardHeader><CardTitle className="flex items-center gap-2"><Bot /> {t('orderTracking.aiAnalysis.title')}</CardTitle></CardHeader>
+                <CardContent className="space-y-4">
+                  {isAnalyzing ? (
+                    <div className="flex items-center gap-2 text-muted-foreground"><Loader2 className="animate-spin h-5 w-5" /><span>{t('orderTracking.aiAnalysis.analyzing')}</span></div>
+                  ) : aiAnalysis ? (
+                    <p className="text-sm italic">"{aiAnalysis}"</p>
+                  ) : (
+                    <Button onClick={handleAiAnalysis}>{t('orderTracking.aiAnalysis.getAnalysis')}</Button>
+                  )}
+                </CardContent>
+              </Card>
+            )}
           </div>
-          <div className="mt-8 text-center">
-            {renderActionButtons()}
-          </div>
+          <div className="mt-8 text-center">{renderActionButtons()}</div>
         </div>
       </div>
     </>

@@ -121,9 +121,10 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
     await listingEntity.patch({ quantity: listing.quantity - quantity });
     return ok(c, newOrder);
   });
-  const updateOrderStatus = async (order: OrderEntity, status: OrderStatus) => {
+  const updateOrderStatus = async (order: OrderEntity, status: OrderStatus, details?: Partial<Order>) => {
     return order.mutate(s => ({
       ...s,
+      ...details,
       status,
       statusHistory: [...s.statusHistory, { status, timestamp: new Date().toISOString() }]
     }));
@@ -139,11 +140,11 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
   });
   app.post('/api/orders/:id/dispute', async (c) => {
     const { id } = c.req.param();
-    const { reason } = await c.req.json<{ reason: string }>();
+    const { reason, evidenceUrl } = await c.req.json<{ reason: string; evidenceUrl: string }>();
     if (!reason) return bad(c, 'Dispute reason is required');
     const order = new OrderEntity(c.env, id);
     if (!(await order.exists())) return notFound(c, 'Order not found');
-    const updatedOrder = await updateOrderStatus(order, 'Disputed');
+    const updatedOrder = await updateOrderStatus(order, 'Disputed', { disputeReason: reason, disputeEvidenceUrl: evidenceUrl });
     return ok(c, updatedOrder);
   });
   app.post('/api/orders/:id/resolve', async (c) => {
@@ -154,6 +155,21 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
     if (!(await order.exists())) return notFound(c, 'Order not found');
     const updatedOrder = await updateOrderStatus(order, status);
     return ok(c, updatedOrder);
+  });
+  app.post('/api/orders/:id/ai-dispute-analysis', async (c) => {
+    const { id } = c.req.param();
+    const orderEntity = new OrderEntity(c.env, id);
+    if (!(await orderEntity.exists())) return notFound(c, 'Order not found');
+    const order = await orderEntity.getState();
+    // Simulate AI analysis
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    let recommendation = "AI analysis inconclusive. Manual review required.";
+    if (order.disputeReason?.toLowerCase().includes("moldy") && order.disputeEvidenceUrl) {
+      recommendation = "AI recommends a full refund to the buyer. The provided image evidence clearly shows product quality issues (mold) that violate the Grade A listing description.";
+    } else if (order.disputeReason?.toLowerCase().includes("not delivered")) {
+      recommendation = "AI recommends checking logistics partner data. If delivery cannot be confirmed within 48 hours, a full refund to the buyer is advised.";
+    }
+    return ok(c, { recommendation });
   });
   // AI ROUTES
   app.post('/api/ai/chat', async (c) => {

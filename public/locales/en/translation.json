@@ -183,6 +183,9 @@
       "description": "Please describe the issue with your order. An administrator will review your claim.",
       "reasonLabel": "Reason",
       "reasonPlaceholder": "e.g., Items not as described, not delivered...",
+      "evidenceLabel": "Upload Evidence",
+      "fileErrorType": "File must be an image.",
+      "fileErrorSize": "File must be under {{size}}KB.",
       "cancel": "Cancel",
       "submit": "Submit Dispute"
     },
@@ -190,6 +193,16 @@
       "title": "Order Timeline Chart",
       "tooltipLabel": "Status: {{status}}",
       "tooltipIntro": "hours in this stage"
+    },
+    "disputeDetails": {
+      "title": "Dispute Details",
+      "evidence": "Evidence Submitted"
+    },
+    "aiAnalysis": {
+      "title": "AI Dispute Analysis",
+      "getAnalysis": "Get AI Analysis",
+      "analyzing": "Analyzing dispute...",
+      "recommendation": "AI Recommendation"
     }
   },
   "profile": {

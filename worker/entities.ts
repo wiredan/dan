@@ -42,6 +42,8 @@ export class OrderEntity extends IndexedEntity<Order> {
     status: 'Placed',
     createdAt: "",
     statusHistory: [],
+    disputeReason: undefined,
+    disputeEvidenceUrl: undefined,
   };
   static seedData = MOCK_ORDERS;
 }

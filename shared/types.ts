@@ -38,6 +38,8 @@ export interface Order {
   status: OrderStatus;
   createdAt: string; // ISO 8601
   statusHistory: { status: OrderStatus; timestamp: string }[];
+  disputeReason?: string;
+  disputeEvidenceUrl?: string;
 }
 export interface Transaction {
   id: string;

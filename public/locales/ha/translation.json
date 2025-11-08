@@ -96,6 +96,9 @@
       "description": "Da fatan za a bayyana matsalar da odar ku. Wani mai gudanarwa zai duba korafin ku.",
       "reasonLabel": "Dalili",
       "reasonPlaceholder": "Misali, kayan ba kamar yadda aka bayyana ba, ba a isar ba...",
+      "evidenceLabel": "Dora Hujja",
+      "fileErrorType": "Dole ne fayil ya zama hoto.",
+      "fileErrorSize": "Dole ne fayil ya kasance ƙasa da {{size}}KB.",
       "cancel": "Soke",
       "submit": "Mika Rigima"
     },
@@ -103,6 +106,16 @@
       "title": "Taswirar Lokaci na Oda",
       "tooltipLabel": "Matsayi: {{status}}",
       "tooltipIntro": "awowi a wannan mataki"
+    },
+    "disputeDetails": {
+      "title": "Cikakkun Bayanai na Rigima",
+      "evidence": "Hujjar da aka Gabatar"
+    },
+    "aiAnalysis": {
+      "title": "Binciken Rigima na AI",
+      "getAnalysis": "Samu Binciken AI",
+      "analyzing": "Ana binciken rigima...",
+      "recommendation": "Shawarar AI"
     }
   },
   "profile": {

@@ -1,8 +1,8 @@
 {
   "getStarted": "Bắt đầu",
-  "exploreMarket": "Khám phá Th�� trường",
+  "exploreMarket": "Khám phá Th�� trư��ng",
   "heroTitle": "Tương lai của Kinh doanh Nông nghiệp là Phi t���p trung",
-  "heroSubtitle": "DAN kết nối nông dân, nhà phân phối và nhà đầu tư tr����n một nền tảng an toàn, minh bạch. Giao dịch, theo dõi và thực hiện giao dịch một cách tự tin.",
+  "heroSubtitle": "DAN kết nối nông dân, nhà phân phối và nhà đầu tư tr����n một n��n tảng an toàn, minh bạch. Giao dịch, theo dõi và thực hiện giao dịch một cách tự tin.",
   "featuresTitle": "Một Kỷ nguyên Mới của Thương mại Nông nghiệp",
   "featuresSubtitle": "Nền tảng của chúng tôi được xây dựng trên công nghệ tiên tiến để đảm bảo sự công bằng, minh bạch và hiệu quả.",
   "featureDirectSourcingTitle": "Ngu��n cung ��ng trực tiếp",
@@ -23,7 +23,7 @@
   "testimonial3Quote": "Là một nhà đầu tư, cuối cùng tôi cũng c�� thể tham gia vào thị trường nông nghiệp một cách tự tin và rõ r��ng.",
   "testimonial3Author": "Fatima Al-Sayed",
   "testimonial3Role": "Nhà đầu tư, UAE",
-  "ctaTitle": "Sẵn sàng tham gia cuộc cách mạng?",
+  "ctaTitle": "S��n sàng tham gia cuộc cách mạng?",
   "ctaSubtitle": "Tạo tài khoản ngay hôm nay và trải nghiệm tương lai của kinh doanh nông nghiệp.",
   "ctaButton": "Đăng ký ngay",
   "navbar": {
@@ -44,7 +44,7 @@
   },
   "dashboard": {
     "title": "Bảng điều khiển",
-    "welcome": "Chào mừng tr�� lại, {{name}}! Đây là tóm tắt tài khoản của bạn.",
+    "welcome": "Chào mừng tr�� lại, {{name}}! ��ây là tóm tắt tài khoản của bạn.",
     "cards": {
       "revenue": {
         "title": "Tổng doanh thu",
@@ -56,7 +56,7 @@
       },
       "connections": {
         "title": "Kết nối",
-        "subtitle": "+180.1% so với tháng trước"
+        "subtitle": "+180.1% so với th��ng trước"
       },
       "marketActivity": {
         "title": "Hoạt động thị trường",
@@ -96,6 +96,9 @@
       "description": "Vui lòng mô tả vấn đề với đơn hàng của bạn. Quản trị viên s�� xem xét y��u cầu của bạn.",
       "reasonLabel": "Lý do",
       "reasonPlaceholder": "Ví dụ: Hàng không như mô tả, chưa được giao...",
+      "evidenceLabel": "Tải lên bằng chứng",
+      "fileErrorType": "Tệp phải là h��nh ảnh.",
+      "fileErrorSize": "Tệp phải nhỏ hơn {{size}}KB.",
       "cancel": "Hủy",
       "submit": "G���i tranh chấp"
     },
@@ -103,6 +106,16 @@
       "title": "Biểu đồ Dòng thời gian Đơn hàng",
       "tooltipLabel": "Trạng thái: {{status}}",
       "tooltipIntro": "giờ trong giai đoạn này"
+    },
+    "disputeDetails": {
+      "title": "Chi tiết Tranh chấp",
+      "evidence": "Bằng chứng đã gửi"
+    },
+    "aiAnalysis": {
+      "title": "Phân tích Tranh chấp bằng AI",
+      "getAnalysis": "Nhận Phân tích AI",
+      "analyzing": "Đang phân tích tranh chấp...",
+      "recommendation": "Khuyến nghị của AI"
     }
   },
   "profile": {
@@ -205,12 +218,12 @@
       "markets": "Thị trường",
       "security": "Bảo mật",
       "logistics": "Hậu cần",
-      "investment": "Đầu tư"
+      "investment": "Đ���u tư"
     },
     "articles": {
       "defi": {
         "title": "Hiểu về Tài chính Phi tập trung trong Nông nghiệp",
-        "description": "Khám phá cách blockchain và DeFi đang biến đổi chuỗi cung ứng nông nghiệp."
+        "description": "Khám ph�� cách blockchain và DeFi đang biến đổi chuỗi cung ứng nông nghiệp."
       },
       "sustainable": {
         "title": "Các phương pháp tốt nhất cho Nông nghiệp Bền vững",
@@ -230,7 +243,7 @@
       },
       "tokenization": {
         "title": "Giới thiệu về Token hóa Nông nghiệp",
-        "description": "Hướng dẫn cho người mới bắt đầu về cách tài sản nông nghiệp có thể được biểu diễn dưới dạng token kỹ thuật số."
+        "description": "Hướng dẫn cho người mới bắt đầu về cách tài sản nông nghiệp có thể được biểu diễn dưới d��ng token kỹ thuật số."
       }
     },
     "aiChat": {
@@ -245,7 +258,7 @@
     "description": "Trợ lý do AI cung cấp của bạn cho d�� liệu và thông tin chi tiết thị trường thời gian thực.",
     "marketData": {
       "title": "Dữ liệu Thị trường Thời gian thực",
-      "crop": "Cây trồng",
+      "crop": "C��y trồng",
       "price": "Giá (USD)",
       "change": "Thay đổi 24h",
       "lastUpdated": "Cập nhật lần cuối: {{time}}"

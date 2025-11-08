@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams, Link, Navigate } from 'react-router-dom';
+import { useParams, Link, Navigate, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -7,15 +7,21 @@ import { MapPin, ShieldCheck } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { useAuthStore } from '@/lib/authStore';
 import { api } from '@/lib/api-client';
-import { Listing, User } from '@shared/types';
+import { Listing, User, Order } from '@shared/types';
 import { Skeleton } from '@/components/ui/skeleton';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { toast } from 'sonner';
 export function ListingDetailPage() {
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
   const [listing, setListing] = useState<Listing | null>(null);
   const [farmer, setFarmer] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const isAuthenticated = useAuthStore(s => s.isAuthenticated);
+  const [quantity, setQuantity] = useState(1);
+  const [isPlacingOrder, setIsPlacingOrder] = useState(false);
+  const { isAuthenticated, user } = useAuthStore(state => ({ isAuthenticated: state.isAuthenticated, user: state.user }));
   useEffect(() => {
     if (!id) return;
     const fetchData = async () => {
@@ -35,6 +41,32 @@ export function ListingDetailPage() {
     };
     fetchData();
   }, [id]);
+  const handlePlaceOrder = async () => {
+    if (!user || !listing) return;
+    if (quantity <= 0 || quantity > listing.quantity) {
+      toast.error('Invalid quantity.');
+      return;
+    }
+    setIsPlacingOrder(true);
+    try {
+      const orderPayload = {
+        listingId: listing.id,
+        buyerId: user.id,
+        quantity: quantity,
+      };
+      const newOrder = await api<Order>('/api/orders', {
+        method: 'POST',
+        body: JSON.stringify(orderPayload),
+      });
+      toast.success('Order placed successfully!');
+      navigate(`/order/${newOrder.id}`);
+    } catch (error) {
+      toast.error('Failed to place order.');
+      console.error(error);
+    } finally {
+      setIsPlacingOrder(false);
+    }
+  };
   if (!isAuthenticated) {
     return <Navigate to="/auth" replace />;
   }
@@ -114,7 +146,20 @@ export function ListingDetailPage() {
               <p><span className="font-semibold">Grade:</span> {listing.grade}</p>
               <p><span className="font-semibold">Harvest Date:</span> {new Date(listing.harvestDate).toLocaleDateString()}</p>
             </div>
-            <Button size="lg" className="w-full">Place Order</Button>
+            <div className="space-y-2">
+              <Label htmlFor="quantity">Quantity ({listing.unit})</Label>
+              <Input 
+                id="quantity" 
+                type="number" 
+                value={quantity} 
+                onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value, 10) || 1))}
+                min="1"
+                max={listing.quantity}
+              />
+            </div>
+            <Button size="lg" className="w-full" onClick={handlePlaceOrder} disabled={isPlacingOrder || user?.id === farmer?.id}>
+              {isPlacingOrder ? 'Placing Order...' : (user?.id === farmer?.id ? 'This is your listing' : 'Place Order')}
+            </Button>
           </div>
         </div>
       </div>

@@ -2,15 +2,13 @@ import { Hono } from "hono";
 import type { Env } from './core-utils';
 import { UserEntity, ListingEntity, OrderEntity } from "./entities";
 import { ok, bad, notFound, isStr } from './core-utils';
-import type { Listing, Order, User } from "@shared/types";
+import type { Listing, Order, User, OrderStatus } from "@shared/types";
 export function userRoutes(app: Hono<{ Bindings: Env }>) {
-  // Ensure seed data for mock API
   const ensureSeedData = async (env: Env) => {
     await UserEntity.ensureSeed(env);
     await ListingEntity.ensureSeed(env);
     await OrderEntity.ensureSeed(env);
   };
-  // --- LIVE API ROUTES ---
   // USER ROUTES
   app.get('/api/users', async (c) => {
     await ensureSeedData(c.env);
@@ -28,7 +26,6 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
     const body = await c.req.json<Partial<User>>();
     const user = new UserEntity(c.env, id);
     if (!(await user.exists())) return notFound(c, 'user not found');
-    // Only allow updating specific fields
     const updateData: Partial<User> = {};
     if (isStr(body.name)) updateData.name = body.name;
     if (isStr(body.location)) updateData.location = body.location;
@@ -67,6 +64,41 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
     const { id } = c.req.param();
     const order = new OrderEntity(c.env, id);
     if (!(await order.exists())) return notFound(c, 'order not found');
+    return ok(c, await order.getState());
+  });
+  app.post('/api/orders', async (c) => {
+    const { listingId, buyerId, quantity } = await c.req.json<{ listingId: string; buyerId: string; quantity: number }>();
+    if (!listingId || !buyerId || !quantity) return bad(c, 'Missing required fields');
+    const listingEntity = new ListingEntity(c.env, listingId);
+    if (!(await listingEntity.exists())) return notFound(c, 'Listing not found');
+    const listing = await listingEntity.getState();
+    if (quantity > listing.quantity) return bad(c, 'Not enough quantity available');
+    const subtotal = listing.price * quantity;
+    const fees = subtotal * 0.025;
+    const total = subtotal + fees;
+    const newOrder: Order = {
+      id: crypto.randomUUID(),
+      listingId,
+      buyerId,
+      sellerId: listing.farmerId,
+      quantity,
+      total,
+      fees,
+      status: 'Paid', // Assume payment is processed instantly
+      createdAt: new Date().toISOString(),
+    };
+    await OrderEntity.create(c.env, newOrder);
+    // Optional: Decrease listing quantity
+    await listingEntity.patch({ quantity: listing.quantity - quantity });
+    return ok(c, newOrder);
+  });
+  app.post('/api/orders/:id/status', async (c) => {
+    const { id } = c.req.param();
+    const { status } = await c.req.json<{ status: OrderStatus }>();
+    if (!status) return bad(c, 'Missing status');
+    const order = new OrderEntity(c.env, id);
+    if (!(await order.exists())) return notFound(c, 'Order not found');
+    await order.patch({ status });
     return ok(c, await order.getState());
   });
 }

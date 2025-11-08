@@ -16,6 +16,7 @@ import { ListingDetailPage } from '@/pages/ListingDetailPage';
 import { OrderTrackingPage } from '@/pages/OrderTrackingPage';
 import { ProfilePage } from '@/pages/ProfilePage';
 import { EducationHubPage } from '@/pages/EducationHubPage';
+import { CreateListingPage } from '@/pages/CreateListingPage';
 const router = createBrowserRouter([
   {
     element: <AppRoot />,
@@ -29,6 +30,7 @@ const router = createBrowserRouter([
       { path: "/order/:id", element: <OrderTrackingPage /> },
       { path: "/profile", element: <ProfilePage /> },
       { path: "/education", element: <EducationHubPage /> },
+      { path: "/create-listing", element: <CreateListingPage /> },
     ]
   }
 ]);

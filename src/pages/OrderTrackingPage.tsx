@@ -5,8 +5,9 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle, Circle, Home, Truck } from 'lucide-react';
 import { useAuthStore } from '@/lib/authStore';
 import { api } from '@/lib/api-client';
-import { Order, Listing, User } from '@shared/types';
+import { Order, Listing, User, OrderStatus } from '@shared/types';
 import { Skeleton } from '@/components/ui/skeleton';
+import { toast } from 'sonner';
 const statusSteps = [
   { name: 'Order Placed', icon: <CheckCircle /> },
   { name: 'Payment in Escrow', icon: <CheckCircle /> },
@@ -27,30 +28,47 @@ export function OrderTrackingPage() {
   const [seller, setSeller] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const isAuthenticated = useAuthStore(s => s.isAuthenticated);
-  useEffect(() => {
+  const [isUpdating, setIsUpdating] = useState(false);
+  const { isAuthenticated, user } = useAuthStore(state => ({ isAuthenticated: state.isAuthenticated, user: state.user }));
+  const fetchData = async () => {
     if (!id) return;
-    const fetchData = async () => {
-      try {
-        setIsLoading(true);
-        const orderData = await api<Order>(`/api/orders/${id}`);
-        setOrder(orderData);
-        const [listingData, buyerData, sellerData] = await Promise.all([
-          api<Listing>(`/api/listings/${orderData.listingId}`),
-          api<User>(`/api/users/${orderData.buyerId}`),
-          api<User>(`/api/users/${orderData.sellerId}`),
-        ]);
-        setListing(listingData);
-        setBuyer(buyerData);
-        setSeller(sellerData);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : 'Failed to fetch order details');
-      } finally {
-        setIsLoading(false);
-      }
-    };
+    try {
+      setIsLoading(true);
+      const orderData = await api<Order>(`/api/orders/${id}`);
+      setOrder(orderData);
+      const [listingData, buyerData, sellerData] = await Promise.all([
+        api<Listing>(`/api/listings/${orderData.listingId}`),
+        api<User>(`/api/users/${orderData.buyerId}`),
+        api<User>(`/api/users/${orderData.sellerId}`),
+      ]);
+      setListing(listingData);
+      setBuyer(buyerData);
+      setSeller(sellerData);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to fetch order details');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+  useEffect(() => {
     fetchData();
   }, [id]);
+  const handleUpdateStatus = async (newStatus: OrderStatus) => {
+    if (!order) return;
+    setIsUpdating(true);
+    try {
+      const updatedOrder = await api<Order>(`/api/orders/${order.id}/status`, {
+        method: 'POST',
+        body: JSON.stringify({ status: newStatus }),
+      });
+      setOrder(updatedOrder);
+      toast.success(`Order status updated to ${newStatus}`);
+    } catch (error) {
+      toast.error('Failed to update order status.');
+    } finally {
+      setIsUpdating(false);
+    }
+  };
   if (!isAuthenticated) {
     return <Navigate to="/auth" replace />;
   }
@@ -67,6 +85,16 @@ export function OrderTrackingPage() {
     );
   }
   const currentStepIndex = statusMap[order.status] ?? -1;
+  const renderActionButtons = () => {
+    if (!user) return null;
+    if (user.id === seller.id && order.status === 'Paid') {
+      return <Button onClick={() => handleUpdateStatus('Shipped')} disabled={isUpdating}>{isUpdating ? 'Updating...' : 'Mark as Shipped'}</Button>;
+    }
+    if (user.id === buyer.id && order.status === 'Shipped') {
+      return <Button onClick={() => handleUpdateStatus('Delivered')} disabled={isUpdating}>{isUpdating ? 'Updating...' : 'Confirm Delivery'}</Button>;
+    }
+    return <Button variant="outline">Dispute Order</Button>;
+  };
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="py-12 md:py-16">
@@ -119,7 +147,9 @@ export function OrderTrackingPage() {
             </CardContent>
           </Card>
         </div>
-        <div className="mt-8 text-center"><Button variant="outline">Dispute Order</Button></div>
+        <div className="mt-8 text-center">
+          {renderActionButtons()}
+        </div>
       </div>
     </div>
   );

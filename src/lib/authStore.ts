@@ -7,13 +7,39 @@ interface AuthState {
   login: (email: string) => void;
   logout: () => void;
 }
+const getInitialState = () => {
+  try {
+    const authData = localStorage.getItem('agrilink_auth');
+    if (authData) {
+      const { state } = JSON.parse(authData);
+      if (state.isAuthenticated && state.user) {
+        return { isAuthenticated: true, user: state.user as User };
+      }
+    }
+  } catch (error) {
+    console.error("Could not parse auth data from localStorage", error);
+  }
+  return { isAuthenticated: false, user: null };
+};
 export const useAuthStore = create<AuthState>((set) => ({
-  isAuthenticated: false,
-  user: null,
+  ...getInitialState(),
   login: (email) => {
-    // Mock login: find a user with a matching name part or default to the first user
-    const foundUser = MOCK_USERS.find(u => u.name.toLowerCase().includes(email.split('@')[0])) || MOCK_USERS[0];
-    set({ isAuthenticated: true, user: foundUser });
+    const foundUser = MOCK_USERS.find(u => u.id.toLowerCase().includes(email.toLowerCase()) || u.name.toLowerCase().includes(email.split('@')[0])) || MOCK_USERS[0];
+    const newState = { isAuthenticated: true, user: foundUser };
+    set(newState);
+    try {
+      localStorage.setItem('agrilink_auth', JSON.stringify({ state: newState }));
+    } catch (error) {
+      console.error("Could not save auth data to localStorage", error);
+    }
   },
-  logout: () => set({ isAuthenticated: false, user: null }),
+  logout: () => {
+    const newState = { isAuthenticated: false, user: null };
+    set(newState);
+    try {
+      localStorage.removeItem('agrilink_auth');
+    } catch (error) {
+      console.error("Could not remove auth data from localStorage", error);
+    }
+  },
 }));

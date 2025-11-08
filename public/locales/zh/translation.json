@@ -2,15 +2,15 @@
   "getStarted": "���始���用",
   "exploreMarket": "探��市场",
   "heroTitle": "��业综合���业���未来是去中心化的",
-  "heroSubtitle": "DAN 在一个安���、���������台上连接农民、分销商和投资者。充满信心地进行贸易、追踪和交易。",
+  "heroSubtitle": "DAN 在一���安���、���������台上连接农民、分销商和投资者。充满信心地进行贸易、追踪和交易。",
   "featuresTitle": "农产���贸易的新��元",
-  "featuresSubtitle": "���们的平台建立在尖端技术��上，��确保公平、透明和高效。",
+  "featuresSubtitle": "���们的平台建���在尖端技术��上，��确保公平、透明和高效。",
   "featureDirectSourcingTitle": "直接��购",
   "featureDirectSourcingDesc": "直接������民联���，无���中间商即可采购最新鲜的农作物。",
   "featureSecureEscrowTitle": "安全托��",
   "featureSecureEscrowDesc": "付款被安全地保��在托管账户中，并在确���交货后自动释放。",
   "featureTransparentLogisticsTitle": "透明物流",
-  "featureTransparentLogisticsDesc": "使用我们先进的追踪系��，实时追踪从农场到仓库的��单。",
+  "featureTransparentLogisticsDesc": "使用我们��进的追踪系��，实时追踪从农场到仓库的��单。",
   "featureMarketInsightsTitle": "市场洞察",
   "featureMarketInsightsDesc": "获取实时数据和分析，以做出更明智的采购和投资决策。",
   "testimonialsTitle": "深受��区信��",
@@ -20,11 +20,11 @@
   "testimonial2Quote": "平台的���明度和安全性改变了我们���销网络的游戏规则。",
   "testimonial2Author": "卡洛斯·戈麦斯",
   "testimonial2Role": "���销商，越南",
-  "testimonial3Quote": "作���一名投资者，���������可以充满信心和清晰地参与农��市场。",
+  "testimonial3Quote": "作���一名投资者，�����������以充满信心和清晰地参与农��市场。",
   "testimonial3Author": "法蒂玛·赛义��",
   "testimonial3Role": "投资者，阿联酋",
   "ctaTitle": "��备好加入���场��命了吗？",
-  "ctaSubtitle": "�����创建账户，体验农业综合企业的未来。",
+  "ctaSubtitle": "�����创建账户，体验农业综合���业的未来。",
   "ctaButton": "立即���册",
   "navbar": {
     "links": {
@@ -33,7 +33,7 @@
       "educationHub": "教育中心",
       "aiTools": "AI 工具",
       "danAI": "DAN. AI 助手",
-      "cropHealthAI": "作物健康 AI"
+      "cropHealthAI": "作��健康 AI"
     },
     "createListing": "创建���表",
     "signIn": "登录",
@@ -58,15 +58,15 @@
       },
       "connections": {
         "title": "连接",
-        "subtitle": "比上个月增长180.1%"
+        "subtitle": "比上个���增长180.1%"
       },
       "marketActivity": {
-        "title": "市场活动",
+        "title": "市场��动",
         "subtitle": "���上一小时���来新增2个"
       },
       "cropHealth": {
         "title": "作物健康 AI",
-        "description": "分析卫星图像以早期发现��病。",
+        "description": "分析卫星图像���早期发现��病。",
         "button": "立即分析"
       }
     },
@@ -74,7 +74,7 @@
       "title": "概览"
     },
     "recentOrders": {
-      "title": "最��订单",
+      "title": "最�����单",
       "description": "您最近的�����。",
       "table": {
         "id": "订单ID",
@@ -109,7 +109,7 @@
     },
     "notFound": {
       "title": "未找到列表",
-      "description": "您正在寻找的列表不存在。",
+      "description": "您正在寻找的列表不��在。",
       "button": "返回市场"
     },
     "sellerInfo": {
@@ -165,9 +165,9 @@
       "confirmDelivery": "确认收货",
       "confirmPickup": "确认取货",
       "dispute": "����订单",
-      "resolveRelease": "解决�������资金",
+      "resolveRelease": "解决����������金",
       "resolveRefund": "解决并退款给买家",
-      "cancelOrder": "取消订单�������������"
+      "cancelOrder": "取消订单���������������"
     },
     "error": {
       "fetch": "获取订单详情失败"
@@ -192,7 +192,7 @@
       "reasonPlaceholder": "������：商���与描述不符���未收���货...",
       "evidenceLabel": "上传证据",
       "fileErrorType": "文件必����图片。",
-      "fileErrorSize": "文件必���小于 {{size}}KB。",
+      "fileErrorSize": "文件必������于 {{size}}KB。",
       "cancel": "取消",
       "submit": "提交争议"
     },
@@ -229,7 +229,7 @@
         "save": "保存更改",
         "saving": "保存中...",
         "theme": {
-          "label": "主题",
+          "label": "���题",
           "light": "浅��",
           "dark": "��色",
           "system": "���统"
@@ -247,16 +247,16 @@
       },
       "form": {
         "docType": "文件类���",
-        "docTypePlaceholder": "例如：身份证、护照",
+        "docTypePlaceholder": "例如：身份证、护��",
         "docUpload": "上传文件",
         "submit": "提交验证"
       },
       "toast": {
-        "submitted": "KYC 文件���提交审核。��此为��������"
+        "submitted": "KYC 文件������交审核。��此为��������"
       }
     },
     "payment": {
-      "title": "支付方式",
+      "title": "��付方式",
       "description": "管理您已连接的���付方式。",
       "tabs": {
         "bank": "银行账户",
@@ -348,7 +348,7 @@
     },
     "form": {
       "email": "电子邮件",
-      "password": "密��",
+      "password": "�����",
       "name": "������",
       "namePlaceholder": "张三"
     },
@@ -388,11 +388,11 @@
       },
       "markets": {
         "title": "驾驭全���粮����物市场",
-        "description": "��析当前市场趋�����价格波动以及如何在���台上做出明智的交易决策。"
+        "description": "��析当前市场趋�����价格波动以及如何在���台上做��明智的交易决策。"
       },
       "kyc": {
         "title": "KYC在建立������中的作��",
-        "description": "为���么身份验证��于创建一个安全透明的农业综合企业市场至�����要。"
+        "description": "������么身份验证��于创建一个安全透明的农业综合企业市场�������要。"
       },
       "logistics": {
         "title": "物流��供应链优化",
@@ -400,12 +400,12 @@
       },
       "tokenization": {
         "title": "农业��币化简��",
-        "description": "关于如何将农业资产���示��数��代币，从��释放流动性和投资的������者指���。"
+        "description": "关于如何将农业资产��������数��代币，从��释放流动性和投资的������者指���。"
       }
     },
     "aiChat": {
       "title": "DAN AI 助手",
-      "greeting": "������������是去中心化农业综合企业网��AI。您可以�����任何关于���场价格、物流或我们平台功能的问题。",
+      "greeting": "������������是去中心化农业综合企业网��AI。您可以�����任何关于������价格、物流或我们平台功能的问题。",
       "placeholder": "询问市场趋势...",
       "send": "�����"
     }
@@ -416,41 +416,46 @@
     "marketData": {
       "title": "实时市场数据",
       "crop": "��物",
-      "price": "价格 (���元)",
+      "price": "价格 (�����)",
       "change": "24小时���化",
       "lastUpdated": "最后更新: {{time}}"
     }
   },
   "cropHealthAI": {
     "title": "作物健康 AI",
-    "description": "利用人工智能通过卫星图像及早发现作物病害。",
-    "uploadTitle": "分析作物图像",
-    "uploadDesc": "选择您田地的卫星图像样本以开始分析。",
-    "sampleImages": "样本图像",
-    "analyzeButton": "分析作物健康",
+    "description": "利用人工智能通过卫星图像及早���现作物病害。",
+    "analysisTitle": "开始分析",
+    "analysisDesc": "使用您当前的位置获取附���田地的卫星图像分析。",
+    "detectLocationButton": "检测位置并分析",
+    "detectingLocation": "正在检测您的位置...",
+    "locationDetected": "已找到位置: {{lat}}, {{lon}}",
+    "locationError": "无��获取位置: {{message}}",
+    "permissionDenied": "位置权限被拒绝。请在���览器设置中启用。",
     "analyzing": "分析中...",
+    "mayTakeMoment": "这可能��要一些时间...",
     "resultsTitle": "分析结果",
+    "resultsPlaceholder": "您的分析结果将显示在此处。",
     "disease": "诊断",
     "confidence": "���信度",
     "recommendation": "建议",
     "results": {
       "healthy": {
         "disease": "无（健康）",
-        "recommendation": "作物看起来很健康。继续标准监测和灌溉计划。无需立即采取行动。"
+        "recommendation": "作物��起来很健康。继续标准监测和灌溉计划。无需立即采取行动。"
       },
       "stress": {
         "disease": "检测到水分���迫",
-        "recommendation": "在西北象限检测到中度水分胁迫。建议将灌溉频率增加15%并进行监测。"
+        "recommendation": "在西北象限检测到中度水分胁迫。建议将灌溉频率增���15%并进行监测。"
       },
       "fungus": {
-        "disease": "潜在的真菌性���萎病",
-        "recommendation": "症状与早期真菌性枯萎病��致。建议进行土壤样本分析，并考虑有针对性地���用广谱杀菌剂。"
+        "disease": "潜在的真菌性������病",
+        "recommendation": "症状与早期真菌性枯萎病��致。建议进行���壤样本分析，并考虑有针对性地���用广谱杀菌剂。"
       }
     }
   },
   "createListing": {
     "title": "创建新列表",
-    "description": "填写以下详细信息，将您的产品����到市场。",
+    "description": "填写以���详细信息，将您的产品����到市场。",
     "form": {
       "productName": {
         "label": "产品名称",
@@ -484,14 +489,14 @@
       },
       "submit": {
         "default": "创建列表",
-        "submitting": "创建中..."
+        "submitting": "创建��..."
       }
     },
     "error": {
       "notLoggedIn": "您�����登录才能创建列表。",
       "failed": "创建列表失败。"
     },
-    "success": "列表���建成功！"
+    "success": "列表������成功！"
   },
   "categories": {
     "fruits": "������",

@@ -347,8 +347,6 @@
       "submit": "Create Account"
     },
     "form": {
-      "email": "Email",
-      "password": "Password",
       "name": "Name",
       "namePlaceholder": "John Doe"
     },
@@ -424,12 +422,17 @@
   "cropHealthAI": {
     "title": "Crop Health AI",
     "description": "Leverage AI to detect crop diseases early from satellite imagery.",
-    "uploadTitle": "Analyze Crop Image",
-    "uploadDesc": "Select a sample satellite image of your field to begin analysis.",
-    "sampleImages": "Sample Images",
-    "analyzeButton": "Analyze Crop Health",
+    "analysisTitle": "Start Analysis",
+    "analysisDesc": "Use your current location to get a satellite image analysis of nearby fields.",
+    "detectLocationButton": "Detect Location & Analyze",
+    "detectingLocation": "Detecting your location...",
+    "locationDetected": "Location found: {{lat}}, {{lon}}",
+    "locationError": "Could not get location: {{message}}",
+    "permissionDenied": "Location permission denied. Please enable it in your browser settings.",
     "analyzing": "Analyzing...",
+    "mayTakeMoment": "This may take a moment...",
     "resultsTitle": "Analysis Results",
+    "resultsPlaceholder": "Your analysis results will appear here.",
     "disease": "Diagnosis",
     "confidence": "Confidence",
     "recommendation": "Recommendation",

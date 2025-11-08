@@ -39,7 +39,7 @@
     "signIn": "Đăng nhập",
     "signUp": "Đăng ký",
     "dropdown": {
-      "profile": "Hồ sơ",
+      "profile": "H��� sơ",
       "adminPanel": "Bảng quản trị",
       "logout": "Đăng xuất"
     }
@@ -100,7 +100,7 @@
     },
     "disputeModal": {
       "title": "Mở một tranh chấp",
-      "description": "Vui lòng mô tả vấn đề với đơn hàng của bạn. Quản trị viên s�� xem xét y��u cầu của bạn.",
+      "description": "Vui l��ng mô tả vấn đề với đơn hàng của bạn. Quản trị viên s�� xem xét y��u cầu của bạn.",
       "reasonLabel": "Lý do",
       "reasonPlaceholder": "Ví dụ: Hàng không như mô tả, chưa được giao...",
       "evidenceLabel": "Tải lên bằng chứng",
@@ -292,12 +292,17 @@
   "cropHealthAI": {
     "title": "Sức khỏe Cây trồng AI",
     "description": "Tận dụng AI để phát hiện sớm bệnh cây trồng từ hình ảnh vệ tinh.",
-    "uploadTitle": "Phân tích Hình ảnh Cây trồng",
-    "uploadDesc": "Chọn một hình ảnh vệ tinh mẫu của cánh đồng của bạn để bắt đầu phân tích.",
-    "sampleImages": "Hình ảnh Mẫu",
-    "analyzeButton": "Phân tích Sức khỏe Cây trồng",
+    "analysisTitle": "Bắt đầu Phân tích",
+    "analysisDesc": "Sử dụng vị trí hiện tại của bạn để nhận phân tích hình ảnh vệ tinh của các cánh đồng gần đó.",
+    "detectLocationButton": "Phát hiện Vị trí & Phân tích",
+    "detectingLocation": "Đang phát hiện vị trí của bạn...",
+    "locationDetected": "Đã tìm thấy vị trí: {{lat}}, {{lon}}",
+    "locationError": "Không thể lấy vị trí: {{message}}",
+    "permissionDenied": "Quyền truy cập vị trí bị từ chối. Vui lòng bật trong cài đặt trình duyệt của bạn.",
     "analyzing": "Đang phân tích...",
+    "mayTakeMoment": "Việc này có thể mất một lúc...",
     "resultsTitle": "Kết quả Phân tích",
+    "resultsPlaceholder": "Kết quả phân tích của bạn sẽ xuất hiện ở đây.",
     "disease": "Chẩn đoán",
     "confidence": "Độ tin cậy",
     "recommendation": "Khuyến nghị",
@@ -312,7 +317,7 @@
       },
       "fungus": {
         "disease": "Nghi ngờ Bệnh Nấm",
-        "recommendation": "Các dấu hiệu phù hợp với bệnh nấm giai đoạn đầu. Khuyến nghị phân tích mẫu đất và xem xét áp dụng thuốc trừ nấm phổ rộng có mục tiêu."
+        "recommendation": "Các dấu hiệu phù hợp với bệnh nấm giai đoạn đầu. Khuyến nghị phân tích mẫu đất và xem xét áp dụng thu���c trừ nấm phổ rộng có mục tiêu."
       }
     }
   },

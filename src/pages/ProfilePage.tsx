@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -6,19 +7,40 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useAuthStore } from "@/lib/authStore";
 import { Navigate } from "react-router-dom";
 import { toast } from "sonner";
+import { api } from '@/lib/api-client';
+import { User } from '@shared/types';
 export function ProfilePage() {
   const user = useAuthStore(s => s.user);
   const isAuthenticated = useAuthStore(s => s.isAuthenticated);
+  const login = useAuthStore(s => s.login); // We need a way to update the store's user
+  const [name, setName] = useState(user?.name || '');
+  const [location, setLocation] = useState(user?.location || '');
+  const [isSaving, setIsSaving] = useState(false);
   if (!isAuthenticated || !user) {
     return <Navigate to="/auth" replace />;
   }
-  const handleProfileUpdate = (e: React.FormEvent) => {
+  const handleProfileUpdate = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Profile updated successfully!");
+    setIsSaving(true);
+    try {
+      const updatedUser = await api<User>(`/api/users/${user.id}`, {
+        method: 'POST',
+        body: JSON.stringify({ name, location }),
+      });
+      // This is a mock-friendly way to update the user in the store.
+      // In a real app with JWTs, you might refetch the user or decode the new token.
+      login(updatedUser.id); // Re-triggers the mock login to update the store user
+      toast.success("Profile updated successfully!");
+    } catch (error) {
+      toast.error("Failed to update profile.");
+      console.error(error);
+    } finally {
+      setIsSaving(false);
+    }
   };
   const handleKycSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast.info("KYC documents submitted for review.");
+    toast.info("KYC documents submitted for review. (This is a demo)");
   };
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -40,7 +62,7 @@ export function ProfilePage() {
                 <form onSubmit={handleProfileUpdate} className="space-y-4">
                   <div className="space-y-2">
                     <Label htmlFor="name">Full Name</Label>
-                    <Input id="name" defaultValue={user.name} />
+                    <Input id="name" value={name} onChange={(e) => setName(e.target.value)} />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email">Email</Label>
@@ -48,9 +70,9 @@ export function ProfilePage() {
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="location">Location</Label>
-                    <Input id="location" defaultValue={user.location} />
+                    <Input id="location" value={location} onChange={(e) => setLocation(e.target.value)} />
                   </div>
-                  <Button type="submit">Save Changes</Button>
+                  <Button type="submit" disabled={isSaving}>{isSaving ? 'Saving...' : 'Save Changes'}</Button>
                 </form>
               </CardContent>
             </Card>

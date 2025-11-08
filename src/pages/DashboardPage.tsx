@@ -1,11 +1,14 @@
+import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { MOCK_ORDERS, MOCK_USERS } from "@shared/mock-data";
 import { Activity, CreditCard, DollarSign, Users } from "lucide-react";
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis, Tooltip } from "recharts";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { useAuthStore } from "@/lib/authStore";
 import { Navigate } from "react-router-dom";
+import { api } from "@/lib/api-client";
+import { Order } from "@shared/types";
+import { Skeleton } from "@/components/ui/skeleton";
 const chartData = [
   { name: "Jan", total: Math.floor(Math.random() * 5000) + 1000 },
   { name: "Feb", total: Math.floor(Math.random() * 5000) + 1000 },
@@ -23,10 +26,27 @@ const chartData = [
 export function DashboardPage() {
   const isAuthenticated = useAuthStore(s => s.isAuthenticated);
   const user = useAuthStore(s => s.user);
+  const [orders, setOrders] = useState<Order[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    if (!user) return;
+    const fetchOrders = async () => {
+      try {
+        setIsLoading(true);
+        const allOrders = await api<Order[]>('/api/orders');
+        const userOrders = allOrders.filter(o => o.buyerId === user.id || o.sellerId === user.id);
+        setOrders(userOrders);
+      } catch (error) {
+        console.error("Failed to fetch orders:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchOrders();
+  }, [user]);
   if (!isAuthenticated) {
     return <Navigate to="/auth" replace />;
   }
-  const userOrders = MOCK_ORDERS.filter(o => o.buyerId === user?.id || o.sellerId === user?.id);
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="py-8 md:py-10 lg:py-12">
@@ -51,8 +71,8 @@ export function DashboardPage() {
               <CreditCard className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{userOrders.filter(o => o.status !== 'Delivered').length}</div>
-              <p className="text-xs text-muted-foreground">{userOrders.length} total orders</p>
+              {isLoading ? <Skeleton className="h-7 w-12" /> : <div className="text-2xl font-bold">{orders.filter(o => o.status !== 'Delivered').length}</div>}
+              {isLoading ? <Skeleton className="h-4 w-24 mt-1" /> : <p className="text-xs text-muted-foreground">{orders.length} total orders</p>}
             </CardContent>
           </Card>
           <Card>
@@ -78,14 +98,12 @@ export function DashboardPage() {
         </div>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7 mt-8">
           <Card className="col-span-4">
-            <CardHeader>
-              <CardTitle>Overview</CardTitle>
-            </CardHeader>
+            <CardHeader><CardTitle>Overview</CardTitle></CardHeader>
             <CardContent className="pl-2">
               <ResponsiveContainer width="100%" height={350}>
                 <BarChart data={chartData}>
-                  <XAxis dataKey="name" stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
-                  <YAxis stroke="#888888" fontSize={12} tickLine={false} axisLine={false} tickFormatter={(value) => `$${value}`} />
+                  <XAxis dataKey="name" stroke="hsl(var(--muted-foreground))" fontSize={12} tickLine={false} axisLine={false} />
+                  <YAxis stroke="hsl(var(--muted-foreground))" fontSize={12} tickLine={false} axisLine={false} tickFormatter={(value) => `${value}`} />
                   <Tooltip cursor={{ fill: 'hsl(var(--secondary))' }} contentStyle={{ backgroundColor: 'hsl(var(--background))', border: '1px solid hsl(var(--border))' }} />
                   <Bar dataKey="total" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} />
                 </BarChart>
@@ -98,24 +116,26 @@ export function DashboardPage() {
               <CardDescription>Your most recent transactions.</CardDescription>
             </CardHeader>
             <CardContent>
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Order ID</TableHead>
-                    <TableHead>Status</TableHead>
-                    <TableHead className="text-right">Amount</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {userOrders.slice(0, 5).map(order => (
-                    <TableRow key={order.id}>
-                      <TableCell className="font-medium">{order.id.substring(0, 8)}</TableCell>
-                      <TableCell><Badge variant={order.status === 'Delivered' ? 'default' : 'secondary'}>{order.status}</Badge></TableCell>
-                      <TableCell className="text-right">${order.total.toFixed(2)}</TableCell>
+              {isLoading ? <Skeleton className="h-40 w-full" /> : (
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Order ID</TableHead>
+                      <TableHead>Status</TableHead>
+                      <TableHead className="text-right">Amount</TableHead>
                     </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
+                  </TableHeader>
+                  <TableBody>
+                    {orders.slice(0, 5).map(order => (
+                      <TableRow key={order.id}>
+                        <TableCell className="font-medium">{order.id.substring(0, 8)}</TableCell>
+                        <TableCell><Badge variant={order.status === 'Delivered' ? 'default' : 'secondary'}>{order.status}</Badge></TableCell>
+                        <TableCell className="text-right">${order.total.toFixed(2)}</TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              )}
             </CardContent>
           </Card>
         </div>

@@ -3,12 +3,12 @@ import { enableMapSet } from "immer";
 enableMapSet();
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { RouteErrorBoundary } from '@/components/RouteErrorBoundary';
 import '@/index.css'
 import { HomePage } from '@/pages/HomePage';
-import { AppLayout } from '@/components/layout/AppLayout';
+import { AppRoot } from '@/components/layout/AppLayout';
 import { AuthPage } from '@/pages/AuthPage';
 import { DashboardPage } from '@/pages/DashboardPage';
 import { MarketplacePage } from '@/pages/MarketplacePage';
@@ -16,11 +16,6 @@ import { ListingDetailPage } from '@/pages/ListingDetailPage';
 import { OrderTrackingPage } from '@/pages/OrderTrackingPage';
 import { ProfilePage } from '@/pages/ProfilePage';
 import { EducationHubPage } from '@/pages/EducationHubPage';
-const AppRoot = () => (
-  <AppLayout>
-    <Outlet />
-  </AppLayout>
-);
 const router = createBrowserRouter([
   {
     element: <AppRoot />,

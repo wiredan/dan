@@ -1,9 +1,12 @@
+import { useEffect, useState } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
-import { MOCK_ORDERS, MOCK_LISTINGS, MOCK_USERS } from '@shared/mock-data';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle, Circle, Package, Truck, Home } from 'lucide-react';
+import { CheckCircle, Circle, Home, Truck } from 'lucide-react';
 import { useAuthStore } from '@/lib/authStore';
+import { api } from '@/lib/api-client';
+import { Order, Listing, User } from '@shared/types';
+import { Skeleton } from '@/components/ui/skeleton';
 const statusSteps = [
   { name: 'Order Placed', icon: <CheckCircle /> },
   { name: 'Payment in Escrow', icon: <CheckCircle /> },
@@ -17,20 +20,48 @@ const statusMap: { [key: string]: number } = {
   'Delivered': 3,
 };
 export function OrderTrackingPage() {
-  const { id } = useParams();
-  const order = MOCK_ORDERS.find(o => o.id === id);
-  const listing = MOCK_LISTINGS.find(l => l.id === order?.listingId);
-  const buyer = MOCK_USERS.find(u => u.id === order?.buyerId);
-  const seller = MOCK_USERS.find(u => u.id === order?.sellerId);
+  const { id } = useParams<{ id: string }>();
+  const [order, setOrder] = useState<Order | null>(null);
+  const [listing, setListing] = useState<Listing | null>(null);
+  const [buyer, setBuyer] = useState<User | null>(null);
+  const [seller, setSeller] = useState<User | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const isAuthenticated = useAuthStore(s => s.isAuthenticated);
+  useEffect(() => {
+    if (!id) return;
+    const fetchData = async () => {
+      try {
+        setIsLoading(true);
+        const orderData = await api<Order>(`/api/orders/${id}`);
+        setOrder(orderData);
+        const [listingData, buyerData, sellerData] = await Promise.all([
+          api<Listing>(`/api/listings/${orderData.listingId}`),
+          api<User>(`/api/users/${orderData.buyerId}`),
+          api<User>(`/api/users/${orderData.sellerId}`),
+        ]);
+        setListing(listingData);
+        setBuyer(buyerData);
+        setSeller(sellerData);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Failed to fetch order details');
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchData();
+  }, [id]);
   if (!isAuthenticated) {
     return <Navigate to="/auth" replace />;
   }
-  if (!order || !listing || !buyer || !seller) {
+  if (isLoading) {
+    return <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12"><Skeleton className="h-96 w-full" /></div>;
+  }
+  if (error || !order || !listing || !buyer || !seller) {
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
-        <h1 className="text-2xl font-bold">Order not found</h1>
-        <p className="text-muted-foreground mt-2">The order you are looking for does not exist.</p>
+        <h1 className="text-2xl font-bold">Order Not Found</h1>
+        <p className="text-muted-foreground mt-2">{error || 'The order you are looking for does not exist.'}</p>
         <Button asChild className="mt-6"><Link to="/dashboard">Back to Dashboard</Link></Button>
       </div>
     );
@@ -44,9 +75,7 @@ export function OrderTrackingPage() {
           <p className="text-muted-foreground">Order ID: {order.id}</p>
         </div>
         <Card>
-          <CardHeader>
-            <CardTitle>Order Status</CardTitle>
-          </CardHeader>
+          <CardHeader><CardTitle>Order Status</CardTitle></CardHeader>
           <CardContent>
             <div className="flex justify-between items-center">
               {statusSteps.map((step, index) => (
@@ -59,7 +88,7 @@ export function OrderTrackingPage() {
               ))}
             </div>
             <div className="relative w-full h-1 bg-secondary mt-[-2.5rem] -z-10">
-              <div className="absolute top-0 left-0 h-1 bg-primary" style={{ width: `${(currentStepIndex / (statusSteps.length - 1)) * 100}%` }}></div>
+              <div className="absolute top-0 left-0 h-1 bg-primary transition-all duration-500" style={{ width: `${(currentStepIndex / (statusSteps.length - 1)) * 100}%` }}></div>
             </div>
           </CardContent>
         </Card>
@@ -84,26 +113,13 @@ export function OrderTrackingPage() {
           <Card>
             <CardHeader><CardTitle>Participants</CardTitle></CardHeader>
             <CardContent className="space-y-4">
-              <div>
-                <h4 className="font-semibold">Buyer</h4>
-                <p>{buyer.name}</p>
-                <p className="text-sm text-muted-foreground">{buyer.location}</p>
-              </div>
-              <div>
-                <h4 className="font-semibold">Seller</h4>
-                <p>{seller.name}</p>
-                <p className="text-sm text-muted-foreground">{seller.location}</p>
-              </div>
-              <div>
-                <h4 className="font-semibold">Logistics</h4>
-                <p>AgriLink Logistics Partner</p>
-              </div>
+              <div><h4 className="font-semibold">Buyer</h4><p>{buyer.name}</p><p className="text-sm text-muted-foreground">{buyer.location}</p></div>
+              <div><h4 className="font-semibold">Seller</h4><p>{seller.name}</p><p className="text-sm text-muted-foreground">{seller.location}</p></div>
+              <div><h4 className="font-semibold">Logistics</h4><p>AgriLink Logistics Partner</p></div>
             </CardContent>
           </Card>
         </div>
-        <div className="mt-8 text-center">
-          <Button variant="outline">Dispute Order</Button>
-        </div>
+        <div className="mt-8 text-center"><Button variant="outline">Dispute Order</Button></div>
       </div>
     </div>
   );

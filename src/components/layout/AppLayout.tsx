@@ -1,10 +1,12 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Toaster } from "@/components/ui/sonner";
 type AppLayoutProps = {
   children: React.ReactNode;
 };
+// This is the main layout for pages that need Navbar and Footer
 export function AppLayout({ children }: AppLayoutProps): JSX.Element {
   return (
     <div className="flex flex-col min-h-screen">
@@ -17,3 +19,9 @@ export function AppLayout({ children }: AppLayoutProps): JSX.Element {
     </div>
   );
 }
+// This is the root layout component for the router
+export const AppRoot = () => (
+  <AppLayout>
+    <Outlet />
+  </AppLayout>
+);

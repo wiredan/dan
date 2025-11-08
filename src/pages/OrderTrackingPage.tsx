@@ -10,6 +10,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { toast } from 'sonner';
 import { useTranslation } from 'react-i18next';
 import { DisputeModal } from '@/components/DisputeModal';
+import { useCurrencyStore } from '@/lib/currencyStore';
 export function OrderTrackingPage() {
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
@@ -22,6 +23,10 @@ export function OrderTrackingPage() {
   const [isUpdating, setIsUpdating] = useState(false);
   const [isDisputeModalOpen, setDisputeModalOpen] = useState(false);
   const { isAuthenticated, user } = useAuthStore(state => ({ isAuthenticated: state.isAuthenticated, user: state.user }));
+  const { selectedCurrency } = useCurrencyStore();
+  const formatCurrency = (amount: number) => {
+    return `${selectedCurrency.symbol}${(amount * selectedCurrency.rate).toFixed(2)}`;
+  };
   const statusSteps = [
     { name: t('orderTracking.status.placed'), icon: <CheckCircle /> },
     { name: t('orderTracking.status.paid'), icon: <CheckCircle /> },
@@ -204,13 +209,13 @@ export function OrderTrackingPage() {
                   <div>
                     <h3 className="font-semibold">{listing.name}</h3>
                     <p className="text-sm text-muted-foreground">{t('orderTracking.summary.quantity')}: {order.quantity} {listing.unit}</p>
-                    <p className="text-sm text-muted-foreground">{t('orderTracking.summary.price')}: ${listing.price.toFixed(2)} / {listing.unit}</p>
+                    <p className="text-sm text-muted-foreground">{t('orderTracking.summary.price')}: {formatCurrency(listing.price)} / {listing.unit}</p>
                   </div>
                 </div>
                 <hr />
-                <div className="flex justify-between"><p>{t('orderTracking.summary.subtotal')}</p><p>${(order.quantity * listing.price).toFixed(2)}</p></div>
-                <div className="flex justify-between"><p>{t('orderTracking.summary.fees')}</p><p>${order.fees.toFixed(2)}</p></div>
-                <div className="flex justify-between font-bold text-lg"><p>{t('orderTracking.summary.total')}</p><p>${order.total.toFixed(2)}</p></div>
+                <div className="flex justify-between"><p>{t('orderTracking.summary.subtotal')}</p><p>{formatCurrency(order.quantity * listing.price)}</p></div>
+                <div className="flex justify-between"><p>{t('orderTracking.summary.fees')}</p><p>{formatCurrency(order.fees)}</p></div>
+                <div className="flex justify-between font-bold text-lg"><p>{t('orderTracking.summary.total')}</p><p>{formatCurrency(order.total)}</p></div>
               </CardContent>
             </Card>
             <Card>

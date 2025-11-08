@@ -15,6 +15,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ThemeToggle } from './ThemeToggle';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { useTranslation } from 'react-i18next';
+import { CurrencySwitcher } from './CurrencySwitcher';
 export function Navbar() {
   const { t } = useTranslation();
   const isAuthenticated = useAuthStore(s => s.isAuthenticated);
@@ -56,6 +57,7 @@ export function Navbar() {
             </nav>
           </div>
           <div className="flex items-center gap-2">
+            <CurrencySwitcher />
             <LanguageSwitcher />
             <ThemeToggle className="relative" />
             {isAuthenticated && user ? (

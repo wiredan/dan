@@ -10,6 +10,7 @@ import { api } from "@/lib/api-client";
 import { Order } from "@shared/types";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useTranslation } from "react-i18next";
+import { useCurrencyStore } from "@/lib/currencyStore";
 const chartData = [
   { name: "Jan", total: Math.floor(Math.random() * 5000) + 1000 },
   { name: "Feb", total: Math.floor(Math.random() * 5000) + 1000 },
@@ -30,6 +31,10 @@ export function DashboardPage() {
   const user = useAuthStore(s => s.user);
   const [orders, setOrders] = useState<Order[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const { selectedCurrency } = useCurrencyStore();
+  const formatCurrency = (amount: number) => {
+    return `${selectedCurrency.symbol}${(amount * selectedCurrency.rate).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+  };
   useEffect(() => {
     if (!user) return;
     const fetchOrders = async () => {
@@ -63,7 +68,7 @@ export function DashboardPage() {
               <DollarSign className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">$45,231.89</div>
+              <div className="text-2xl font-bold">{formatCurrency(45231.89)}</div>
               <p className="text-xs text-muted-foreground">{t('dashboard.cards.revenue.subtitle')}</p>
             </CardContent>
           </Card>
@@ -105,8 +110,8 @@ export function DashboardPage() {
               <ResponsiveContainer width="100%" height={350}>
                 <BarChart data={chartData}>
                   <XAxis dataKey="name" stroke="hsl(var(--muted-foreground))" fontSize={12} tickLine={false} axisLine={false} />
-                  <YAxis stroke="hsl(var(--muted-foreground))" fontSize={12} tickLine={false} axisLine={false} tickFormatter={(value) => `${value}`} />
-                  <Tooltip cursor={{ fill: 'hsl(var(--secondary))' }} contentStyle={{ backgroundColor: 'hsl(var(--background))', border: '1px solid hsl(var(--border))' }} />
+                  <YAxis stroke="hsl(var(--muted-foreground))" fontSize={12} tickLine={false} axisLine={false} tickFormatter={(value) => `${selectedCurrency.symbol}${(Number(value) * selectedCurrency.rate).toLocaleString()}`} />
+                  <Tooltip cursor={{ fill: 'hsl(var(--secondary))' }} contentStyle={{ backgroundColor: 'hsl(var(--background))', border: '1px solid hsl(var(--border))' }} formatter={(value) => formatCurrency(Number(value))} />
                   <Bar dataKey="total" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
@@ -132,7 +137,7 @@ export function DashboardPage() {
                       <TableRow key={order.id}>
                         <TableCell className="font-medium">{order.id.substring(0, 8)}</TableCell>
                         <TableCell><Badge variant={order.status === 'Delivered' ? 'default' : 'secondary'}>{order.status}</Badge></TableCell>
-                        <TableCell className="text-right">${order.total.toFixed(2)}</TableCell>
+                        <TableCell className="text-right">{formatCurrency(order.total)}</TableCell>
                       </TableRow>
                     ))}
                   </TableBody>

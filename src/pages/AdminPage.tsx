@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo, useCallback } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -9,6 +9,7 @@ import { User, Order, UserRole } from '@shared/types';
 import { Skeleton } from '@/components/ui/skeleton';
 import { toast } from 'sonner';
 import { useTranslation } from 'react-i18next';
+import { useCurrencyStore } from '@/lib/currencyStore';
 export function AdminPage() {
   const { t } = useTranslation();
   const [users, setUsers] = useState<User[]>([]);
@@ -17,7 +18,11 @@ export function AdminPage() {
   const [isLoadingOrders, setIsLoadingOrders] = useState(true);
   const [isUpdatingRole, setIsUpdatingRole] = useState<string | null>(null);
   const usersById = useMemo(() => new Map(users.map(u => [u.id, u])), [users]);
-  const fetchUsers = async () => {
+  const { selectedCurrency } = useCurrencyStore();
+  const formatCurrency = (amount: number) => {
+    return `${selectedCurrency.symbol}${(amount * selectedCurrency.rate).toFixed(2)}`;
+  };
+  const fetchUsers = useCallback(async () => {
     try {
       setIsLoadingUsers(true);
       const fetchedUsers = await api<User[]>('/api/users');
@@ -28,7 +33,7 @@ export function AdminPage() {
     } finally {
       setIsLoadingUsers(false);
     }
-  };
+  }, [t]);
   useEffect(() => {
     const fetchOrders = async () => {
       try {
@@ -44,7 +49,7 @@ export function AdminPage() {
     };
     fetchUsers();
     fetchOrders();
-  }, [t]);
+  }, [fetchUsers, t]);
   const handleRoleChange = async (userId: string, newRole: UserRole) => {
     setIsUpdatingRole(userId);
     try {
@@ -53,7 +58,6 @@ export function AdminPage() {
         body: JSON.stringify({ role: newRole }),
       });
       toast.success(t('admin.users.toast.roleSuccess'));
-      // Refetch users to get the latest state
       await fetchUsers();
     } catch (error) {
       toast.error(t('admin.users.toast.roleError'));
@@ -164,7 +168,7 @@ export function AdminPage() {
                           <TableCell className="font-mono text-xs">{order.id}</TableCell>
                           <TableCell>{usersById.get(order.buyerId)?.name || order.buyerId}</TableCell>
                           <TableCell>{usersById.get(order.sellerId)?.name || order.sellerId}</TableCell>
-                          <TableCell>${order.total.toFixed(2)}</TableCell>
+                          <TableCell>{formatCurrency(order.total)}</TableCell>
                           <TableCell><Badge variant="secondary">{order.status}</Badge></TableCell>
                         </TableRow>
                       ))}

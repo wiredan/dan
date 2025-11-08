@@ -410,5 +410,15 @@
     "a": "Grade A",
     "b": "Grade B",
     "c": "Grade C"
+  },
+  "currency": {
+    "switcherTooltip": "Change Currency",
+    "names": {
+      "usd": "US Dollar",
+      "ngn": "Nigerian Naira",
+      "eur": "Euro",
+      "usdt": "Tether",
+      "dan": "DAN Token"
+    }
   }
 }

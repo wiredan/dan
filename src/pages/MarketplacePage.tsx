@@ -9,8 +9,13 @@ import { api } from '@/lib/api-client';
 import { Listing } from '@shared/types';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useTranslation } from 'react-i18next';
+import { useCurrencyStore } from '@/lib/currencyStore';
 function ListingCard({ listing }: { listing: Listing }) {
   const { t } = useTranslation();
+  const { selectedCurrency } = useCurrencyStore();
+  const formatCurrency = (amount: number) => {
+    return `${selectedCurrency.symbol}${(amount * selectedCurrency.rate).toFixed(2)}`;
+  };
   return (
     <Link to={`/listing/${listing.id}`}>
       <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-300 h-full flex flex-col">
@@ -23,7 +28,7 @@ function ListingCard({ listing }: { listing: Listing }) {
           <p className="text-sm text-muted-foreground mt-1">{t('marketplace.card.available', { quantity: listing.quantity, unit: listing.unit })}</p>
         </CardContent>
         <CardFooter className="p-4 pt-0">
-          <div className="text-lg font-bold text-primary">${listing.price.toFixed(2)}
+          <div className="text-lg font-bold text-primary">{formatCurrency(listing.price)}
             <span className="text-sm font-normal text-muted-foreground"> / {listing.unit}</span>
           </div>
         </CardFooter>

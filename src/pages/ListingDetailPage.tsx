@@ -13,6 +13,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { toast } from 'sonner';
 import { useTranslation } from 'react-i18next';
+import { useCurrencyStore } from '@/lib/currencyStore';
 export function ListingDetailPage() {
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
@@ -24,6 +25,10 @@ export function ListingDetailPage() {
   const [quantity, setQuantity] = useState(1);
   const [isPlacingOrder, setIsPlacingOrder] = useState(false);
   const { isAuthenticated, user } = useAuthStore(state => ({ isAuthenticated: state.isAuthenticated, user: state.user }));
+  const { selectedCurrency } = useCurrencyStore();
+  const formatCurrency = (amount: number) => {
+    return `${selectedCurrency.symbol}${(amount * selectedCurrency.rate).toFixed(2)}`;
+  };
   useEffect(() => {
     if (!id) return;
     const fetchData = async () => {
@@ -119,7 +124,7 @@ export function ListingDetailPage() {
               <p className="text-muted-foreground mt-2">{listing.description}</p>
             </div>
             <div className="text-3xl font-bold text-primary">
-              ${listing.price.toFixed(2)} <span className="text-lg font-normal text-muted-foreground">/ {listing.unit}</span>
+              {formatCurrency(listing.price)} <span className="text-lg font-normal text-muted-foreground">/ {listing.unit}</span>
             </div>
             <Card>
               <CardHeader><CardTitle>{t('listingDetail.sellerInfo.title')}</CardTitle></CardHeader>

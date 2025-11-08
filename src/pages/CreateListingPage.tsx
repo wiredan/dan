@@ -30,7 +30,7 @@ export function CreateListingPage() {
   const { user, isAuthenticated } = useAuthStore(state => ({ user: state.user, isAuthenticated: state.isAuthenticated }));
   const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const form = useForm({
+  const form = useForm<ListingFormData>({
     resolver: zodResolver(listingSchema),
     defaultValues: {
       name: '',
@@ -39,7 +39,7 @@ export function CreateListingPage() {
       price: undefined,
       unit: 'kg',
       quantity: undefined,
-      grade: 'A' as 'A' | 'B' | 'C',
+      grade: 'A',
       imageUrl: 'https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?q=80&w=800',
     },
   });
@@ -151,7 +151,15 @@ export function CreateListingPage() {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>{t('createListing.form.price.label')}</FormLabel>
-                        <FormControl><Input type="number" step="0.01" placeholder="0.00" {...field} value={field.value ?? ''} /></FormControl>
+                        <FormControl>
+                          <Input
+                            type="number"
+                            step="0.01"
+                            placeholder="0.00"
+                            {...field}
+                            onChange={event => field.onChange(+event.target.value)}
+                          />
+                        </FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
@@ -173,7 +181,14 @@ export function CreateListingPage() {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>{t('createListing.form.quantity.label')}</FormLabel>
-                        <FormControl><Input type="number" placeholder="1000" {...field} value={field.value ?? ''} /></FormControl>
+                        <FormControl>
+                          <Input
+                            type="number"
+                            placeholder="1000"
+                            {...field}
+                            onChange={event => field.onChange(+event.target.value)}
+                          />
+                        </FormControl>
                         <FormMessage />
                       </FormItem>
                     )}

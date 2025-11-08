@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 type Currency = {
-  code: 'USD' | 'NGN' | 'EUR' | 'USDT' | 'DAN' | 'CNY' | 'SDA';
+  code: 'USD' | 'NGN' | 'EUR' | 'USDT' | 'DAN';
   name: string;
   symbol: string;
   rate: number; // Rate against USD
@@ -15,10 +15,8 @@ const availableCurrencies: Currency[] = [
   { code: 'USD', name: 'currency.names.usd', symbol: '$', rate: 1 },
   { code: 'NGN', name: 'currency.names.ngn', symbol: '₦', rate: 1450 },
   { code: 'EUR', name: 'currency.names.eur', symbol: '€', rate: 0.92 },
-  { code: 'CNY', name: 'currency.names.cny', symbol: '¥', rate: 7.25 },
   { code: 'USDT', name: 'currency.names.usdt', symbol: '₮', rate: 1 },
   { code: 'DAN', name: 'currency.names.dan', symbol: 'DAN', rate: 10 },
-  { code: 'SDA', name: 'currency.names.sda', symbol: 'SDA', rate: 1.5 },
 ];
 export const useCurrencyStore = create<CurrencyState>()(
   persist(

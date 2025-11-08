@@ -180,5 +180,15 @@
       "placeholder": "Tambaya game da yanayin kasuwa...",
       "send": "Aika"
     }
+  },
+  "currency": {
+    "switcherTooltip": "Canja Kudi",
+    "names": {
+      "usd": "Dalar Amurka",
+      "ngn": "Naira Najeriya",
+      "eur": "Yuro",
+      "usdt": "Tether",
+      "dan": "DAN Token"
+    }
   }
 }

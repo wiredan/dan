@@ -1,0 +1,547 @@
+{
+  "getStarted": "Commencer",
+  "exploreMarket": "Explorer le Marché",
+  "heroTitle": "L'avenir de l'agro-industrie est décentralisé",
+  "heroSubtitle": "DAN connecte les agriculteurs, les distributeurs et les investisseurs sur une plateforme sécurisée et transparente. Échangez, suivez et effectuez des transactions en toute confiance.",
+  "featuresTitle": "Une nouvelle ère du commerce agricole",
+  "featuresSubtitle": "Notre plateforme est construite sur une technologie de pointe pour garantir l'équité, la transparence et l'efficacité.",
+  "featureDirectSourcingTitle": "Approvisionnement Direct",
+  "featureDirectSourcingDesc": "Connectez-vous directement avec les agriculteurs pour obtenir les récoltes les plus fraîches sans intermédiaires.",
+  "featureSecureEscrowTitle": "Séquestre Sécurisé",
+  "featureSecureEscrowDesc": "Les paiements sont conservés en toute sécurité sous séquestre et libérés automatiquement après confirmation de la livraison.",
+  "featureTransparentLogisticsTitle": "Logistique Transparente",
+  "featureTransparentLogisticsDesc": "Suivez vos commandes en temps réel de la ferme à votre entrepôt grâce à notre système de suivi avancé.",
+  "featureMarketInsightsTitle": "Aperçus du Marché",
+  "featureMarketInsightsDesc": "Accédez à des données et des analyses en temps réel pour prendre des décisions d'achat et d'investissement plus intelligentes.",
+  "testimonialsTitle": "Approuvé par la Communauté",
+  "testimonial1Quote": "DAN a révolutionné la façon dont je vends mes produits. J'obtiens de meilleurs prix et des paiements plus rapides.",
+  "testimonial1Author": "Amina Yusuf",
+  "testimonial1Role": "Agricultrice, Nigéria",
+  "testimonial2Quote": "La transparence et la sécurité de la plateforme changent la donne pour notre réseau de distribution.",
+  "testimonial2Author": "Carlos Gomez",
+  "testimonial2Role": "Distributeur, Vietnam",
+  "testimonial3Quote": "En tant qu'investisseur, je peux enfin participer au marché agricole avec confiance et clarté.",
+  "testimonial3Author": "Fatima Al-Sayed",
+  "testimonial3Role": "Investisseuse, EAU",
+  "ctaTitle": "Prêt à rejoindre la révolution ?",
+  "ctaSubtitle": "Créez un compte aujourd'hui et découvrez l'avenir de l'agro-industrie.",
+  "ctaButton": "S'inscrire maintenant",
+  "navbar": {
+    "links": {
+      "dashboard": "Tableau de bord",
+      "marketplace": "Marché",
+      "myOrders": "Mes Commandes",
+      "educationHub": "Pôle Éducatif",
+      "aiTools": "Outils IA",
+      "danAI": "Assistant DAN. AI",
+      "cropHealthAI": "Santé des Cultures IA"
+    },
+    "createListing": "Créer une Annonce",
+    "signIn": "Se connecter",
+    "signUp": "S'inscrire",
+    "dropdown": {
+      "profile": "Profil",
+      "adminPanel": "Panneau d'administration",
+      "logout": "Se déconnecter"
+    }
+  },
+  "dashboard": {
+    "title": "Tableau de bord",
+    "welcome": "Bon retour, {{name}} ! Voici un résumé de votre compte.",
+    "cards": {
+      "revenue": {
+        "title": "Revenu Total",
+        "subtitle": "+20.1% par rapport au mois dernier"
+      },
+      "activeOrders": {
+        "title": "Commandes Actives",
+        "subtitle": "{{count}} commandes au total"
+      },
+      "connections": {
+        "title": "Connexions",
+        "subtitle": "+180.1% par rapport au mois dernier"
+      },
+      "marketActivity": {
+        "title": "Activité du Marché",
+        "subtitle": "+2 depuis la dernière heure"
+      },
+      "cropHealth": {
+        "title": "Santé des Cultures IA",
+        "description": "Analysez l'imagerie satellite pour une détection précoce des maladies.",
+        "button": "Analyser maintenant"
+      },
+      "marketplace": {
+        "title": "Explorer le Marché",
+        "description": "Parcourez et échangez des cultures fraîches d'agriculteurs vérifiés.",
+        "button": "Aller au Marché"
+      },
+      "myOrders": {
+        "title": "Voir Mes Commandes",
+        "description": "Suivez l'historique de vos transactions actives et passées.",
+        "button": "Voir les Commandes"
+      }
+    },
+    "overview": {
+      "title": "Aperçu"
+    },
+    "recentOrders": {
+      "title": "Commandes Récentes",
+      "description": "Vos transactions les plus récentes.",
+      "table": {
+        "id": "ID Commande",
+        "status": "Statut",
+        "amount": "Montant"
+      }
+    }
+  },
+  "listingDetail": {
+    "order": {
+      "success": "Commande passée avec succès ! Redirection vers le paiement...",
+      "error": "Échec de la commande.",
+      "placing": "Passage de la commande...",
+      "isOwner": "Ceci est votre annonce",
+      "place": "Passer la commande"
+    }
+  },
+  "orderTracking": {
+    "title": "Suivi de Commande",
+    "orderId": "ID de Commande",
+    "orderComplete": "Cette commande est terminée.",
+    "underReview": "Cette commande est en cours d'examen.",
+    "status": {
+      "title": "Statut de la Commande",
+      "placed": "Commande Passée",
+      "paid": "Paiement sous Séquestre",
+      "logisticsPickedUp": "Enlevé",
+      "shipped": "Expédié",
+      "delivered": "Livré"
+    },
+    "summary": {
+      "title": "Résumé de la Commande",
+      "quantity": "Quantité",
+      "price": "Prix",
+      "subtotal": "Sous-total",
+      "fees": "Frais (2.5%)",
+      "total": "Total"
+    },
+    "participants": {
+      "title": "Participants",
+      "buyer": "Acheteur",
+      "seller": "Vendeur",
+      "logistics": "Logistique",
+      "logisticsPartner": "Partenaire Logistique DAN"
+    },
+    "actions": {
+      "updating": "Mise à jour...",
+      "markShipped": "Marquer comme Expédié",
+      "confirmDelivery": "Confirmer la Livraison",
+      "confirmPickup": "Confirmer l'Enlèvement",
+      "dispute": "Contester la Commande",
+      "resolveRelease": "Résoudre & Libérer les Fonds",
+      "resolveRefund": "Résoudre & Rembourser l'Acheteur",
+      "cancelOrder": "Annuler la Commande (Admin)"
+    },
+    "error": {
+      "fetch": "Échec de la récupération des détails de la commande"
+    },
+    "notFound": {
+      "title": "Commande non trouvée",
+      "description": "La commande que vous recherchez n'existe pas.",
+      "button": "Retour au Tableau de bord"
+    },
+    "toast": {
+      "statusUpdated": "Statut de la commande mis à jour à {{status}}",
+      "statusUpdateFailed": "Échec de la mise à jour du statut de la commande.",
+      "disputeSubmitted": "Litige soumis avec succès.",
+      "disputeFailed": "Échec de la soumission du litige.",
+      "disputeResolved": "Litige résolu avec succès.",
+      "resolveFailed": "Échec de la résolution du litige."
+    },
+    "disputeModal": {
+      "title": "Ouvrir un litige",
+      "description": "Veuillez décrire le problème avec votre commande. Un administrateur examinera votre réclamation.",
+      "reasonLabel": "Raison",
+      "reasonPlaceholder": "Ex: Articles non conformes, non livrés...",
+      "evidenceLabel": "Télécharger une preuve",
+      "fileErrorType": "Le fichier doit être une image.",
+      "fileErrorSize": "Le fichier doit faire moins de {{size}} Ko.",
+      "cancel": "Annuler",
+      "submit": "Soumettre le litige"
+    },
+    "timelineChart": {
+      "title": "Chronologie de la Commande",
+      "tooltipLabel": "Statut : {{status}}",
+      "tooltipIntro": "heures à cette étape"
+    },
+    "disputeDetails": {
+      "title": "Détails du Litige",
+      "evidence": "Preuve Soumise"
+    },
+    "aiAnalysis": {
+      "title": "Analyse du Litige par IA",
+      "getAnalysis": "Obtenir l'Analyse IA",
+      "analyzing": "Analyse du litige...",
+      "recommendation": "Recommandation de l'IA"
+    }
+  },
+  "profile": {
+    "title": "Profil & Paramètres",
+    "tabs": {
+      "profile": "Profil",
+      "kyc": "Vérification KYC",
+      "payment": "Moyens de Paiement"
+    },
+    "profile": {
+      "title": "Informations du Profil",
+      "description": "Mettez à jour vos informations personnelles ici.",
+      "form": {
+        "name": "Nom complet",
+        "nameDisabledTooltip": "Le nom ne peut pas être modifié après la vérification KYC.",
+        "email": "Email",
+        "location": "Lieu",
+        "save": "Enregistrer les modifications",
+        "saving": "Enregistrement...",
+        "theme": {
+          "label": "Thème",
+          "light": "Clair",
+          "dark": "Sombre",
+          "system": "Système"
+        }
+      },
+      "success": "Profil mis à jour avec succès !",
+      "error": "Échec de la mise à jour du profil."
+    },
+    "kyc": {
+      "title": "Vérification KYC",
+      "description": "Vérifiez votre identité pour débloquer toutes les fonctionnalités de la plateforme.",
+      "verified": {
+        "title": "Votre compte est vérifié !",
+        "description": "Vous avez un accès complet à toutes les fonctionnalités de la plateforme."
+      },
+      "pending": {
+        "title": "Vérification en cours",
+        "description": "Notre IA analyse vos documents. Cela peut prendre quelques minutes."
+      },
+      "form": {
+        "docUpload": "Télécharger le document d'identité",
+        "docTypePlaceholder": "Carte d'identité, Passeport, Permis de conduire",
+        "selfieUpload": "Télécharger un selfie",
+        "selfiePlaceholder": "Une photo nette de votre visage",
+        "clickToUpload": "Cliquez pour télécharger",
+        "submit": "Soumettre pour vérification",
+        "submitting": "Soumission en cours..."
+      },
+      "toast": {
+        "submitted": "Documents KYC soumis pour examen. (Ceci est une démo)",
+        "verified": "Vérification KYC réussie !",
+        "error": "La soumission KYC a échoué. Veuillez réessayer."
+      }
+    },
+    "payment": {
+      "title": "Moyens de Paiement",
+      "description": "Gérez vos moyens de paiement connectés.",
+      "tabs": {
+        "bank": "Compte Bancaire",
+        "card": "Carte",
+        "wallet": "Portefeuille Sidra"
+      },
+      "form": {
+        "bankName": "Nom de la banque",
+        "iban": "IBAN",
+        "cardNumber": "Numéro de carte",
+        "expiry": "Expiration",
+        "cvc": "CVC",
+        "walletAddress": "Adresse du portefeuille",
+        "submit": {
+          "bank": "Connecter le Compte",
+          "card": "Connecter la Carte",
+          "wallet": "Connecter le Portefeuille"
+        }
+      },
+      "toast": {
+        "connected": "{{method}} connecté avec succès ! (Démo)"
+      },
+      "disabledAlert": {
+        "title": "Gestion Désactivée",
+        "description": "Vous ne pouvez pas modifier les moyens de paiement lorsque vous avez des commandes actives. Veuillez d'abord terminer ou annuler toutes les commandes."
+      }
+    }
+  },
+  "admin": {
+    "title": "Panneau d'administration",
+    "description": "Gérez les utilisateurs et les paramètres de la plateforme.",
+    "tabs": {
+      "users": "Gestion des Utilisateurs",
+      "transactions": "Transactions"
+    },
+    "users": {
+      "title": "Gestion des Utilisateurs",
+      "description": "Affichez et gérez tous les utilisateurs enregistrés sur la plateforme.",
+      "table": {
+        "id": "ID Utilisateur",
+        "name": "Nom",
+        "role": "Rôle",
+        "kyc": "Statut KYC",
+        "location": "Lieu",
+        "actions": "Actions"
+      },
+      "actions": {
+        "promote": "Promouvoir Admin",
+        "demote": "Rétrograder d'Admin"
+      },
+      "toast": {
+        "roleSuccess": "Rôle de l'utilisateur mis à jour avec succès.",
+        "roleError": "Échec de la mise à jour du rôle de l'utilisateur.",
+        "promoteSuccess": "Utilisateur promu Admin avec succès.",
+        "promoteError": "Échec de la promotion de l'utilisateur."
+      },
+      "error": "Échec de la récupération des utilisateurs.",
+      "promoteCard": {
+        "title": "Promouvoir un Utilisateur Admin",
+        "description": "Entrez l'adresse e-mail d'un utilisateur pour lui accorder les privilèges d'administrateur.",
+        "emailLabel": "Email de l'utilisateur",
+        "promoteButton": "Promouvoir",
+        "promotingButton": "Promotion en cours..."
+      }
+    },
+    "transactions": {
+      "title": "Transactions",
+      "description": "Affichez toutes les transactions sur la plateforme.",
+      "table": {
+        "orderId": "ID Commande",
+        "buyer": "Acheteur",
+        "seller": "Vendeur",
+        "amount": "Montant",
+        "status": "Statut"
+      },
+      "error": "Échec de la récupération des commandes."
+    }
+  },
+  "auth": {
+    "tabs": {
+      "login": "Connexion",
+      "signup": "Inscription"
+    },
+    "login": {
+      "title": "Connexion",
+      "description": "Entrez vos identifiants pour accéder à votre compte.",
+      "submit": "Se connecter"
+    },
+    "signup": {
+      "title": "Inscription",
+      "description": "Créez un nouveau compte pour commencer.",
+      "submit": "Créer un compte"
+    },
+    "form": {
+      "email": "Email",
+      "password": "Mot de passe",
+      "name": "Nom",
+      "namePlaceholder": "Jean Dupont"
+    },
+    "social": {
+      "divider": "Ou continuer avec",
+      "google": "Continuer avec Google",
+      "apple": "Continuer avec Apple",
+      "microsoft": "Continuer avec Microsoft"
+    },
+    "toast": {
+      "fillFields": "Veuillez remplir tous les champs.",
+      "loginSuccess": "Connexion réussie ! Redirection...",
+      "signupSuccess": "Inscription réussie ! Veuillez vous connecter.",
+      "socialNotImplemented": "La connexion avec {{provider}} n'est pas encore implémentée."
+    }
+  },
+  "education": {
+    "title": "Pôle Éducatif",
+    "description": "Votre ressource pour la connaissance et les aperçus de l'agro-industrie.",
+    "readMore": "Lire la suite",
+    "backToHub": "Retour au Pôle Éducatif",
+    "categories": {
+      "technology": "Technologie",
+      "farming": "Agriculture",
+      "markets": "Marchés",
+      "security": "Sécurité",
+      "logistics": "Logistique",
+      "investment": "Investissement"
+    },
+    "articles": {
+      "defi": {
+        "title": "Comprendre la Finance Décentralisée dans l'Agriculture",
+        "description": "Découvrez comment la blockchain et la DeFi transforment les chaînes d'approvisionnement agricoles.",
+        "content": ["[[Traduction française en attente]]"]
+      },
+      "sustainable": {
+        "title": "Meilleures Pratiques pour une Agriculture Durable",
+        "description": "Apprenez les techniques modernes qui améliorent le rendement des cultures tout en protégeant l'environnement.",
+        "content": ["[[Traduction française en attente]]"]
+      },
+      "markets": {
+        "title": "Naviguer sur les Marchés Mondiaux des Cultures Vivrières",
+        "description": "Une analyse des tendances actuelles du marché, des fluctuations de prix et comment prendre des décisions éclairées.",
+        "content": ["[[Traduction française en attente]]"]
+      },
+      "kyc": {
+        "title": "Le Rôle du KYC dans la Construction de la Confiance",
+        "description": "Pourquoi la vérification d'identité est cruciale pour créer un marché agro-industriel sécurisé et transparent.",
+        "content": ["[[Traduction française en attente]]"]
+      },
+      "logistics": {
+        "title": "Optimisation de la Logistique et de la Chaîne d'Approvisionnement",
+        "description": "Conseils et stratégies pour les distributeurs afin de rationaliser leurs opérations et de réduire les coûts.",
+        "content": ["[[Traduction française en attente]]"]
+      },
+      "tokenization": {
+        "title": "Introduction à la Tokenisation Agricole",
+        "description": "Un guide pour débutants sur la façon dont les actifs agricoles peuvent être représentés sous forme de jetons numériques.",
+        "content": ["[[Traduction française en attente]]"]
+      }
+    },
+    "aiChat": {
+      "title": "Assistant IA DAN",
+      "greeting": "Bonjour ! Je suis l'assistant IA avancé de DAN, alimenté par une connexion simulée à un grand modèle de langage. Posez-moi des questions complexes sur l'analyse de marché, les pratiques agricoles durables, l'optimisation logistique ou la DeFi dans l'agriculture.",
+      "placeholder": "Posez une question sur les tendances du marché...",
+      "send": "Envoyer"
+    },
+    "voiceReader": {
+      "toggleLabel": "Activer le lecteur vocal",
+      "readAloudTooltip": "Lire à voix haute"
+    }
+  },
+  "danAI": {
+    "title": "DAN. AI",
+    "description": "Votre assistant alimenté par l'IA pour des données et des aperçus du marché en temps réel.",
+    "marketData": {
+      "title": "Données du Marché en Temps Réel",
+      "crop": "Culture",
+      "price": "Prix (USD)",
+      "change": "Changement 24h",
+      "lastUpdated": "Dernière mise à jour : {{time}}"
+    },
+    "voiceReader": {
+      "toggleTooltip": "Activer/Désactiver le lecteur vocal"
+    }
+  },
+  "cropHealthAI": {
+    "title": "Santé des Cultures IA",
+    "description": "Tirez parti de l'IA pour détecter précocement les maladies des cultures à partir d'images satellites.",
+    "analysisTitle": "Démarrer l'Analyse",
+    "analysisDesc": "Sélectionnez un type de culture, puis utilisez votre emplacement pour une analyse d'image satellite.",
+    "selectCrop": {
+      "label": "Sélectionner le type de culture",
+      "placeholder": "Choisissez une culture à analyser"
+    },
+    "detectLocationButton": "Détecter l'Emplacement & Analyser",
+    "detectingLocation": "Détection de votre emplacement...",
+    "locationDetected": "Emplacement trouvé : {{lat}}, {{lon}}",
+    "locationError": "Impossible d'obtenir l'emplacement : {{message}}",
+    "permissionDenied": "Autorisation de localisation refusée. Veuillez l'activer dans les paramètres de votre navigateur.",
+    "analyzing": "Analyse en cours...",
+    "mayTakeMoment": "Cela peut prendre un moment...",
+    "resultsTitle": "Résultats de l'Analyse",
+    "resultsPlaceholder": "Les résultats de votre analyse appara��tront ici.",
+    "disease": "Diagnostic",
+    "confidence": "Confiance",
+    "recommendation": "Recommandation",
+    "results": {
+      "healthy": {
+        "disease": "Aucune (Saine)",
+        "recommendation": "La culture semble saine. Continuez la surveillance standard et les calendriers d'irrigation. Aucune action immédiate requise."
+      },
+      "stress": {
+        "disease": "Stress Hydrique Détecté",
+        "recommendation": "Un stress hydrique modéré a été détecté dans le quadrant nord-ouest. Il est recommandé d'augmenter la fréquence d'irrigation de 15% et de surveiller."
+      },
+      "fungus": {
+        "disease": "Mildiou Fongique Potentiel",
+        "recommendation": "Signes compatibles avec un mildiou fongique à un stade précoce. Il est recommandé d'analyser un échantillon de sol et d'envisager l'application ciblée d'un fongicide à large spectre."
+      },
+      "corn_blight": {
+        "disease": "Helminthosporiose du ma��s",
+        "recommendation": "Les lésions sont caractéristiques de l'helminthosporiose. Envisagez d'appliquer un fongicide foliaire si la maladie est répandue et que la culture est en pré-floraison."
+      },
+      "avocado_rot": {
+        "disease": "Pourriture des racines de l'avocatier",
+        "recommendation": "Les symptômes suggèrent Phytophthora cinnamomi. Améliorez immédiatement le drainage du sol et envisagez d'appliquer un fongicide à base de phosphite."
+      },
+      "ginger_wilt": {
+        "disease": "Flétrissement bactérien (Gingembre)",
+        "recommendation": "Forte probabilité de Ralstonia solanacearum. Retirez et détruisez les plantes infectées. Mettez en œuvre la rotation des cultures et évitez de planter dans ce champ pendant au moins 3 ans."
+      }
+    }
+  },
+  "createListing": {
+    "error": {
+      "openOrderExists": "Vous avez une commande ouverte pour ce produit. Veuillez la résoudre avant de créer une nouvelle annonce."
+    }
+  },
+  "crops": {
+    "corn": "Maïs",
+    "avocados": "Avocats",
+    "ginger": "Gingembre"
+  },
+  "currency": {
+    "switcherTooltip": "Changer de devise",
+    "names": {
+      "usd": "Dollar Américain",
+      "ngn": "Naira Nigérian",
+      "eur": "Euro",
+      "usdt": "Tether",
+      "dan": "Jeton DAN",
+      "sda": "Pièce SDA",
+      "cny": "Yuan Chinois"
+    }
+  },
+  "payment": {
+    "title": "Finalisez votre Paiement",
+    "description": "Finalisez en toute sécurité votre transaction pour la Commande #{{orderId}}.",
+    "summary": {
+      "title": "Résumé de la Commande",
+      "quantity": "{{quantity}} {{unit}}",
+      "subtotal": "Sous-total",
+      "fees": "Frais de transaction",
+      "total": "Total à Payer"
+    },
+    "form": {
+      "title": "Payer par Carte",
+      "description": "Propulsé par Paystack",
+      "cardNumber": "Numéro de Carte",
+      "expiry": "Date d'Expiration",
+      "cvc": "CVC",
+      "submit": "Payer {{amount}}",
+      "processing": "Traitement en cours..."
+    },
+    "error": {
+      "title": "Erreur de Paiement",
+      "missingOrderId": "L'ID de la commande est manquant.",
+      "fetch": "Impossible de charger les détails de la commande. Veuillez réessayer.",
+      "generic": "Une erreur inconnue est survenue."
+    },
+    "toast": {
+      "success": "Paiement réussi ! Redirection vers votre commande..."
+    }
+  },
+  "ordersPage": {
+    "title": "Mes Commandes",
+    "description": "Affichez et gérez toutes vos transactions passées et actuelles.",
+    "noOrders": "Vous n'avez pas encore passé ou reçu de commandes.",
+    "table": {
+      "orderId": "ID Commande",
+      "product": "Produit",
+      "role": "Votre Rôle",
+      "status": "Statut",
+      "total": "Total",
+      "action": "Action",
+      "view": "Voir"
+    },
+    "roles": {
+      "buyer": "Acheteur",
+      "seller": "Vendeur"
+    }
+  },
+  "footer": {
+    "social": {
+      "twitter": "Twitter",
+      "telegram": "Telegram"
+    }
+  }
+}

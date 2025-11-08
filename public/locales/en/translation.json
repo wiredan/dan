@@ -1,0 +1,673 @@
+{
+  "getStarted": "Get Started",
+  "exploreMarket": "Explore Market",
+  "heroTitle": "The Future of Agribusiness is Decentralized",
+  "heroSubtitle": "DAN connects farmers, distributors, and investors on a secure, transparent platform. Trade, track, and transact with confidence.",
+  "featuresTitle": "A New Era of Agricultural Trade",
+  "featuresSubtitle": "Our platform is built on cutting-edge technology to ensure fairness, transparency, and efficiency.",
+  "featureDirectSourcingTitle": "Direct Sourcing",
+  "featureDirectSourcingDesc": "Connect directly with farmers to source the freshest crops without intermediaries.",
+  "featureSecureEscrowTitle": "Secure Escrow",
+  "featureSecureEscrowDesc": "Payments are held securely in escrow and released automatically upon delivery confirmation.",
+  "featureTransparentLogisticsTitle": "Transparent Logistics",
+  "featureTransparentLogisticsDesc": "Track your orders in real-time from the farm to your warehouse with our advanced tracking system.",
+  "featureMarketInsightsTitle": "Market Insights",
+  "featureMarketInsightsDesc": "Access real-time data and analytics to make smarter purchasing and investment decisions.",
+  "testimonialsTitle": "Trusted by the Community",
+  "testimonial1Quote": "DAN has revolutionized how I sell my produce. I get better prices and faster payments.",
+  "testimonial1Author": "Amina Yusuf",
+  "testimonial1Role": "Farmer, Nigeria",
+  "testimonial2Quote": "The transparency and security of the platform are game-changers for our distribution network.",
+  "testimonial2Author": "Carlos Gomez",
+  "testimonial2Role": "Distributor, Vietnam",
+  "testimonial3Quote": "As an investor, I can finally participate in the agricultural market with confidence and clarity.",
+  "testimonial3Author": "Fatima Al-Sayed",
+  "testimonial3Role": "Investor, UAE",
+  "ctaTitle": "Ready to Join the Revolution?",
+  "ctaSubtitle": "Create an account today and experience the future of agribusiness.",
+  "ctaButton": "Sign Up Now",
+  "navbar": {
+    "links": {
+      "dashboard": "Dashboard",
+      "marketplace": "Marketplace",
+      "myOrders": "My Orders",
+      "educationHub": "Education Hub",
+      "aiTools": "AI Tools",
+      "danAI": "DAN. AI Assistant",
+      "cropHealthAI": "Crop Health AI"
+    },
+    "createListing": "Create Listing",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "dropdown": {
+      "profile": "Profile",
+      "adminPanel": "Admin Panel",
+      "logout": "Log out"
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome back, {{name}}! Here's a summary of your account.",
+    "cards": {
+      "revenue": {
+        "title": "Total Revenue",
+        "subtitle": "+20.1% from last month"
+      },
+      "activeOrders": {
+        "title": "Active Orders",
+        "subtitle": "{{count}} total orders"
+      },
+      "connections": {
+        "title": "Connections",
+        "subtitle": "+180.1% from last month"
+      },
+      "marketActivity": {
+        "title": "Market Activity",
+        "subtitle": "+2 since last hour"
+      },
+      "cropHealth": {
+        "title": "Crop Health AI",
+        "description": "Analyze satellite imagery for early disease detection.",
+        "button": "Analyze Now"
+      },
+      "marketplace": {
+        "title": "Explore Marketplace",
+        "description": "Browse and trade fresh crops from verified farmers.",
+        "button": "Go to Marketplace"
+      },
+      "myOrders": {
+        "title": "View My Orders",
+        "description": "Track your active and past transaction history.",
+        "button": "View Orders"
+      }
+    },
+    "overview": {
+      "title": "Overview"
+    },
+    "recentOrders": {
+      "title": "Recent Orders",
+      "description": "Your most recent transactions.",
+      "table": {
+        "id": "Order ID",
+        "status": "Status",
+        "amount": "Amount"
+      }
+    }
+  },
+  "marketplace": {
+    "title": "Marketplace",
+    "description": "Browse and trade food crops from verified farmers around the globe.",
+    "filters": {
+      "searchPlaceholder": "Search for crops...",
+      "categoryPlaceholder": "Category",
+      "allCategories": "All Categories",
+      "sortByPlaceholder": "Sort by",
+      "priceAsc": "Price: Low to High",
+      "priceDesc": "Price: High to Low",
+      "nameAsc": "Name: A-Z"
+    },
+    "card": {
+      "available": "{{quantity}} {{unit}} available"
+    },
+    "error": {
+      "fetch": "Failed to fetch listings"
+    }
+  },
+  "listingDetail": {
+    "error": {
+      "fetch": "Failed to fetch listing details",
+      "invalidQuantity": "Invalid quantity."
+    },
+    "notFound": {
+      "title": "Listing Not Found",
+      "description": "The listing you are looking for does not exist.",
+      "button": "Back to Marketplace"
+    },
+    "sellerInfo": {
+      "title": "Seller Information"
+    },
+    "details": {
+      "quantity": "Available Quantity",
+      "grade": "Grade",
+      "harvestDate": "Harvest Date"
+    },
+    "quantityInput": {
+      "label": "Quantity ({{unit}})"
+    },
+    "order": {
+      "success": "Order placed successfully! Redirecting to payment...",
+      "error": "Failed to place order.",
+      "placing": "Placing Order...",
+      "isOwner": "This is your listing",
+      "place": "Place Order"
+    }
+  },
+  "orderTracking": {
+    "title": "Order Tracking",
+    "orderId": "Order ID",
+    "orderComplete": "This order has been completed.",
+    "underReview": "This order is under review.",
+    "status": {
+      "title": "Order Status",
+      "placed": "Order Placed",
+      "paid": "Payment in Escrow",
+      "logisticsPickedUp": "Picked Up",
+      "shipped": "Shipped",
+      "delivered": "Delivered"
+    },
+    "summary": {
+      "title": "Order Summary",
+      "quantity": "Quantity",
+      "price": "Price",
+      "subtotal": "Subtotal",
+      "fees": "Fees (2.5%)",
+      "total": "Total"
+    },
+    "participants": {
+      "title": "Participants",
+      "buyer": "Buyer",
+      "seller": "Seller",
+      "logistics": "Logistics",
+      "logisticsPartner": "DAN Logistics Partner"
+    },
+    "actions": {
+      "updating": "Updating...",
+      "markShipped": "Mark as Shipped",
+      "confirmDelivery": "Confirm Delivery",
+      "confirmPickup": "Confirm Pickup",
+      "dispute": "Dispute Order",
+      "resolveRelease": "Resolve & Release Funds",
+      "resolveRefund": "Resolve & Refund Buyer",
+      "cancelOrder": "Cancel Order (Admin)"
+    },
+    "error": {
+      "fetch": "Failed to fetch order details"
+    },
+    "notFound": {
+      "title": "Order Not Found",
+      "description": "The order you are looking for does not exist.",
+      "button": "Back to Dashboard"
+    },
+    "toast": {
+      "statusUpdated": "Order status updated to {{status}}",
+      "statusUpdateFailed": "Failed to update order status.",
+      "disputeSubmitted": "Dispute submitted successfully.",
+      "disputeFailed": "Failed to submit dispute.",
+      "disputeResolved": "Dispute resolved successfully.",
+      "resolveFailed": "Failed to resolve dispute."
+    },
+    "disputeModal": {
+      "title": "Open a Dispute",
+      "description": "Please describe the issue with your order. An administrator will review your claim.",
+      "reasonLabel": "Reason",
+      "reasonPlaceholder": "e.g., Items not as described, not delivered...",
+      "evidenceLabel": "Upload Evidence",
+      "fileErrorType": "File must be an image.",
+      "fileErrorSize": "File must be under {{size}}KB.",
+      "cancel": "Cancel",
+      "submit": "Submit Dispute"
+    },
+    "timelineChart": {
+      "title": "Order Timeline Chart",
+      "tooltipLabel": "Status: {{status}}",
+      "tooltipIntro": "hours in this stage"
+    },
+    "disputeDetails": {
+      "title": "Dispute Details",
+      "evidence": "Evidence Submitted"
+    },
+    "aiAnalysis": {
+      "title": "AI Dispute Analysis",
+      "getAnalysis": "Get AI Analysis",
+      "analyzing": "Analyzing dispute...",
+      "recommendation": "AI Recommendation"
+    }
+  },
+  "profile": {
+    "title": "Profile & Settings",
+    "tabs": {
+      "profile": "Profile",
+      "kyc": "KYC Verification",
+      "payment": "Payment Methods"
+    },
+    "profile": {
+      "title": "Profile Information",
+      "description": "Update your personal details here.",
+      "form": {
+        "name": "Full Name",
+        "nameDisabledTooltip": "Name cannot be changed after KYC verification.",
+        "email": "Email",
+        "location": "Location",
+        "save": "Save Changes",
+        "saving": "Saving...",
+        "theme": {
+          "label": "Theme",
+          "light": "Light",
+          "dark": "Dark",
+          "system": "System"
+        }
+      },
+      "success": "Profile updated successfully!",
+      "error": "Failed to update profile."
+    },
+    "kyc": {
+      "title": "KYC Verification",
+      "description": "Verify your identity to unlock full platform features.",
+      "verified": {
+        "title": "Your account is verified!",
+        "description": "You have full access to all platform features."
+      },
+      "pending": {
+        "title": "Verification in Progress",
+        "description": "Our AI is analyzing your documents. This may take a few minutes."
+      },
+      "form": {
+        "docUpload": "Upload ID Document",
+        "docTypePlaceholder": "National ID, Passport, Driver's License",
+        "selfieUpload": "Upload a Selfie",
+        "selfiePlaceholder": "A clear photo of your face",
+        "clickToUpload": "Click to upload",
+        "submit": "Submit for Verification",
+        "submitting": "Submitting..."
+      },
+      "toast": {
+        "submitted": "KYC documents submitted for review. (This is a demo)",
+        "verified": "KYC verification successful!",
+        "error": "KYC submission failed. Please try again."
+      }
+    },
+    "payment": {
+      "title": "Payment Methods",
+      "description": "Manage your connected payment methods.",
+      "tabs": {
+        "bank": "Bank Account",
+        "card": "Card",
+        "wallet": "Sidrachain Wallet"
+      },
+      "form": {
+        "bankName": "Bank Name",
+        "iban": "IBAN",
+        "cardNumber": "Card Number",
+        "expiry": "Expiry",
+        "cvc": "CVC",
+        "walletAddress": "Wallet Address",
+        "submit": {
+          "bank": "Connect Account",
+          "card": "Connect Card",
+          "wallet": "Connect Wallet"
+        }
+      },
+      "toast": {
+        "connected": "{{method}} connected successfully! (Demo)"
+      },
+      "disabledAlert": {
+        "title": "Management Disabled",
+        "description": "You cannot change payment methods while you have active orders. Please complete or cancel all orders first."
+      }
+    }
+  },
+  "admin": {
+    "title": "Admin Panel",
+    "description": "Manage platform users and settings.",
+    "tabs": {
+      "users": "User Management",
+      "transactions": "Transactions"
+    },
+    "users": {
+      "title": "User Management",
+      "description": "View and manage all registered users on the platform.",
+      "table": {
+        "id": "User ID",
+        "name": "Name",
+        "role": "Role",
+        "kyc": "KYC Status",
+        "location": "Location",
+        "actions": "Actions"
+      },
+      "actions": {
+        "promote": "Promote to Admin",
+        "demote": "Demote from Admin"
+      },
+      "toast": {
+        "roleSuccess": "User role updated successfully.",
+        "roleError": "Failed to update user role.",
+        "promoteSuccess": "User promoted to Admin successfully.",
+        "promoteError": "Failed to promote user."
+      },
+      "error": "Failed to fetch users.",
+      "promoteCard": {
+        "title": "Promote User to Admin",
+        "description": "Enter a user's email address to grant them administrator privileges.",
+        "emailLabel": "User Email",
+        "promoteButton": "Promote",
+        "promotingButton": "Promoting..."
+      }
+    },
+    "transactions": {
+      "title": "Transactions",
+      "description": "View all transactions on the platform.",
+      "table": {
+        "orderId": "Order ID",
+        "buyer": "Buyer",
+        "seller": "Seller",
+        "amount": "Amount",
+        "status": "Status"
+      },
+      "error": "Failed to fetch orders."
+    }
+  },
+  "auth": {
+    "tabs": {
+      "login": "Login",
+      "signup": "Sign Up"
+    },
+    "login": {
+      "title": "Login",
+      "description": "Enter your credentials to access your account.",
+      "submit": "Login"
+    },
+    "signup": {
+      "title": "Sign Up",
+      "description": "Create a new account to get started.",
+      "submit": "Create Account"
+    },
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "John Doe"
+    },
+    "social": {
+      "divider": "Or continue with",
+      "google": "Continue with Google",
+      "apple": "Continue with Apple",
+      "microsoft": "Continue with Microsoft"
+    },
+    "toast": {
+      "fillFields": "Please fill in all fields.",
+      "loginSuccess": "Login successful! Redirecting...",
+      "signupSuccess": "Signup successful! Please log in.",
+      "socialNotImplemented": "{{provider}} login is not implemented yet."
+    }
+  },
+  "education": {
+    "title": "Education Hub",
+    "description": "Your resource for agribusiness knowledge and insights.",
+    "readMore": "Read more",
+    "backToHub": "Back to Education Hub",
+    "categories": {
+      "technology": "Technology",
+      "farming": "Farming",
+      "markets": "Markets",
+      "security": "Security",
+      "logistics": "Logistics",
+      "investment": "Investment"
+    },
+    "articles": {
+      "defi": {
+        "title": "Understanding Decentralized Finance in Agriculture",
+        "description": "Explore how blockchain and DeFi are transforming agricultural supply chains, providing new opportunities for farmers and investors.",
+        "content": [
+          "Decentralized Finance, or DeFi, represents a paradigm shift from traditional, centralized financial systems. Built on blockchain technology, DeFi aims to create an open, transparent, and permissionless financial ecosystem. In the context of agriculture, this means removing intermediaries like banks and large corporations that often create bottlenecks and extract value from the supply chain.",
+          "One of the core applications of DeFi in agribusiness is providing access to capital for smallholder farmers. Through decentralized lending protocols, farmers can secure loans using their future harvests as collateral, represented as digital tokens. This process is faster, more transparent, and often offers better rates than traditional banking, especially in regions with underdeveloped financial infrastructure.",
+          "Furthermore, smart contracts—self-executing contracts with the terms of the agreement directly written into code—automate many processes. For instance, a smart contract can automatically trigger payment to a farmer from an escrow account the moment a shipment is verified as delivered by a logistics partner. This reduces counterparty risk, eliminates payment delays, and builds trust between all participants in the network."
+        ]
+      },
+      "sustainable": {
+        "title": "Best Practices for Sustainable Farming",
+        "description": "Learn about modern techniques that improve crop yield while protecting the environment for future generations.",
+        "content": [
+          "Sustainable farming is a holistic approach to agriculture that focuses on long-term ecological balance. It's about producing food in a way that is healthy for consumers, humane for workers, and environmentally friendly. This involves a combination of traditional knowledge and modern innovation.",
+          "Key practices include crop rotation, where different crops are planted in the same area in sequential seasons. This helps to replenish soil nutrients, reduce the buildup of pests and diseases, and improve soil health. Another technique is conservation tillage, which minimizes soil disturbance to prevent erosion and improve water retention.",
+          "Integrated Pest Management (IPM) is another cornerstone of sustainable agriculture. Instead of relying solely on chemical pesticides, IPM uses a combination of biological controls, habitat manipulation, and resistant crop varieties. This reduces the environmental impact of farming and creates a more resilient ecosystem. By adopting these practices, farmers can increase their yields, reduce their costs, and become better stewards of the land."
+        ]
+      },
+      "markets": {
+        "title": "Navigating Global Food Crop Markets",
+        "description": "An analysis of current market trends, price fluctuations, and how to make informed trading decisions on the platform.",
+        "content": [
+          "The global food crop market is a complex and dynamic system influenced by a multitude of factors, including weather patterns, geopolitical events, supply chain disruptions, and changing consumer demands. Understanding these factors is crucial for making profitable trading decisions.",
+          "On the DAN platform, we provide access to real-time market data and analytics. This includes price history charts, volume indicators, and market sentiment analysis. By studying these tools, you can identify trends and potential trading opportunities. For example, a sudden drop in supply for a particular crop due to adverse weather in a major producing region could signal a potential price increase.",
+          "It's also important to diversify your portfolio. Instead of focusing on a single crop, consider trading a variety of commodities across different regions. This helps to mitigate risk and capitalize on opportunities in different market segments. Our platform makes it easy to browse listings from around the world, allowing you to build a diversified and resilient trading strategy."
+        ]
+      },
+      "kyc": {
+        "title": "The Role of KYC in Building Trust",
+        "description": "Why identity verification is crucial for creating a secure and transparent agribusiness marketplace.",
+        "content": [
+          "Know Your Customer (KYC) is a mandatory process of identifying and verifying the identity of each participant on our platform. While it may seem like an extra step, it is a fundamental pillar of security and trust in any marketplace, especially in a decentralized environment.",
+          "By ensuring that all users are who they say they are, we significantly reduce the risk of fraud, money laundering, and other illicit activities. This creates a safer environment for everyone. When you transact with a KYC-verified farmer or distributor, you can have confidence that you are dealing with a legitimate entity.",
+          "Our KYC process is designed to be as seamless as possible, using AI-powered tools to quickly and securely verify documents. We are committed to protecting your data and privacy while upholding the highest standards of compliance. Ultimately, a robust KYC process is what enables a truly trustworthy and transparent global marketplace to thrive."
+        ]
+      },
+      "logistics": {
+        "title": "Logistics and Supply Chain Optimization",
+        "description": "Tips and strategies for distributors to streamline their operations and reduce costs.",
+        "content": [
+          "Efficient logistics are the lifeblood of the agribusiness supply chain. For distributors, optimizing this process is key to profitability and customer satisfaction. The DAN platform integrates logistics tracking to provide end-to-end visibility, but there are additional strategies you can employ.",
+          "Route optimization is a critical first step. Using modern software, you can plan the most efficient routes for your delivery fleet, taking into account traffic, delivery windows, and vehicle capacity. This not only saves time and fuel but also reduces your carbon footprint.",
+          "Warehouse management is another crucial area. Implementing a 'first-in, first-out' (FIFO) system is essential for perishable goods to minimize spoilage. Furthermore, leveraging real-time inventory tracking, which can be integrated with our platform's data, allows you to anticipate demand, reduce holding costs, and avoid stockouts. By focusing on these key areas, you can build a more resilient and efficient supply chain."
+        ]
+      },
+      "tokenization": {
+        "title": "Introduction to Agri-Tokenization",
+        "description": "A beginner's guide to how agricultural assets can be represented as digital tokens, unlocking liquidity and investment.",
+        "content": [
+          "Tokenization is the process of converting rights to an asset into a digital token on a blockchain. In agriculture, this can apply to anything from a future harvest of a specific crop to a share in a piece of farming equipment or land. These tokens can then be traded on a decentralized marketplace like DAN.",
+          "This innovation has profound implications. For farmers, it provides a new way to raise capital. Instead of seeking a traditional loan, a farmer could tokenize a portion of their upcoming harvest and sell these 'harvest tokens' to investors. This provides them with upfront capital for seeds, fertilizer, and labor.",
+          "For investors, agri-tokenization opens up a new, highly accessible asset class. You no longer need to be a large corporation to invest in agriculture. You can buy tokens representing a small fraction of a crop from a farm across the world. This fractional ownership democratizes investment in agriculture, increases market liquidity, and allows for the creation of diversified portfolios of agricultural assets."
+        ]
+      }
+    },
+    "aiChat": {
+      "title": "DAN AI Assistant",
+      "greeting": "Hello! I am DAN's advanced AI assistant, powered by a simulated connection to a large language model. Ask me complex questions about market analysis, sustainable farming practices, logistics optimization, or DeFi in agriculture.",
+      "placeholder": "Ask about market trends...",
+      "send": "Send"
+    },
+    "voiceReader": {
+      "toggleLabel": "Enable Voice Reader",
+      "readAloudTooltip": "Read Aloud"
+    }
+  },
+  "danAI": {
+    "title": "DAN. AI",
+    "description": "Your AI-powered assistant for real-time market data and insights.",
+    "marketData": {
+      "title": "Real-Time Market Data",
+      "crop": "Crop",
+      "price": "Price (USD)",
+      "change": "24h Change",
+      "lastUpdated": "Last updated: {{time}}"
+    },
+    "voiceReader": {
+      "toggleTooltip": "Toggle Voice Reader"
+    }
+  },
+  "cropHealthAI": {
+    "title": "Crop Health AI",
+    "description": "Leverage AI to detect crop diseases early from satellite imagery.",
+    "analysisTitle": "Start Analysis",
+    "analysisDesc": "Select a crop type, then use your location for a satellite image analysis.",
+    "selectCrop": {
+      "label": "Select Crop Type",
+      "placeholder": "Choose a crop to analyze"
+    },
+    "detectLocationButton": "Detect Location & Analyze",
+    "detectingLocation": "Detecting your location...",
+    "locationDetected": "Location found: {{lat}}, {{lon}}",
+    "locationError": "Could not get location: {{message}}",
+    "permissionDenied": "Location permission denied. Please enable it in your browser settings.",
+    "analyzing": "Analyzing...",
+    "mayTakeMoment": "This may take a moment...",
+    "resultsTitle": "Analysis Results",
+    "resultsPlaceholder": "Your analysis results will appear here.",
+    "disease": "Diagnosis",
+    "confidence": "Confidence",
+    "recommendation": "Recommendation",
+    "results": {
+      "healthy": {
+        "disease": "None (Healthy)",
+        "recommendation": "Crop appears healthy. Continue standard monitoring and irrigation schedules. No immediate action required."
+      },
+      "stress": {
+        "disease": "Water Stress Detected",
+        "recommendation": "Moderate water stress detected in the northwest quadrant. Recommend increasing irrigation frequency by 15% and monitor."
+      },
+      "fungus": {
+        "disease": "Potential Fungal Blight",
+        "recommendation": "Signs consistent with early-stage fungal blight. Recommend soil sample analysis and consider targeted application of a broad-spectrum fungicide."
+      },
+      "corn_blight": {
+        "disease": "Northern Corn Leaf Blight",
+        "recommendation": "Lesions are characteristic of NCLB. Consider applying a foliar fungicide if the disease is widespread and the crop is pre-tasseling."
+      },
+      "avocado_rot": {
+        "disease": "Avocado Root Rot",
+        "recommendation": "Symptoms suggest Phytophthora cinnamomi. Improve soil drainage immediately and consider applying a phosphite-based fungicide."
+      },
+      "ginger_wilt": {
+        "disease": "Bacterial Wilt (Ginger)",
+        "recommendation": "High probability of Ralstonia solanacearum. Remove and destroy infected plants. Implement crop rotation and avoid planting in this field for at least 3 years."
+      }
+    }
+  },
+  "createListing": {
+    "title": "Create a New Listing",
+    "description": "Fill out the details below to add your product to the marketplace.",
+    "form": {
+      "productName": {
+        "label": "Product Name",
+        "placeholder": "e.g., Organic Hass Avocados"
+      },
+      "description": {
+        "label": "Description",
+        "placeholder": "Describe your product in detail..."
+      },
+      "category": {
+        "label": "Category",
+        "placeholder": "Select a category"
+      },
+      "grade": {
+        "label": "Grade",
+        "placeholder": "Select a grade"
+      },
+      "price": {
+        "label": "Price"
+      },
+      "unit": {
+        "label": "Unit",
+        "placeholder": "e.g., kg, tonne, piece"
+      },
+      "quantity": {
+        "label": "Available Quantity"
+      },
+      "imageUrl": {
+        "label": "Image URL",
+        "placeholder": "https://example.com/image.jpg"
+      },
+      "submit": {
+        "default": "Create Listing",
+        "submitting": "Creating Listing..."
+      }
+    },
+    "error": {
+      "notLoggedIn": "You must be logged in to create a listing.",
+      "failed": "Failed to create listing.",
+      "openOrderExists": "You have an open order for this product. Please resolve it before creating a new listing."
+    },
+    "success": "Listing created successfully!"
+  },
+  "categories": {
+    "fruits": "Fruits",
+    "vegetables": "Vegetables",
+    "grains": "Grains",
+    "spices": "Spices",
+    "nuts": "Nuts"
+  },
+  "grades": {
+    "a": "Grade A",
+    "b": "Grade B",
+    "c": "Grade C"
+  },
+  "crops": {
+    "corn": "Corn",
+    "avocados": "Avocados",
+    "ginger": "Ginger"
+  },
+  "currency": {
+    "switcherTooltip": "Change Currency",
+    "names": {
+      "usd": "US Dollar",
+      "ngn": "Nigerian Naira",
+      "eur": "Euro",
+      "usdt": "Tether",
+      "dan": "DAN Token",
+      "sda": "SDA Coin",
+      "cny": "Chinese Yuan"
+    }
+  },
+  "payment": {
+    "title": "Complete Your Payment",
+    "description": "Securely finalize your transaction for Order #{{orderId}}.",
+    "summary": {
+      "title": "Order Summary",
+      "quantity": "{{quantity}} {{unit}}",
+      "subtotal": "Subtotal",
+      "fees": "Transaction Fees",
+      "total": "Total to Pay"
+    },
+    "form": {
+      "title": "Pay with Card",
+      "description": "Powered by Paystack",
+      "cardNumber": "Card Number",
+      "expiry": "Expiry Date",
+      "cvc": "CVC",
+      "submit": "Pay {{amount}}",
+      "processing": "Processing..."
+    },
+    "error": {
+      "title": "Payment Error",
+      "missingOrderId": "Order ID is missing.",
+      "fetch": "Could not load order details. Please try again.",
+      "generic": "An unknown error occurred."
+    },
+    "toast": {
+      "success": "Payment successful! Redirecting to your order..."
+    }
+  },
+  "ordersPage": {
+    "title": "My Orders",
+    "description": "View and manage all your past and current transactions.",
+    "noOrders": "You have not placed or received any orders yet.",
+    "table": {
+      "orderId": "Order ID",
+      "product": "Product",
+      "role": "Your Role",
+      "status": "Status",
+      "total": "Total",
+      "action": "Action",
+      "view": "View"
+    },
+    "roles": {
+      "buyer": "Buyer",
+      "seller": "Seller"
+    }
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "marketplace": "Marketplace",
+    "my_orders": "My Orders",
+    "education_hub": "Education Hub",
+    "ai_tools": "AI Tools",
+    "dan_ai_assistant": "DAN. AI Assistant",
+    "crop_health_ai": "Crop Health AI",
+    "support": "Support",
+    "twitter": "Twitter",
+    "settings": "Settings"
+  },
+  "footer": {
+    "social": {
+      "twitter": "Twitter",
+      "telegram": "Telegram"
+    }
+  }
+}

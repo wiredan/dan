@@ -1,0 +1,480 @@
+{
+  "getStarted": "Fara Yanzu",
+  "exploreMarket": "Bincika Kasuwa",
+  "heroTitle": "Makomar Kasuwancin Noma ta Rarraba",
+  "heroSubtitle": "DAN na haɗa manoma, masu rarrabawa, da masu saka hannun jari a kan wani dandali mai aminci da gaskiya. Kasuwanci, bibiya, da ma'amala da karfin gwiwa.",
+  "featuresTitle": "Sabon Zamani na Cinikin Aikin Noma",
+  "featuresSubtitle": "An gina dandalinmu a kan fasahar zamani don tabbatar da adalci, gaskiya, da inganci.",
+  "featureDirectSourcingTitle": "Samun Kai tsaye",
+  "featureDirectSourcingDesc": "Haɗa kai tsaye da manoma don samun amfanin gona mafi sabo ba tare da masu shiga tsakani ba.",
+  "featureSecureEscrowTitle": "Escrow Mai Aminci",
+  "featureSecureEscrowDesc": "Ana riƙe biyan kuɗi a cikin escrow kuma ana sakewa ta atomatik bayan an tabbatar da isarwa.",
+  "featureTransparentLogisticsTitle": "Kayan Aiki na Gaskiya",
+  "featureTransparentLogisticsDesc": "Bibiyi odar ku a ainihin lokacin daga gona zuwa sito ɗinku tare da ingantaccen tsarin bibiyar mu.",
+  "featureMarketInsightsTitle": "Fahimtar Kasuwa",
+  "featureMarketInsightsDesc": "Samun damar bayanai na ainihi da nazari don yanke shawara mafi wayo na siye da saka hannun jari.",
+  "testimonialsTitle": "Al'umma Sun Yarda da Mu",
+  "testimonial1Quote": "DAN ya kawo sauyi kan yadda nake sayar da amfanin gona na. Ina samun farashi mafi kyau da biyan kuɗi cikin sauri.",
+  "testimonial1Author": "Amina Yusuf",
+  "testimonial1Role": "Manomiya, Najeriya",
+  "testimonial2Quote": "Gaskiya da tsaron dandalin sun canza wasa ga hanyar sadarwar mu ta rarrabawa.",
+  "testimonial2Author": "Carlos Gomez",
+  "testimonial2Role": "Mai Rarrabawa, Vietnam",
+  "testimonial3Quote": "A matsayina na mai saka hannun jari, a ƙarshe zan iya shiga kasuwar noma da kwarin gwiwa da haske.",
+  "testimonial3Author": "Fatima Al-Sayed",
+  "testimonial3Role": "Mai Saka Hannun Jari, UAE",
+  "ctaTitle": "A Shirye kake ka Shiga Juyin Juya Halin?",
+  "ctaSubtitle": "Ƙirƙiri asusu a yau kuma ku fuskanci makomar kasuwancin noma.",
+  "ctaButton": "Yi Rajista Yanzu",
+  "navbar": {
+    "links": {
+      "dashboard": "Dashboard",
+      "marketplace": "Kasuwa",
+      "myOrders": "Ododi Na",
+      "educationHub": "Cibiyar Ilimi",
+      "aiTools": "Kayan Aikin AI",
+      "danAI": "Mataimakin DAN. AI",
+      "cropHealthAI": "Lafiyar Amfanin Gona AI"
+    },
+    "createListing": "Ƙirƙiri Lissafi",
+    "signIn": "Shiga ciki",
+    "signUp": "Yi Rajista",
+    "dropdown": {
+      "profile": "Bayanan martaba",
+      "adminPanel": "Kwamitin Gudanarwa",
+      "logout": "Fita"
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Barka da dawowa, {{name}}! Ga taƙaitaccen bayanin asusunka.",
+    "cards": {
+      "revenue": {
+        "title": "Jimillar Kuɗin shiga",
+        "subtitle": "+20.1% daga watan da ya gabata"
+      },
+      "activeOrders": {
+        "title": "Oda masu Aiki",
+        "subtitle": "jimillar oda {{count}}"
+      },
+      "connections": {
+        "title": "Haɗi",
+        "subtitle": "+180.1% daga watan da ya gabata"
+      },
+      "marketActivity": {
+        "title": "Ayyukan Kasuwa",
+        "subtitle": "+2 tun sa'a ta ƙarshe"
+      },
+      "cropHealth": {
+        "title": "Lafiyar Amfanin Gona AI",
+        "description": "Bincika hotunan tauraron dan adam don gano cututtuka da wuri.",
+        "button": "Bincika Yanzu"
+      },
+      "marketplace": {
+        "title": "Bincika Kasuwa",
+        "description": "Bincika da siyar da amfanin gona daga manoma da aka tabbatar.",
+        "button": "Je zuwa Kasuwa"
+      },
+      "myOrders": {
+        "title": "Duba Ododi Na",
+        "description": "Bibiyi tarihin ma'amaloli na yanzu da na baya.",
+        "button": "Duba Ododi"
+      }
+    },
+    "overview": {
+      "title": "Dubawa"
+    },
+    "recentOrders": {
+      "title": "Oda na Kwanan nan",
+      "description": "Ma'amaloli na baya-bayan nan.",
+      "table": {
+        "id": "ID na Oda",
+        "status": "Matsayi",
+        "amount": "Adadin"
+      }
+    }
+  },
+  "listingDetail": {
+    "order": {
+      "success": "An yi oda cikin nasara! Ana tura ka zuwa biyan kuɗi...",
+      "error": "An kasa yin oda.",
+      "placing": "Ana Yin Oda...",
+      "isOwner": "Wannan lissafinka ne",
+      "place": "Yi Oda"
+    }
+  },
+  "orderTracking": {
+    "title": "Bibiyar Oda",
+    "orderId": "ID na Oda",
+    "status": {
+      "title": "Matsayin Oda",
+      "placed": "An Yi Oda",
+      "paid": "An Biya a Escrow",
+      "logisticsPickedUp": "An Dauka",
+      "shipped": "An Aika",
+      "delivered": "An Isar"
+    },
+    "actions": {
+      "dispute": "Bude Rigima",
+      "confirmPickup": "Tabbatar da Dauka"
+    },
+    "disputeModal": {
+      "title": "Bude Rigima",
+      "description": "Da fatan za a bayyana matsalar da odar ku. Wani mai gudanarwa zai duba korafin ku.",
+      "reasonLabel": "Dalili",
+      "reasonPlaceholder": "Misali, kayan ba kamar yadda aka bayyana ba, ba a isar ba...",
+      "evidenceLabel": "Dora Hujja",
+      "fileErrorType": "Dole ne fayil ya zama hoto.",
+      "fileErrorSize": "Dole ne fayil ya kasance ƙasa da {{size}}KB.",
+      "cancel": "Soke",
+      "submit": "Mika Rigima"
+    },
+    "timelineChart": {
+      "title": "Taswirar Lokaci na Oda",
+      "tooltipLabel": "Matsayi: {{status}}",
+      "tooltipIntro": "awowi a wannan mataki"
+    },
+    "disputeDetails": {
+      "title": "Cikakkun Bayanai na Rigima",
+      "evidence": "Hujjar da aka Gabatar"
+    },
+    "aiAnalysis": {
+      "title": "Binciken Rigima na AI",
+      "getAnalysis": "Samu Binciken AI",
+      "analyzing": "Ana binciken rigima...",
+      "recommendation": "Shawarar AI"
+    }
+  },
+  "profile": {
+    "title": "Bayanan martaba & Saituna",
+    "tabs": {
+      "profile": "Bayanan martaba",
+      "kyc": "Tabbatar da KYC",
+      "payment": "Hanyoyin Biyan Kuɗi"
+    },
+    "profile": {
+      "title": "Bayanin Bayanan martaba",
+      "description": "Sabunta bayanan sirri naka anan.",
+      "form": {
+        "name": "Cikakken Suna",
+        "nameDisabledTooltip": "Ba za a iya canza suna ba bayan an tabbatar da KYC.",
+        "email": "Imel",
+        "location": "Wuri",
+        "save": "Ajiye Canje-canje",
+        "saving": "Ana Ajiye...",
+        "theme": {
+          "label": "Jigo",
+          "light": "Haske",
+          "dark": "Duhu",
+          "system": "Tsarin"
+        }
+      },
+      "success": "An sabunta bayanan martaba cikin nasara!",
+      "error": "An kasa sabunta bayanan martaba."
+    },
+    "kyc": {
+      "title": "Tabbatar da KYC",
+      "description": "Tabbatar da asalin ka don buɗe dukkan fasalulluka na dandamali.",
+      "verified": {
+        "title": "An tabbatar da asusunka!",
+        "description": "Kuna da cikakken damar zuwa dukkan fasalulluka na dandamali."
+      },
+      "pending": {
+        "title": "Tabbatarwa na Gudana",
+        "description": "AI ɗinmu na nazarin takardunku. Wannan na iya ɗaukar 'yan mintuna."
+      },
+      "form": {
+        "docUpload": "Dora Takardar Shaida",
+        "docTypePlaceholder": "Katin Shaida na Kasa, Fasfo, Lasisin Tuki",
+        "selfieUpload": "Dora Hoton Kai (Selfie)",
+        "selfiePlaceholder": "Hoto mai haske na fuskarka",
+        "clickToUpload": "Danna don dorawa",
+        "submit": "Mika don Tabbatarwa",
+        "submitting": "Ana Mikawa..."
+      },
+      "toast": {
+        "submitted": "An mika takardun KYC don dubawa. (Wannan demo ne)",
+        "verified": "An yi nasarar tabbatar da KYC!",
+        "error": "An kasa mika KYC. Da fatan za a sake gwadawa."
+      }
+    },
+    "payment": {
+      "title": "Hanyoyin Biyan Kuɗi",
+      "description": "Sarrafa hanyoyin biyan kuɗi da aka haɗa.",
+      "tabs": {
+        "bank": "Asusun Banki",
+        "card": "Kati",
+        "wallet": "Wallet na Sidrachain"
+      },
+      "form": {
+        "bankName": "Sunan Banki",
+        "iban": "IBAN",
+        "cardNumber": "Lambar Kati",
+        "expiry": "Ranar Karewa",
+        "cvc": "CVC",
+        "walletAddress": "Adireshin Wallet",
+        "submit": {
+          "bank": "Haɗa Asusu",
+          "card": "Haɗa Kati",
+          "wallet": "Haɗa Wallet"
+        }
+      },
+      "toast": {
+        "connected": "An haɗa {{method}} cikin nasara! (Demo)"
+      },
+      "disabledAlert": {
+        "title": "An Kashe Gudanarwa",
+        "description": "Ba za ku iya canza hanyoyin biyan kuɗi ba yayin da kuke da oda masu aiki. Da fatan za a kammala ko soke dukkan oda da farko."
+      }
+    }
+  },
+  "admin": {
+    "title": "Kwamitin Gudanarwa",
+    "description": "Sarrafa masu amfani da dandamali da saituna.",
+    "tabs": {
+      "users": "Gudanar da Mai amfani",
+      "transactions": "Ma'amaloli"
+    },
+    "users": {
+      "title": "Gudanar da Mai amfani",
+      "description": "Duba da sarrafa duk masu amfani da aka yiwa rajista a kan dandamali.",
+      "table": {
+        "name": "Suna",
+        "role": "Matsayi",
+        "kyc": "Matsayin KYC",
+        "location": "Wuri",
+        "actions": "Ayyuka"
+      },
+      "actions": {
+        "promote": "Ɗaukaka zuwa Admin",
+        "demote": "Sauke daga Admin"
+      },
+      "toast": {
+        "roleSuccess": "An sabunta matsayin mai amfani.",
+        "roleError": "An kasa sabunta matsayin mai amfani.",
+        "promoteSuccess": "An ɗaukaka mai amfani zuwa Admin.",
+        "promoteError": "An kasa ɗaukaka mai amfani."
+      },
+      "error": "An kasa samo masu amfani.",
+      "promoteCard": {
+        "title": "Ɗaukaka Mai amfani zuwa Admin",
+        "description": "Shigar da adireshin imel na mai amfani don ba su damar gudanarwa.",
+        "emailLabel": "Imel na Mai amfani",
+        "promoteButton": "Ɗaukaka",
+        "promotingButton": "Ana Ɗaukakawa..."
+      }
+    },
+    "transactions": {
+      "title": "Ma'amaloli",
+      "description": "Duba duk ma'amaloli a kan dandamali.",
+      "table": {
+        "orderId": "ID na Oda",
+        "buyer": "Mai Siya",
+        "seller": "Mai Siya",
+        "amount": "Adadin",
+        "status": "Matsayi"
+      },
+      "error": "An kasa samo oda."
+    }
+  },
+  "auth": {
+    "social": {
+      "google": "Ci gaba da Google",
+      "apple": "Ci gaba da Apple",
+      "microsoft": "Ci gaba da Microsoft"
+    }
+  },
+  "education": {
+    "title": "Cibiyar Ilimi",
+    "description": "Makamashin ku don ilimin kasuwancin noma da basira.",
+    "readMore": "Kara karantawa",
+    "backToHub": "Koma Cibiyar Ilimi",
+    "categories": {
+      "technology": "Fasaha",
+      "farming": "Noma",
+      "markets": "Kasuwa",
+      "security": "Tsaro",
+      "logistics": "Kayan Aiki",
+      "investment": "Saka Hannun Jari"
+    },
+    "articles": {
+      "defi": {
+        "title": "Fahimtar Kuɗin da aka Rarraba a Aikin Noma",
+        "description": "Bincika yadda blockchain da DeFi ke canza hanyoyin samar da noma.",
+        "content": ["[Fassarar Hausa na jiran aiki]"]
+      },
+      "sustainable": {
+        "title": "Mafi Kyawun Ayyuka don Noma Mai Dorewa",
+        "description": "Koyi game da dabarun zamani da ke inganta amfanin gona yayin kare muhalli.",
+        "content": ["[Fassarar Hausa na jiran aiki]"]
+      },
+      "markets": {
+        "title": "Kewaya Kasuwannin Abinci na Duniya",
+        "description": "Binciken yanayin kasuwa na yanzu, sauye-sauyen farashi, da yadda ake yanke shawara.",
+        "content": ["[Fassarar Hausa na jiran aiki]"]
+      },
+      "kyc": {
+        "title": "Matsayin KYC wajen Gina Amincewa",
+        "description": "Dalilin da ya sa tabbatar da ainihi yana da mahimmanci don ƙirƙirar kasuwar noma mai aminci.",
+        "content": ["[Fassarar Hausa na jiran aiki]"]
+      },
+      "logistics": {
+        "title": "Inganta Kayan Aiki da Sarkar Samarwa",
+        "description": "Tukwici da dabaru ga masu rarrabawa don daidaita ayyukansu da rage farashi.",
+        "content": ["[Fassarar Hausa na jiran aiki]"]
+      },
+      "tokenization": {
+        "title": "Gabatarwa ga Tokenization na Noma",
+        "description": "Jagora ga masu farawa kan yadda za a iya wakiltar kadarorin noma a matsayin alamun dijital.",
+        "content": ["[Fassarar Hausa na jiran aiki]"]
+      }
+    },
+    "aiChat": {
+      "title": "Mataimakin DAN AI",
+      "greeting": "Sannu! Ni ne babban mataimakin AI na DAN, wanda ke aiki da haɗin gwiwa da aka kwaikwaya zuwa babban tsarin harshe. Tambaye ni hadaddun tambayoyi game da nazarin kasuwa, ayyukan noma mai dorewa, inganta kayan aiki, ko DeFi a aikin noma.",
+      "placeholder": "Tambaya game da yanayin kasuwa...",
+      "send": "Aika"
+    },
+    "voiceReader": {
+      "toggleLabel": "Kunna Mai Karanta Murya",
+      "readAloudTooltip": "Karanta da Murya"
+    }
+  },
+  "danAI": {
+    "title": "DAN. AI",
+    "description": "Mataimakin ku na AI don bayanan kasuwa na ainihi da basira.",
+    "marketData": {
+      "title": "Bayanin Kasuwa na Ainihi",
+      "crop": "Amfanin gona",
+      "price": "Farashi (USD)",
+      "change": "Canjin 24h",
+      "lastUpdated": "An sabunta a: {{time}}"
+    },
+    "voiceReader": {
+      "toggleTooltip": "Canza Mai Karanta Murya"
+    }
+  },
+  "cropHealthAI": {
+    "title": "Lafiyar Amfanin Gona AI",
+    "description": "Yi amfani da AI don gano cututtukan amfanin gona da wuri daga hotunan tauraron dan adam.",
+    "analysisTitle": "Fara Bincike",
+    "analysisDesc": "Zaɓi nau'in amfanin gona, sannan yi amfani da wurinka don binciken hoton tauraron dan adam.",
+    "selectCrop": {
+      "label": "Zaɓi Nau'in Amfanin Gona",
+      "placeholder": "Zaɓi amfanin gona don bincike"
+    },
+    "detectLocationButton": "Gano Wuri & Bincika",
+    "detectingLocation": "Ana gano wurinka...",
+    "locationDetected": "An samo wuri: {{lat}}, {{lon}}",
+    "locationError": "An kasa samun wuri: {{message}}",
+    "permissionDenied": "An hana izinin wuri. Da fatan za a kunna shi a cikin saitunan burauzarka.",
+    "analyzing": "Ana Bincike...",
+    "mayTakeMoment": "Wannan na iya ɗaukar ɗan lokaci...",
+    "resultsTitle": "Sakamakon Bincike",
+    "resultsPlaceholder": "Sakamakon bincikenka zai bayyana anan.",
+    "disease": "Bincike",
+    "confidence": "Kwarin Gwiwa",
+    "recommendation": "Shawara",
+    "results": {
+      "healthy": {
+        "disease": "Babu (Lafiyayye)",
+        "recommendation": "Amfanin gona yana da lafiya. Ci gaba da sa ido na yau da kullun da jadawalin ban ruwa. Babu buƙatar wani mataki na gaggawa."
+      },
+      "stress": {
+        "disease": "An Gano Damuwar Ruwa",
+        "recommendation": "An gano matsakaiciyar damuwar ruwa a yankin arewa maso yamma. Ana ba da shawarar ƙara yawan ban ruwa da 15% da kuma sa ido."
+      },
+      "fungus": {
+        "disease": "Mai Yiwuwa Kamuwa da Cutar Fungal",
+        "recommendation": "Alamun da suka dace da cutar fungal a matakin farko. Ana ba da shawarar binciken samfurin ƙasa da kuma yin la'akari da amfani da maganin fungicides."
+      },
+      "corn_blight": {
+        "disease": "Cutar Ganyen Masara ta Arewa",
+        "recommendation": "Raunuka suna nuna NCLB. Yi la'akari da amfani da maganin fungicides na ganye idan cutar ta yadu kuma amfanin gona bai yi toho ba."
+      },
+      "avocado_rot": {
+        "disease": "Rubewar Saiwar Avocado",
+        "recommendation": "Alamun suna nuna Phytophthora cinnamomi. Inganta magudanar ruwa na ƙasa nan da nan kuma yi la'akari da amfani da maganin fungicide na tushen phosphite."
+      },
+      "ginger_wilt": {
+        "disease": "Yajewar Kwayan Citta",
+        "recommendation": "Babban yiwuwar Ralstonia solanacearum. Cire da lalata tsire-tsire masu cuta. Aiwatar da juyin amfanin gona kuma a guji shuka a wannan gonar na akalla shekaru 3."
+      }
+    }
+  },
+  "createListing": {
+    "error": {
+      "openOrderExists": "Kuna da oda a bude don wannan samfurin. Da fatan za a warware ta kafin ƙirƙirar sabon lissafi."
+    }
+  },
+  "crops": {
+    "corn": "Masara",
+    "avocados": "Avocado",
+    "ginger": "Citta"
+  },
+  "currency": {
+    "switcherTooltip": "Canja Kudi",
+    "names": {
+      "usd": "Dalar Amurka",
+      "ngn": "Naira Najeriya",
+      "eur": "Yuro",
+      "usdt": "Tether",
+      "dan": "DAN Token",
+      "sda": "SDA Coin",
+      "cny": "Yuan na kasar Sin"
+    }
+  },
+  "payment": {
+    "title": "Kammala Biyan Kuɗinka",
+    "description": "Kammala ma'amalarka cikin aminci don Oda #{{orderId}}.",
+    "summary": {
+      "title": "Takaitaccen Oda",
+      "quantity": "{{quantity}} {{unit}}",
+      "subtotal": "Jimillar ƙasa",
+      "fees": "Kudin Ma'amala",
+      "total": "Jimillar Biyan Kuɗi"
+    },
+    "form": {
+      "title": "Biyan Kuɗi da Kati",
+      "description": "Ta hanyar Paystack",
+      "cardNumber": "Lambar Kati",
+      "expiry": "Ranar Karewa",
+      "cvc": "CVC",
+      "submit": "Biya {{amount}}",
+      "processing": "Ana Gudanarwa..."
+    },
+    "error": {
+      "title": "Kuskuren Biyan Kuɗi",
+      "missingOrderId": "ID na Oda ya ��ace.",
+      "fetch": "An kasa loda bayanan oda. Da fatan za a sake gwadawa.",
+      "generic": "An sami kuskuren da ba a sani ba."
+    },
+    "toast": {
+      "success": "An yi nasarar biyan kuɗi! Ana tura ka zuwa odarka..."
+    }
+  },
+  "ordersPage": {
+    "title": "Ododi Na",
+    "description": "Duba da sarrafa duk ma'amaloli na baya da na yanzu.",
+    "noOrders": "Ba ku taɓa yin ko karɓar wata oda ba tukuna.",
+    "table": {
+      "orderId": "ID na Oda",
+      "product": "Samfur",
+      "role": "Matsayinka",
+      "status": "Matsayi",
+      "total": "Jimilla",
+      "action": "Aiki",
+      "view": "Duba"
+    },
+    "roles": {
+      "buyer": "Mai Siya",
+      "seller": "Mai Siyarwa"
+    }
+  },
+  "footer": {
+    "social": {
+      "twitter": "Twitter",
+      "telegram": "Telegram"
+    }
+  }
+}

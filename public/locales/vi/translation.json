@@ -3,8 +3,8 @@
   "exploreMarket": "Khám phá Th�� trư��ng",
   "heroTitle": "Tương lai của Kinh doanh Nông nghiệp là Phi t���p trung",
   "heroSubtitle": "DAN kết nối nông dân, nhà phân phối và nhà ��ầu tư tr����n một n��n tảng an toàn, minh bạch. Giao dịch, theo dõi và th��c hiện giao dịch một cách tự tin.",
-  "featuresTitle": "Một Kỷ nguyên Mới của Thương mại Nông nghiệp",
-  "featuresSubtitle": "Nền tảng của chúng tôi được xây dựng trên công nghệ tiên tiến để đảm bảo sự công bằng, minh bạch và hiệu quả.",
+  "featuresTitle": "Một Kỷ nguy��n Mới của Thương mại Nông nghiệp",
+  "featuresSubtitle": "Nền tảng của chúng tôi đư��c xây dựng trên công nghệ tiên tiến để đảm bảo sự công bằng, minh bạch và hiệu quả.",
   "featureDirectSourcingTitle": "Ngu��n cung ��ng trực tiếp",
   "featureDirectSourcingDesc": "Kết nối trực tiếp với nông dân để có được những vụ mùa tư��i ngon nhất mà không cần qua trung gian.",
   "featureSecureEscrowTitle": "Ký qu��� an toàn",
@@ -131,7 +131,7 @@
       "form": {
         "name": "Họ và tên",
         "email": "Email",
-        "location": "Vị trí",
+        "location": "Vị tr��",
         "save": "Lưu thay đổi",
         "saving": "Đang lưu...",
         "theme": {
@@ -290,7 +290,7 @@
       "eur": "Euro",
       "usdt": "Tether",
       "dan": "DAN Token",
-      "sda": "SDA Token",
+      "sda": "SDA Coin",
       "cny": "Nhân dân tệ Trung Quốc"
     }
   }

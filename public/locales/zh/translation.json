@@ -1,12 +1,12 @@
 {
   "getStarted": "���始���用",
   "exploreMarket": "探��市场",
-  "heroTitle": "��业综合���业的未来是去中心化的",
-  "heroSubtitle": "DAN 在一个安���、�����的平台上连接农民、分销商和投资者。充满信心地进行贸易、追踪和交易。",
+  "heroTitle": "��业综合���业���未来是去中心化的",
+  "heroSubtitle": "DAN 在一个安���、�������平台上连接农民、分销商和投资者。充满信心地进行贸易、追踪和交易。",
   "featuresTitle": "农产品贸易的新��元",
   "featuresSubtitle": "���们的平台建立在尖端技术��上，��确保公平、透明和高效。",
   "featureDirectSourcingTitle": "直接��购",
-  "featureDirectSourcingDesc": "直接���农民联���，无���中间商即可采购最新鲜的农作物。",
+  "featureDirectSourcingDesc": "直接������民联���，无���中间商即可采购最新鲜的农作物。",
   "featureSecureEscrowTitle": "安全托��",
   "featureSecureEscrowDesc": "付款被安全地保��在托管账户中，并在确���交货后自动释放。",
   "featureTransparentLogisticsTitle": "透明物流",
@@ -14,17 +14,17 @@
   "featureMarketInsightsTitle": "市场洞察",
   "featureMarketInsightsDesc": "获取实时数据和分析，以做出更明智的采购和投资决策。",
   "testimonialsTitle": "深受��区信��",
-  "testimonial1Quote": "DAN 彻底改变了我销���农产品的方式。我获得了���好的价格和更快的付款。",
-  "testimonial1Author": "阿���娜·���素福",
+  "testimonial1Quote": "DAN 彻底改��了我销���农产品的方式。我获得了���好的价格和更快的付款。",
+  "testimonial1Author": "阿������·���素福",
   "testimonial1Role": "农民，�������亚",
-  "testimonial2Quote": "平台的透明度和安全性改变了我们���销网络的游戏规则。",
+  "testimonial2Quote": "平台的���明度和安全性改变了我们���销网络的游戏规则。",
   "testimonial2Author": "卡洛斯·戈麦斯",
   "testimonial2Role": "���销商，越南",
-  "testimonial3Quote": "作为一名投资者，���������可以充满信心和清晰地参与农业市场。",
+  "testimonial3Quote": "作���一名投资者，���������可以充满信心和清晰地参与农��市场。",
   "testimonial3Author": "法蒂玛·赛义��",
   "testimonial3Role": "投资者，阿联酋",
   "ctaTitle": "��备好加入���场��命了吗？",
-  "ctaSubtitle": "立即创建账户，体验农业综合企业的未来。",
+  "ctaSubtitle": "立���创建账户，体验农业综合企业的未来。",
   "ctaButton": "立即���册",
   "navbar": {
     "links": {
@@ -44,7 +44,7 @@
   },
   "dashboard": {
     "title": "仪表盘",
-    "welcome": "欢迎回来，{{name}}��这是您的账户摘要。",
+    "welcome": "欢迎���来，{{name}}��这是您的账户摘要。",
     "cards": {
       "revenue": {
         "title": "总收入",
@@ -78,7 +78,7 @@
   },
   "marketplace": {
     "title": "市场",
-    "description": "浏览和交易来自全����过验证的农民的粮食作物。",
+    "description": "浏览和交易来自全����过���证的农民的粮食作物。",
     "filters": {
       "searchPlaceholder": "��索作物...",
       "categoryPlaceholder": "类别",
@@ -111,7 +111,7 @@
     "details": {
       "quantity": "可用数量",
       "grade": "��级",
-      "harvestDate": "收获日��"
+      "harvestDate": "收获�����"
     },
     "quantityInput": {
       "label": "数量 ({{unit}})"
@@ -160,7 +160,7 @@
       "dispute": "����订单",
       "resolveRelease": "解决�����放资金",
       "resolveRefund": "解决并退款给买家",
-      "cancelOrder": "取消订单���������）"
+      "cancelOrder": "取消订单�����������）"
     },
     "error": {
       "fetch": "获取订单详情失败"
@@ -172,7 +172,7 @@
     },
     "toast": {
       "statusUpdated": "订单状态已������为 {{status}}",
-      "statusUpdateFailed": "更新订单状态失败。",
+      "statusUpdateFailed": "更新订单状态���败。",
       "disputeSubmitted": "争议提交���功。",
       "disputeFailed": "提交争议失败。",
       "disputeResolved": "争议解决成功。",
@@ -182,9 +182,9 @@
       "title": "发起争议",
       "description": "请描述您的���单问��。管理员将审核您的申诉。",
       "reasonLabel": "���因",
-      "reasonPlaceholder": "���如：商���与描述不符���未收到货...",
+      "reasonPlaceholder": "���如：商���与描述不符���未收���货...",
       "evidenceLabel": "上传证据",
-      "fileErrorType": "文件必��是图片。",
+      "fileErrorType": "文件必����图片。",
       "fileErrorSize": "文件必须小于 {{size}}KB。",
       "cancel": "取消",
       "submit": "提交争议"
@@ -214,7 +214,7 @@
     },
     "profile": {
       "title": "个人信息",
-      "description": "在此更新您的个人详细信息。",
+      "description": "在此更新您的个人详��信息。",
       "form": {
         "name": "全名",
         "email": "电子��件",
@@ -223,7 +223,7 @@
         "saving": "保存中...",
         "theme": {
           "label": "主题",
-          "light": "浅色",
+          "light": "浅��",
           "dark": "��色",
           "system": "系统"
         }
@@ -236,7 +236,7 @@
       "description": "验证您的身份以�����全部平台功能。",
       "verified": {
         "title": "���的账户已通过验证！",
-        "description": "您�������有平台功能的完全访���权限。"
+        "description": "您�������有平台功能的完全访���权��。"
       },
       "form": {
         "docType": "文件类���",
@@ -245,7 +245,7 @@
         "submit": "提交验证"
       },
       "toast": {
-        "submitted": "KYC 文件���提交审核。��此为�����）"
+        "submitted": "KYC 文件���提交审核。��此为��������"
       }
     },
     "payment": {
@@ -294,7 +294,7 @@
       },
       "actions": {
         "promote": "提升为管理员",
-        "demote": "��管理员��级"
+        "demote": "��管理员����级"
       },
       "toast": {
         "roleSuccess": "用户角色更新成功。",
@@ -330,7 +330,7 @@
       "signup": "注册"
     },
     "login": {
-      "title": "登录",
+      "title": "登��",
       "description": "输入您的凭据以访问���的账户。",
       "submit": "登录"
     },
@@ -363,7 +363,7 @@
     "description": "您的农业综合企业���识和见解资源。",
     "readMore": "阅读更多",
     "categories": {
-      "technology": "技��",
+      "technology": "����",
       "farming": "农业",
       "markets": "市场",
       "security": "��全",
@@ -372,8 +372,8 @@
     },
     "articles": {
       "defi": {
-        "title": "��解农业中的去中心化金���",
-        "description": "探索区块链和DeFi���何改变农业供应链，为农民和投资者提供新机��。"
+        "title": "��解农业中的去中心��金���",
+        "description": "探索区块链和DeFi���何改变农业供���链，为农民和投资者提供新机��。"
       },
       "sustainable": {
         "title": "可持续农业的最佳实���",
@@ -381,7 +381,7 @@
       },
       "markets": {
         "title": "驾驭全���粮����物市场",
-        "description": "��析当前市场趋势���价格波动以及如何在平台上做出明智的交易决策。"
+        "description": "��析当前市场趋势���价格波动以及如何在���台上做出明智的交易决策。"
       },
       "kyc": {
         "title": "KYC在建立信���中的作��",
@@ -393,14 +393,14 @@
       },
       "tokenization": {
         "title": "农业��币化简��",
-        "description": "关于如何将农业资产���示为数��代币，从��释放流动性和投资的初���者指���。"
+        "description": "关于如何将农业资产���示为数��代币，从��释放流动性和投资的������者指���。"
       }
     },
     "aiChat": {
       "title": "DAN AI 助手",
-      "greeting": "您���������是去中心化农业综合企业网��AI。您可以��我任何关于���场价格、物流或我们平台功能的问题。",
+      "greeting": "������������是去中心化农业综合企业网��AI。您可以�����任何关于���场价格、物流或我们平台功能的问题。",
       "placeholder": "询问市场趋势...",
-      "send": "发���"
+      "send": "�����"
     }
   },
   "danAI": {
@@ -416,7 +416,7 @@
   },
   "createListing": {
     "title": "创建新列表",
-    "description": "填写以下详细信息，将您的产品��加到市场。",
+    "description": "填写以下详细信息，将您的产品����到市场。",
     "form": {
       "productName": {
         "label": "产品名称",
@@ -479,7 +479,7 @@
       "eur": "��元",
       "usdt": "泰达币",
       "dan": "DAN 代币",
-      "sda": "SDA 代币",
+      "sda": "SDA 硬币",
       "cny": "人民币"
     }
   }

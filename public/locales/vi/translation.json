@@ -1,8 +1,8 @@
 {
   "getStarted": "Bắt đầu",
   "exploreMarket": "Khám phá Thị trư���ng",
-  "heroTitle": "Tương lai của Kinh doanh Nông nghiệp là Phi tập trung",
-  "heroSubtitle": "AgriLink kết nối nông dân, nhà phân phối và nhà đầu tư tr��n một nền tảng an toàn, minh bạch. Giao dịch, theo dõi và thực hiện giao dịch một cách t�� tin.",
+  "heroTitle": "Tư��ng lai của Kinh doanh Nông nghiệp là Phi tập trung",
+  "heroSubtitle": "AgriLink kết n��i nông dân, nhà phân phối và nhà đầu tư tr��n một nền tảng an toàn, minh bạch. Giao dịch, theo dõi và thực hiện giao dịch một cách t�� tin.",
   "featuresTitle": "Một Kỷ nguyên Mới của Thương mại Nông nghiệp",
   "featuresSubtitle": "Nền tảng của chúng tôi được xây dựng trên công nghệ tiên tiến để đảm bảo sự công bằng, minh bạch và hiệu quả.",
   "featureDirectSourcingTitle": "Nguồn cung ứng trực tiếp",
@@ -59,7 +59,7 @@
       },
       "marketActivity": {
         "title": "Hoạt động thị trường",
-        "subtitle": "+2 kể từ giờ trước"
+        "subtitle": "+2 kể từ gi�� trước"
       }
     },
     "overview": {
@@ -94,7 +94,7 @@
       "title": "Mở một tranh chấp",
       "description": "Vui lòng mô tả vấn đề với đơn hàng của bạn. Quản trị viên sẽ xem xét yêu cầu của bạn.",
       "reasonLabel": "Lý do",
-      "reasonPlaceholder": "Ví dụ: Hàng không như mô tả, chưa được giao...",
+      "reasonPlaceholder": "Ví dụ: Hàng không nh�� mô tả, chưa được giao...",
       "cancel": "Hủy",
       "submit": "Gửi tranh chấp"
     }
@@ -108,7 +108,7 @@
     },
     "profile": {
       "title": "Thông tin hồ sơ",
-      "description": "Cập nhật thông tin cá nhân của bạn tại đây.",
+      "description": "Cập nhật thông tin cá nh��n của bạn tại đây.",
       "form": {
         "name": "Họ và tên",
         "email": "Email",
@@ -144,11 +144,19 @@
       "title": "Quản lý người dùng",
       "description": "Xem và quản lý tất cả người dùng đã đăng ký trên nền tảng.",
       "table": {
-        "id": "ID Người dùng",
         "name": "Tên",
         "role": "Vai trò",
         "kyc": "Trạng thái KYC",
-        "location": "Vị trí"
+        "location": "Vị trí",
+        "actions": "Hành động"
+      },
+      "actions": {
+        "promote": "Thăng cấp Admin",
+        "demote": "Giáng cấp khỏi Admin"
+      },
+      "toast": {
+        "roleSuccess": "Cập nhật vai trò người dùng thành công.",
+        "roleError": "Không thể cập nhật vai trò người dùng."
       },
       "error": "Không thể tải người dùng."
     },
@@ -163,6 +171,14 @@
         "status": "Trạng thái"
       },
       "error": "Không thể tải đơn hàng."
+    }
+  },
+  "education": {
+    "aiChat": {
+      "title": "Trợ lý DAN AI",
+      "greeting": "Xin chào! Tôi là AI của Mạng lưới Kinh doanh Nông nghiệp Phi tập trung. H��y hỏi tôi bất cứ điều gì về giá cả thị trường, hậu cần, hoặc các tính năng của nền tảng.",
+      "placeholder": "Hỏi về xu hướng thị trường...",
+      "send": "Gửi"
     }
   }
 }

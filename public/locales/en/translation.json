@@ -252,7 +252,16 @@
         "name": "Name",
         "role": "Role",
         "kyc": "KYC Status",
-        "location": "Location"
+        "location": "Location",
+        "actions": "Actions"
+      },
+      "actions": {
+        "promote": "Promote to Admin",
+        "demote": "Demote from Admin"
+      },
+      "toast": {
+        "roleSuccess": "User role updated successfully.",
+        "roleError": "Failed to update user role."
       },
       "error": "Failed to fetch users."
     },
@@ -337,6 +346,12 @@
         "title": "Introduction to Agri-Tokenization",
         "description": "A beginner's guide to how agricultural assets can be represented as digital tokens, unlocking liquidity and investment."
       }
+    },
+    "aiChat": {
+      "title": "DAN AI Assistant",
+      "greeting": "Hello! I'm the Decentralized Agribusiness Network AI. Ask me anything about market prices, logistics, or our platform features.",
+      "placeholder": "Ask about market trends...",
+      "send": "Send"
     }
   },
   "createListing": {

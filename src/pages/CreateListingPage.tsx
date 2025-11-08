@@ -151,7 +151,7 @@ export function CreateListingPage() {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>{t('createListing.form.price.label')}</FormLabel>
-                        <FormControl><Input type="number" step="0.01" placeholder="0.00" {...field} /></FormControl>
+                        <FormControl><Input type="number" step="0.01" placeholder="0.00" {...field} value={field.value as number} /></FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
@@ -173,7 +173,7 @@ export function CreateListingPage() {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>{t('createListing.form.quantity.label')}</FormLabel>
-                        <FormControl><Input type="number" placeholder="1000" {...field} /></FormControl>
+                        <FormControl><Input type="number" placeholder="1000" {...field} value={field.value as number} /></FormControl>
                         <FormMessage />
                       </FormItem>
                     )}

@@ -144,13 +144,13 @@ export function OrderTrackingPage() {
     if (isDisputed) return <p className="text-destructive font-semibold flex items-center justify-center gap-2"><ShieldAlert size={16} /> {t('orderTracking.underReview')}</p>;
     // Participant Actions
     switch (user.role) {
-      case 'Seller':
-        if (order.status === 'LogisticsPickedUp') {
+      case 'Farmer':
+        if (order.status === 'LogisticsPickedUp' && user.id === seller.id) {
           return <Button onClick={() => handleUpdateStatus('Shipped')} disabled={isUpdating}>{isUpdating ? t('orderTracking.actions.updating') : t('orderTracking.actions.markShipped')}</Button>;
         }
         break;
-      case 'Buyer':
-        if (order.status === 'Shipped') {
+      case 'Distributor':
+        if (order.status === 'Shipped' && user.id === buyer.id) {
           return <Button onClick={() => handleUpdateStatus('Delivered')} disabled={isUpdating}>{isUpdating ? t('orderTracking.actions.updating') : t('orderTracking.actions.confirmDelivery')}</Button>;
         }
         break;

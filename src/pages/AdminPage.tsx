@@ -3,8 +3,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import { api } from '@/lib/api-client';
-import { User, Order } from '@shared/types';
+import { User, Order, UserRole } from '@shared/types';
 import { Skeleton } from '@/components/ui/skeleton';
 import { toast } from 'sonner';
 import { useTranslation } from 'react-i18next';
@@ -14,20 +15,21 @@ export function AdminPage() {
   const [orders, setOrders] = useState<Order[]>([]);
   const [isLoadingUsers, setIsLoadingUsers] = useState(true);
   const [isLoadingOrders, setIsLoadingOrders] = useState(true);
+  const [isUpdatingRole, setIsUpdatingRole] = useState<string | null>(null);
   const usersById = useMemo(() => new Map(users.map(u => [u.id, u])), [users]);
+  const fetchUsers = async () => {
+    try {
+      setIsLoadingUsers(true);
+      const fetchedUsers = await api<User[]>('/api/users');
+      setUsers(fetchedUsers);
+    } catch (error) {
+      toast.error(t('admin.users.error'));
+      console.error(error);
+    } finally {
+      setIsLoadingUsers(false);
+    }
+  };
   useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        setIsLoadingUsers(true);
-        const fetchedUsers = await api<User[]>('/api/users');
-        setUsers(fetchedUsers);
-      } catch (error) {
-        toast.error(t('admin.users.error'));
-        console.error(error);
-      } finally {
-        setIsLoadingUsers(false);
-      }
-    };
     const fetchOrders = async () => {
       try {
         setIsLoadingOrders(true);
@@ -43,6 +45,23 @@ export function AdminPage() {
     fetchUsers();
     fetchOrders();
   }, [t]);
+  const handleRoleChange = async (userId: string, newRole: UserRole) => {
+    setIsUpdatingRole(userId);
+    try {
+      await api<User>(`/api/users/${userId}/role`, {
+        method: 'POST',
+        body: JSON.stringify({ role: newRole }),
+      });
+      toast.success(t('admin.users.toast.roleSuccess'));
+      // Refetch users to get the latest state
+      await fetchUsers();
+    } catch (error) {
+      toast.error(t('admin.users.toast.roleError'));
+      console.error(error);
+    } finally {
+      setIsUpdatingRole(null);
+    }
+  };
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="py-12 md:py-16">
@@ -72,21 +91,41 @@ export function AdminPage() {
                   <Table>
                     <TableHeader>
                       <TableRow>
-                        <TableHead>{t('admin.users.table.id')}</TableHead>
                         <TableHead>{t('admin.users.table.name')}</TableHead>
                         <TableHead>{t('admin.users.table.role')}</TableHead>
                         <TableHead>{t('admin.users.table.kyc')}</TableHead>
                         <TableHead>{t('admin.users.table.location')}</TableHead>
+                        <TableHead className="text-right">{t('admin.users.table.actions')}</TableHead>
                       </TableRow>
                     </TableHeader>
                     <TableBody>
                       {users.map((user) => (
                         <TableRow key={user.id}>
-                          <TableCell className="font-mono text-xs">{user.id}</TableCell>
                           <TableCell className="font-medium">{user.name}</TableCell>
                           <TableCell><Badge variant={user.role === 'Admin' ? 'destructive' : 'secondary'}>{user.role}</Badge></TableCell>
                           <TableCell><Badge variant={user.kycStatus === 'Verified' ? 'default' : 'secondary'}>{user.kycStatus}</Badge></TableCell>
                           <TableCell>{user.location}</TableCell>
+                          <TableCell className="text-right">
+                            {user.role === 'Admin' ? (
+                              <Button
+                                variant="outline"
+                                size="sm"
+                                onClick={() => handleRoleChange(user.id, 'Farmer')}
+                                disabled={isUpdatingRole === user.id}
+                              >
+                                {t('admin.users.actions.demote')}
+                              </Button>
+                            ) : (
+                              <Button
+                                variant="secondary"
+                                size="sm"
+                                onClick={() => handleRoleChange(user.id, 'Admin')}
+                                disabled={isUpdatingRole === user.id}
+                              >
+                                {t('admin.users.actions.promote')}
+                              </Button>
+                            )}
+                          </TableCell>
                         </TableRow>
                       ))}
                     </TableBody>

@@ -8,7 +8,7 @@
   "featureDirectSourcingTitle": "Samun Kai tsaye",
   "featureDirectSourcingDesc": "Haɗa kai tsaye da manoma don samun amfanin gona mafi sabo ba tare da masu shiga tsakani ba.",
   "featureSecureEscrowTitle": "Escrow Mai Aminci",
-  "featureSecureEscrowDesc": "Ana riƙe biyan ku��i a cikin escrow kuma ana sakewa ta atomatik bayan an tabbatar da isarwa.",
+  "featureSecureEscrowDesc": "Ana riƙe biyan kuɗi a cikin escrow kuma ana sakewa ta atomatik bayan an tabbatar da isarwa.",
   "featureTransparentLogisticsTitle": "Kayan Aiki na Gaskiya",
   "featureTransparentLogisticsDesc": "Bibiyi odar ku a ainihin lokacin daga gona zuwa sito ɗinku tare da ingantaccen tsarin bibiyar mu.",
   "featureMarketInsightsTitle": "Fahimtar Kasuwa",
@@ -144,11 +144,19 @@
       "title": "Gudanar da Mai amfani",
       "description": "Duba da sarrafa duk masu amfani da aka yiwa rajista a kan dandamali.",
       "table": {
-        "id": "ID na Mai amfani",
         "name": "Suna",
         "role": "Matsayi",
         "kyc": "Matsayin KYC",
-        "location": "Wuri"
+        "location": "Wuri",
+        "actions": "Ayyuka"
+      },
+      "actions": {
+        "promote": "Ɗaukaka zuwa Admin",
+        "demote": "Sauke daga Admin"
+      },
+      "toast": {
+        "roleSuccess": "An sabunta matsayin mai amfani.",
+        "roleError": "An kasa sabunta matsayin mai amfani."
       },
       "error": "An kasa samo masu amfani."
     },
@@ -163,6 +171,14 @@
         "status": "Matsayi"
       },
       "error": "An kasa samo oda."
+    }
+  },
+  "education": {
+    "aiChat": {
+      "title": "Mataimakin DAN AI",
+      "greeting": "Sannu! Ni ne AI na Decentralized Agribusiness Network. Tambaye ni komai game da farashin kasuwa, kayan aiki, ko fasalulluka na dandalinmu.",
+      "placeholder": "Tambaya game da yanayin kasuwa...",
+      "send": "Aika"
     }
   }
 }

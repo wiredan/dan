@@ -300,7 +300,10 @@
       "namePlaceholder": "John Doe"
     },
     "social": {
-      "divider": "Or continue with"
+      "divider": "Or continue with",
+      "google": "Continue with Google",
+      "apple": "Continue with Apple",
+      "microsoft": "Continue with Microsoft"
     },
     "toast": {
       "fillFields": "Please fill in all fields.",

@@ -5,16 +5,16 @@
   "heroSubtitle": "AgriLink kết nối nông dân, nhà phân phối và nhà đầu tư tr��n một nền tảng an toàn, minh bạch. Giao dịch, theo dõi và thực hiện giao dịch một cách tự tin.",
   "featuresTitle": "Một Kỷ nguyên Mới của Thương mại Nông nghiệp",
   "featuresSubtitle": "Nền tảng của chúng tôi được xây dựng trên công nghệ tiên tiến để đảm bảo sự công bằng, minh bạch và hiệu quả.",
-  "featureDirectSourcingTitle": "Nguồn cung ứng trực tiếp",
+  "featureDirectSourcingTitle": "Nguồn cung ��ng trực tiếp",
   "featureDirectSourcingDesc": "Kết nối trực tiếp với nông dân để có được những vụ mùa tươi ngon nhất mà không cần qua trung gian.",
   "featureSecureEscrowTitle": "Ký quỹ an toàn",
   "featureSecureEscrowDesc": "Các khoản thanh toán được giữ an toàn trong ký quỹ và được giải ngân tự động khi xác nhận giao hàng.",
   "featureTransparentLogisticsTitle": "Hậu cần minh bạch",
-  "featureTransparentLogisticsDesc": "Theo dõi đơn hàng của bạn trong thời gian thực từ trang trại đến kho của bạn với hệ thống theo dõi tiên tiến của chúng tôi.",
-  "featureMarketInsightsTitle": "Thông tin chi tiết về thị trường",
+  "featureTransparentLogisticsDesc": "Theo dõi đơn hàng của bạn trong thời gian thực từ trang trại đ��n kho của bạn với hệ thống theo dõi tiên tiến của chúng tôi.",
+  "featureMarketInsightsTitle": "Thông tin chi tiết v�� thị trường",
   "featureMarketInsightsDesc": "Truy cập dữ liệu và phân tích thời gian thực để đưa ra quyết định mua hàng và đầu tư thông minh hơn.",
   "testimonialsTitle": "Được cộng đồng tin cậy",
-  "testimonial1Quote": "AgriLink đã cách mạng hóa cách tôi bán sản phẩm của mình. Tôi nhận được gi�� tốt hơn và thanh toán nhanh hơn.",
+  "testimonial1Quote": "AgriLink đã cách mạng hóa cách tôi bán sản phẩm của m��nh. Tôi nhận được gi�� tốt hơn và thanh toán nhanh hơn.",
   "testimonial1Author": "Amina Yusuf",
   "testimonial1Role": "Nông dân, Nigeria",
   "testimonial2Quote": "Sự minh bạch và an toàn của nền tảng là yếu tố thay đổi cuộc chơi cho mạng lưới phân phối của chúng tôi.",
@@ -30,7 +30,7 @@
     "links": {
       "dashboard": "Bảng điều khiển",
       "marketplace": "Thị trường",
-      "educationHub": "Trung tâm Giáo dục"
+      "educationHub": "Trung tâm Gi��o dục"
     },
     "createListing": "Tạo danh sách",
     "signIn": "Đăng nhập",
@@ -108,7 +108,7 @@
     },
     "profile": {
       "title": "Thông tin hồ sơ",
-      "description": "Cập nhật thông tin cá nhân của bạn tại đây.",
+      "description": "Cập nhật thông tin c�� nhân của bạn tại đây.",
       "form": {
         "name": "Họ và tên",
         "email": "Email",
@@ -116,7 +116,7 @@
         "save": "Lưu thay đổi",
         "saving": "Đang lưu..."
       },
-      "success": "Cập nhật hồ sơ thành công!",
+      "success": "Cập nhật hồ sơ th��nh công!",
       "error": "Cập nhật hồ sơ thất bại."
     },
     "payment": {
@@ -171,6 +171,13 @@
         "status": "Trạng thái"
       },
       "error": "Không thể tải đơn hàng."
+    }
+  },
+  "auth": {
+    "social": {
+      "google": "Tiếp tục với Google",
+      "apple": "Tiếp tục với Apple",
+      "microsoft": "Tiếp tục với Microsoft"
     }
   },
   "education": {

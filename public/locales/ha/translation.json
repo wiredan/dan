@@ -173,6 +173,13 @@
       "error": "An kasa samo oda."
     }
   },
+  "auth": {
+    "social": {
+      "google": "Ci gaba da Google",
+      "apple": "Ci gaba da Apple",
+      "microsoft": "Ci gaba da Microsoft"
+    }
+  },
   "education": {
     "aiChat": {
       "title": "Mataimakin DAN AI",

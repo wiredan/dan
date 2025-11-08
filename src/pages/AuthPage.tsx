@@ -69,10 +69,10 @@ export function AuthPage() {
                 <div className="absolute inset-0 flex items-center"><span className="w-full border-t" /></div>
                 <div className="relative flex justify-center text-xs uppercase"><span className="bg-background px-2 text-muted-foreground">{t('auth.social.divider')}</span></div>
               </div>
-              <div className="grid grid-cols-3 gap-2">
-                <SocialButton provider="Google">G</SocialButton>
-                <SocialButton provider="Apple">A</SocialButton>
-                <SocialButton provider="Microsoft">M</SocialButton>
+              <div className="flex flex-col space-y-2">
+                <SocialButton provider="Google">{t('auth.social.google')}</SocialButton>
+                <SocialButton provider="Apple">{t('auth.social.apple')}</SocialButton>
+                <SocialButton provider="Microsoft">{t('auth.social.microsoft')}</SocialButton>
               </div>
             </CardContent>
           </Card>

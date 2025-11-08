@@ -1,15 +1,96 @@
-import type { User, Chat, ChatMessage } from './types';
-
+import type { User, Listing, Order } from './types';
 export const MOCK_USERS: User[] = [
-  { id: 'u1', name: 'User A' },
-  { id: 'u2', name: 'User B' }
+  { id: 'user-1', name: 'Amina Yusuf', role: 'Farmer', kycStatus: 'Verified', location: 'Kano, Nigeria', avatarUrl: 'https://i.pravatar.cc/150?u=user-1' },
+  { id: 'user-2', name: 'Carlos Gomez', role: 'Distributor', kycStatus: 'Verified', location: 'Ho Chi Minh, Vietnam', avatarUrl: 'https://i.pravatar.cc/150?u=user-2' },
+  { id: 'user-3', name: 'Fatima Al-Sayed', role: 'Investor', kycStatus: 'Verified', location: 'Dubai, UAE', avatarUrl: 'https://i.pravatar.cc/150?u=user-3' },
+  { id: 'user-4', name: 'Bello Dangote', role: 'Farmer', kycStatus: 'Pending', location: 'Lagos, Nigeria', avatarUrl: 'https://i.pravatar.cc/150?u=user-4' },
 ];
-
-export const MOCK_CHATS: Chat[] = [
-  { id: 'c1', title: 'General' },
+export const MOCK_LISTINGS: Listing[] = [
+  {
+    id: 'listing-1',
+    farmerId: 'user-1',
+    name: 'Organic Hass Avocados',
+    description: 'Freshly harvested organic Hass avocados, Grade A. Perfect for guacamole and salads.',
+    category: 'Fruits',
+    price: 2.50,
+    unit: 'kg',
+    quantity: 500,
+    grade: 'A',
+    harvestDate: '2024-07-15T00:00:00.000Z',
+    imageUrl: 'https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?q=80&w=800',
+  },
+  {
+    id: 'listing-2',
+    farmerId: 'user-4',
+    name: 'Nigerian Ginger',
+    description: 'High-quality Nigerian ginger, known for its potent flavor and aroma. Sun-dried and ready for export.',
+    category: 'Spices',
+    price: 15.00,
+    unit: 'kg',
+    quantity: 2000,
+    grade: 'A',
+    harvestDate: '2024-06-20T00:00:00.000Z',
+    imageUrl: 'https://images.unsplash.com/photo-1599940778173-0276d87a73f6?q=80&w=800',
+  },
+  {
+    id: 'listing-3',
+    farmerId: 'user-1',
+    name: 'Sweet Corn',
+    description: 'Juicy and sweet corn on the cob, non-GMO. Harvested at peak ripeness.',
+    category: 'Vegetables',
+    price: 0.50,
+    unit: 'piece',
+    quantity: 10000,
+    grade: 'B',
+    harvestDate: '2024-07-20T00:00:00.000Z',
+    imageUrl: 'https://images.unsplash.com/photo-1551754477-749f74d9c18a?q=80&w=800',
+  },
+  {
+    id: 'listing-4',
+    farmerId: 'user-4',
+    name: 'Cashew Nuts',
+    description: 'Raw, unprocessed cashew nuts. High yield and excellent for processing.',
+    category: 'Nuts',
+    price: 8.00,
+    unit: 'kg',
+    quantity: 1500,
+    grade: 'A',
+    harvestDate: '2024-05-30T00:00:00.000Z',
+    imageUrl: 'https://images.unsplash.com/photo-1609352138789-e41b9480a84f?q=80&w=800',
+  },
 ];
-
-export const MOCK_CHAT_MESSAGES: ChatMessage[] = [
-  { id: 'm1', chatId: 'c1', userId: 'u1', text: 'Hello', ts: Date.now() },
+export const MOCK_ORDERS: Order[] = [
+  {
+    id: 'order-1',
+    listingId: 'listing-1',
+    buyerId: 'user-2',
+    sellerId: 'user-1',
+    quantity: 100,
+    total: 256.25,
+    fees: 6.25,
+    status: 'Delivered',
+    createdAt: '2024-07-16T00:00:00.000Z',
+  },
+  {
+    id: 'order-2',
+    listingId: 'listing-2',
+    buyerId: 'user-3',
+    sellerId: 'user-4',
+    quantity: 500,
+    total: 7687.50,
+    fees: 187.50,
+    status: 'Shipped',
+    createdAt: '2024-07-18T00:00:00.000Z',
+  },
+  {
+    id: 'order-3',
+    listingId: 'listing-3',
+    buyerId: 'user-2',
+    sellerId: 'user-1',
+    quantity: 2000,
+    total: 1025.00,
+    fees: 25.00,
+    status: 'Paid',
+    createdAt: '2024-07-21T00:00:00.000Z',
+  },
 ];
-  

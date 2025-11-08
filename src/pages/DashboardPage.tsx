@@ -1,17 +1,11 @@
-import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Activity, CreditCard, DollarSign, Users, ScanLine, ArrowRight, ShoppingBag, ListOrdered } from "lucide-react";
+import { MOCK_ORDERS, MOCK_USERS } from "@shared/mock-data";
+import { Activity, CreditCard, DollarSign, Users } from "lucide-react";
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis, Tooltip } from "recharts";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { useAuthStore } from "@/lib/authStore";
-import { Link, Navigate } from "react-router-dom";
-import { api } from "@/lib/api-client";
-import { Order } from "@shared/types";
-import { Skeleton } from "@/components/ui/skeleton";
-import { useTranslation } from "react-i18next";
-import { useCurrencyStore } from "@/lib/currencyStore";
-import { Button } from "@/components/ui/button";
+import { Navigate } from "react-router-dom";
 const chartData = [
   { name: "Jan", total: Math.floor(Math.random() * 5000) + 1000 },
   { name: "Feb", total: Math.floor(Math.random() * 5000) + 1000 },
@@ -27,169 +21,103 @@ const chartData = [
   { name: "Dec", total: Math.floor(Math.random() * 5000) + 1000 },
 ];
 export function DashboardPage() {
-  const { t } = useTranslation();
   const isAuthenticated = useAuthStore(s => s.isAuthenticated);
   const user = useAuthStore(s => s.user);
-  const [orders, setOrders] = useState<Order[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const { selectedCurrency } = useCurrencyStore();
-  const formatCurrency = (amount: number) => {
-    return `${selectedCurrency.symbol}${(amount * selectedCurrency.rate).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-  };
-  useEffect(() => {
-    if (!user) return;
-    const fetchOrders = async () => {
-      try {
-        setIsLoading(true);
-        const allOrders = await api<Order[]>('/api/orders');
-        const userOrders = allOrders.filter(o => o.buyerId === user.id || o.sellerId === user.id);
-        setOrders(userOrders);
-      } catch (error) {
-        console.error("Failed to fetch orders:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    fetchOrders();
-  }, [user]);
   if (!isAuthenticated) {
     return <Navigate to="/auth" replace />;
   }
+  const userOrders = MOCK_ORDERS.filter(o => o.buyerId === user?.id || o.sellerId === user?.id);
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="py-8 md:py-10 lg:py-12">
         <div className="space-y-4 mb-8">
-          <h1 className="text-3xl font-bold tracking-tight">{t('dashboard.title')}</h1>
-          <p className="text-muted-foreground">{t('dashboard.welcome', { name: user?.name })}</p>
+          <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
+          <p className="text-muted-foreground">Welcome back, {user?.name}! Here's a summary of your account.</p>
         </div>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">{t('dashboard.cards.revenue.title')}</CardTitle>
+              <CardTitle className="text-sm font-medium">Total Revenue</CardTitle>
               <DollarSign className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{formatCurrency(45231.89)}</div>
-              <p className="text-xs text-muted-foreground">{t('dashboard.cards.revenue.subtitle')}</p>
+              <div className="text-2xl font-bold">$45,231.89</div>
+              <p className="text-xs text-muted-foreground">+20.1% from last month</p>
             </CardContent>
           </Card>
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">{t('dashboard.cards.activeOrders.title')}</CardTitle>
+              <CardTitle className="text-sm font-medium">Active Orders</CardTitle>
               <CreditCard className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              {isLoading ? <Skeleton className="h-7 w-12" /> : <div className="text-2xl font-bold">{orders.filter(o => o.status !== 'Delivered').length}</div>}
-              {isLoading ? <Skeleton className="h-4 w-24 mt-1" /> : <p className="text-xs text-muted-foreground">{t('dashboard.cards.activeOrders.subtitle', { count: orders.length })}</p>}
+              <div className="text-2xl font-bold">{userOrders.filter(o => o.status !== 'Delivered').length}</div>
+              <p className="text-xs text-muted-foreground">{userOrders.length} total orders</p>
             </CardContent>
           </Card>
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">{t('dashboard.cards.connections.title')}</CardTitle>
+              <CardTitle className="text-sm font-medium">Connections</CardTitle>
               <Users className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">+23</div>
-              <p className="text-xs text-muted-foreground">{t('dashboard.cards.connections.subtitle')}</p>
+              <p className="text-xs text-muted-foreground">+180.1% from last month</p>
             </CardContent>
           </Card>
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">{t('dashboard.cards.marketActivity.title')}</CardTitle>
+              <CardTitle className="text-sm font-medium">Market Activity</CardTitle>
               <Activity className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">+573</div>
-              <p className="text-xs text-muted-foreground">{t('dashboard.cards.marketActivity.subtitle')}</p>
+              <p className="text-xs text-muted-foreground">+2 since last hour</p>
             </CardContent>
           </Card>
         </div>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7 mt-8">
           <Card className="col-span-4">
-            <CardHeader><CardTitle>{t('dashboard.overview.title')}</CardTitle></CardHeader>
+            <CardHeader>
+              <CardTitle>Overview</CardTitle>
+            </CardHeader>
             <CardContent className="pl-2">
               <ResponsiveContainer width="100%" height={350}>
                 <BarChart data={chartData}>
-                  <XAxis dataKey="name" stroke="hsl(var(--muted-foreground))" fontSize={12} tickLine={false} axisLine={false} />
-                  <YAxis stroke="hsl(var(--muted-foreground))" fontSize={12} tickLine={false} axisLine={false} tickFormatter={(value) => `${selectedCurrency.symbol}${(Number(value) * selectedCurrency.rate).toLocaleString()}`} />
-                  <Tooltip cursor={{ fill: 'hsl(var(--secondary))' }} contentStyle={{ backgroundColor: 'hsl(var(--background))', border: '1px solid hsl(var(--border))' }} formatter={(value) => formatCurrency(Number(value))} />
+                  <XAxis dataKey="name" stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
+                  <YAxis stroke="#888888" fontSize={12} tickLine={false} axisLine={false} tickFormatter={(value) => `$${value}`} />
+                  <Tooltip cursor={{ fill: 'hsl(var(--secondary))' }} contentStyle={{ backgroundColor: 'hsl(var(--background))', border: '1px solid hsl(var(--border))' }} />
                   <Bar dataKey="total" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </CardContent>
           </Card>
-          <div className="col-span-4 lg:col-span-3 space-y-4">
-            <Card>
-              <CardHeader>
-                <CardTitle>{t('dashboard.recentOrders.title')}</CardTitle>
-                <CardDescription>{t('dashboard.recentOrders.description')}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                {isLoading ? <Skeleton className="h-40 w-full" /> : (
-                  <Table>
-                    <TableHeader>
-                      <TableRow>
-                        <TableHead>{t('dashboard.recentOrders.table.id')}</TableHead>
-                        <TableHead>{t('dashboard.recentOrders.table.status')}</TableHead>
-                        <TableHead className="text-right">{t('dashboard.recentOrders.table.amount')}</TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      {orders.slice(0, 5).map(order => (
-                        <TableRow key={order.id}>
-                          <TableCell className="font-medium">{order.id.substring(0, 8)}</TableCell>
-                          <TableCell><Badge variant={order.status === 'Delivered' ? 'default' : 'secondary'}>{order.status}</Badge></TableCell>
-                          <TableCell className="text-right">{formatCurrency(order.total)}</TableCell>
-                        </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                )}
-              </CardContent>
-            </Card>
-            <Card className="bg-primary/10 border-primary/20 hover:border-primary/50 transition-colors">
-              <CardHeader className="flex flex-row items-center justify-between">
-                <div className="space-y-1">
-                  <CardTitle>{t('dashboard.cards.marketplace.title')}</CardTitle>
-                  <CardDescription>{t('dashboard.cards.marketplace.description')}</CardDescription>
-                </div>
-                <ShoppingBag className="h-8 w-8 text-primary" />
-              </CardHeader>
-              <CardContent>
-                <Button asChild>
-                  <Link to="/marketplace">{t('dashboard.cards.marketplace.button')} <ArrowRight className="ml-2 h-4 w-4" /></Link>
-                </Button>
-              </CardContent>
-            </Card>
-            <Card className="bg-primary/10 border-primary/20 hover:border-primary/50 transition-colors">
-              <CardHeader className="flex flex-row items-center justify-between">
-                <div className="space-y-1">
-                  <CardTitle>{t('dashboard.cards.myOrders.title')}</CardTitle>
-                  <CardDescription>{t('dashboard.cards.myOrders.description')}</CardDescription>
-                </div>
-                <ListOrdered className="h-8 w-8 text-primary" />
-              </CardHeader>
-              <CardContent>
-                <Button asChild>
-                  <Link to="/orders">{t('dashboard.cards.myOrders.button')} <ArrowRight className="ml-2 h-4 w-4" /></Link>
-                </Button>
-              </CardContent>
-            </Card>
-            <Card className="bg-primary/10 border-primary/20 hover:border-primary/50 transition-colors">
-              <CardHeader className="flex flex-row items-center justify-between">
-                <div className="space-y-1">
-                  <CardTitle>{t('dashboard.cards.cropHealth.title')}</CardTitle>
-                  <CardDescription>{t('dashboard.cards.cropHealth.description')}</CardDescription>
-                </div>
-                <ScanLine className="h-8 w-8 text-primary" />
-              </CardHeader>
-              <CardContent>
-                <Button asChild>
-                  <Link to="/crop-health-ai">{t('dashboard.cards.cropHealth.button')} <ArrowRight className="ml-2 h-4 w-4" /></Link>
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
+          <Card className="col-span-4 lg:col-span-3">
+            <CardHeader>
+              <CardTitle>Recent Orders</CardTitle>
+              <CardDescription>Your most recent transactions.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Order ID</TableHead>
+                    <TableHead>Status</TableHead>
+                    <TableHead className="text-right">Amount</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {userOrders.slice(0, 5).map(order => (
+                    <TableRow key={order.id}>
+                      <TableCell className="font-medium">{order.id.substring(0, 8)}</TableCell>
+                      <TableCell><Badge variant={order.status === 'Delivered' ? 'default' : 'secondary'}>{order.status}</Badge></TableCell>
+                      <TableCell className="text-right">${order.total.toFixed(2)}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </div>

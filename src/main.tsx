@@ -20,7 +20,7 @@ import { EducationHubPage } from '@/pages/EducationHubPage';
 import { CreateListingPage } from '@/pages/CreateListingPage';
 import { AdminPage } from '@/pages/AdminPage';
 import { ProtectedAdminRoute } from '@/components/ProtectedAdminRoute';
-import { Skeleton } from './components/ui/skeleton';
+import { FullPageLoader } from './components/FullPageLoader';
 const router = createBrowserRouter([
   {
     element: <AppRoot />,
@@ -35,22 +35,17 @@ const router = createBrowserRouter([
       { path: "/profile", element: <ProfilePage /> },
       { path: "/education", element: <EducationHubPage /> },
       { path: "/create-listing", element: <CreateListingPage /> },
-      { 
-        path: "/admin", 
+      {
+        path: "/admin",
         element: (
           <ProtectedAdminRoute>
             <AdminPage />
           </ProtectedAdminRoute>
-        ) 
+        )
       },
     ]
   }
 ]);
-const FullPageLoader = () => (
-    <div className="flex h-screen w-screen items-center justify-center">
-        <Skeleton className="h-24 w-24 rounded-full" />
-    </div>
-);
 // Do not touch this code
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

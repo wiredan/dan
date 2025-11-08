@@ -25,5 +25,356 @@
   "testimonial3Role": "Investor, UAE",
   "ctaTitle": "Ready to Join the Revolution?",
   "ctaSubtitle": "Create an account today and experience the future of agribusiness.",
-  "ctaButton": "Sign Up Now"
+  "ctaButton": "Sign Up Now",
+  "navbar": {
+    "links": {
+      "dashboard": "Dashboard",
+      "marketplace": "Marketplace",
+      "educationHub": "Education Hub"
+    },
+    "createListing": "Create Listing",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "dropdown": {
+      "profile": "Profile",
+      "adminPanel": "Admin Panel",
+      "logout": "Log out"
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome back, {{name}}! Here's a summary of your account.",
+    "cards": {
+      "revenue": {
+        "title": "Total Revenue",
+        "subtitle": "+20.1% from last month"
+      },
+      "activeOrders": {
+        "title": "Active Orders",
+        "subtitle": "{{count}} total orders"
+      },
+      "connections": {
+        "title": "Connections",
+        "subtitle": "+180.1% from last month"
+      },
+      "marketActivity": {
+        "title": "Market Activity",
+        "subtitle": "+2 since last hour"
+      }
+    },
+    "overview": {
+      "title": "Overview"
+    },
+    "recentOrders": {
+      "title": "Recent Orders",
+      "description": "Your most recent transactions.",
+      "table": {
+        "id": "Order ID",
+        "status": "Status",
+        "amount": "Amount"
+      }
+    }
+  },
+  "marketplace": {
+    "title": "Marketplace",
+    "description": "Browse and trade food crops from verified farmers around the globe.",
+    "filters": {
+      "searchPlaceholder": "Search for crops...",
+      "categoryPlaceholder": "Category",
+      "allCategories": "All Categories",
+      "sortByPlaceholder": "Sort by",
+      "priceAsc": "Price: Low to High",
+      "priceDesc": "Price: High to Low",
+      "nameAsc": "Name: A-Z"
+    },
+    "card": {
+      "available": "{{quantity}} {{unit}} available"
+    },
+    "error": {
+      "fetch": "Failed to fetch listings"
+    }
+  },
+  "listingDetail": {
+    "error": {
+      "fetch": "Failed to fetch listing details",
+      "invalidQuantity": "Invalid quantity."
+    },
+    "notFound": {
+      "title": "Listing Not Found",
+      "description": "The listing you are looking for does not exist.",
+      "button": "Back to Marketplace"
+    },
+    "sellerInfo": {
+      "title": "Seller Information"
+    },
+    "details": {
+      "quantity": "Available Quantity",
+      "grade": "Grade",
+      "harvestDate": "Harvest Date"
+    },
+    "quantityInput": {
+      "label": "Quantity ({{unit}})"
+    },
+    "order": {
+      "success": "Order placed successfully!",
+      "error": "Failed to place order.",
+      "placing": "Placing Order...",
+      "isOwner": "This is your listing",
+      "place": "Place Order"
+    }
+  },
+  "orderTracking": {
+    "title": "Order Tracking",
+    "orderId": "Order ID",
+    "status": {
+      "title": "Order Status",
+      "placed": "Order Placed",
+      "paid": "Payment in Escrow",
+      "shipped": "Shipped",
+      "delivered": "Delivered"
+    },
+    "summary": {
+      "title": "Order Summary",
+      "quantity": "Quantity",
+      "price": "Price",
+      "subtotal": "Subtotal",
+      "fees": "Fees (2.5%)",
+      "total": "Total"
+    },
+    "participants": {
+      "title": "Participants",
+      "buyer": "Buyer",
+      "seller": "Seller",
+      "logistics": "Logistics",
+      "logisticsPartner": "AgriLink Logistics Partner"
+    },
+    "actions": {
+      "updating": "Updating...",
+      "markShipped": "Mark as Shipped",
+      "confirmDelivery": "Confirm Delivery",
+      "dispute": "Dispute Order"
+    },
+    "error": {
+      "fetch": "Failed to fetch order details"
+    },
+    "notFound": {
+      "title": "Order Not Found",
+      "description": "The order you are looking for does not exist.",
+      "button": "Back to Dashboard"
+    },
+    "toast": {
+      "statusUpdated": "Order status updated to {{status}}",
+      "statusUpdateFailed": "Failed to update order status."
+    }
+  },
+  "profile": {
+    "title": "Profile & Settings",
+    "tabs": {
+      "profile": "Profile",
+      "kyc": "KYC Verification",
+      "payment": "Payment Methods"
+    },
+    "profile": {
+      "title": "Profile Information",
+      "description": "Update your personal details here.",
+      "form": {
+        "name": "Full Name",
+        "email": "Email",
+        "location": "Location",
+        "save": "Save Changes",
+        "saving": "Saving..."
+      },
+      "success": "Profile updated successfully!",
+      "error": "Failed to update profile."
+    },
+    "kyc": {
+      "title": "KYC Verification",
+      "description": "Verify your identity to unlock full platform features.",
+      "verified": {
+        "title": "Your account is verified!",
+        "description": "You have full access to all platform features."
+      },
+      "form": {
+        "docType": "Document Type",
+        "docTypePlaceholder": "e.g., National ID, Passport",
+        "docUpload": "Upload Document",
+        "submit": "Submit for Verification"
+      },
+      "toast": {
+        "submitted": "KYC documents submitted for review. (This is a demo)"
+      }
+    },
+    "payment": {
+      "title": "Payment Methods",
+      "description": "Manage your connected payment methods.",
+      "form": {
+        "email": "Paystack Account Email",
+        "bankName": "Bank Name",
+        "accountNumber": "Account Number",
+        "submit": "Connect Paystack Account"
+      },
+      "toast": {
+        "connected": "Paystack account connected successfully! (Demo)"
+      }
+    }
+  },
+  "admin": {
+    "title": "Admin Panel",
+    "description": "Manage platform users and settings.",
+    "tabs": {
+      "users": "User Management",
+      "transactions": "Transactions"
+    },
+    "users": {
+      "title": "User Management",
+      "description": "View and manage all registered users on the platform.",
+      "table": {
+        "id": "User ID",
+        "name": "Name",
+        "role": "Role",
+        "kyc": "KYC Status",
+        "location": "Location"
+      },
+      "error": "Failed to fetch users."
+    },
+    "transactions": {
+      "title": "Transactions",
+      "description": "View all transactions on the platform.",
+      "table": {
+        "orderId": "Order ID",
+        "buyer": "Buyer",
+        "seller": "Seller",
+        "amount": "Amount",
+        "status": "Status"
+      },
+      "error": "Failed to fetch orders."
+    }
+  },
+  "auth": {
+    "tabs": {
+      "login": "Login",
+      "signup": "Sign Up"
+    },
+    "login": {
+      "title": "Login",
+      "description": "Enter your credentials to access your account.",
+      "submit": "Login"
+    },
+    "signup": {
+      "title": "Sign Up",
+      "description": "Create a new account to get started.",
+      "submit": "Create Account"
+    },
+    "form": {
+      "email": "Email",
+      "password": "Password",
+      "name": "Name",
+      "namePlaceholder": "John Doe"
+    },
+    "social": {
+      "divider": "Or continue with"
+    },
+    "toast": {
+      "fillFields": "Please fill in all fields.",
+      "loginSuccess": "Login successful! Redirecting...",
+      "signupSuccess": "Signup successful! Please log in.",
+      "socialNotImplemented": "{{provider}} login is not implemented yet."
+    }
+  },
+  "education": {
+    "title": "Education Hub",
+    "description": "Your resource for agribusiness knowledge and insights.",
+    "readMore": "Read more",
+    "categories": {
+      "technology": "Technology",
+      "farming": "Farming",
+      "markets": "Markets",
+      "security": "Security",
+      "logistics": "Logistics",
+      "investment": "Investment"
+    },
+    "articles": {
+      "defi": {
+        "title": "Understanding Decentralized Finance in Agriculture",
+        "description": "Explore how blockchain and DeFi are transforming agricultural supply chains, providing new opportunities for farmers and investors."
+      },
+      "sustainable": {
+        "title": "Best Practices for Sustainable Farming",
+        "description": "Learn about modern techniques that improve crop yield while protecting the environment for future generations."
+      },
+      "markets": {
+        "title": "Navigating Global Food Crop Markets",
+        "description": "An analysis of current market trends, price fluctuations, and how to make informed trading decisions on the platform."
+      },
+      "kyc": {
+        "title": "The Role of KYC in Building Trust",
+        "description": "Why identity verification is crucial for creating a secure and transparent agribusiness marketplace."
+      },
+      "logistics": {
+        "title": "Logistics and Supply Chain Optimization",
+        "description": "Tips and strategies for distributors to streamline their operations and reduce costs."
+      },
+      "tokenization": {
+        "title": "Introduction to Agri-Tokenization",
+        "description": "A beginner's guide to how agricultural assets can be represented as digital tokens, unlocking liquidity and investment."
+      }
+    }
+  },
+  "createListing": {
+    "title": "Create a New Listing",
+    "description": "Fill out the details below to add your product to the marketplace.",
+    "form": {
+      "productName": {
+        "label": "Product Name",
+        "placeholder": "e.g., Organic Hass Avocados"
+      },
+      "description": {
+        "label": "Description",
+        "placeholder": "Describe your product in detail..."
+      },
+      "category": {
+        "label": "Category",
+        "placeholder": "Select a category"
+      },
+      "grade": {
+        "label": "Grade",
+        "placeholder": "Select a grade"
+      },
+      "price": {
+        "label": "Price"
+      },
+      "unit": {
+        "label": "Unit",
+        "placeholder": "e.g., kg, tonne, piece"
+      },
+      "quantity": {
+        "label": "Available Quantity"
+      },
+      "imageUrl": {
+        "label": "Image URL",
+        "placeholder": "https://example.com/image.jpg"
+      },
+      "submit": {
+        "default": "Create Listing",
+        "submitting": "Creating Listing..."
+      }
+    },
+    "error": {
+      "notLoggedIn": "You must be logged in to create a listing.",
+      "failed": "Failed to create listing."
+    },
+    "success": "Listing created successfully!"
+  },
+  "categories": {
+    "fruits": "Fruits",
+    "vegetables": "Vegetables",
+    "grains": "Grains",
+    "spices": "Spices",
+    "nuts": "Nuts"
+  },
+  "grades": {
+    "a": "Grade A",
+    "b": "Grade B",
+    "c": "Grade C"
+  }
 }

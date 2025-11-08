@@ -13,6 +13,7 @@ import { useAuthStore } from '@/lib/authStore';
 import { api } from '@/lib/api-client';
 import { Listing } from '@shared/types';
 import { toast } from 'sonner';
+import { useTranslation } from 'react-i18next';
 const listingSchema = z.object({
   name: z.string().min(3, 'Name must be at least 3 characters'),
   description: z.string().min(10, 'Description must be at least 10 characters'),
@@ -25,6 +26,7 @@ const listingSchema = z.object({
 });
 type ListingFormData = z.infer<typeof listingSchema>;
 export function CreateListingPage() {
+  const { t } = useTranslation();
   const { user, isAuthenticated } = useAuthStore(state => ({ user: state.user, isAuthenticated: state.isAuthenticated }));
   const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -46,7 +48,7 @@ export function CreateListingPage() {
   }
   const onSubmit: SubmitHandler<ListingFormData> = async (data) => {
     if (!user) {
-      toast.error('You must be logged in to create a listing.');
+      toast.error(t('createListing.error.notLoggedIn'));
       return;
     }
     setIsSubmitting(true);
@@ -60,10 +62,10 @@ export function CreateListingPage() {
         method: 'POST',
         body: JSON.stringify(newListingData),
       });
-      toast.success('Listing created successfully!');
+      toast.success(t('createListing.success'));
       navigate(`/listing/${createdListing.id}`);
     } catch (error) {
-      toast.error('Failed to create listing.');
+      toast.error(t('createListing.error.failed'));
       console.error(error);
     } finally {
       setIsSubmitting(false);
@@ -74,8 +76,8 @@ export function CreateListingPage() {
       <div className="py-12 md:py-16">
         <Card>
           <CardHeader>
-            <CardTitle className="text-2xl">Create a New Listing</CardTitle>
-            <CardDescription>Fill out the details below to add your product to the marketplace.</CardDescription>
+            <CardTitle className="text-2xl">{t('createListing.title')}</CardTitle>
+            <CardDescription>{t('createListing.description')}</CardDescription>
           </CardHeader>
           <CardContent>
             <Form {...form}>
@@ -85,8 +87,8 @@ export function CreateListingPage() {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Product Name</FormLabel>
-                      <FormControl><Input placeholder="e.g., Organic Hass Avocados" {...field} /></FormControl>
+                      <FormLabel>{t('createListing.form.productName.label')}</FormLabel>
+                      <FormControl><Input placeholder={t('createListing.form.productName.placeholder')} {...field} /></FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
@@ -96,8 +98,8 @@ export function CreateListingPage() {
                   name="description"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Description</FormLabel>
-                      <FormControl><Textarea placeholder="Describe your product in detail..." {...field} /></FormControl>
+                      <FormLabel>{t('createListing.form.description.label')}</FormLabel>
+                      <FormControl><Textarea placeholder={t('createListing.form.description.placeholder')} {...field} /></FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
@@ -108,15 +110,15 @@ export function CreateListingPage() {
                     name="category"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Category</FormLabel>
+                        <FormLabel>{t('createListing.form.category.label')}</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
-                          <FormControl><SelectTrigger><SelectValue placeholder="Select a category" /></SelectTrigger></FormControl>
+                          <FormControl><SelectTrigger><SelectValue placeholder={t('createListing.form.category.placeholder')} /></SelectTrigger></FormControl>
                           <SelectContent>
-                            <SelectItem value="Fruits">Fruits</SelectItem>
-                            <SelectItem value="Vegetables">Vegetables</SelectItem>
-                            <SelectItem value="Grains">Grains</SelectItem>
-                            <SelectItem value="Spices">Spices</SelectItem>
-                            <SelectItem value="Nuts">Nuts</SelectItem>
+                            <SelectItem value="Fruits">{t('categories.fruits')}</SelectItem>
+                            <SelectItem value="Vegetables">{t('categories.vegetables')}</SelectItem>
+                            <SelectItem value="Grains">{t('categories.grains')}</SelectItem>
+                            <SelectItem value="Spices">{t('categories.spices')}</SelectItem>
+                            <SelectItem value="Nuts">{t('categories.nuts')}</SelectItem>
                           </SelectContent>
                         </Select>
                         <FormMessage />
@@ -128,13 +130,13 @@ export function CreateListingPage() {
                     name="grade"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Grade</FormLabel>
+                        <FormLabel>{t('createListing.form.grade.label')}</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
-                          <FormControl><SelectTrigger><SelectValue placeholder="Select a grade" /></SelectTrigger></FormControl>
+                          <FormControl><SelectTrigger><SelectValue placeholder={t('createListing.form.grade.placeholder')} /></SelectTrigger></FormControl>
                           <SelectContent>
-                            <SelectItem value="A">Grade A</SelectItem>
-                            <SelectItem value="B">Grade B</SelectItem>
-                            <SelectItem value="C">Grade C</SelectItem>
+                            <SelectItem value="A">{t('grades.a')}</SelectItem>
+                            <SelectItem value="B">{t('grades.b')}</SelectItem>
+                            <SelectItem value="C">{t('grades.c')}</SelectItem>
                           </SelectContent>
                         </Select>
                         <FormMessage />
@@ -148,7 +150,7 @@ export function CreateListingPage() {
                     name="price"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Price</FormLabel>
+                        <FormLabel>{t('createListing.form.price.label')}</FormLabel>
                         <FormControl><Input type="number" step="0.01" placeholder="0.00" {...field} /></FormControl>
                         <FormMessage />
                       </FormItem>
@@ -159,8 +161,8 @@ export function CreateListingPage() {
                     name="unit"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Unit</FormLabel>
-                        <FormControl><Input placeholder="e.g., kg, tonne, piece" {...field} /></FormControl>
+                        <FormLabel>{t('createListing.form.unit.label')}</FormLabel>
+                        <FormControl><Input placeholder={t('createListing.form.unit.placeholder')} {...field} /></FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
@@ -170,7 +172,7 @@ export function CreateListingPage() {
                     name="quantity"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Available Quantity</FormLabel>
+                        <FormLabel>{t('createListing.form.quantity.label')}</FormLabel>
                         <FormControl><Input type="number" placeholder="1000" {...field} /></FormControl>
                         <FormMessage />
                       </FormItem>
@@ -182,14 +184,14 @@ export function CreateListingPage() {
                   name="imageUrl"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Image URL</FormLabel>
-                      <FormControl><Input placeholder="https://example.com/image.jpg" {...field} /></FormControl>
+                      <FormLabel>{t('createListing.form.imageUrl.label')}</FormLabel>
+                      <FormControl><Input placeholder={t('createListing.form.imageUrl.placeholder')} {...field} /></FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
                 <Button type="submit" disabled={isSubmitting} className="w-full">
-                  {isSubmitting ? 'Creating Listing...' : 'Create Listing'}
+                  {isSubmitting ? t('createListing.form.submit.submitting') : t('createListing.form.submit.default')}
                 </Button>
               </form>
             </Form>

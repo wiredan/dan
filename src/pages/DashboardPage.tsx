@@ -9,6 +9,7 @@ import { Navigate } from "react-router-dom";
 import { api } from "@/lib/api-client";
 import { Order } from "@shared/types";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useTranslation } from "react-i18next";
 const chartData = [
   { name: "Jan", total: Math.floor(Math.random() * 5000) + 1000 },
   { name: "Feb", total: Math.floor(Math.random() * 5000) + 1000 },
@@ -24,6 +25,7 @@ const chartData = [
   { name: "Dec", total: Math.floor(Math.random() * 5000) + 1000 },
 ];
 export function DashboardPage() {
+  const { t } = useTranslation();
   const isAuthenticated = useAuthStore(s => s.isAuthenticated);
   const user = useAuthStore(s => s.user);
   const [orders, setOrders] = useState<Order[]>([]);
@@ -51,54 +53,54 @@ export function DashboardPage() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="py-8 md:py-10 lg:py-12">
         <div className="space-y-4 mb-8">
-          <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
-          <p className="text-muted-foreground">Welcome back, {user?.name}! Here's a summary of your account.</p>
+          <h1 className="text-3xl font-bold tracking-tight">{t('dashboard.title')}</h1>
+          <p className="text-muted-foreground">{t('dashboard.welcome', { name: user?.name })}</p>
         </div>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Total Revenue</CardTitle>
+              <CardTitle className="text-sm font-medium">{t('dashboard.cards.revenue.title')}</CardTitle>
               <DollarSign className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">$45,231.89</div>
-              <p className="text-xs text-muted-foreground">+20.1% from last month</p>
+              <p className="text-xs text-muted-foreground">{t('dashboard.cards.revenue.subtitle')}</p>
             </CardContent>
           </Card>
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Active Orders</CardTitle>
+              <CardTitle className="text-sm font-medium">{t('dashboard.cards.activeOrders.title')}</CardTitle>
               <CreditCard className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
               {isLoading ? <Skeleton className="h-7 w-12" /> : <div className="text-2xl font-bold">{orders.filter(o => o.status !== 'Delivered').length}</div>}
-              {isLoading ? <Skeleton className="h-4 w-24 mt-1" /> : <p className="text-xs text-muted-foreground">{orders.length} total orders</p>}
+              {isLoading ? <Skeleton className="h-4 w-24 mt-1" /> : <p className="text-xs text-muted-foreground">{t('dashboard.cards.activeOrders.subtitle', { count: orders.length })}</p>}
             </CardContent>
           </Card>
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Connections</CardTitle>
+              <CardTitle className="text-sm font-medium">{t('dashboard.cards.connections.title')}</CardTitle>
               <Users className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">+23</div>
-              <p className="text-xs text-muted-foreground">+180.1% from last month</p>
+              <p className="text-xs text-muted-foreground">{t('dashboard.cards.connections.subtitle')}</p>
             </CardContent>
           </Card>
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Market Activity</CardTitle>
+              <CardTitle className="text-sm font-medium">{t('dashboard.cards.marketActivity.title')}</CardTitle>
               <Activity className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">+573</div>
-              <p className="text-xs text-muted-foreground">+2 since last hour</p>
+              <p className="text-xs text-muted-foreground">{t('dashboard.cards.marketActivity.subtitle')}</p>
             </CardContent>
           </Card>
         </div>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7 mt-8">
           <Card className="col-span-4">
-            <CardHeader><CardTitle>Overview</CardTitle></CardHeader>
+            <CardHeader><CardTitle>{t('dashboard.overview.title')}</CardTitle></CardHeader>
             <CardContent className="pl-2">
               <ResponsiveContainer width="100%" height={350}>
                 <BarChart data={chartData}>
@@ -112,17 +114,17 @@ export function DashboardPage() {
           </Card>
           <Card className="col-span-4 lg:col-span-3">
             <CardHeader>
-              <CardTitle>Recent Orders</CardTitle>
-              <CardDescription>Your most recent transactions.</CardDescription>
+              <CardTitle>{t('dashboard.recentOrders.title')}</CardTitle>
+              <CardDescription>{t('dashboard.recentOrders.description')}</CardDescription>
             </CardHeader>
             <CardContent>
               {isLoading ? <Skeleton className="h-40 w-full" /> : (
                 <Table>
                   <TableHeader>
                     <TableRow>
-                      <TableHead>Order ID</TableHead>
-                      <TableHead>Status</TableHead>
-                      <TableHead className="text-right">Amount</TableHead>
+                      <TableHead>{t('dashboard.recentOrders.table.id')}</TableHead>
+                      <TableHead>{t('dashboard.recentOrders.table.status')}</TableHead>
+                      <TableHead className="text-right">{t('dashboard.recentOrders.table.amount')}</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>

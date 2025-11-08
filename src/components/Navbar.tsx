@@ -14,15 +14,17 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ThemeToggle } from './ThemeToggle';
 import { LanguageSwitcher } from './LanguageSwitcher';
-const navLinks = [
-  { to: '/dashboard', label: 'Dashboard' },
-  { to: '/marketplace', label: 'Marketplace' },
-  { to: '/education', label: 'Education Hub' },
-];
+import { useTranslation } from 'react-i18next';
 export function Navbar() {
+  const { t } = useTranslation();
   const isAuthenticated = useAuthStore(s => s.isAuthenticated);
   const user = useAuthStore(s => s.user);
   const logout = useAuthStore(s => s.logout);
+  const navLinks = [
+    { to: '/dashboard', label: t('navbar.links.dashboard') },
+    { to: '/marketplace', label: t('navbar.links.marketplace') },
+    { to: '/education', label: t('navbar.links.educationHub') },
+  ];
   const getInitials = (name: string) => {
     const names = name.split(' ');
     if (names.length > 1) {
@@ -61,7 +63,7 @@ export function Navbar() {
                 <Button asChild>
                   <Link to="/create-listing">
                     <PlusCircle className="mr-2 h-4 w-4" />
-                    Create Listing
+                    {t('navbar.createListing')}
                   </Link>
                 </Button>
                 <DropdownMenu>
@@ -82,25 +84,25 @@ export function Navbar() {
                     </DropdownMenuLabel>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem asChild>
-                      <Link to="/profile"><User className="mr-2 h-4 w-4" /><span>Profile</span></Link>
+                      <Link to="/profile"><User className="mr-2 h-4 w-4" /><span>{t('navbar.dropdown.profile')}</span></Link>
                     </DropdownMenuItem>
                     {user.role === 'Admin' && (
                       <DropdownMenuItem asChild>
-                        <Link to="/admin"><Shield className="mr-2 h-4 w-4" /><span>Admin Panel</span></Link>
+                        <Link to="/admin"><Shield className="mr-2 h-4 w-4" /><span>{t('navbar.dropdown.adminPanel')}</span></Link>
                       </DropdownMenuItem>
                     )}
                     <DropdownMenuSeparator />
                     <DropdownMenuItem onClick={logout}>
                       <LogOut className="mr-2 h-4 w-4" />
-                      <span>Log out</span>
+                      <span>{t('navbar.dropdown.logout')}</span>
                     </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>
             ) : (
               <div className="hidden md:flex items-center gap-2">
-                <Button variant="ghost" asChild><Link to="/auth">Sign In</Link></Button>
-                <Button asChild><Link to="/auth">Sign Up</Link></Button>
+                <Button variant="ghost" asChild><Link to="/auth">{t('navbar.signIn')}</Link></Button>
+                <Button asChild><Link to="/auth">{t('navbar.signUp')}</Link></Button>
               </div>
             )}
             <Sheet>
@@ -118,12 +120,12 @@ export function Navbar() {
                       {navLinks.map(link => (
                         <Link key={link.to} to={link.to} className="text-muted-foreground hover:text-foreground">{link.label}</Link>
                       ))}
-                      <Link to="/profile" className="text-muted-foreground hover:text-foreground">Profile</Link>
+                      <Link to="/profile" className="text-muted-foreground hover:text-foreground">{t('navbar.dropdown.profile')}</Link>
                     </>
                   ) : (
                     <>
-                      <Link to="/auth" className="text-muted-foreground hover:text-foreground">Sign In</Link>
-                      <Link to="/auth" className="text-muted-foreground hover:text-foreground">Sign Up</Link>
+                      <Link to="/auth" className="text-muted-foreground hover:text-foreground">{t('navbar.signIn')}</Link>
+                      <Link to="/auth" className="text-muted-foreground hover:text-foreground">{t('navbar.signUp')}</Link>
                     </>
                   )}
                 </nav>

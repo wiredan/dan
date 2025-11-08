@@ -1,6 +1,6 @@
 {
   "getStarted": "Bắt đầu",
-  "exploreMarket": "Khám phá Thị trường",
+  "exploreMarket": "Khám phá Thị trư���ng",
   "heroTitle": "Tương lai của Kinh doanh Nông nghiệp là Phi tập trung",
   "heroSubtitle": "AgriLink kết nối nông dân, nhà phân phối và nhà đầu tư trên một nền tảng an toàn, minh bạch. Giao dịch, theo dõi và thực hiện giao dịch một cách tự tin.",
   "featuresTitle": "Một Kỷ nguyên Mới của Thương mại Nông nghiệp",
@@ -25,5 +25,120 @@
   "testimonial3Role": "Nhà đầu tư, UAE",
   "ctaTitle": "Sẵn sàng tham gia cuộc cách mạng?",
   "ctaSubtitle": "Tạo tài khoản ngay hôm nay và trải nghiệm tương lai của kinh doanh nông nghiệp.",
-  "ctaButton": "Đăng ký ngay"
+  "ctaButton": "Đăng ký ngay",
+  "navbar": {
+    "links": {
+      "dashboard": "Bảng điều khiển",
+      "marketplace": "Thị trường",
+      "educationHub": "Trung tâm Giáo dục"
+    },
+    "createListing": "Tạo danh sách",
+    "signIn": "Đăng nhập",
+    "signUp": "Đăng ký",
+    "dropdown": {
+      "profile": "Hồ sơ",
+      "adminPanel": "Bảng quản trị",
+      "logout": "Đăng xuất"
+    }
+  },
+  "dashboard": {
+    "title": "Bảng điều khiển",
+    "welcome": "Chào mừng trở lại, {{name}}! Đây là tóm tắt tài khoản của bạn.",
+    "cards": {
+      "revenue": {
+        "title": "Tổng doanh thu",
+        "subtitle": "+20.1% so với tháng trước"
+      },
+      "activeOrders": {
+        "title": "Đơn hàng đang hoạt động",
+        "subtitle": "tổng số {{count}} đơn hàng"
+      },
+      "connections": {
+        "title": "Kết nối",
+        "subtitle": "+180.1% so với tháng trước"
+      },
+      "marketActivity": {
+        "title": "Hoạt động thị trường",
+        "subtitle": "+2 kể từ giờ trước"
+      }
+    },
+    "overview": {
+      "title": "Tổng quan"
+    },
+    "recentOrders": {
+      "title": "Đơn hàng gần đây",
+      "description": "Các giao dịch gần đây nhất của bạn.",
+      "table": {
+        "id": "ID Đơn hàng",
+        "status": "Trạng thái",
+        "amount": "Số tiền"
+      }
+    }
+  },
+  "profile": {
+    "title": "Hồ sơ & Cài đặt",
+    "tabs": {
+      "profile": "Hồ sơ",
+      "kyc": "Xác minh KYC",
+      "payment": "Phương thức thanh toán"
+    },
+    "profile": {
+      "title": "Thông tin hồ sơ",
+      "description": "Cập nhật thông tin cá nhân của bạn tại đây.",
+      "form": {
+        "name": "Họ và tên",
+        "email": "Email",
+        "location": "Vị trí",
+        "save": "Lưu thay đổi",
+        "saving": "Đang lưu..."
+      },
+      "success": "Cập nhật hồ sơ thành công!",
+      "error": "Cập nhật hồ sơ thất bại."
+    },
+    "payment": {
+      "title": "Phương thức thanh toán",
+      "description": "Quản lý các phương thức thanh toán đã kết nối của bạn.",
+      "form": {
+        "email": "Email tài khoản Paystack",
+        "bankName": "Tên ngân hàng",
+        "accountNumber": "Số tài khoản",
+        "submit": "Kết nối tài khoản Paystack"
+      },
+      "toast": {
+        "connected": "Kết nối tài khoản Paystack thành công! (Demo)"
+      }
+    }
+  },
+  "admin": {
+    "title": "Bảng quản trị",
+    "description": "Quản lý người dùng và cài đặt nền tảng.",
+    "tabs": {
+      "users": "Quản lý người dùng",
+      "transactions": "Giao dịch"
+    },
+    "users": {
+      "title": "Quản lý người dùng",
+      "description": "Xem và quản lý tất cả người dùng đã đăng ký trên nền tảng.",
+      "table": {
+        "id": "ID Người dùng",
+        "name": "Tên",
+        "role": "Vai trò",
+        "kyc": "Trạng thái KYC",
+        "location": "Vị trí"
+      },
+      "error": "Không thể tải người dùng."
+    },
+    "transactions": {
+      "title": "Giao dịch",
+      "description": "Xem tất cả các giao dịch trên nền tảng.",
+      "table": {
+        "orderId": "ID Đơn hàng",
+        "buyer": "Người mua",
+        "seller": "Người bán",
+        "amount": "Số tiền",
+        "status": "Trạng thái"
+      },
+      "error": "Không thể tải đơn hàng."
+    }
+  }
 }

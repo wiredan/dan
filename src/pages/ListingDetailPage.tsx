@@ -12,7 +12,9 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { toast } from 'sonner';
+import { useTranslation } from 'react-i18next';
 export function ListingDetailPage() {
+  const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const [listing, setListing] = useState<Listing | null>(null);
@@ -34,17 +36,17 @@ export function ListingDetailPage() {
           setFarmer(farmerData);
         }
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'Failed to fetch listing details');
+        setError(err instanceof Error ? err.message : t('listingDetail.error.fetch'));
       } finally {
         setIsLoading(false);
       }
     };
     fetchData();
-  }, [id]);
+  }, [id, t]);
   const handlePlaceOrder = async () => {
     if (!user || !listing) return;
     if (quantity <= 0 || quantity > listing.quantity) {
-      toast.error('Invalid quantity.');
+      toast.error(t('listingDetail.error.invalidQuantity'));
       return;
     }
     setIsPlacingOrder(true);
@@ -58,10 +60,10 @@ export function ListingDetailPage() {
         method: 'POST',
         body: JSON.stringify(orderPayload),
       });
-      toast.success('Order placed successfully!');
+      toast.success(t('listingDetail.order.success'));
       navigate(`/order/${newOrder.id}`);
     } catch (error) {
-      toast.error('Failed to place order.');
+      toast.error(t('listingDetail.order.error'));
       console.error(error);
     } finally {
       setIsPlacingOrder(false);
@@ -97,9 +99,9 @@ export function ListingDetailPage() {
   if (error || !listing) {
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
-        <h1 className="text-2xl font-bold">Listing Not Found</h1>
-        <p className="text-muted-foreground mt-2">{error || 'The listing you are looking for does not exist.'}</p>
-        <Button asChild className="mt-6"><Link to="/marketplace">Back to Marketplace</Link></Button>
+        <h1 className="text-2xl font-bold">{t('listingDetail.notFound.title')}</h1>
+        <p className="text-muted-foreground mt-2">{error || t('listingDetail.notFound.description')}</p>
+        <Button asChild className="mt-6"><Link to="/marketplace">{t('listingDetail.notFound.button')}</Link></Button>
       </div>
     );
   }
@@ -120,7 +122,7 @@ export function ListingDetailPage() {
               ${listing.price.toFixed(2)} <span className="text-lg font-normal text-muted-foreground">/ {listing.unit}</span>
             </div>
             <Card>
-              <CardHeader><CardTitle>Seller Information</CardTitle></CardHeader>
+              <CardHeader><CardTitle>{t('listingDetail.sellerInfo.title')}</CardTitle></CardHeader>
               <CardContent>
                 {farmer ? (
                   <div className="flex items-center gap-4">
@@ -142,23 +144,23 @@ export function ListingDetailPage() {
               </CardContent>
             </Card>
             <div className="space-y-2">
-              <p><span className="font-semibold">Available Quantity:</span> {listing.quantity} {listing.unit}</p>
-              <p><span className="font-semibold">Grade:</span> {listing.grade}</p>
-              <p><span className="font-semibold">Harvest Date:</span> {new Date(listing.harvestDate).toLocaleDateString()}</p>
+              <p><span className="font-semibold">{t('listingDetail.details.quantity')}:</span> {listing.quantity} {listing.unit}</p>
+              <p><span className="font-semibold">{t('listingDetail.details.grade')}:</span> {listing.grade}</p>
+              <p><span className="font-semibold">{t('listingDetail.details.harvestDate')}:</span> {new Date(listing.harvestDate).toLocaleDateString()}</p>
             </div>
             <div className="space-y-2">
-              <Label htmlFor="quantity">Quantity ({listing.unit})</Label>
-              <Input 
-                id="quantity" 
-                type="number" 
-                value={quantity} 
+              <Label htmlFor="quantity">{t('listingDetail.quantityInput.label', { unit: listing.unit })}</Label>
+              <Input
+                id="quantity"
+                type="number"
+                value={quantity}
                 onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value, 10) || 1))}
                 min="1"
                 max={listing.quantity}
               />
             </div>
             <Button size="lg" className="w-full" onClick={handlePlaceOrder} disabled={isPlacingOrder || user?.id === farmer?.id}>
-              {isPlacingOrder ? 'Placing Order...' : (user?.id === farmer?.id ? 'This is your listing' : 'Place Order')}
+              {isPlacingOrder ? t('listingDetail.order.placing') : (user?.id === farmer?.id ? t('listingDetail.order.isOwner') : t('listingDetail.order.place'))}
             </Button>
           </div>
         </div>

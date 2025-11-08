@@ -8,19 +8,9 @@ import { api } from '@/lib/api-client';
 import { Order, Listing, User, OrderStatus } from '@shared/types';
 import { Skeleton } from '@/components/ui/skeleton';
 import { toast } from 'sonner';
-const statusSteps = [
-  { name: 'Order Placed', icon: <CheckCircle /> },
-  { name: 'Payment in Escrow', icon: <CheckCircle /> },
-  { name: 'Shipped', icon: <Truck /> },
-  { name: 'Delivered', icon: <Home /> },
-];
-const statusMap: { [key: string]: number } = {
-  'Placed': 0,
-  'Paid': 1,
-  'Shipped': 2,
-  'Delivered': 3,
-};
+import { useTranslation } from 'react-i18next';
 export function OrderTrackingPage() {
+  const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
   const [order, setOrder] = useState<Order | null>(null);
   const [listing, setListing] = useState<Listing | null>(null);
@@ -30,6 +20,20 @@ export function OrderTrackingPage() {
   const [error, setError] = useState<string | null>(null);
   const [isUpdating, setIsUpdating] = useState(false);
   const { isAuthenticated, user } = useAuthStore(state => ({ isAuthenticated: state.isAuthenticated, user: state.user }));
+  const statusSteps = [
+    { name: t('orderTracking.status.placed'), icon: <CheckCircle /> },
+    { name: t('orderTracking.status.paid'), icon: <CheckCircle /> },
+    { name: t('orderTracking.status.shipped'), icon: <Truck /> },
+    { name: t('orderTracking.status.delivered'), icon: <Home /> },
+  ];
+  const statusMap: { [key in OrderStatus]: number } = {
+    'Placed': 0,
+    'Paid': 1,
+    'Shipped': 2,
+    'Delivered': 3,
+    'Disputed': -1,
+    'Cancelled': -1,
+  };
   const fetchData = useCallback(async () => {
     if (!id) return;
     try {
@@ -45,11 +49,11 @@ export function OrderTrackingPage() {
       setBuyer(buyerData);
       setSeller(sellerData);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to fetch order details');
+      setError(err instanceof Error ? err.message : t('orderTracking.error.fetch'));
     } finally {
       setIsLoading(false);
     }
-  }, [id]);
+  }, [id, t]);
   useEffect(() => {
     fetchData();
   }, [fetchData]);
@@ -62,9 +66,9 @@ export function OrderTrackingPage() {
         body: JSON.stringify({ status: newStatus }),
       });
       setOrder(updatedOrder);
-      toast.success(`Order status updated to ${newStatus}`);
+      toast.success(t('orderTracking.toast.statusUpdated', { status: newStatus }));
     } catch (error) {
-      toast.error('Failed to update order status.');
+      toast.error(t('orderTracking.toast.statusUpdateFailed'));
     } finally {
       setIsUpdating(false);
     }
@@ -78,9 +82,9 @@ export function OrderTrackingPage() {
   if (error || !order || !listing || !buyer || !seller) {
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
-        <h1 className="text-2xl font-bold">Order Not Found</h1>
-        <p className="text-muted-foreground mt-2">{error || 'The order you are looking for does not exist.'}</p>
-        <Button asChild className="mt-6"><Link to="/dashboard">Back to Dashboard</Link></Button>
+        <h1 className="text-2xl font-bold">{t('orderTracking.notFound.title')}</h1>
+        <p className="text-muted-foreground mt-2">{error || t('orderTracking.notFound.description')}</p>
+        <Button asChild className="mt-6"><Link to="/dashboard">{t('orderTracking.notFound.button')}</Link></Button>
       </div>
     );
   }
@@ -88,22 +92,22 @@ export function OrderTrackingPage() {
   const renderActionButtons = () => {
     if (!user) return null;
     if (user.id === seller.id && order.status === 'Paid') {
-      return <Button onClick={() => handleUpdateStatus('Shipped')} disabled={isUpdating}>{isUpdating ? 'Updating...' : 'Mark as Shipped'}</Button>;
+      return <Button onClick={() => handleUpdateStatus('Shipped')} disabled={isUpdating}>{isUpdating ? t('orderTracking.actions.updating') : t('orderTracking.actions.markShipped')}</Button>;
     }
     if (user.id === buyer.id && order.status === 'Shipped') {
-      return <Button onClick={() => handleUpdateStatus('Delivered')} disabled={isUpdating}>{isUpdating ? 'Updating...' : 'Confirm Delivery'}</Button>;
+      return <Button onClick={() => handleUpdateStatus('Delivered')} disabled={isUpdating}>{isUpdating ? t('orderTracking.actions.updating') : t('orderTracking.actions.confirmDelivery')}</Button>;
     }
-    return <Button variant="outline">Dispute Order</Button>;
+    return <Button variant="outline">{t('orderTracking.actions.dispute')}</Button>;
   };
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="py-12 md:py-16">
         <div className="space-y-4 mb-8">
-          <h1 className="text-3xl font-bold tracking-tight">Order Tracking</h1>
-          <p className="text-muted-foreground">Order ID: {order.id}</p>
+          <h1 className="text-3xl font-bold tracking-tight">{t('orderTracking.title')}</h1>
+          <p className="text-muted-foreground">{t('orderTracking.orderId')}: {order.id}</p>
         </div>
         <Card>
-          <CardHeader><CardTitle>Order Status</CardTitle></CardHeader>
+          <CardHeader><CardTitle>{t('orderTracking.status.title')}</CardTitle></CardHeader>
           <CardContent>
             <div className="flex justify-between items-center">
               {statusSteps.map((step, index) => (
@@ -122,28 +126,28 @@ export function OrderTrackingPage() {
         </Card>
         <div className="mt-8 grid md:grid-cols-2 gap-8">
           <Card>
-            <CardHeader><CardTitle>Order Summary</CardTitle></CardHeader>
+            <CardHeader><CardTitle>{t('orderTracking.summary.title')}</CardTitle></CardHeader>
             <CardContent className="space-y-4">
               <div className="flex items-center gap-4">
                 <img src={listing.imageUrl} alt={listing.name} className="w-24 h-24 object-cover rounded-md" />
                 <div>
                   <h3 className="font-semibold">{listing.name}</h3>
-                  <p className="text-sm text-muted-foreground">Quantity: {order.quantity} {listing.unit}</p>
-                  <p className="text-sm text-muted-foreground">Price: ${listing.price.toFixed(2)} / {listing.unit}</p>
+                  <p className="text-sm text-muted-foreground">{t('orderTracking.summary.quantity')}: {order.quantity} {listing.unit}</p>
+                  <p className="text-sm text-muted-foreground">{t('orderTracking.summary.price')}: ${listing.price.toFixed(2)} / {listing.unit}</p>
                 </div>
               </div>
               <hr />
-              <div className="flex justify-between"><p>Subtotal</p><p>${(order.quantity * listing.price).toFixed(2)}</p></div>
-              <div className="flex justify-between"><p>Fees (2.5%)</p><p>${order.fees.toFixed(2)}</p></div>
-              <div className="flex justify-between font-bold text-lg"><p>Total</p><p>${order.total.toFixed(2)}</p></div>
+              <div className="flex justify-between"><p>{t('orderTracking.summary.subtotal')}</p><p>${(order.quantity * listing.price).toFixed(2)}</p></div>
+              <div className="flex justify-between"><p>{t('orderTracking.summary.fees')}</p><p>${order.fees.toFixed(2)}</p></div>
+              <div className="flex justify-between font-bold text-lg"><p>{t('orderTracking.summary.total')}</p><p>${order.total.toFixed(2)}</p></div>
             </CardContent>
           </Card>
           <Card>
-            <CardHeader><CardTitle>Participants</CardTitle></CardHeader>
+            <CardHeader><CardTitle>{t('orderTracking.participants.title')}</CardTitle></CardHeader>
             <CardContent className="space-y-4">
-              <div><h4 className="font-semibold">Buyer</h4><p>{buyer.name}</p><p className="text-sm text-muted-foreground">{buyer.location}</p></div>
-              <div><h4 className="font-semibold">Seller</h4><p>{seller.name}</p><p className="text-sm text-muted-foreground">{seller.location}</p></div>
-              <div><h4 className="font-semibold">Logistics</h4><p>AgriLink Logistics Partner</p></div>
+              <div><h4 className="font-semibold">{t('orderTracking.participants.buyer')}</h4><p>{buyer.name}</p><p className="text-sm text-muted-foreground">{buyer.location}</p></div>
+              <div><h4 className="font-semibold">{t('orderTracking.participants.seller')}</h4><p>{seller.name}</p><p className="text-sm text-muted-foreground">{seller.location}</p></div>
+              <div><h4 className="font-semibold">{t('orderTracking.participants.logistics')}</h4><p>{t('orderTracking.participants.logisticsPartner')}</p></div>
             </CardContent>
           </Card>
         </div>

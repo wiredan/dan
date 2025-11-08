@@ -25,5 +25,120 @@
   "testimonial3Role": "Mai Saka Hannun Jari, UAE",
   "ctaTitle": "A Shirye kake ka Shiga Juyin Juya Halin?",
   "ctaSubtitle": "Ƙirƙiri asusu a yau kuma ku fuskanci makomar kasuwancin noma.",
-  "ctaButton": "Yi Rajista Yanzu"
+  "ctaButton": "Yi Rajista Yanzu",
+  "navbar": {
+    "links": {
+      "dashboard": "Dashboard",
+      "marketplace": "Kasuwa",
+      "educationHub": "Cibiyar Ilimi"
+    },
+    "createListing": "Ƙirƙiri Lissafi",
+    "signIn": "Shiga ciki",
+    "signUp": "Yi Rajista",
+    "dropdown": {
+      "profile": "Bayanan martaba",
+      "adminPanel": "Kwamitin Gudanarwa",
+      "logout": "Fita"
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Barka da dawowa, {{name}}! Ga taƙaitaccen bayanin asusunka.",
+    "cards": {
+      "revenue": {
+        "title": "Jimillar Kuɗin shiga",
+        "subtitle": "+20.1% daga watan da ya gabata"
+      },
+      "activeOrders": {
+        "title": "Oda masu Aiki",
+        "subtitle": "jimillar oda {{count}}"
+      },
+      "connections": {
+        "title": "Haɗi",
+        "subtitle": "+180.1% daga watan da ya gabata"
+      },
+      "marketActivity": {
+        "title": "Ayyukan Kasuwa",
+        "subtitle": "+2 tun sa'a ta ƙarshe"
+      }
+    },
+    "overview": {
+      "title": "Dubawa"
+    },
+    "recentOrders": {
+      "title": "Oda na Kwanan nan",
+      "description": "Ma'amaloli na baya-bayan nan.",
+      "table": {
+        "id": "ID na Oda",
+        "status": "Matsayi",
+        "amount": "Adadin"
+      }
+    }
+  },
+  "profile": {
+    "title": "Bayanan martaba & Saituna",
+    "tabs": {
+      "profile": "Bayanan martaba",
+      "kyc": "Tabbatar da KYC",
+      "payment": "Hanyoyin Biyan Kuɗi"
+    },
+    "profile": {
+      "title": "Bayanin Bayanan martaba",
+      "description": "Sabunta bayanan sirri naka anan.",
+      "form": {
+        "name": "Cikakken Suna",
+        "email": "Imel",
+        "location": "Wuri",
+        "save": "Ajiye Canje-canje",
+        "saving": "Ana Ajiye..."
+      },
+      "success": "An sabunta bayanan martaba cikin nasara!",
+      "error": "An kasa sabunta bayanan martaba."
+    },
+    "payment": {
+      "title": "Hanyoyin Biyan Kuɗi",
+      "description": "Sarrafa hanyoyin biyan kuɗi da aka haɗa.",
+      "form": {
+        "email": "Imel na Asusun Paystack",
+        "bankName": "Sunan Banki",
+        "accountNumber": "Lambar Asusu",
+        "submit": "Haɗa Asusun Paystack"
+      },
+      "toast": {
+        "connected": "An haɗa asusun Paystack cikin nasara! (Demo)"
+      }
+    }
+  },
+  "admin": {
+    "title": "Kwamitin Gudanarwa",
+    "description": "Sarrafa masu amfani da dandamali da saituna.",
+    "tabs": {
+      "users": "Gudanar da Mai amfani",
+      "transactions": "Ma'amaloli"
+    },
+    "users": {
+      "title": "Gudanar da Mai amfani",
+      "description": "Duba da sarrafa duk masu amfani da aka yiwa rajista a kan dandamali.",
+      "table": {
+        "id": "ID na Mai amfani",
+        "name": "Suna",
+        "role": "Matsayi",
+        "kyc": "Matsayin KYC",
+        "location": "Wuri"
+      },
+      "error": "An kasa samo masu amfani."
+    },
+    "transactions": {
+      "title": "Ma'amaloli",
+      "description": "Duba duk ma'amaloli a kan dandamali.",
+      "table": {
+        "orderId": "ID na Oda",
+        "buyer": "Mai Siya",
+        "seller": "Mai Siya",
+        "amount": "Adadin",
+        "status": "Matsayi"
+      },
+      "error": "An kasa samo oda."
+    }
+  }
 }

@@ -72,6 +72,13 @@ export const MOCK_ORDERS: Order[] = [
     fees: 6.25,
     status: 'Delivered',
     createdAt: '2024-07-16T00:00:00.000Z',
+    statusHistory: [
+      { status: 'Placed', timestamp: '2024-07-16T00:00:00.000Z' },
+      { status: 'Paid', timestamp: '2024-07-16T00:05:00.000Z' },
+      { status: 'LogisticsPickedUp', timestamp: '2024-07-17T09:00:00.000Z' },
+      { status: 'Shipped', timestamp: '2024-07-17T18:00:00.000Z' },
+      { status: 'Delivered', timestamp: '2024-07-19T14:00:00.000Z' },
+    ],
   },
   {
     id: 'order-2',
@@ -83,6 +90,12 @@ export const MOCK_ORDERS: Order[] = [
     fees: 187.50,
     status: 'Shipped',
     createdAt: '2024-07-18T00:00:00.000Z',
+    statusHistory: [
+      { status: 'Placed', timestamp: '2024-07-18T00:00:00.000Z' },
+      { status: 'Paid', timestamp: '2024-07-18T00:10:00.000Z' },
+      { status: 'LogisticsPickedUp', timestamp: '2024-07-19T11:00:00.000Z' },
+      { status: 'Shipped', timestamp: '2024-07-20T08:30:00.000Z' },
+    ],
   },
   {
     id: 'order-3',
@@ -94,5 +107,9 @@ export const MOCK_ORDERS: Order[] = [
     fees: 25.00,
     status: 'Paid',
     createdAt: '2024-07-21T00:00:00.000Z',
+    statusHistory: [
+      { status: 'Placed', timestamp: '2024-07-21T00:00:00.000Z' },
+      { status: 'Paid', timestamp: '2024-07-21T00:15:00.000Z' },
+    ],
   },
 ];

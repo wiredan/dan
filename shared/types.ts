@@ -37,6 +37,7 @@ export interface Order {
   fees: number;
   status: OrderStatus;
   createdAt: string; // ISO 8601
+  statusHistory: { status: OrderStatus; timestamp: string }[];
 }
 export interface Transaction {
   id: string;

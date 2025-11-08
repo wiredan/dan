@@ -101,6 +101,7 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
     const subtotal = listing.price * quantity;
     const fees = subtotal * 0.025;
     const total = subtotal + fees;
+    const now = new Date().toISOString();
     const newOrder: Order = {
       id: crypto.randomUUID(),
       listingId,
@@ -110,20 +111,31 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
       total,
       fees,
       status: 'Paid', // Assume payment is processed instantly
-      createdAt: new Date().toISOString(),
+      createdAt: now,
+      statusHistory: [
+        { status: 'Placed', timestamp: now },
+        { status: 'Paid', timestamp: new Date(Date.now() + 1000).toISOString() } // a second later
+      ],
     };
     await OrderEntity.create(c.env, newOrder);
     await listingEntity.patch({ quantity: listing.quantity - quantity });
     return ok(c, newOrder);
   });
+  const updateOrderStatus = async (order: OrderEntity, status: OrderStatus) => {
+    return order.mutate(s => ({
+      ...s,
+      status,
+      statusHistory: [...s.statusHistory, { status, timestamp: new Date().toISOString() }]
+    }));
+  };
   app.post('/api/orders/:id/status', async (c) => {
     const { id } = c.req.param();
     const { status } = await c.req.json<{ status: OrderStatus }>();
     if (!status) return bad(c, 'Missing status');
     const order = new OrderEntity(c.env, id);
     if (!(await order.exists())) return notFound(c, 'Order not found');
-    await order.patch({ status });
-    return ok(c, await order.getState());
+    const updatedOrder = await updateOrderStatus(order, status);
+    return ok(c, updatedOrder);
   });
   app.post('/api/orders/:id/dispute', async (c) => {
     const { id } = c.req.param();
@@ -131,8 +143,8 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
     if (!reason) return bad(c, 'Dispute reason is required');
     const order = new OrderEntity(c.env, id);
     if (!(await order.exists())) return notFound(c, 'Order not found');
-    await order.patch({ status: 'Disputed' });
-    return ok(c, await order.getState());
+    const updatedOrder = await updateOrderStatus(order, 'Disputed');
+    return ok(c, updatedOrder);
   });
   app.post('/api/orders/:id/resolve', async (c) => {
     const { id } = c.req.param();
@@ -140,8 +152,8 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
     if (!status || !['Delivered', 'Cancelled'].includes(status)) return bad(c, 'Invalid resolution status');
     const order = new OrderEntity(c.env, id);
     if (!(await order.exists())) return notFound(c, 'Order not found');
-    await order.patch({ status });
-    return ok(c, await order.getState());
+    const updatedOrder = await updateOrderStatus(order, status);
+    return ok(c, updatedOrder);
   });
   // AI ROUTES
   app.post('/api/ai/chat', async (c) => {

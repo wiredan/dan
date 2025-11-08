@@ -98,6 +98,11 @@
       "reasonPlaceholder": "Misali, kayan ba kamar yadda aka bayyana ba, ba a isar ba...",
       "cancel": "Soke",
       "submit": "Mika Rigima"
+    },
+    "timelineChart": {
+      "title": "Taswirar Lokaci na Oda",
+      "tooltipLabel": "Matsayi: {{status}}",
+      "tooltipIntro": "awowi a wannan mataki"
     }
   },
   "profile": {

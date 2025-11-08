@@ -44,7 +44,7 @@
   },
   "dashboard": {
     "title": "Bảng điều khiển",
-    "welcome": "Chào mừng trở lại, {{name}}! Đây là tóm tắt tài khoản của bạn.",
+    "welcome": "Chào mừng tr�� lại, {{name}}! Đây là tóm tắt tài khoản của bạn.",
     "cards": {
       "revenue": {
         "title": "Tổng doanh thu",
@@ -88,7 +88,7 @@
       "delivered": "Đã giao hàng"
     },
     "actions": {
-      "dispute": "Mở tranh chấp",
+      "dispute": "M�� tranh chấp",
       "confirmPickup": "Xác nhận lấy hàng"
     },
     "disputeModal": {
@@ -98,6 +98,11 @@
       "reasonPlaceholder": "Ví dụ: Hàng không như mô tả, chưa được giao...",
       "cancel": "Hủy",
       "submit": "G���i tranh chấp"
+    },
+    "timelineChart": {
+      "title": "Biểu đồ Dòng thời gian Đơn hàng",
+      "tooltipLabel": "Trạng thái: {{status}}",
+      "tooltipIntro": "giờ trong giai đoạn này"
     }
   },
   "profile": {
@@ -195,7 +200,7 @@
     "description": "Nguồn tài nguyên của bạn cho kiến thức và thông tin chi tiết về kinh doanh nông nghiệp.",
     "readMore": "Đọc thêm",
     "categories": {
-      "technology": "Công nghệ",
+      "technology": "C��ng nghệ",
       "farming": "Nông nghiệp",
       "markets": "Thị trường",
       "security": "Bảo mật",

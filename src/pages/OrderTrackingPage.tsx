@@ -11,6 +11,13 @@ import { toast } from 'sonner';
 import { useTranslation } from 'react-i18next';
 import { DisputeModal } from '@/components/DisputeModal';
 import { useCurrencyStore } from '@/lib/currencyStore';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts';
+import { format, differenceInHours } from 'date-fns';
+interface ChartData {
+  name: string;
+  duration: number;
+  fill: string;
+}
 export function OrderTrackingPage() {
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
@@ -22,6 +29,7 @@ export function OrderTrackingPage() {
   const [error, setError] = useState<string | null>(null);
   const [isUpdating, setIsUpdating] = useState(false);
   const [isDisputeModalOpen, setDisputeModalOpen] = useState(false);
+  const [chartData, setChartData] = useState<ChartData[]>([]);
   const { isAuthenticated, user } = useAuthStore(state => ({ isAuthenticated: state.isAuthenticated, user: state.user }));
   const { selectedCurrency } = useCurrencyStore();
   const formatCurrency = (amount: number) => {
@@ -66,6 +74,23 @@ export function OrderTrackingPage() {
   useEffect(() => {
     fetchData();
   }, [fetchData]);
+  useEffect(() => {
+    if (order?.statusHistory && order.statusHistory.length > 1) {
+      const colors = ['#3b82f6', '#10b981', '#f97316', '#8b5cf6', '#ec4899'];
+      const data: ChartData[] = [];
+      for (let i = 0; i < order.statusHistory.length - 1; i++) {
+        const start = new Date(order.statusHistory[i].timestamp);
+        const end = new Date(order.statusHistory[i + 1].timestamp);
+        const duration = differenceInHours(end, start);
+        data.push({
+          name: t(`orderTracking.status.${order.statusHistory[i].status.charAt(0).toLowerCase() + order.statusHistory[i].status.slice(1)}`),
+          duration: duration > 0 ? duration : 1, // Min 1 hour for visibility
+          fill: colors[i % colors.length],
+        });
+      }
+      setChartData(data);
+    }
+  }, [order, t]);
   const handleUpdateStatus = async (newStatus: OrderStatus) => {
     if (!order) return;
     setIsUpdating(true);
@@ -182,7 +207,7 @@ export function OrderTrackingPage() {
             <h1 className="text-3xl font-bold tracking-tight">{t('orderTracking.title')}</h1>
             <p className="text-muted-foreground">{t('orderTracking.orderId')}: {order.id}</p>
           </div>
-          <Card>
+          <Card className="mb-8">
             <CardHeader><CardTitle>{t('orderTracking.status.title')}</CardTitle></CardHeader>
             <CardContent>
               <div className="flex justify-between items-center">
@@ -200,7 +225,31 @@ export function OrderTrackingPage() {
               </div>
             </CardContent>
           </Card>
-          <div className="mt-8 grid md:grid-cols-2 gap-8">
+          {chartData.length > 0 && (
+            <Card className="mb-8">
+              <CardHeader><CardTitle>{t('orderTracking.timelineChart.title')}</CardTitle></CardHeader>
+              <CardContent>
+                <ResponsiveContainer width="100%" height={200}>
+                  <BarChart data={chartData} layout="vertical" margin={{ top: 5, right: 20, left: 20, bottom: 5 }}>
+                    <XAxis type="number" unit="h" />
+                    <YAxis type="category" dataKey="name" width={120} />
+                    <Tooltip
+                      cursor={{ fill: 'hsl(var(--secondary))' }}
+                      contentStyle={{ backgroundColor: 'hsl(var(--background))', border: '1px solid hsl(var(--border))' }}
+                      labelFormatter={(value) => t('orderTracking.timelineChart.tooltipLabel', { status: value })}
+                      formatter={(value) => [`${value} ${t('orderTracking.timelineChart.tooltipIntro')}`]}
+                    />
+                    <Bar dataKey="duration" background={{ fill: 'hsl(var(--muted))' }}>
+                      {chartData.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={entry.fill} />
+                      ))}
+                    </Bar>
+                  </BarChart>
+                </ResponsiveContainer>
+              </CardContent>
+            </Card>
+          )}
+          <div className="grid md:grid-cols-2 gap-8">
             <Card>
               <CardHeader><CardTitle>{t('orderTracking.summary.title')}</CardTitle></CardHeader>
               <CardContent className="space-y-4">

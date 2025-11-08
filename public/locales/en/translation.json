@@ -185,6 +185,11 @@
       "reasonPlaceholder": "e.g., Items not as described, not delivered...",
       "cancel": "Cancel",
       "submit": "Submit Dispute"
+    },
+    "timelineChart": {
+      "title": "Order Timeline Chart",
+      "tooltipLabel": "Status: {{status}}",
+      "tooltipIntro": "hours in this stage"
     }
   },
   "profile": {

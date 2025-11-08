@@ -12,18 +12,18 @@ export class UserEntity extends IndexedEntity<User> {
 export class ListingEntity extends IndexedEntity<Listing> {
   static readonly entityName = "listing";
   static readonly indexName = "listings";
-  static readonly initialState: Listing = { 
-    id: "", 
-    farmerId: "", 
-    name: "", 
-    description: "", 
-    category: "", 
-    price: 0, 
-    unit: "", 
-    quantity: 0, 
-    grade: 'A', 
-    harvestDate: "", 
-    imageUrl: "" 
+  static readonly initialState: Listing = {
+    id: "",
+    farmerId: "",
+    name: "",
+    description: "",
+    category: "",
+    price: 0,
+    unit: "",
+    quantity: 0,
+    grade: 'A',
+    harvestDate: "",
+    imageUrl: ""
   };
   static seedData = MOCK_LISTINGS;
 }
@@ -40,7 +40,8 @@ export class OrderEntity extends IndexedEntity<Order> {
     total: 0,
     fees: 0,
     status: 'Placed',
-    createdAt: ""
+    createdAt: "",
+    statusHistory: [],
   };
   static seedData = MOCK_ORDERS;
 }

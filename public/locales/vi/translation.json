@@ -1,7 +1,7 @@
 {
   "getStarted": "Bắt đầu",
-  "exploreMarket": "Khám phá Thị trường",
-  "heroTitle": "Tương lai của Kinh doanh Nông nghiệp là Phi tập trung",
+  "exploreMarket": "Khám phá Th�� trường",
+  "heroTitle": "Tương lai của Kinh doanh Nông nghiệp là Phi t���p trung",
   "heroSubtitle": "DAN kết nối nông dân, nhà phân phối và nhà đầu tư tr����n một nền tảng an toàn, minh bạch. Giao dịch, theo dõi và thực hiện giao dịch một cách tự tin.",
   "featuresTitle": "Một Kỷ nguyên Mới của Thương mại Nông nghiệp",
   "featuresSubtitle": "Nền tảng của chúng tôi được xây dựng trên công nghệ tiên tiến để đảm bảo sự công bằng, minh bạch và hiệu quả.",
@@ -13,7 +13,7 @@
   "featureTransparentLogisticsDesc": "Theo dõi đơn hàng của bạn trong thời gian thực từ trang trại đ��n kho của bạn với hệ thống theo dõi tiên tiến của chúng tôi.",
   "featureMarketInsightsTitle": "Thông tin chi tiết v�� thị trường",
   "featureMarketInsightsDesc": "Truy cập d�� liệu và phân tích thời gian thực để đưa ra quyết định mua hàng và đầu tư thông minh hơn.",
-  "testimonialsTitle": "Được cộng đồng tin cậy",
+  "testimonialsTitle": "Được cộng đ��ng tin cậy",
   "testimonial1Quote": "DAN đã cách mạng hóa cách tôi bán sản phẩm của m��nh. Tôi nhận được gi�� tốt hơn và thanh toán nhanh hơn.",
   "testimonial1Author": "Amina Yusuf",
   "testimonial1Role": "Nông dân, Nigeria",
@@ -30,7 +30,7 @@
     "links": {
       "dashboard": "Bảng điều khiển",
       "marketplace": "Thị trường",
-      "educationHub": "Trung tâm Gi��o dục"
+      "danAI": "DAN. AI"
     },
     "createListing": "Tạo danh sách",
     "signIn": "Đăng nhập",
@@ -142,7 +142,7 @@
     },
     "users": {
       "title": "Quản lý người dùng",
-      "description": "Xem và quản lý tất cả người dùng đã đăng ký trên nền tảng.",
+      "description": "Xem và quản lý tất c��� người dùng đã đăng ký trên nền tảng.",
       "table": {
         "name": "Tên",
         "role": "Vai trò",
@@ -190,6 +190,8 @@
     }
   },
   "education": {
+    "title": "DAN. AI",
+    "description": "Nguồn tài nguyên do AI cung cấp cho kiến thức và thông tin chi tiết về kinh doanh nông nghiệp.",
     "aiChat": {
       "title": "Trợ lý DAN AI",
       "greeting": "Xin chào! Tôi là AI của Mạng lưới Kinh doanh Nông nghiệp Phi tập trung. Hãy hỏi tôi bất cứ điều gì về giá cả thị trường, hậu cần, hoặc các tính năng của nền tảng.",

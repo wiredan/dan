@@ -30,7 +30,7 @@
     "links": {
       "dashboard": "Dashboard",
       "marketplace": "Kasuwa",
-      "educationHub": "Cibiyar Ilimi"
+      "danAI": "DAN. AI"
     },
     "createListing": "Ƙirƙiri Lissafi",
     "signIn": "Shiga ciki",
@@ -190,6 +190,8 @@
     }
   },
   "education": {
+    "title": "DAN. AI",
+    "description": "Makamashin ku na AI don ilimin kasuwancin noma da basira.",
     "aiChat": {
       "title": "Mataimakin DAN AI",
       "greeting": "Sannu! Ni ne AI na Decentralized Agribusiness Network. Tambaye ni komai game da farashin kasuwa, kayan aiki, ko fasalulluka na dandalinmu.",

@@ -30,7 +30,7 @@
     "links": {
       "dashboard": "Dashboard",
       "marketplace": "Marketplace",
-      "educationHub": "Education Hub"
+      "danAI": "DAN. AI"
     },
     "createListing": "Create Listing",
     "signIn": "Sign In",
@@ -322,8 +322,8 @@
     }
   },
   "education": {
-    "title": "Education Hub",
-    "description": "Your resource for agribusiness knowledge and insights.",
+    "title": "DAN. AI",
+    "description": "Your AI-powered resource for agribusiness knowledge and insights.",
     "readMore": "Read more",
     "categories": {
       "technology": "Technology",

@@ -1,8 +1,8 @@
 {
   "getStarted": "开始使用",
   "exploreMarket": "探索市场",
-  "heroTitle": "农业综合企业的未来是去中心化的",
-  "heroSubtitle": "DAN 在一个安全、透���的平台上连接农民、分销商和投资者。充满信心地进行贸易、追踪和交易。",
+  "heroTitle": "��业综合企业的未来是去中心化的",
+  "heroSubtitle": "DAN 在一个安全、�����的平台上连接农民、分销商和投资者。充满信心地进行贸易、追踪和交易。",
   "featuresTitle": "农产品贸易的新��元",
   "featuresSubtitle": "我们的平台建立在尖端技术��上，以确保公平、透明和高效。",
   "featureDirectSourcingTitle": "直接采购",
@@ -19,9 +19,9 @@
   "testimonial1Role": "农民，尼日��亚",
   "testimonial2Quote": "平台的透明度和安全性改变了我们���销网络的游戏规则。",
   "testimonial2Author": "卡洛斯·戈麦斯",
-  "testimonial2Role": "分销商，越南",
-  "testimonial3Quote": "作为一名投资者，我终���可以充满信心和清晰地参与农业市场。",
-  "testimonial3Author": "法蒂玛·赛义德",
+  "testimonial2Role": "���销商，越南",
+  "testimonial3Quote": "作为一名投资者，���终���可以充满信心和清晰地参与农业市场。",
+  "testimonial3Author": "法蒂玛·赛义��",
   "testimonial3Role": "投资者，阿联酋",
   "ctaTitle": "准备好加入这场革命了吗？",
   "ctaSubtitle": "立即创建账户，体验农业综合企业的未来。",
@@ -30,7 +30,7 @@
     "links": {
       "dashboard": "仪表盘",
       "marketplace": "市场",
-      "educationHub": "教育中心"
+      "danAI": "DAN. AI"
     },
     "createListing": "创建���表",
     "signIn": "登录",
@@ -43,7 +43,7 @@
   },
   "dashboard": {
     "title": "仪表盘",
-    "welcome": "欢迎回来，{{name}}！这是您的账户摘要。",
+    "welcome": "欢迎回来，{{name}}��这是您的账户摘要。",
     "cards": {
       "revenue": {
         "title": "总收入",
@@ -105,7 +105,7 @@
       "button": "返回市场"
     },
     "sellerInfo": {
-      "title": "卖家信息"
+      "title": "��家信息"
     },
     "details": {
       "quantity": "可用数量",
@@ -130,7 +130,7 @@
     "underReview": "此订单正在审核中。",
     "status": {
       "title": "订单状态",
-      "placed": "已下单",
+      "placed": "��下单",
       "paid": "付款已托管",
       "logisticsPickedUp": "已��货",
       "shipped": "已发货",
@@ -149,7 +149,7 @@
       "buyer": "买家",
       "seller": "卖家",
       "logistics": "物流",
-      "logisticsPartner": "DAN 物流合作伙伴"
+      "logisticsPartner": "DAN 物流合作��伴"
     },
     "actions": {
       "updating": "更新中...",
@@ -157,9 +157,9 @@
       "confirmDelivery": "确认收货",
       "confirmPickup": "确认取货",
       "dispute": "争议订单",
-      "resolveRelease": "解决��释放资金",
+      "resolveRelease": "解决�����放资金",
       "resolveRefund": "解决并退款给买家",
-      "cancelOrder": "取消订单（管理员）"
+      "cancelOrder": "取消订单��管理员）"
     },
     "error": {
       "fetch": "获取订单详情失败"
@@ -179,9 +179,9 @@
     },
     "disputeModal": {
       "title": "发起争议",
-      "description": "请描述您的订单问��。管理员将审核您的申诉。",
+      "description": "请描述您的���单问��。管理员将审核您的申诉。",
       "reasonLabel": "原因",
-      "reasonPlaceholder": "例如：商���与描述不符、未收到货...",
+      "reasonPlaceholder": "���如：商���与描述不符、未收到货...",
       "cancel": "取消",
       "submit": "提交争议"
     }
@@ -191,7 +191,7 @@
     "tabs": {
       "profile": "个人资料",
       "kyc": "KYC 验证",
-      "payment": "支付方式"
+      "payment": "���付方式"
     },
     "profile": {
       "title": "个人信息",
@@ -220,7 +220,7 @@
         "submit": "提交验证"
       },
       "toast": {
-        "submitted": "KYC 文件已提交审核。（此为演示）"
+        "submitted": "KYC 文件已提交审核。（此为演���）"
       }
     },
     "payment": {
@@ -257,7 +257,7 @@
       },
       "actions": {
         "promote": "提升为管理员",
-        "demote": "从管理员��级"
+        "demote": "��管理员��级"
       },
       "toast": {
         "roleSuccess": "用户角色更新成功。",
@@ -265,7 +265,7 @@
         "promoteSuccess": "用户成功提升为管理员。",
         "promoteError": "提升用户���败。"
       },
-      "error": "获取用户失败。",
+      "error": "获取用户���败。",
       "promoteCard": {
         "title": "提升用户为管理员",
         "description": "输入用户的电子邮件地址以授予其管理员权限。",
@@ -304,7 +304,7 @@
     },
     "form": {
       "email": "电子邮件",
-      "password": "密码",
+      "password": "密��",
       "name": "姓名",
       "namePlaceholder": "张三"
     },
@@ -322,11 +322,11 @@
     }
   },
   "education": {
-    "title": "教育中心",
-    "description": "您的农���综合企业知识和见解资源。",
+    "title": "DAN. AI",
+    "description": "您的人工智能农业��合企业知识和见解资源。",
     "readMore": "阅读更多",
     "categories": {
-      "technology": "技术",
+      "technology": "技��",
       "farming": "农业",
       "markets": "市场",
       "security": "安全",
@@ -335,33 +335,33 @@
     },
     "articles": {
       "defi": {
-        "title": "理解农业中的去中心化金融",
-        "description": "探索区块链和DeFi���何改变农业供应链，为农民和投资者提供新机遇。"
+        "title": "��解农业中的去中心化金���",
+        "description": "探索区块链和DeFi���何改变农业供应链，为农民和投资者提供新机��。"
       },
       "sustainable": {
         "title": "可持续农业的最佳实践",
-        "description": "了解提高作物产量同时保护环境以造福后代的现代技术。"
+        "description": "了解提高作物��量同时保护环境以造福后代的现代技术。"
       },
       "markets": {
-        "title": "驾驭全球粮食作物市场",
+        "title": "驾驭全球粮��作物市场",
         "description": "分析当前市场趋势、价格波动以及如何在平台上做出明智的交易决策。"
       },
       "kyc": {
-        "title": "KYC在建立信任中的作用",
-        "description": "为什么身份验证对于创建一个安全透明的农业综合企业市场至关重要。"
+        "title": "KYC在建立信任中的作��",
+        "description": "为什么身份验证对于创建一个安全透明的农业综合企业市场至关��要。"
       },
       "logistics": {
         "title": "物流与供应链优化",
         "description": "为分销商简化运营和降低成本的技巧和策略。"
       },
       "tokenization": {
-        "title": "农业代币化简��",
-        "description": "关于如何将农业资产表示为数字代币，从��释放流动性和投资的初学者指南。"
+        "title": "农业��币化简��",
+        "description": "关于如何将农业资产���示为数字代币，从��释放流动性和投资的初学者指南。"
       }
     },
     "aiChat": {
       "title": "DAN AI 助手",
-      "greeting": "您好！我是去中心化农业综合企业网络AI。您可以��我任何关于市场价格、物流或我们平台功能的问题。",
+      "greeting": "您好！���是去中心化农业综合企业网络AI。您可以��我任何关于市场价格、物流或我们平台功能的问题。",
       "placeholder": "询问市场趋势...",
       "send": "发���"
     }
@@ -372,7 +372,7 @@
     "form": {
       "productName": {
         "label": "产品名称",
-        "placeholder": "例如：有机哈斯牛油果"
+        "placeholder": "例如：有机哈斯牛油��"
       },
       "description": {
         "label": "描述",
@@ -397,7 +397,7 @@
         "label": "可用数量"
       },
       "imageUrl": {
-        "label": "图片URL",
+        "label": "���片URL",
         "placeholder": "https://example.com/image.jpg"
       },
       "submit": {

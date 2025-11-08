@@ -4,6 +4,7 @@ export const MOCK_USERS: User[] = [
   { id: 'user-2', name: 'Carlos Gomez', role: 'Distributor', kycStatus: 'Verified', location: 'Ho Chi Minh, Vietnam', avatarUrl: 'https://i.pravatar.cc/150?u=user-2' },
   { id: 'user-3', name: 'Fatima Al-Sayed', role: 'Investor', kycStatus: 'Verified', location: 'Dubai, UAE', avatarUrl: 'https://i.pravatar.cc/150?u=user-3' },
   { id: 'user-4', name: 'Bello Dangote', role: 'Farmer', kycStatus: 'Pending', location: 'Lagos, Nigeria', avatarUrl: 'https://i.pravatar.cc/150?u=user-4' },
+  { id: 'admin@agrilink.com', name: 'Admin User', role: 'Admin', kycStatus: 'Verified', location: 'Platform HQ', avatarUrl: 'https://i.pravatar.cc/150?u=admin' },
 ];
 export const MOCK_LISTINGS: Listing[] = [
   {

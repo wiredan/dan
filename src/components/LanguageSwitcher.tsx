@@ -12,8 +12,6 @@ const languages = [
   { code: 'ha', name: 'Hausa' },
   { code: 'ar', name: 'العربية' },
   { code: 'vi', name: 'Tiếng Việt' },
-  { code: 'zh', name: '中文' },
-  { code: 'fr', name: 'Français' },
 ];
 export function LanguageSwitcher() {
   const { i18n } = useTranslation();

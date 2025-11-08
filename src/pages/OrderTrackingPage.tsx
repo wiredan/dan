@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -30,7 +30,7 @@ export function OrderTrackingPage() {
   const [error, setError] = useState<string | null>(null);
   const [isUpdating, setIsUpdating] = useState(false);
   const { isAuthenticated, user } = useAuthStore(state => ({ isAuthenticated: state.isAuthenticated, user: state.user }));
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     if (!id) return;
     try {
       setIsLoading(true);
@@ -49,10 +49,10 @@ export function OrderTrackingPage() {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [id]);
   useEffect(() => {
     fetchData();
-  }, [id]);
+  }, [fetchData]);
   const handleUpdateStatus = async (newStatus: OrderStatus) => {
     if (!order) return;
     setIsUpdating(true);

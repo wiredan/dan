@@ -1,7 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, Leaf, User, LogOut, PlusCircle } from 'lucide-react';
+import { Menu, Leaf, User, LogOut, PlusCircle, Shield } from 'lucide-react';
 import { useAuthStore } from '@/lib/authStore';
 import {
   DropdownMenu,
@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ThemeToggle } from './ThemeToggle';
+import { LanguageSwitcher } from './LanguageSwitcher';
 const navLinks = [
   { to: '/dashboard', label: 'Dashboard' },
   { to: '/marketplace', label: 'Marketplace' },
@@ -52,7 +53,8 @@ export function Navbar() {
               ))}
             </nav>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
+            <LanguageSwitcher />
             <ThemeToggle className="relative" />
             {isAuthenticated && user ? (
               <div className="flex items-center gap-2">
@@ -82,6 +84,11 @@ export function Navbar() {
                     <DropdownMenuItem asChild>
                       <Link to="/profile"><User className="mr-2 h-4 w-4" /><span>Profile</span></Link>
                     </DropdownMenuItem>
+                    {user.role === 'Admin' && (
+                      <DropdownMenuItem asChild>
+                        <Link to="/admin"><Shield className="mr-2 h-4 w-4" /><span>Admin Panel</span></Link>
+                      </DropdownMenuItem>
+                    )}
                     <DropdownMenuSeparator />
                     <DropdownMenuItem onClick={logout}>
                       <LogOut className="mr-2 h-4 w-4" />

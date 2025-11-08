@@ -224,6 +224,7 @@
       "description": "Update your personal details here.",
       "form": {
         "name": "Full Name",
+        "nameDisabledTooltip": "Name cannot be changed after KYC verification.",
         "email": "Email",
         "location": "Location",
         "save": "Save Changes",
@@ -287,6 +288,10 @@
       },
       "toast": {
         "connected": "{{method}} connected successfully! (Demo)"
+      },
+      "disabledAlert": {
+        "title": "Management Disabled",
+        "description": "You cannot change payment methods while you have active orders. Please complete or cancel all orders first."
       }
     }
   },
@@ -501,7 +506,8 @@
     },
     "error": {
       "notLoggedIn": "You must be logged in to create a listing.",
-      "failed": "Failed to create listing."
+      "failed": "Failed to create listing.",
+      "openOrderExists": "You have an open order for this product. Please resolve it before creating a new listing."
     },
     "success": "Listing created successfully!"
   },

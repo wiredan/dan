@@ -146,6 +146,7 @@
       "description": "Sabunta bayanan sirri naka anan.",
       "form": {
         "name": "Cikakken Suna",
+        "nameDisabledTooltip": "Ba za a iya canza suna ba bayan an tabbatar da KYC.",
         "email": "Imel",
         "location": "Wuri",
         "save": "Ajiye Canje-canje",
@@ -209,6 +210,10 @@
       },
       "toast": {
         "connected": "An haɗa {{method}} cikin nasara! (Demo)"
+      },
+      "disabledAlert": {
+        "title": "An Kashe Gudanarwa",
+        "description": "Ba za ku iya canza hanyoyin biyan kuɗi ba yayin da kuke da oda masu aiki. Da fatan za a kammala ko soke dukkan oda da farko."
       }
     }
   },
@@ -354,6 +359,11 @@
         "disease": "Mai Yiwuwa Kamuwa da Cutar Fungal",
         "recommendation": "Alamun da suka dace da cutar fungal a matakin farko. Ana ba da shawarar binciken samfurin ƙasa da kuma yin la'akari da amfani da maganin fungicides."
       }
+    }
+  },
+  "createListing": {
+    "error": {
+      "openOrderExists": "Kuna da oda a bude don wannan samfurin. Da fatan za a warware ta kafin ƙirƙirar sabon lissafi."
     }
   },
   "currency": {

@@ -65,7 +65,11 @@ export function CreateListingPage() {
       toast.success(t('createListing.success'));
       navigate(`/listing/${createdListing.id}`);
     } catch (error) {
-      toast.error(t('createListing.error.failed'));
+      if (error instanceof Error && error.message.includes('open order exists')) {
+        toast.error(t('createListing.error.openOrderExists'));
+      } else {
+        toast.error(t('createListing.error.failed'));
+      }
       console.error(error);
     } finally {
       setIsSubmitting(false);

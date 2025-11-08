@@ -2,11 +2,11 @@
   "getStarted": "Bắt đ��u",
   "exploreMarket": "Khám phá Th�� trư��ng",
   "heroTitle": "Tương lai của Kinh doanh Nông nghiệp là Phi t���p trung",
-  "heroSubtitle": "DAN kết nối nông dân, nhà phân phối và nhà ��ầu tư tr����n một n��n tảng an toàn, minh bạch. Giao dịch, theo dõi và th��c hiện giao dịch một cách tự tin.",
+  "heroSubtitle": "DAN kết n��i nông dân, nhà phân phối và nhà ��ầu tư tr����n một n��n tảng an toàn, minh bạch. Giao dịch, theo dõi và th��c hiện giao dịch một cách tự tin.",
   "featuresTitle": "Một Kỷ nguy��n Mới của Thương mại Nông nghiệp",
   "featuresSubtitle": "Nền tảng của chúng tôi đư��c xây dựng trên công nghệ tiên tiến để đảm bảo sự công bằng, minh bạch và hiệu quả.",
   "featureDirectSourcingTitle": "Ngu��n cung ��ng trực tiếp",
-  "featureDirectSourcingDesc": "Kết nối trực tiếp với nông dân để có được những vụ mùa tư��i ngon nhất mà không cần qua trung gian.",
+  "featureDirectSourcingDesc": "Kết nối trực tiếp với nông dân để có đư��c những vụ mùa tư��i ngon nhất mà không cần qua trung gian.",
   "featureSecureEscrowTitle": "Ký qu��� an toàn",
   "featureSecureEscrowDesc": "Các khoản thanh toán được giữ an toàn trong ký quỹ và được giải ngân tự động khi xác nhận giao hàng.",
   "featureTransparentLogisticsTitle": "Hậu cần minh bạch",
@@ -125,7 +125,7 @@
     },
     "disputeDetails": {
       "title": "Chi tiết Tranh chấp",
-      "evidence": "B��ng chứng đã gửi"
+      "evidence": "B��ng chứng đã g��i"
     },
     "aiAnalysis": {
       "title": "Phân tích Tranh chấp bằng AI",
@@ -146,6 +146,7 @@
       "description": "Cập nhật thông tin c�� nhân của bạn tại đây.",
       "form": {
         "name": "Họ và tên",
+        "nameDisabledTooltip": "Không thể thay đổi tên sau khi xác minh KYC.",
         "email": "Email",
         "location": "Vị tr��",
         "save": "Lưu thay đổi",
@@ -209,6 +210,10 @@
       },
       "toast": {
         "connected": "Đã kết nối {{method}} thành công! (Demo)"
+      },
+      "disabledAlert": {
+        "title": "Quản lý bị vô hiệu hóa",
+        "description": "Bạn không thể thay đổi phương thức thanh toán khi có đơn hàng đang hoạt động. Vui lòng hoàn thành hoặc hủy tất cả các đơn hàng trước."
       }
     }
   },
@@ -352,8 +357,13 @@
       },
       "fungus": {
         "disease": "Nghi ngờ Bệnh Nấm",
-        "recommendation": "Các dấu hiệu phù hợp với bệnh nấm giai đoạn đầu. Khuyến nghị phân tích m��u đất và xem xét áp dụng thu���c trừ nấm phổ rộng có mục tiêu."
+        "recommendation": "Các dấu hiệu phù hợp với b���nh nấm giai đoạn đầu. Khuyến nghị phân tích m��u đất và xem xét áp dụng thu���c trừ nấm phổ rộng có mục tiêu."
       }
+    }
+  },
+  "createListing": {
+    "error": {
+      "openOrderExists": "Bạn có một đơn hàng đang mở cho sản phẩm này. Vui lòng giải quyết nó trước khi tạo danh sách mới."
     }
   },
   "currency": {

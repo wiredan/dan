@@ -26,8 +26,12 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
     const body = await c.req.json<Partial<User>>();
     const user = new UserEntity(c.env, id);
     if (!(await user.exists())) return notFound(c, 'user not found');
+    const currentState = await user.getState();
     const updateData: Partial<User> = {};
-    if (isStr(body.name)) updateData.name = body.name;
+    // Prevent name change if KYC is verified
+    if (isStr(body.name) && currentState.kycStatus !== 'Verified') {
+      updateData.name = body.name;
+    }
     if (isStr(body.location)) updateData.location = body.location;
     await user.patch(updateData);
     return ok(c, await user.getState());
@@ -44,7 +48,6 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
   app.post('/api/users/promote', async (c) => {
     const { email } = await c.req.json<{ email: string }>();
     if (!isStr(email)) return bad(c, 'Email is required');
-    // In our mock setup, the user ID is often the email.
     const userId = email;
     const user = new UserEntity(c.env, userId);
     if (!(await user.exists())) {
@@ -61,11 +64,8 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
     const { id } = c.req.param();
     const user = new UserEntity(c.env, id);
     if (!(await user.exists())) return notFound(c, 'User not found');
-    // Set to pending immediately
     await user.patch({ kycStatus: 'Pending' });
-    // Simulate AI processing delay
     await new Promise(resolve => setTimeout(resolve, 3000));
-    // Update to verified
     await user.patch({ kycStatus: 'Verified' });
     return ok(c, await user.getState());
   });
@@ -84,6 +84,21 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
   app.post('/api/listings', async (c) => {
     const body = await c.req.json<Omit<Listing, 'id'>>();
     if (!body.name || !body.farmerId) return bad(c, 'Missing required fields');
+    // Business logic: Prevent creating a listing if an open order for the same product exists
+    const { items: allListings } = await ListingEntity.list(c.env);
+    const farmerListingsWithSameName = allListings.filter(
+      l => l.farmerId === body.farmerId && l.name.toLowerCase() === body.name.toLowerCase()
+    );
+    if (farmerListingsWithSameName.length > 0) {
+      const { items: allOrders } = await OrderEntity.list(c.env);
+      const openOrderExists = allOrders.some(order => 
+        farmerListingsWithSameName.some(l => l.id === order.listingId) && 
+        !['Delivered', 'Cancelled'].includes(order.status)
+      );
+      if (openOrderExists) {
+        return bad(c, 'An open order for this product already exists. You cannot create a new listing until it is resolved.');
+      }
+    }
     const newListing: Listing = {
       id: crypto.randomUUID(),
       ...body
@@ -122,11 +137,11 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
       quantity,
       total,
       fees,
-      status: 'Paid', // Assume payment is processed instantly
+      status: 'Paid',
       createdAt: now,
       statusHistory: [
         { status: 'Placed', timestamp: now },
-        { status: 'Paid', timestamp: new Date(Date.now() + 1000).toISOString() } // a second later
+        { status: 'Paid', timestamp: new Date(Date.now() + 1000).toISOString() }
       ],
     };
     await OrderEntity.create(c.env, newOrder);
@@ -173,7 +188,6 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
     const orderEntity = new OrderEntity(c.env, id);
     if (!(await orderEntity.exists())) return notFound(c, 'Order not found');
     const order = await orderEntity.getState();
-    // Simulate AI analysis
     await new Promise(resolve => setTimeout(resolve, 1500));
     let recommendation = "AI analysis inconclusive. Manual review required.";
     if (order.disputeReason?.toLowerCase().includes("moldy") && order.disputeEvidenceUrl) {
@@ -187,7 +201,6 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
   app.post('/api/ai/chat', async (c) => {
     const { message } = await c.req.json<{ message: string }>();
     if (!message) return bad(c, 'Message is required');
-    // Mock Gemini AI response
     const lowerCaseMessage = message.toLowerCase();
     let reply = "I'm sorry, I can only answer questions about agriculture, logistics, and decentralized finance. How can I help you with those topics?";
     if (lowerCaseMessage.includes('price') || lowerCaseMessage.includes('market')) {
@@ -197,12 +210,10 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
     } else if (lowerCaseMessage.includes('payment') || lowerCaseMessage.includes('escrow')) {
       reply = "Our secure escrow system holds your payment until you confirm delivery. Funds are then automatically released to the farmer, minus a 2.5% platform fee. This protects both buyers and sellers.";
     }
-    // Simulate a delay
     await new Promise(resolve => setTimeout(resolve, 1500));
     return ok(c, { reply });
   });
   app.post('/api/ai/crop-health', async (c) => {
-    // Simulate AI analysis delay
     await new Promise(resolve => setTimeout(resolve, 2500));
     const mockResults = [
       { disease: 'cropHealthAI.results.healthy.disease', confidence: 98.2, recommendation: 'cropHealthAI.results.healthy.recommendation' },

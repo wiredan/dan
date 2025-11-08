@@ -8,7 +8,7 @@
   "featureDirectSourcingTitle": "Approvisionnement Direct",
   "featureDirectSourcingDesc": "Connectez-vous directement avec les agriculteurs pour obtenir les récoltes les plus fraîches sans intermédiaires.",
   "featureSecureEscrowTitle": "Séquestre Sécurisé",
-  "featureSecureEscrowDesc": "Les paiements sont conservés en toute sécurité sous séquestre et libérés automatiquement après confirmation de la livraison.",
+  "featureSecureEscrowDesc": "Les paiements sont conserv��s en toute sécurité sous séquestre et libérés automatiquement après confirmation de la livraison.",
   "featureTransparentLogisticsTitle": "Logistique Transparente",
   "featureTransparentLogisticsDesc": "Suivez vos commandes en temps réel de la ferme à votre entrepôt grâce à notre système de suivi avancé.",
   "featureMarketInsightsTitle": "Aperçus du Marché",
@@ -185,6 +185,7 @@
       "description": "Mettez à jour vos informations personnelles ici.",
       "form": {
         "name": "Nom complet",
+        "nameDisabledTooltip": "Le nom ne peut pas être modifié après la vérification KYC.",
         "email": "Email",
         "location": "Lieu",
         "save": "Enregistrer les modifications",
@@ -248,6 +249,10 @@
       },
       "toast": {
         "connected": "{{method}} connecté avec succès ! (Démo)"
+      },
+      "disabledAlert": {
+        "title": "Gestion Désactivée",
+        "description": "Vous ne pouvez pas modifier les moyens de paiement lorsque vous avez des commandes actives. Veuillez d'abord terminer ou annuler toutes les commandes."
       }
     }
   },
@@ -424,61 +429,9 @@
     }
   },
   "createListing": {
-    "title": "Créer une Nouvelle Annonce",
-    "description": "Remplissez les détails ci-dessous pour ajouter votre produit au marché.",
-    "form": {
-      "productName": {
-        "label": "Nom du produit",
-        "placeholder": "Ex: Avocats Hass Biologiques"
-      },
-      "description": {
-        "label": "Description",
-        "placeholder": "Décrivez votre produit en détail..."
-      },
-      "category": {
-        "label": "Catégorie",
-        "placeholder": "Sélectionnez une catégorie"
-      },
-      "grade": {
-        "label": "Qualité",
-        "placeholder": "Sélectionnez une qualité"
-      },
-      "price": {
-        "label": "Prix"
-      },
-      "unit": {
-        "label": "Unité",
-        "placeholder": "Ex: kg, tonne, pi���ce"
-      },
-      "quantity": {
-        "label": "Quantité disponible"
-      },
-      "imageUrl": {
-        "label": "URL de l'image",
-        "placeholder": "https://example.com/image.jpg"
-      },
-      "submit": {
-        "default": "Créer l'annonce",
-        "submitting": "Création en cours..."
-      }
-    },
     "error": {
-      "notLoggedIn": "Vous devez être connecté pour créer une annonce.",
-      "failed": "Échec de la création de l'annonce."
-    },
-    "success": "Annonce créée avec succès !"
-  },
-  "categories": {
-    "fruits": "Fruits",
-    "vegetables": "Légumes",
-    "grains": "Céréales",
-    "spices": "Épices",
-    "nuts": "Noix"
-  },
-  "grades": {
-    "a": "Qualité A",
-    "b": "Qualité B",
-    "c": "Qualité C"
+      "openOrderExists": "Vous avez une commande ouverte pour ce produit. Veuillez la résoudre avant de créer une nouvelle annonce."
+    }
   },
   "currency": {
     "switcherTooltip": "Changer de devise",

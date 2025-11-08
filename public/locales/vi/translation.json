@@ -1,5 +1,5 @@
 {
-  "getStarted": "Bắt đầu",
+  "getStarted": "Bắt đ��u",
   "exploreMarket": "Khám phá Th�� trư��ng",
   "heroTitle": "Tương lai của Kinh doanh Nông nghiệp là Phi t���p trung",
   "heroSubtitle": "DAN kết nối nông dân, nhà phân phối và nhà đầu tư tr����n một n��n tảng an toàn, minh bạch. Giao dịch, theo dõi và thực hiện giao dịch một cách tự tin.",
@@ -25,12 +25,12 @@
   "testimonial3Role": "Nhà đầu tư, UAE",
   "ctaTitle": "S��n sàng tham gia cuộc cách mạng?",
   "ctaSubtitle": "Tạo tài khoản ngay hôm nay và trải nghiệm tương lai của kinh doanh nông nghiệp.",
-  "ctaButton": "Đăng ký ngay",
+  "ctaButton": "��ăng ký ngay",
   "navbar": {
     "links": {
       "dashboard": "Bảng điều khiển",
       "marketplace": "Thị trường",
-      "educationHub": "Trung tâm Giáo dục",
+      "educationHub": "Trung tâm Gi��o dục",
       "danAI": "DAN. AI"
     },
     "createListing": "Tạo danh s��ch",
@@ -141,14 +141,26 @@
     "payment": {
       "title": "Phương thức thanh toán",
       "description": "Quản lý các phương thức thanh toán đã kết nối của bạn.",
+      "tabs": {
+        "bank": "Tài khoản ngân hàng",
+        "card": "Thẻ",
+        "wallet": "Ví Sidrachain"
+      },
       "form": {
-        "email": "Email tài khoản Paystack",
         "bankName": "Tên ngân hàng",
-        "accountNumber": "Số tài khoản",
-        "submit": "Kết nối tài khoản Paystack"
+        "iban": "IBAN",
+        "cardNumber": "Số thẻ",
+        "expiry": "Hết hạn",
+        "cvc": "CVC",
+        "walletAddress": "Địa chỉ ví",
+        "submit": {
+          "bank": "Kết nối tài khoản",
+          "card": "Kết nối thẻ",
+          "wallet": "Kết nối ví"
+        }
       },
       "toast": {
-        "connected": "Kết nối tài khoản Paystack thành công! (Demo)"
+        "connected": "Đã kết nối {{method}} thành công! (Demo)"
       }
     }
   },
@@ -217,7 +229,7 @@
       "farming": "Nông nghiệp",
       "markets": "Thị trường",
       "security": "Bảo mật",
-      "logistics": "Hậu cần",
+      "logistics": "H���u cần",
       "investment": "Đ���u tư"
     },
     "articles": {
@@ -243,7 +255,7 @@
       },
       "tokenization": {
         "title": "Giới thiệu về Token hóa Nông nghiệp",
-        "description": "Hướng dẫn cho người mới bắt đầu về cách tài sản nông nghiệp có thể được biểu diễn dưới d��ng token kỹ thuật số."
+        "description": "Hướng d���n cho người mới bắt đầu về cách tài sản nông nghiệp có thể được biểu diễn dưới d��ng token kỹ thuật số."
       }
     },
     "aiChat": {
@@ -272,6 +284,7 @@
       "eur": "Euro",
       "usdt": "Tether",
       "dan": "DAN Token",
+      "sda": "SDA Token",
       "cny": "Nhân dân tệ Trung Quốc"
     }
   }

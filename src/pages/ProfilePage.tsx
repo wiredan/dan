@@ -42,9 +42,9 @@ export function ProfilePage() {
     e.preventDefault();
     toast.info(t('profile.kyc.toast.submitted'));
   };
-  const handlePaystackConnect = (e: React.FormEvent) => {
+  const handlePaymentConnect = (e: React.FormEvent, method: string) => {
     e.preventDefault();
-    toast.success(t('profile.payment.toast.connected'));
+    toast.success(t('profile.payment.toast.connected', { method }));
   };
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -118,21 +118,54 @@ export function ProfilePage() {
                 <CardDescription>{t('profile.payment.description')}</CardDescription>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handlePaystackConnect} className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="paystack-email">{t('profile.payment.form.email')}</Label>
-                    <Input id="paystack-email" type="email" placeholder="you@provider.com" required />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="bank-name">{t('profile.payment.form.bankName')}</Label>
-                    <Input id="bank-name" placeholder="First Bank of Agriculture" required />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="account-number">{t('profile.payment.form.accountNumber')}</Label>
-                    <Input id="account-number" placeholder="1234567890" required />
-                  </div>
-                  <Button type="submit">{t('profile.payment.form.submit')}</Button>
-                </form>
+                <Tabs defaultValue="bank" className="w-full">
+                  <TabsList className="grid w-full grid-cols-3">
+                    <TabsTrigger value="bank">{t('profile.payment.tabs.bank')}</TabsTrigger>
+                    <TabsTrigger value="card">{t('profile.payment.tabs.card')}</TabsTrigger>
+                    <TabsTrigger value="wallet">{t('profile.payment.tabs.wallet')}</TabsTrigger>
+                  </TabsList>
+                  <TabsContent value="bank" className="mt-4">
+                    <form onSubmit={(e) => handlePaymentConnect(e, 'Bank Account')} className="space-y-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="bank-name">{t('profile.payment.form.bankName')}</Label>
+                        <Input id="bank-name" placeholder="First Bank of Agriculture" required />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="iban">{t('profile.payment.form.iban')}</Label>
+                        <Input id="iban" placeholder="NG12345678901234567890" required />
+                      </div>
+                      <Button type="submit">{t('profile.payment.form.submit.bank')}</Button>
+                    </form>
+                  </TabsContent>
+                  <TabsContent value="card" className="mt-4">
+                    <form onSubmit={(e) => handlePaymentConnect(e, 'Card')} className="space-y-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="card-number">{t('profile.payment.form.cardNumber')}</Label>
+                        <Input id="card-number" placeholder="**** **** **** 1234" required />
+                      </div>
+                      <div className="grid grid-cols-2 gap-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="expiry">{t('profile.payment.form.expiry')}</Label>
+                          <Input id="expiry" placeholder="MM/YY" required />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="cvc">{t('profile.payment.form.cvc')}</Label>
+                          <Input id="cvc" placeholder="123" required />
+                        </div>
+                      </div>
+                      <Button type="submit">{t('profile.payment.form.submit.card')}</Button>
+                    </form>
+                  </TabsContent>
+                  <TabsContent value="wallet" className="mt-4">
+                    <form onSubmit={(e) => handlePaymentConnect(e, 'Sidrachain Wallet')} className="space-y-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="wallet-address">{t('profile.payment.form.walletAddress')}</Label>
+                        <Input id="wallet-address" placeholder="0x..." required />
+                      </div>
+                      <Button type="submit">{t('profile.payment.form.submit.wallet')}</Button>
+                    </form>
+                  </TabsContent>
+                </Tabs>
               </CardContent>
             </Card>
           </TabsContent>

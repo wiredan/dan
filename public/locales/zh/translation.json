@@ -1,11 +1,11 @@
 {
-  "getStarted": "开始���用",
+  "getStarted": "���始���用",
   "exploreMarket": "探索市场",
   "heroTitle": "��业综合���业的未来是去中心化的",
   "heroSubtitle": "DAN 在一个安���、�����的平台上连接农民、分销商和投资者。充满信心地进行贸易、追踪和交易。",
   "featuresTitle": "农产品贸易的新��元",
   "featuresSubtitle": "我们的平台建立在尖端技术��上，��确保公平、透明和高效。",
-  "featureDirectSourcingTitle": "直接采购",
+  "featureDirectSourcingTitle": "直接��购",
   "featureDirectSourcingDesc": "直接���农民联���，无需中间商即可采购最新鲜的农作物。",
   "featureSecureEscrowTitle": "安全托管",
   "featureSecureEscrowDesc": "付款被安全地保��在托管账户中，并在确认交货后自动释放。",
@@ -15,7 +15,7 @@
   "featureMarketInsightsDesc": "获取实时数据和分析，以做出更明智的采购和投资决策。",
   "testimonialsTitle": "深受��区信��",
   "testimonial1Quote": "DAN 彻底改变了我销���农产品的方式。我获得了更好的价格和更快的付款。",
-  "testimonial1Author": "阿米娜·���素福",
+  "testimonial1Author": "阿���娜·���素福",
   "testimonial1Role": "农民，��日��亚",
   "testimonial2Quote": "平台的透明度和安全性改变了我们���销网络的游戏规则。",
   "testimonial2Author": "卡洛斯·戈麦斯",
@@ -51,7 +51,7 @@
         "subtitle": "���上个���增长20.1%"
       },
       "activeOrders": {
-        "title": "活动���单",
+        "title": "活动������",
         "subtitle": "总共 {{count}} 个订单"
       },
       "connections": {
@@ -71,7 +71,7 @@
       "description": "您最近的���易。",
       "table": {
         "id": "订单ID",
-        "status": "状���",
+        "status": "������",
         "amount": "金���"
       }
     }
@@ -80,11 +80,11 @@
     "title": "市场",
     "description": "浏览和交易来自全����过验证的农民的粮食作物。",
     "filters": {
-      "searchPlaceholder": "搜索作物...",
+      "searchPlaceholder": "��索作物...",
       "categoryPlaceholder": "类别",
       "allCategories": "所有类别",
       "sortByPlaceholder": "排序方式",
-      "priceAsc": "价格：从低到高",
+      "priceAsc": "价格：从低到���",
       "priceDesc": "价格：从高到低",
       "nameAsc": "���称：A-Z"
     },
@@ -142,7 +142,7 @@
       "quantity": "数量",
       "price": "价格",
       "subtotal": "小计",
-      "fees": "费用 (2.5%)",
+      "fees": "���用 (2.5%)",
       "total": "总计"
     },
     "participants": {
@@ -150,7 +150,7 @@
       "buyer": "买家",
       "seller": "卖家",
       "logistics": "物流",
-      "logisticsPartner": "DAN 物流合作��伴"
+      "logisticsPartner": "DAN 物流合作�����"
     },
     "actions": {
       "updating": "更新中...",
@@ -173,7 +173,7 @@
     "toast": {
       "statusUpdated": "订单状态已���新为 {{status}}",
       "statusUpdateFailed": "更新订单状态失败。",
-      "disputeSubmitted": "争议提交成功。",
+      "disputeSubmitted": "争议提交���功。",
       "disputeFailed": "提交争议失败。",
       "disputeResolved": "争议解决成功。",
       "resolveFailed": "解决争议失败。"
@@ -182,17 +182,17 @@
       "title": "发起争议",
       "description": "请描述您的���单问��。管理员将审核您的申诉。",
       "reasonLabel": "原因",
-      "reasonPlaceholder": "���如：商���与描述不符、未收到货...",
+      "reasonPlaceholder": "���如：商���与描述不符���未收到货...",
       "evidenceLabel": "上传证据",
-      "fileErrorType": "文件必须是图片。",
+      "fileErrorType": "文件必��是图片。",
       "fileErrorSize": "文件必须小于 {{size}}KB。",
       "cancel": "取消",
       "submit": "提交争议"
     },
     "timelineChart": {
-      "title": "订单时间线图表",
+      "title": "订单时间��图表",
       "tooltipLabel": "状态: {{status}}",
-      "tooltipIntro": "小时在此阶段"
+      "tooltipIntro": "小时在此��段"
     },
     "disputeDetails": {
       "title": "争议详情",
@@ -230,7 +230,7 @@
       "description": "验证您的身份以�����全部平台功能。",
       "verified": {
         "title": "���的账户已通过验证！",
-        "description": "您����所有平台功能的完全访问权限。"
+        "description": "您����所有平台功能的完全访���权限。"
       },
       "form": {
         "docType": "文件类型",
@@ -245,20 +245,32 @@
     "payment": {
       "title": "支付方式",
       "description": "管理您已连接的���付方式。",
+      "tabs": {
+        "bank": "银行账户",
+        "card": "卡",
+        "wallet": "Sidrachain 钱包"
+      },
       "form": {
-        "email": "Paystack 账户邮��",
         "bankName": "银行名称",
-        "accountNumber": "账号",
-        "submit": "连接 Paystack 账户"
+        "iban": "IBAN",
+        "cardNumber": "卡号",
+        "expiry": "有效期",
+        "cvc": "CVC",
+        "walletAddress": "钱包地址",
+        "submit": {
+          "bank": "连接账户",
+          "card": "连接卡",
+          "wallet": "连接钱包"
+        }
       },
       "toast": {
-        "connected": "Paystack 账户连接成功！（演���）"
+        "connected": "{{method}} 连接成功！（演���）"
       }
     }
   },
   "admin": {
     "title": "管理面板",
-    "description": "管理平台用户和设置。",
+    "description": "管理平台用户���设置。",
     "tabs": {
       "users": "用户管理",
       "transactions": "交易"
@@ -271,7 +283,7 @@
         "name": "姓名",
         "role": "角色",
         "kyc": "KYC 状态",
-        "location": "地点",
+        "location": "地���",
         "actions": "操作"
       },
       "actions": {
@@ -282,12 +294,12 @@
         "roleSuccess": "用户角色更新成功。",
         "roleError": "更新用户角色失败。",
         "promoteSuccess": "用户成功提升为管理员。",
-        "promoteError": "提升用户���败。"
+        "promoteError": "提升用户������。"
       },
       "error": "获取用户���败。",
       "promoteCard": {
         "title": "提升用户为管理员",
-        "description": "输入用户���电子邮件���址以���予其管理员权限。",
+        "description": "输入用户���电子邮������址以���予其管理员权限。",
         "emailLabel": "用户邮箱",
         "promoteButton": "提升",
         "promotingButton": "提升中..."
@@ -318,13 +330,13 @@
     },
     "signup": {
       "title": "注册",
-      "description": "创建一个���账户以开始使用。",
+      "description": "创建一�����账户以开始使用。",
       "submit": "创建账户"
     },
     "form": {
       "email": "电子邮件",
       "password": "密��",
-      "name": "���名",
+      "name": "������",
       "namePlaceholder": "张三"
     },
     "social": {
@@ -349,7 +361,7 @@
       "farming": "农业",
       "markets": "市场",
       "security": "安全",
-      "logistics": "物流",
+      "logistics": "���流",
       "investment": "投资"
     },
     "articles": {
@@ -359,14 +371,14 @@
       },
       "sustainable": {
         "title": "可持续农业的最佳实���",
-        "description": "了解提高作物��量���时保护环境以造福后��的现代技术。"
+        "description": "了解提���作物��量���时保护环境以造福后��的现代技术。"
       },
       "markets": {
-        "title": "驾驭全球粮����物市场",
-        "description": "��析当前市场趋势、价格波动以及如何在平台上做出明智的交易决策。"
+        "title": "驾驭全���粮����物市场",
+        "description": "��析当前市场趋势���价格波动以及如何在平台上做出明智的交易决策。"
       },
       "kyc": {
-        "title": "KYC在建立信任中的作��",
+        "title": "KYC在建立信���中的作��",
         "description": "为���么身份验证对于创建一个安全透明的农业综合企业市场至关��要。"
       },
       "logistics": {
@@ -375,7 +387,7 @@
       },
       "tokenization": {
         "title": "农业��币化简��",
-        "description": "关于如何将农业资产���示为数字代币，从��释放流动性和投资的初���者指���。"
+        "description": "关于如何将农业资产���示为数��代币，从��释放流动性和投资的初���者指���。"
       }
     },
     "aiChat": {
@@ -392,7 +404,7 @@
       "title": "实时市场数据",
       "crop": "作物",
       "price": "价格 (���元)",
-      "change": "24小时变化",
+      "change": "24小时���化",
       "lastUpdated": "最后更新: {{time}}"
     }
   },
@@ -409,7 +421,7 @@
         "placeholder": "详细描述您的产品..."
       },
       "category": {
-        "label": "类别",
+        "label": "类���",
         "placeholder": "选择一个类别"
       },
       "grade": {
@@ -436,7 +448,7 @@
       }
     },
     "error": {
-      "notLoggedIn": "您必须登录才能创建列表。",
+      "notLoggedIn": "您必���登录才能创建列表。",
       "failed": "创建列表失败。"
     },
     "success": "列表创建成功！"
@@ -456,11 +468,12 @@
   "currency": {
     "switcherTooltip": "更改货�����",
     "names": {
-      "usd": "美元",
+      "usd": "���元",
       "ngn": "尼日利�����拉",
-      "eur": "欧元",
+      "eur": "��元",
       "usdt": "泰达币",
       "dan": "DAN 代币",
+      "sda": "SDA 代币",
       "cny": "人民币"
     }
   }

@@ -141,14 +141,26 @@
     "payment": {
       "title": "Hanyoyin Biyan Kuɗi",
       "description": "Sarrafa hanyoyin biyan kuɗi da aka haɗa.",
+      "tabs": {
+        "bank": "Asusun Banki",
+        "card": "Kati",
+        "wallet": "Wallet na Sidrachain"
+      },
       "form": {
-        "email": "Imel na Asusun Paystack",
         "bankName": "Sunan Banki",
-        "accountNumber": "Lambar Asusu",
-        "submit": "Haɗa Asusun Paystack"
+        "iban": "IBAN",
+        "cardNumber": "Lambar Kati",
+        "expiry": "Ranar Karewa",
+        "cvc": "CVC",
+        "walletAddress": "Adireshin Wallet",
+        "submit": {
+          "bank": "Haɗa Asusu",
+          "card": "Haɗa Kati",
+          "wallet": "Haɗa Wallet"
+        }
       },
       "toast": {
-        "connected": "An haɗa asusun Paystack cikin nasara! (Demo)"
+        "connected": "An haɗa {{method}} cikin nasara! (Demo)"
       }
     }
   },
@@ -272,6 +284,7 @@
       "eur": "Yuro",
       "usdt": "Tether",
       "dan": "DAN Token",
+      "sda": "SDA Token",
       "cny": "Yuan na kasar Sin"
     }
   }

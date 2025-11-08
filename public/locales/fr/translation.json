@@ -30,11 +30,8 @@
     "links": {
       "dashboard": "Tableau de bord",
       "marketplace": "Marché",
-      "myOrders": "Mes Commandes",
       "educationHub": "Pôle Éducatif",
-      "aiTools": "Outils IA",
-      "danAI": "Assistant DAN. AI",
-      "cropHealthAI": "Santé des Cultures IA"
+      "danAI": "DAN. AI"
     },
     "createListing": "Créer une Annonce",
     "signIn": "Se connecter",
@@ -64,21 +61,6 @@
       "marketActivity": {
         "title": "Activité du Marché",
         "subtitle": "+2 depuis la dernière heure"
-      },
-      "cropHealth": {
-        "title": "Santé des Cultures IA",
-        "description": "Analysez l'imagerie satellite pour une détection précoce des maladies.",
-        "button": "Analyser maintenant"
-      },
-      "marketplace": {
-        "title": "Explorer le Marché",
-        "description": "Parcourez et échangez des cultures fraîches d'agriculteurs vérifiés.",
-        "button": "Aller au Marché"
-      },
-      "myOrders": {
-        "title": "Voir Mes Commandes",
-        "description": "Suivez l'historique de vos transactions actives et passées.",
-        "button": "Voir les Commandes"
       }
     },
     "overview": {
@@ -94,9 +76,48 @@
       }
     }
   },
+  "marketplace": {
+    "title": "Marché",
+    "description": "Parcourez et échangez des cultures vivrières provenant d'agriculteurs vérifiés du monde entier.",
+    "filters": {
+      "searchPlaceholder": "Rechercher des cultures...",
+      "categoryPlaceholder": "Catégorie",
+      "allCategories": "Toutes les catégories",
+      "sortByPlaceholder": "Trier par",
+      "priceAsc": "Prix : Croissant",
+      "priceDesc": "Prix : Décroissant",
+      "nameAsc": "Nom : A-Z"
+    },
+    "card": {
+      "available": "{{quantity}} {{unit}} disponibles"
+    },
+    "error": {
+      "fetch": "Échec de la récupération des annonces"
+    }
+  },
   "listingDetail": {
+    "error": {
+      "fetch": "Échec de la récupération des détails de l'annonce",
+      "invalidQuantity": "Quantité invalide."
+    },
+    "notFound": {
+      "title": "Annonce non trouvée",
+      "description": "L'annonce que vous recherchez n'existe pas.",
+      "button": "Retour au Marché"
+    },
+    "sellerInfo": {
+      "title": "Informations sur le vendeur"
+    },
+    "details": {
+      "quantity": "Quantité disponible",
+      "grade": "Qualité",
+      "harvestDate": "Date de récolte"
+    },
+    "quantityInput": {
+      "label": "Quantité ({{unit}})"
+    },
     "order": {
-      "success": "Commande passée avec succès ! Redirection vers le paiement...",
+      "success": "Commande passée avec succès !",
       "error": "Échec de la commande.",
       "placing": "Passage de la commande...",
       "isOwner": "Ceci est votre annonce",
@@ -196,17 +217,10 @@
       "description": "Mettez à jour vos informations personnelles ici.",
       "form": {
         "name": "Nom complet",
-        "nameDisabledTooltip": "Le nom ne peut pas être modifié après la vérification KYC.",
         "email": "Email",
         "location": "Lieu",
         "save": "Enregistrer les modifications",
-        "saving": "Enregistrement...",
-        "theme": {
-          "label": "Thème",
-          "light": "Clair",
-          "dark": "Sombre",
-          "system": "Système"
-        }
+        "saving": "Enregistrement..."
       },
       "success": "Profil mis à jour avec succès !",
       "error": "Échec de la mise à jour du profil."
@@ -218,23 +232,14 @@
         "title": "Votre compte est vérifié !",
         "description": "Vous avez un accès complet à toutes les fonctionnalités de la plateforme."
       },
-      "pending": {
-        "title": "Vérification en cours",
-        "description": "Notre IA analyse vos documents. Cela peut prendre quelques minutes."
-      },
       "form": {
-        "docUpload": "Télécharger le document d'identité",
-        "docTypePlaceholder": "Carte d'identité, Passeport, Permis de conduire",
-        "selfieUpload": "Télécharger un selfie",
-        "selfiePlaceholder": "Une photo nette de votre visage",
-        "clickToUpload": "Cliquez pour télécharger",
-        "submit": "Soumettre pour vérification",
-        "submitting": "Soumission en cours..."
+        "docType": "Type de document",
+        "docTypePlaceholder": "Ex: Carte d'identité, Passeport",
+        "docUpload": "Télécharger le document",
+        "submit": "Soumettre pour vérification"
       },
       "toast": {
-        "submitted": "Documents KYC soumis pour examen. (Ceci est une démo)",
-        "verified": "Vérification KYC réussie !",
-        "error": "La soumission KYC a échoué. Veuillez réessayer."
+        "submitted": "Documents KYC soumis pour examen. (Ceci est une démo)"
       }
     },
     "payment": {
@@ -260,10 +265,6 @@
       },
       "toast": {
         "connected": "{{method}} connecté avec succès ! (Démo)"
-      },
-      "disabledAlert": {
-        "title": "Gestion Désactivée",
-        "description": "Vous ne pouvez pas modifier les moyens de paiement lorsque vous avez des commandes actives. Veuillez d'abord terminer ou annuler toutes les commandes."
       }
     }
   },
@@ -355,7 +356,6 @@
     "title": "Pôle Éducatif",
     "description": "Votre ressource pour la connaissance et les aperçus de l'agro-industrie.",
     "readMore": "Lire la suite",
-    "backToHub": "Retour au Pôle Éducatif",
     "categories": {
       "technology": "Technologie",
       "farming": "Agriculture",
@@ -367,44 +367,34 @@
     "articles": {
       "defi": {
         "title": "Comprendre la Finance Décentralisée dans l'Agriculture",
-        "description": "Découvrez comment la blockchain et la DeFi transforment les chaînes d'approvisionnement agricoles.",
-        "content": ["[[Traduction française en attente]]"]
+        "description": "Découvrez comment la blockchain et la DeFi transforment les chaînes d'approvisionnement agricoles."
       },
       "sustainable": {
         "title": "Meilleures Pratiques pour une Agriculture Durable",
-        "description": "Apprenez les techniques modernes qui améliorent le rendement des cultures tout en protégeant l'environnement.",
-        "content": ["[[Traduction française en attente]]"]
+        "description": "Apprenez les techniques modernes qui améliorent le rendement des cultures tout en protégeant l'environnement."
       },
       "markets": {
         "title": "Naviguer sur les Marchés Mondiaux des Cultures Vivrières",
-        "description": "Une analyse des tendances actuelles du marché, des fluctuations de prix et comment prendre des décisions éclairées.",
-        "content": ["[[Traduction française en attente]]"]
+        "description": "Une analyse des tendances actuelles du marché, des fluctuations de prix et comment prendre des décisions éclairées."
       },
       "kyc": {
         "title": "Le Rôle du KYC dans la Construction de la Confiance",
-        "description": "Pourquoi la vérification d'identité est cruciale pour créer un marché agro-industriel sécurisé et transparent.",
-        "content": ["[[Traduction française en attente]]"]
+        "description": "Pourquoi la vérification d'identité est cruciale pour créer un marché agro-industriel sécurisé et transparent."
       },
       "logistics": {
         "title": "Optimisation de la Logistique et de la Chaîne d'Approvisionnement",
-        "description": "Conseils et stratégies pour les distributeurs afin de rationaliser leurs opérations et de réduire les coûts.",
-        "content": ["[[Traduction française en attente]]"]
+        "description": "Conseils et stratégies pour les distributeurs afin de rationaliser leurs opérations et de réduire les coûts."
       },
       "tokenization": {
         "title": "Introduction à la Tokenisation Agricole",
-        "description": "Un guide pour débutants sur la façon dont les actifs agricoles peuvent être représentés sous forme de jetons numériques.",
-        "content": ["[[Traduction française en attente]]"]
+        "description": "Un guide pour débutants sur la façon dont les actifs agricoles peuvent être représentés sous forme de jetons numériques."
       }
     },
     "aiChat": {
       "title": "Assistant IA DAN",
-      "greeting": "Bonjour ! Je suis l'assistant IA avancé de DAN, alimenté par une connexion simulée à un grand modèle de langage. Posez-moi des questions complexes sur l'analyse de marché, les pratiques agricoles durables, l'optimisation logistique ou la DeFi dans l'agriculture.",
+      "greeting": "Bonjour ! Je suis l'IA du Réseau Agro-industriel Décentralisé. Posez-moi des questions sur les prix du marché, la logistique ou les fonctionnalités de notre plateforme.",
       "placeholder": "Posez une question sur les tendances du marché...",
       "send": "Envoyer"
-    },
-    "voiceReader": {
-      "toggleLabel": "Activer le lecteur vocal",
-      "readAloudTooltip": "Lire à voix haute"
     }
   },
   "danAI": {
@@ -416,68 +406,64 @@
       "price": "Prix (USD)",
       "change": "Changement 24h",
       "lastUpdated": "Dernière mise à jour : {{time}}"
-    },
-    "voiceReader": {
-      "toggleTooltip": "Activer/Désactiver le lecteur vocal"
-    }
-  },
-  "cropHealthAI": {
-    "title": "Santé des Cultures IA",
-    "description": "Tirez parti de l'IA pour détecter précocement les maladies des cultures à partir d'images satellites.",
-    "analysisTitle": "Démarrer l'Analyse",
-    "analysisDesc": "Sélectionnez un type de culture, puis utilisez votre emplacement pour une analyse d'image satellite.",
-    "selectCrop": {
-      "label": "Sélectionner le type de culture",
-      "placeholder": "Choisissez une culture à analyser"
-    },
-    "detectLocationButton": "Détecter l'Emplacement & Analyser",
-    "detectingLocation": "Détection de votre emplacement...",
-    "locationDetected": "Emplacement trouvé : {{lat}}, {{lon}}",
-    "locationError": "Impossible d'obtenir l'emplacement : {{message}}",
-    "permissionDenied": "Autorisation de localisation refusée. Veuillez l'activer dans les paramètres de votre navigateur.",
-    "analyzing": "Analyse en cours...",
-    "mayTakeMoment": "Cela peut prendre un moment...",
-    "resultsTitle": "Résultats de l'Analyse",
-    "resultsPlaceholder": "Les résultats de votre analyse appara��tront ici.",
-    "disease": "Diagnostic",
-    "confidence": "Confiance",
-    "recommendation": "Recommandation",
-    "results": {
-      "healthy": {
-        "disease": "Aucune (Saine)",
-        "recommendation": "La culture semble saine. Continuez la surveillance standard et les calendriers d'irrigation. Aucune action immédiate requise."
-      },
-      "stress": {
-        "disease": "Stress Hydrique Détecté",
-        "recommendation": "Un stress hydrique modéré a été détecté dans le quadrant nord-ouest. Il est recommandé d'augmenter la fréquence d'irrigation de 15% et de surveiller."
-      },
-      "fungus": {
-        "disease": "Mildiou Fongique Potentiel",
-        "recommendation": "Signes compatibles avec un mildiou fongique à un stade précoce. Il est recommandé d'analyser un échantillon de sol et d'envisager l'application ciblée d'un fongicide à large spectre."
-      },
-      "corn_blight": {
-        "disease": "Helminthosporiose du ma��s",
-        "recommendation": "Les lésions sont caractéristiques de l'helminthosporiose. Envisagez d'appliquer un fongicide foliaire si la maladie est répandue et que la culture est en pré-floraison."
-      },
-      "avocado_rot": {
-        "disease": "Pourriture des racines de l'avocatier",
-        "recommendation": "Les symptômes suggèrent Phytophthora cinnamomi. Améliorez immédiatement le drainage du sol et envisagez d'appliquer un fongicide à base de phosphite."
-      },
-      "ginger_wilt": {
-        "disease": "Flétrissement bactérien (Gingembre)",
-        "recommendation": "Forte probabilité de Ralstonia solanacearum. Retirez et détruisez les plantes infectées. Mettez en œuvre la rotation des cultures et évitez de planter dans ce champ pendant au moins 3 ans."
-      }
     }
   },
   "createListing": {
+    "title": "Créer une Nouvelle Annonce",
+    "description": "Remplissez les détails ci-dessous pour ajouter votre produit au marché.",
+    "form": {
+      "productName": {
+        "label": "Nom du produit",
+        "placeholder": "Ex: Avocats Hass Biologiques"
+      },
+      "description": {
+        "label": "Description",
+        "placeholder": "Décrivez votre produit en détail..."
+      },
+      "category": {
+        "label": "Catégorie",
+        "placeholder": "Sélectionnez une catégorie"
+      },
+      "grade": {
+        "label": "Qualité",
+        "placeholder": "Sélectionnez une qualité"
+      },
+      "price": {
+        "label": "Prix"
+      },
+      "unit": {
+        "label": "Unité",
+        "placeholder": "Ex: kg, tonne, pièce"
+      },
+      "quantity": {
+        "label": "Quantité disponible"
+      },
+      "imageUrl": {
+        "label": "URL de l'image",
+        "placeholder": "https://example.com/image.jpg"
+      },
+      "submit": {
+        "default": "Créer l'annonce",
+        "submitting": "Création en cours..."
+      }
+    },
     "error": {
-      "openOrderExists": "Vous avez une commande ouverte pour ce produit. Veuillez la résoudre avant de créer une nouvelle annonce."
-    }
+      "notLoggedIn": "Vous devez être connecté pour créer une annonce.",
+      "failed": "Échec de la création de l'annonce."
+    },
+    "success": "Annonce créée avec succès !"
   },
-  "crops": {
-    "corn": "Maïs",
-    "avocados": "Avocats",
-    "ginger": "Gingembre"
+  "categories": {
+    "fruits": "Fruits",
+    "vegetables": "Légumes",
+    "grains": "Céréales",
+    "spices": "Épices",
+    "nuts": "Noix"
+  },
+  "grades": {
+    "a": "Qualité A",
+    "b": "Qualité B",
+    "c": "Qualité C"
   },
   "currency": {
     "switcherTooltip": "Changer de devise",
@@ -487,61 +473,8 @@
       "eur": "Euro",
       "usdt": "Tether",
       "dan": "Jeton DAN",
-      "sda": "Pièce SDA",
+      "sda": "Jeton SDA",
       "cny": "Yuan Chinois"
-    }
-  },
-  "payment": {
-    "title": "Finalisez votre Paiement",
-    "description": "Finalisez en toute sécurité votre transaction pour la Commande #{{orderId}}.",
-    "summary": {
-      "title": "Résumé de la Commande",
-      "quantity": "{{quantity}} {{unit}}",
-      "subtotal": "Sous-total",
-      "fees": "Frais de transaction",
-      "total": "Total à Payer"
-    },
-    "form": {
-      "title": "Payer par Carte",
-      "description": "Propulsé par Paystack",
-      "cardNumber": "Numéro de Carte",
-      "expiry": "Date d'Expiration",
-      "cvc": "CVC",
-      "submit": "Payer {{amount}}",
-      "processing": "Traitement en cours..."
-    },
-    "error": {
-      "title": "Erreur de Paiement",
-      "missingOrderId": "L'ID de la commande est manquant.",
-      "fetch": "Impossible de charger les détails de la commande. Veuillez réessayer.",
-      "generic": "Une erreur inconnue est survenue."
-    },
-    "toast": {
-      "success": "Paiement réussi ! Redirection vers votre commande..."
-    }
-  },
-  "ordersPage": {
-    "title": "Mes Commandes",
-    "description": "Affichez et gérez toutes vos transactions passées et actuelles.",
-    "noOrders": "Vous n'avez pas encore passé ou reçu de commandes.",
-    "table": {
-      "orderId": "ID Commande",
-      "product": "Produit",
-      "role": "Votre Rôle",
-      "status": "Statut",
-      "total": "Total",
-      "action": "Action",
-      "view": "Voir"
-    },
-    "roles": {
-      "buyer": "Acheteur",
-      "seller": "Vendeur"
-    }
-  },
-  "footer": {
-    "social": {
-      "twitter": "Twitter",
-      "telegram": "Telegram"
     }
   }
 }

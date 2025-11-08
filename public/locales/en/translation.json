@@ -245,14 +245,26 @@
     "payment": {
       "title": "Payment Methods",
       "description": "Manage your connected payment methods.",
+      "tabs": {
+        "bank": "Bank Account",
+        "card": "Card",
+        "wallet": "Sidrachain Wallet"
+      },
       "form": {
-        "email": "Paystack Account Email",
         "bankName": "Bank Name",
-        "accountNumber": "Account Number",
-        "submit": "Connect Paystack Account"
+        "iban": "IBAN",
+        "cardNumber": "Card Number",
+        "expiry": "Expiry",
+        "cvc": "CVC",
+        "walletAddress": "Wallet Address",
+        "submit": {
+          "bank": "Connect Account",
+          "card": "Connect Card",
+          "wallet": "Connect Wallet"
+        }
       },
       "toast": {
-        "connected": "Paystack account connected successfully! (Demo)"
+        "connected": "{{method}} connected successfully! (Demo)"
       }
     }
   },
@@ -461,6 +473,7 @@
       "eur": "Euro",
       "usdt": "Tether",
       "dan": "DAN Token",
+      "sda": "SDA Token",
       "cny": "Chinese Yuan"
     }
   }

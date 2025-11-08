@@ -3,9 +3,9 @@ export interface ApiResponse<T = unknown> {
   data?: T;
   error?: string;
 }
-export type UserRole = 'Farmer' | 'Distributor' | 'Investor' | 'Admin';
+export type UserRole = 'Farmer' | 'Distributor' | 'Investor' | 'Admin' | 'Logistics';
 export type KycStatus = 'Not Submitted' | 'Pending' | 'Verified' | 'Rejected';
-export type OrderStatus = 'Placed' | 'Paid' | 'Shipped' | 'Delivered' | 'Disputed' | 'Cancelled';
+export type OrderStatus = 'Placed' | 'Paid' | 'LogisticsPickedUp' | 'Shipped' | 'Delivered' | 'Disputed' | 'Cancelled';
 export interface User {
   id: string;
   name: string;

@@ -8,7 +8,7 @@
   "featureDirectSourcingTitle": "Samun Kai tsaye",
   "featureDirectSourcingDesc": "Haɗa kai tsaye da manoma don samun amfanin gona mafi sabo ba tare da masu shiga tsakani ba.",
   "featureSecureEscrowTitle": "Escrow Mai Aminci",
-  "featureSecureEscrowDesc": "Ana riƙe biyan kuɗi a cikin escrow kuma ana sakewa ta atomatik bayan an tabbatar da isarwa.",
+  "featureSecureEscrowDesc": "Ana riƙe biyan ku��i a cikin escrow kuma ana sakewa ta atomatik bayan an tabbatar da isarwa.",
   "featureTransparentLogisticsTitle": "Kayan Aiki na Gaskiya",
   "featureTransparentLogisticsDesc": "Bibiyi odar ku a ainihin lokacin daga gona zuwa sito ɗinku tare da ingantaccen tsarin bibiyar mu.",
   "featureMarketInsightsTitle": "Fahimtar Kasuwa",
@@ -73,6 +73,30 @@
         "status": "Matsayi",
         "amount": "Adadin"
       }
+    }
+  },
+  "orderTracking": {
+    "title": "Bibiyar Oda",
+    "orderId": "ID na Oda",
+    "status": {
+      "title": "Matsayin Oda",
+      "placed": "An Yi Oda",
+      "paid": "An Biya a Escrow",
+      "logisticsPickedUp": "An Dauka",
+      "shipped": "An Aika",
+      "delivered": "An Isar"
+    },
+    "actions": {
+      "dispute": "Bude Rigima",
+      "confirmPickup": "Tabbatar da Dauka"
+    },
+    "disputeModal": {
+      "title": "Bude Rigima",
+      "description": "Da fatan za a bayyana matsalar da odar ku. Wani mai gudanarwa zai duba korafin ku.",
+      "reasonLabel": "Dalili",
+      "reasonPlaceholder": "Misali, kayan ba kamar yadda aka bayyana ba, ba a isar ba...",
+      "cancel": "Soke",
+      "submit": "Mika Rigima"
     }
   },
   "profile": {

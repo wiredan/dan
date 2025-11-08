@@ -2,7 +2,7 @@
   "getStarted": "Bắt đầu",
   "exploreMarket": "Khám phá Thị trư���ng",
   "heroTitle": "Tương lai của Kinh doanh Nông nghiệp là Phi tập trung",
-  "heroSubtitle": "AgriLink kết nối nông dân, nhà phân phối và nhà đầu tư trên một nền tảng an toàn, minh bạch. Giao dịch, theo dõi và thực hiện giao dịch một cách tự tin.",
+  "heroSubtitle": "AgriLink kết nối nông dân, nhà phân phối và nhà đầu tư tr��n một nền tảng an toàn, minh bạch. Giao dịch, theo dõi và thực hiện giao dịch một cách t�� tin.",
   "featuresTitle": "Một Kỷ nguyên Mới của Thương mại Nông nghiệp",
   "featuresSubtitle": "Nền tảng của chúng tôi được xây dựng trên công nghệ tiên tiến để đảm bảo sự công bằng, minh bạch và hiệu quả.",
   "featureDirectSourcingTitle": "Nguồn cung ứng trực tiếp",
@@ -25,7 +25,7 @@
   "testimonial3Role": "Nhà đầu tư, UAE",
   "ctaTitle": "Sẵn sàng tham gia cuộc cách mạng?",
   "ctaSubtitle": "Tạo tài khoản ngay hôm nay và trải nghiệm tương lai của kinh doanh nông nghiệp.",
-  "ctaButton": "Đăng ký ngay",
+  "ctaButton": "Đ��ng ký ngay",
   "navbar": {
     "links": {
       "dashboard": "Bảng điều khiển",
@@ -73,6 +73,30 @@
         "status": "Trạng thái",
         "amount": "Số tiền"
       }
+    }
+  },
+  "orderTracking": {
+    "title": "Theo dõi đơn hàng",
+    "orderId": "ID Đơn hàng",
+    "status": {
+      "title": "Trạng thái đơn hàng",
+      "placed": "Đã đặt hàng",
+      "paid": "Thanh toán ký quỹ",
+      "logisticsPickedUp": "Đã lấy hàng",
+      "shipped": "Đã vận chuyển",
+      "delivered": "Đã giao hàng"
+    },
+    "actions": {
+      "dispute": "Mở tranh chấp",
+      "confirmPickup": "Xác nhận lấy hàng"
+    },
+    "disputeModal": {
+      "title": "Mở một tranh chấp",
+      "description": "Vui lòng mô tả vấn đề với đơn hàng của bạn. Quản trị viên sẽ xem xét yêu cầu của bạn.",
+      "reasonLabel": "Lý do",
+      "reasonPlaceholder": "Ví dụ: Hàng không như mô tả, chưa được giao...",
+      "cancel": "Hủy",
+      "submit": "Gửi tranh chấp"
     }
   },
   "profile": {

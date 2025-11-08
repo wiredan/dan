@@ -88,7 +88,6 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
       createdAt: new Date().toISOString(),
     };
     await OrderEntity.create(c.env, newOrder);
-    // Optional: Decrease listing quantity
     await listingEntity.patch({ quantity: listing.quantity - quantity });
     return ok(c, newOrder);
   });
@@ -98,6 +97,27 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
     if (!status) return bad(c, 'Missing status');
     const order = new OrderEntity(c.env, id);
     if (!(await order.exists())) return notFound(c, 'Order not found');
+    await order.patch({ status });
+    return ok(c, await order.getState());
+  });
+  app.post('/api/orders/:id/dispute', async (c) => {
+    const { id } = c.req.param();
+    const { reason } = await c.req.json<{ reason: string }>();
+    if (!reason) return bad(c, 'Dispute reason is required');
+    const order = new OrderEntity(c.env, id);
+    if (!(await order.exists())) return notFound(c, 'Order not found');
+    // In a real app, you'd save the reason and notify admins.
+    // For now, we just update the status.
+    await order.patch({ status: 'Disputed' });
+    return ok(c, await order.getState());
+  });
+  app.post('/api/orders/:id/resolve', async (c) => {
+    const { id } = c.req.param();
+    const { status } = await c.req.json<{ status: 'Delivered' | 'Cancelled' }>();
+    if (!status || !['Delivered', 'Cancelled'].includes(status)) return bad(c, 'Invalid resolution status');
+    const order = new OrderEntity(c.env, id);
+    if (!(await order.exists())) return notFound(c, 'Order not found');
+    // Here you would check for admin role from an auth middleware
     await order.patch({ status });
     return ok(c, await order.getState());
   });

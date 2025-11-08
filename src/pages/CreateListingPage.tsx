@@ -30,7 +30,7 @@ export function CreateListingPage() {
   const { user, isAuthenticated } = useAuthStore(state => ({ user: state.user, isAuthenticated: state.isAuthenticated }));
   const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const form = useForm<ListingFormData>({
+  const form = useForm({
     resolver: zodResolver(listingSchema),
     defaultValues: {
       name: '',
@@ -39,7 +39,7 @@ export function CreateListingPage() {
       price: 0,
       unit: 'kg',
       quantity: 1,
-      grade: 'A',
+      grade: 'A' as 'A' | 'B' | 'C',
       imageUrl: 'https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?q=80&w=800',
     },
   });

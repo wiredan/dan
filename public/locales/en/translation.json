@@ -126,10 +126,13 @@
   "orderTracking": {
     "title": "Order Tracking",
     "orderId": "Order ID",
+    "orderComplete": "This order has been completed.",
+    "underReview": "This order is under review.",
     "status": {
       "title": "Order Status",
       "placed": "Order Placed",
       "paid": "Payment in Escrow",
+      "logisticsPickedUp": "Picked Up",
       "shipped": "Shipped",
       "delivered": "Delivered"
     },
@@ -152,7 +155,11 @@
       "updating": "Updating...",
       "markShipped": "Mark as Shipped",
       "confirmDelivery": "Confirm Delivery",
-      "dispute": "Dispute Order"
+      "confirmPickup": "Confirm Pickup",
+      "dispute": "Dispute Order",
+      "resolveRelease": "Resolve & Release Funds",
+      "resolveRefund": "Resolve & Refund Buyer",
+      "cancelOrder": "Cancel Order (Admin)"
     },
     "error": {
       "fetch": "Failed to fetch order details"
@@ -164,7 +171,19 @@
     },
     "toast": {
       "statusUpdated": "Order status updated to {{status}}",
-      "statusUpdateFailed": "Failed to update order status."
+      "statusUpdateFailed": "Failed to update order status.",
+      "disputeSubmitted": "Dispute submitted successfully.",
+      "disputeFailed": "Failed to submit dispute.",
+      "disputeResolved": "Dispute resolved successfully.",
+      "resolveFailed": "Failed to resolve dispute."
+    },
+    "disputeModal": {
+      "title": "Open a Dispute",
+      "description": "Please describe the issue with your order. An administrator will review your claim.",
+      "reasonLabel": "Reason",
+      "reasonPlaceholder": "e.g., Items not as described, not delivered...",
+      "cancel": "Cancel",
+      "submit": "Submit Dispute"
     }
   },
   "profile": {

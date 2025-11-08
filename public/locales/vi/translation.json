@@ -83,6 +83,15 @@
       }
     }
   },
+  "listingDetail": {
+    "order": {
+      "success": "Đặt hàng thành công! Đang chuyển hướng đến thanh toán...",
+      "error": "Đặt hàng thất bại.",
+      "placing": "Đang đặt hàng...",
+      "isOwner": "Đây là danh sách của bạn",
+      "place": "Đặt hàng"
+    }
+  },
   "orderTracking": {
     "title": "Theo dõi đơn hàng",
     "orderId": "ID ��ơn hàng",
@@ -116,7 +125,7 @@
     },
     "disputeDetails": {
       "title": "Chi tiết Tranh chấp",
-      "evidence": "Bằng chứng đã gửi"
+      "evidence": "B��ng chứng đã gửi"
     },
     "aiAnalysis": {
       "title": "Phân tích Tranh chấp bằng AI",
@@ -331,6 +340,35 @@
       "dan": "DAN Token",
       "sda": "SDA Coin",
       "cny": "Nhân dân tệ Trung Quốc"
+    }
+  },
+  "payment": {
+    "title": "Hoàn tất Thanh toán của bạn",
+    "description": "Hoàn tất giao dịch của bạn một cách an toàn cho Đơn hàng #{{orderId}}.",
+    "summary": {
+      "title": "Tóm t��t Đơn hàng",
+      "quantity": "{{quantity}} {{unit}}",
+      "subtotal": "Tổng phụ",
+      "fees": "Phí giao dịch",
+      "total": "Tổng số tiền phải trả"
+    },
+    "form": {
+      "title": "Thanh toán bằng Thẻ",
+      "description": "Được cung cấp bởi Paystack",
+      "cardNumber": "Số thẻ",
+      "expiry": "Ngày hết hạn",
+      "cvc": "CVC",
+      "submit": "Thanh toán {{amount}}",
+      "processing": "Đang xử lý..."
+    },
+    "error": {
+      "title": "Lỗi Thanh toán",
+      "missingOrderId": "Thiếu ID đơn hàng.",
+      "fetch": "Không thể tải chi tiết đơn hàng. Vui lòng thử lại.",
+      "generic": "Đã xảy ra lỗi không xác định."
+    },
+    "toast": {
+      "success": "Thanh toán thành công! Đang chuyển hướng đến đơn hàng của bạn..."
     }
   }
 }

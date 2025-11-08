@@ -66,7 +66,7 @@ export function ListingDetailPage() {
         body: JSON.stringify(orderPayload),
       });
       toast.success(t('listingDetail.order.success'));
-      navigate(`/order/${newOrder.id}`);
+      navigate(`/pay/${newOrder.id}`);
     } catch (error) {
       toast.error(t('listingDetail.order.error'));
       console.error(error);

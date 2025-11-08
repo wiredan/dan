@@ -23,6 +23,7 @@ import { ProtectedAdminRoute } from '@/components/ProtectedAdminRoute';
 import { FullPageLoader } from './components/FullPageLoader';
 import { DanAiPage } from './pages/DanAiPage';
 import { CropHealthAiPage } from './pages/CropHealthAiPage';
+import { PaymentPage } from './pages/PaymentPage';
 const router = createBrowserRouter([
   {
     element: <AppRoot />,
@@ -34,6 +35,7 @@ const router = createBrowserRouter([
       { path: "/marketplace", element: <MarketplacePage /> },
       { path: "/listing/:id", element: <ListingDetailPage /> },
       { path: "/order/:id", element: <OrderTrackingPage /> },
+      { path: "/pay/:orderId", element: <PaymentPage /> },
       { path: "/profile", element: <ProfilePage /> },
       { path: "/education", element: <EducationHubPage /> },
       { path: "/dan-ai", element: <DanAiPage /> },

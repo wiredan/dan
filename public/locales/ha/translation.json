@@ -83,6 +83,15 @@
       }
     }
   },
+  "listingDetail": {
+    "order": {
+      "success": "An yi oda cikin nasara! Ana tura ka zuwa biyan kuɗi...",
+      "error": "An kasa yin oda.",
+      "placing": "Ana Yin Oda...",
+      "isOwner": "Wannan lissafinka ne",
+      "place": "Yi Oda"
+    }
+  },
   "orderTracking": {
     "title": "Bibiyar Oda",
     "orderId": "ID na Oda",
@@ -331,6 +340,35 @@
       "dan": "DAN Token",
       "sda": "SDA Coin",
       "cny": "Yuan na kasar Sin"
+    }
+  },
+  "payment": {
+    "title": "Kammala Biyan Kuɗinka",
+    "description": "Kammala ma'amalarka cikin aminci don Oda #{{orderId}}.",
+    "summary": {
+      "title": "Takaitaccen Oda",
+      "quantity": "{{quantity}} {{unit}}",
+      "subtotal": "Jimillar ƙasa",
+      "fees": "Kudin Ma'amala",
+      "total": "Jimillar Biyan Kuɗi"
+    },
+    "form": {
+      "title": "Biyan Kuɗi da Kati",
+      "description": "Ta hanyar Paystack",
+      "cardNumber": "Lambar Kati",
+      "expiry": "Ranar Karewa",
+      "cvc": "CVC",
+      "submit": "Biya {{amount}}",
+      "processing": "Ana Gudanarwa..."
+    },
+    "error": {
+      "title": "Kuskuren Biyan Kuɗi",
+      "missingOrderId": "ID na Oda ya ɓace.",
+      "fetch": "An kasa loda bayanan oda. Da fatan za a sake gwadawa.",
+      "generic": "An sami kuskuren da ba a sani ba."
+    },
+    "toast": {
+      "success": "An yi nasarar biyan kuɗi! Ana tura ka zuwa odarka..."
     }
   }
 }

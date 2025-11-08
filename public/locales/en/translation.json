@@ -124,7 +124,7 @@
       "label": "Quantity ({{unit}})"
     },
     "order": {
-      "success": "Order placed successfully!",
+      "success": "Order placed successfully! Redirecting to payment...",
       "error": "Failed to place order.",
       "placing": "Placing Order...",
       "isOwner": "This is your listing",
@@ -518,6 +518,35 @@
       "dan": "DAN Token",
       "sda": "SDA Coin",
       "cny": "Chinese Yuan"
+    }
+  },
+  "payment": {
+    "title": "Complete Your Payment",
+    "description": "Securely finalize your transaction for Order #{{orderId}}.",
+    "summary": {
+      "title": "Order Summary",
+      "quantity": "{{quantity}} {{unit}}",
+      "subtotal": "Subtotal",
+      "fees": "Transaction Fees",
+      "total": "Total to Pay"
+    },
+    "form": {
+      "title": "Pay with Card",
+      "description": "Powered by Paystack",
+      "cardNumber": "Card Number",
+      "expiry": "Expiry Date",
+      "cvc": "CVC",
+      "submit": "Pay {{amount}}",
+      "processing": "Processing..."
+    },
+    "error": {
+      "title": "Payment Error",
+      "missingOrderId": "Order ID is missing.",
+      "fetch": "Could not load order details. Please try again.",
+      "generic": "An unknown error occurred."
+    },
+    "toast": {
+      "success": "Payment successful! Redirecting to your order..."
     }
   }
 }

@@ -3,7 +3,7 @@
   "exploreMarket": "Explorer le Marché",
   "heroTitle": "L'avenir de l'agro-industrie est décentralisé",
   "heroSubtitle": "DAN connecte les agriculteurs, les distributeurs et les investisseurs sur une plateforme sécurisée et transparente. Échangez, suivez et effectuez des transactions en toute confiance.",
-  "featuresTitle": "Une nouvelle ère du commerce agricole",
+  "featuresTitle": "Une nouvelle ��re du commerce agricole",
   "featuresSubtitle": "Notre plateforme est construite sur une technologie de pointe pour garantir l'équité, la transparence et l'efficacité.",
   "featureDirectSourcingTitle": "Approvisionnement Direct",
   "featureDirectSourcingDesc": "Connectez-vous directement avec les agriculteurs pour obtenir les récoltes les plus fraîches sans intermédiaires.",
@@ -83,48 +83,9 @@
       }
     }
   },
-  "marketplace": {
-    "title": "Marché",
-    "description": "Parcourez et échangez des cultures vivrières provenant d'agriculteurs vérifiés du monde entier.",
-    "filters": {
-      "searchPlaceholder": "Rechercher des cultures...",
-      "categoryPlaceholder": "Catégorie",
-      "allCategories": "Toutes les catégories",
-      "sortByPlaceholder": "Trier par",
-      "priceAsc": "Prix : Croissant",
-      "priceDesc": "Prix : Décroissant",
-      "nameAsc": "Nom : A-Z"
-    },
-    "card": {
-      "available": "{{quantity}} {{unit}} disponibles"
-    },
-    "error": {
-      "fetch": "Échec de la récupération des annonces"
-    }
-  },
   "listingDetail": {
-    "error": {
-      "fetch": "Échec de la récupération des détails de l'annonce",
-      "invalidQuantity": "Quantité invalide."
-    },
-    "notFound": {
-      "title": "Annonce non trouvée",
-      "description": "L'annonce que vous recherchez n'existe pas.",
-      "button": "Retour au Marché"
-    },
-    "sellerInfo": {
-      "title": "Informations sur le vendeur"
-    },
-    "details": {
-      "quantity": "Quantité disponible",
-      "grade": "Qualité",
-      "harvestDate": "Date de récolte"
-    },
-    "quantityInput": {
-      "label": "Quantité ({{unit}})"
-    },
     "order": {
-      "success": "Commande passée avec succès !",
+      "success": "Commande passée avec succès ! Redirection vers le paiement...",
       "error": "Échec de la commande.",
       "placing": "Passage de la commande...",
       "isOwner": "Ceci est votre annonce",
@@ -520,6 +481,35 @@
       "dan": "Jeton DAN",
       "sda": "Pièce SDA",
       "cny": "Yuan Chinois"
+    }
+  },
+  "payment": {
+    "title": "Finalisez votre Paiement",
+    "description": "Finalisez en toute sécurité votre transaction pour la Commande #{{orderId}}.",
+    "summary": {
+      "title": "Résumé de la Commande",
+      "quantity": "{{quantity}} {{unit}}",
+      "subtotal": "Sous-total",
+      "fees": "Frais de transaction",
+      "total": "Total à Payer"
+    },
+    "form": {
+      "title": "Payer par Carte",
+      "description": "Propulsé par Paystack",
+      "cardNumber": "Numéro de Carte",
+      "expiry": "Date d'Expiration",
+      "cvc": "CVC",
+      "submit": "Payer {{amount}}",
+      "processing": "Traitement en cours..."
+    },
+    "error": {
+      "title": "Erreur de Paiement",
+      "missingOrderId": "L'ID de la commande est manquant.",
+      "fetch": "Impossible de charger les détails de la commande. Veuillez réessayer.",
+      "generic": "Une erreur inconnue est survenue."
+    },
+    "toast": {
+      "success": "Paiement réussi ! Redirection vers votre commande..."
     }
   }
 }

@@ -2,7 +2,7 @@
   "getStarted": "Bắt đầu",
   "exploreMarket": "Khám phá Thị trường",
   "heroTitle": "Tương lai của Kinh doanh Nông nghiệp là Phi tập trung",
-  "heroSubtitle": "AgriLink kết nối nông dân, nhà phân phối và nhà đầu tư tr��n một nền tảng an toàn, minh bạch. Giao dịch, theo dõi và thực hiện giao dịch một cách tự tin.",
+  "heroSubtitle": "DAN kết nối nông dân, nhà phân phối và nhà đầu tư tr��n một nền tảng an toàn, minh bạch. Giao dịch, theo dõi và thực hiện giao dịch một cách tự tin.",
   "featuresTitle": "Một Kỷ nguyên Mới của Thương mại Nông nghiệp",
   "featuresSubtitle": "Nền tảng của chúng tôi được xây dựng trên công nghệ tiên tiến để đảm bảo sự công bằng, minh bạch và hiệu quả.",
   "featureDirectSourcingTitle": "Nguồn cung ��ng trực tiếp",
@@ -14,13 +14,13 @@
   "featureMarketInsightsTitle": "Thông tin chi tiết v�� thị trường",
   "featureMarketInsightsDesc": "Truy cập dữ liệu và phân tích thời gian thực để đưa ra quyết định mua hàng và đầu tư thông minh hơn.",
   "testimonialsTitle": "Được cộng đồng tin cậy",
-  "testimonial1Quote": "AgriLink đã cách mạng hóa cách tôi bán sản phẩm của m��nh. Tôi nhận được gi�� tốt hơn và thanh toán nhanh hơn.",
+  "testimonial1Quote": "DAN đã cách mạng hóa cách tôi bán sản phẩm của m��nh. Tôi nhận được gi�� tốt hơn và thanh toán nhanh hơn.",
   "testimonial1Author": "Amina Yusuf",
   "testimonial1Role": "Nông dân, Nigeria",
   "testimonial2Quote": "Sự minh bạch và an toàn của nền tảng là yếu tố thay đổi cuộc chơi cho mạng lưới phân phối của chúng tôi.",
   "testimonial2Author": "Carlos Gomez",
   "testimonial2Role": "Nhà phân phối, Việt Nam",
-  "testimonial3Quote": "Là một nhà đầu tư, cuối cùng tôi cũng có thể tham gia vào thị trường nông nghiệp một cách tự tin và rõ r��ng.",
+  "testimonial3Quote": "Là một nhà đầu tư, cuối cùng tôi cũng c�� thể tham gia vào thị trường nông nghiệp một cách tự tin và rõ r��ng.",
   "testimonial3Author": "Fatima Al-Sayed",
   "testimonial3Role": "Nhà đầu tư, UAE",
   "ctaTitle": "Sẵn sàng tham gia cuộc cách mạng?",
@@ -77,7 +77,7 @@
   },
   "orderTracking": {
     "title": "Theo dõi đơn hàng",
-    "orderId": "ID Đơn hàng",
+    "orderId": "ID ��ơn hàng",
     "status": {
       "title": "Trạng thái đơn hàng",
       "placed": "Đã đặt hàng",
@@ -92,11 +92,11 @@
     },
     "disputeModal": {
       "title": "Mở một tranh chấp",
-      "description": "Vui lòng mô tả vấn đề với đơn hàng của bạn. Quản trị viên sẽ xem xét yêu cầu của bạn.",
+      "description": "Vui lòng mô tả vấn đề với đơn hàng của bạn. Quản trị viên s�� xem xét yêu cầu của bạn.",
       "reasonLabel": "Lý do",
       "reasonPlaceholder": "Ví dụ: Hàng không như mô tả, chưa được giao...",
       "cancel": "Hủy",
-      "submit": "Gửi tranh chấp"
+      "submit": "G���i tranh chấp"
     }
   },
   "profile": {

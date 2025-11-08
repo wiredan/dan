@@ -2,7 +2,7 @@
   "getStarted": "Get Started",
   "exploreMarket": "Explore Market",
   "heroTitle": "The Future of Agribusiness is Decentralized",
-  "heroSubtitle": "AgriLink connects farmers, distributors, and investors on a secure, transparent platform. Trade, track, and transact with confidence.",
+  "heroSubtitle": "DAN connects farmers, distributors, and investors on a secure, transparent platform. Trade, track, and transact with confidence.",
   "featuresTitle": "A New Era of Agricultural Trade",
   "featuresSubtitle": "Our platform is built on cutting-edge technology to ensure fairness, transparency, and efficiency.",
   "featureDirectSourcingTitle": "Direct Sourcing",
@@ -14,7 +14,7 @@
   "featureMarketInsightsTitle": "Market Insights",
   "featureMarketInsightsDesc": "Access real-time data and analytics to make smarter purchasing and investment decisions.",
   "testimonialsTitle": "Trusted by the Community",
-  "testimonial1Quote": "AgriLink has revolutionized how I sell my produce. I get better prices and faster payments.",
+  "testimonial1Quote": "DAN has revolutionized how I sell my produce. I get better prices and faster payments.",
   "testimonial1Author": "Amina Yusuf",
   "testimonial1Role": "Farmer, Nigeria",
   "testimonial2Quote": "The transparency and security of the platform are game-changers for our distribution network.",
@@ -149,7 +149,7 @@
       "buyer": "Buyer",
       "seller": "Seller",
       "logistics": "Logistics",
-      "logisticsPartner": "AgriLink Logistics Partner"
+      "logisticsPartner": "DAN Logistics Partner"
     },
     "actions": {
       "updating": "Updating...",

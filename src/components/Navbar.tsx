@@ -40,7 +40,7 @@ export function Navbar() {
           <div className="flex items-center">
             <Link to="/" className="flex items-center gap-2 text-primary font-bold text-lg">
               <Leaf className="h-6 w-6" />
-              <span>AgriLink</span>
+              <span>DAN</span>
             </Link>
             <nav className="hidden md:flex md:ml-10 md:space-x-8">
               {isAuthenticated && navLinks.map(link => (
@@ -115,7 +115,7 @@ export function Navbar() {
                 <nav className="grid gap-6 text-lg font-medium mt-10">
                   <Link to="/" className="flex items-center gap-2 text-lg font-semibold text-primary">
                     <Leaf className="h-6 w-6" />
-                    <span>AgriLink</span>
+                    <span>DAN</span>
                   </Link>
                   {isAuthenticated ? (
                     <>

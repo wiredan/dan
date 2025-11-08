@@ -8,7 +8,7 @@ export function Footer() {
           <div className="space-y-8 xl:col-span-1">
             <Link to="/" className="flex items-center gap-2 text-primary font-bold text-xl">
               <Leaf className="h-7 w-7" />
-              <span>AgriLink</span>
+              <span>DAN</span>
             </Link>
             <p className="text-muted-foreground text-base">
               Decentralized Agribusiness Network connecting farmers, distributors, and investors.
@@ -47,7 +47,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-12 border-t border-border pt-8">
-          <p className="text-base text-muted-foreground xl:text-center">&copy; {new Date().getFullYear()} AgriLink Platform. All rights reserved.</p>
+          <p className="text-base text-muted-foreground xl:text-center">&copy; {new Date().getFullYear()} DAN Platform. All rights reserved.</p>
           <p className="text-sm text-muted-foreground/80 xl:text-center mt-2">Built with ❤️ at Cloudflare</p>
         </div>
       </div>

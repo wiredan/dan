@@ -2,7 +2,7 @@
   "getStarted": "Bắt đ��u",
   "exploreMarket": "Khám phá Th�� trư��ng",
   "heroTitle": "Tương lai của Kinh doanh Nông nghiệp là Phi t���p trung",
-  "heroSubtitle": "DAN kết nối nông dân, nhà phân phối và nhà đầu tư tr����n một n��n tảng an toàn, minh bạch. Giao dịch, theo dõi và thực hiện giao dịch một cách tự tin.",
+  "heroSubtitle": "DAN kết nối nông dân, nhà phân phối và nhà ��ầu tư tr����n một n��n tảng an toàn, minh bạch. Giao dịch, theo dõi và th��c hiện giao dịch một cách tự tin.",
   "featuresTitle": "Một Kỷ nguyên Mới của Thương mại Nông nghiệp",
   "featuresSubtitle": "Nền tảng của chúng tôi được xây dựng trên công nghệ tiên tiến để đảm bảo sự công bằng, minh bạch và hiệu quả.",
   "featureDirectSourcingTitle": "Ngu��n cung ��ng trực tiếp",
@@ -133,7 +133,13 @@
         "email": "Email",
         "location": "Vị trí",
         "save": "Lưu thay đổi",
-        "saving": "Đang lưu..."
+        "saving": "Đang lưu...",
+        "theme": {
+          "label": "Chủ đề",
+          "light": "Sáng",
+          "dark": "Tối",
+          "system": "Hệ thống"
+        }
       },
       "success": "Cập nhật hồ sơ th��nh công!",
       "error": "Cập nhật hồ sơ thất bại."
@@ -150,9 +156,9 @@
         "bankName": "Tên ngân hàng",
         "iban": "IBAN",
         "cardNumber": "Số thẻ",
-        "expiry": "Hết hạn",
+        "expiry": "H��t hạn",
         "cvc": "CVC",
-        "walletAddress": "Địa chỉ ví",
+        "walletAddress": "Địa ch�� ví",
         "submit": {
           "bank": "Kết nối tài khoản",
           "card": "Kết nối thẻ",
@@ -194,7 +200,7 @@
       "error": "Không thể tải người dùng.",
       "promoteCard": {
         "title": "Thăng cấp người dùng lên Admin",
-        "description": "Nhập địa ch��� email của người dùng để cấp quyền quản trị viên.",
+        "description": "Nhập địa ch��� email của người dùng để c��p quyền quản trị viên.",
         "emailLabel": "Email người dùng",
         "promoteButton": "Thăng cấp",
         "promotingButton": "Đang thăng cấp..."
@@ -215,7 +221,7 @@
   },
   "auth": {
     "social": {
-      "google": "Tiếp tục với Google",
+      "google": "Tiếp t��c với Google",
       "apple": "Tiếp tục với Apple",
       "microsoft": "Tiếp tục với Microsoft"
     }
@@ -228,7 +234,7 @@
       "technology": "C��ng nghệ",
       "farming": "Nông nghiệp",
       "markets": "Thị trường",
-      "security": "Bảo mật",
+      "security": "Bảo m��t",
       "logistics": "H���u cần",
       "investment": "Đ���u tư"
     },
@@ -269,7 +275,7 @@
     "title": "DAN. AI",
     "description": "Trợ lý do AI cung cấp của bạn cho d�� liệu và thông tin chi tiết thị trường thời gian thực.",
     "marketData": {
-      "title": "Dữ liệu Thị trường Thời gian thực",
+      "title": "D��� liệu Thị trường Thời gian thực",
       "crop": "C��y trồng",
       "price": "Giá (USD)",
       "change": "Thay đổi 24h",

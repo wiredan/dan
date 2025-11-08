@@ -133,7 +133,13 @@
         "email": "Imel",
         "location": "Wuri",
         "save": "Ajiye Canje-canje",
-        "saving": "Ana Ajiye..."
+        "saving": "Ana Ajiye...",
+        "theme": {
+          "label": "Jigo",
+          "light": "Haske",
+          "dark": "Duhu",
+          "system": "Tsarin"
+        }
       },
       "success": "An sabunta bayanan martaba cikin nasara!",
       "error": "An kasa sabunta bayanan martaba."

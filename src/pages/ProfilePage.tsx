@@ -10,6 +10,8 @@ import { toast } from "sonner";
 import { api } from '@/lib/api-client';
 import { User } from '@shared/types';
 import { useTranslation } from 'react-i18next';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { useTheme } from '@/hooks/use-theme';
 export function ProfilePage() {
   const { t } = useTranslation();
   const user = useAuthStore(s => s.user);
@@ -18,6 +20,7 @@ export function ProfilePage() {
   const [name, setName] = useState(user?.name || '');
   const [location, setLocation] = useState(user?.location || '');
   const [isSaving, setIsSaving] = useState(false);
+  const { theme, setTheme } = useTheme();
   if (!isAuthenticated || !user) {
     return <Navigate to="/auth" replace />;
   }
@@ -63,20 +66,43 @@ export function ProfilePage() {
                 <CardDescription>{t('profile.profile.description')}</CardDescription>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleProfileUpdate} className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">{t('profile.profile.form.name')}</Label>
-                    <Input id="name" value={name} onChange={(e) => setName(e.target.value)} />
+                <form onSubmit={handleProfileUpdate} className="space-y-6">
+                  <div className="space-y-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="name">{t('profile.profile.form.name')}</Label>
+                      <Input id="name" value={name} onChange={(e) => setName(e.target.value)} />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="email">{t('profile.profile.form.email')}</Label>
+                      <Input id="email" type="email" defaultValue={user.id} disabled />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="location">{t('profile.profile.form.location')}</Label>
+                      <Input id="location" value={location} onChange={(e) => setLocation(e.target.value)} />
+                    </div>
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="email">{t('profile.profile.form.email')}</Label>
-                    <Input id="email" type="email" defaultValue={user.id} disabled />
+                  <div className="space-y-2 pt-4">
+                    <Label>{t('profile.profile.form.theme.label')}</Label>
+                    <RadioGroup
+                      value={theme}
+                      onValueChange={(value) => setTheme(value as 'light' | 'dark' | 'system')}
+                      className="flex space-x-4"
+                    >
+                      <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="light" id="light" />
+                        <Label htmlFor="light">{t('profile.profile.form.theme.light')}</Label>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="dark" id="dark" />
+                        <Label htmlFor="dark">{t('profile.profile.form.theme.dark')}</Label>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="system" id="system" />
+                        <Label htmlFor="system">{t('profile.profile.form.theme.system')}</Label>
+                      </div>
+                    </RadioGroup>
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="location">{t('profile.profile.form.location')}</Label>
-                    <Input id="location" value={location} onChange={(e) => setLocation(e.target.value)} />
-                  </div>
-                  <Button type="submit" disabled={isSaving}>
+                  <Button type="submit" disabled={isSaving} className="mt-4">
                     {isSaving ? t('profile.profile.form.saving') : t('profile.profile.form.save')}
                   </Button>
                 </form>

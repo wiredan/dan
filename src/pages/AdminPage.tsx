@@ -74,7 +74,7 @@ export function AdminPage() {
             <TabsTrigger value="users">{t('admin.tabs.users')}</TabsTrigger>
             <TabsTrigger value="transactions">{t('admin.tabs.transactions')}</TabsTrigger>
           </TabsList>
-          <TabsContent value="users">
+          <TabsContent value="users" key="users-tab">
             <Card>
               <CardHeader>
                 <CardTitle>{t('admin.users.title')}</CardTitle>
@@ -134,7 +134,7 @@ export function AdminPage() {
               </CardContent>
             </Card>
           </TabsContent>
-          <TabsContent value="transactions">
+          <TabsContent value="transactions" key="transactions-tab">
             <Card>
               <CardHeader>
                 <CardTitle>{t('admin.transactions.title')}</CardTitle>

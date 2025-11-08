@@ -36,9 +36,9 @@ export function CreateListingPage() {
       name: '',
       description: '',
       category: '',
-      price: 0,
+      price: undefined,
       unit: 'kg',
-      quantity: 1,
+      quantity: undefined,
       grade: 'A' as 'A' | 'B' | 'C',
       imageUrl: 'https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?q=80&w=800',
     },
@@ -151,7 +151,7 @@ export function CreateListingPage() {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>{t('createListing.form.price.label')}</FormLabel>
-                        <FormControl><Input type="number" step="0.01" placeholder="0.00" {...field} value={field.value as number} /></FormControl>
+                        <FormControl><Input type="number" step="0.01" placeholder="0.00" {...field} value={field.value ?? ''} /></FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
@@ -173,7 +173,7 @@ export function CreateListingPage() {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>{t('createListing.form.quantity.label')}</FormLabel>
-                        <FormControl><Input type="number" placeholder="1000" {...field} value={field.value as number} /></FormControl>
+                        <FormControl><Input type="number" placeholder="1000" {...field} value={field.value ?? ''} /></FormControl>
                         <FormMessage />
                       </FormItem>
                     )}

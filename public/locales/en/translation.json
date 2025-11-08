@@ -261,9 +261,18 @@
       },
       "toast": {
         "roleSuccess": "User role updated successfully.",
-        "roleError": "Failed to update user role."
+        "roleError": "Failed to update user role.",
+        "promoteSuccess": "User promoted to Admin successfully.",
+        "promoteError": "Failed to promote user."
       },
-      "error": "Failed to fetch users."
+      "error": "Failed to fetch users.",
+      "promoteCard": {
+        "title": "Promote User to Admin",
+        "description": "Enter a user's email address to grant them administrator privileges.",
+        "emailLabel": "User Email",
+        "promoteButton": "Promote",
+        "promotingButton": "Promoting..."
+      }
     },
     "transactions": {
       "title": "Transactions",

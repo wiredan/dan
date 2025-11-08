@@ -8,7 +8,7 @@
   "featureDirectSourcingTitle": "Samun Kai tsaye",
   "featureDirectSourcingDesc": "Haɗa kai tsaye da manoma don samun amfanin gona mafi sabo ba tare da masu shiga tsakani ba.",
   "featureSecureEscrowTitle": "Escrow Mai Aminci",
-  "featureSecureEscrowDesc": "Ana riƙe biyan kuɗi a cikin escrow kuma ana sakewa ta atomatik bayan an tabbatar da isarwa.",
+  "featureSecureEscrowDesc": "Ana riƙe biyan ku��i a cikin escrow kuma ana sakewa ta atomatik bayan an tabbatar da isarwa.",
   "featureTransparentLogisticsTitle": "Kayan Aiki na Gaskiya",
   "featureTransparentLogisticsDesc": "Bibiyi odar ku a ainihin lokacin daga gona zuwa sito ɗinku tare da ingantaccen tsarin bibiyar mu.",
   "featureMarketInsightsTitle": "Fahimtar Kasuwa",
@@ -156,9 +156,18 @@
       },
       "toast": {
         "roleSuccess": "An sabunta matsayin mai amfani.",
-        "roleError": "An kasa sabunta matsayin mai amfani."
+        "roleError": "An kasa sabunta matsayin mai amfani.",
+        "promoteSuccess": "An ɗaukaka mai amfani zuwa Admin.",
+        "promoteError": "An kasa ɗaukaka mai amfani."
       },
-      "error": "An kasa samo masu amfani."
+      "error": "An kasa samo masu amfani.",
+      "promoteCard": {
+        "title": "Ɗaukaka Mai amfani zuwa Admin",
+        "description": "Shigar da adireshin imel na mai amfani don ba su damar gudanarwa.",
+        "emailLabel": "Imel na Mai amfani",
+        "promoteButton": "Ɗaukaka",
+        "promotingButton": "Ana Ɗaukakawa..."
+      }
     },
     "transactions": {
       "title": "Ma'amaloli",

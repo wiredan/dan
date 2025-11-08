@@ -4,6 +4,8 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { api } from '@/lib/api-client';
 import { User, Order, UserRole } from '@shared/types';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -17,6 +19,8 @@ export function AdminPage() {
   const [isLoadingUsers, setIsLoadingUsers] = useState(true);
   const [isLoadingOrders, setIsLoadingOrders] = useState(true);
   const [isUpdatingRole, setIsUpdatingRole] = useState<string | null>(null);
+  const [promotionEmail, setPromotionEmail] = useState('');
+  const [isPromoting, setIsPromoting] = useState(false);
   const usersById = useMemo(() => new Map(users.map(u => [u.id, u])), [users]);
   const { selectedCurrency } = useCurrencyStore();
   const formatCurrency = (amount: number) => {
@@ -66,6 +70,26 @@ export function AdminPage() {
       setIsUpdatingRole(null);
     }
   };
+  const handlePromoteUser = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!promotionEmail) return;
+    setIsPromoting(true);
+    try {
+      await api<User>('/api/users/promote', {
+        method: 'POST',
+        body: JSON.stringify({ email: promotionEmail }),
+      });
+      toast.success(t('admin.users.toast.promoteSuccess'));
+      setPromotionEmail('');
+      await fetchUsers();
+    } catch (error) {
+      const errorMessage = (error as Error).message || t('admin.users.toast.promoteError');
+      toast.error(errorMessage);
+      console.error(error);
+    } finally {
+      setIsPromoting(false);
+    }
+  };
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="py-12 md:py-16">
@@ -78,7 +102,7 @@ export function AdminPage() {
             <TabsTrigger value="users">{t('admin.tabs.users')}</TabsTrigger>
             <TabsTrigger value="transactions">{t('admin.tabs.transactions')}</TabsTrigger>
           </TabsList>
-          <TabsContent value="users" key="users-tab">
+          <TabsContent value="users" key="users-tab" className="space-y-8">
             <Card>
               <CardHeader>
                 <CardTitle>{t('admin.users.title')}</CardTitle>
@@ -135,6 +159,30 @@ export function AdminPage() {
                     </TableBody>
                   </Table>
                 )}
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>{t('admin.users.promoteCard.title')}</CardTitle>
+                <CardDescription>{t('admin.users.promoteCard.description')}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <form onSubmit={handlePromoteUser} className="flex items-end gap-4">
+                  <div className="flex-grow space-y-2">
+                    <Label htmlFor="promotion-email">{t('admin.users.promoteCard.emailLabel')}</Label>
+                    <Input
+                      id="promotion-email"
+                      type="email"
+                      placeholder="user@example.com"
+                      value={promotionEmail}
+                      onChange={(e) => setPromotionEmail(e.target.value)}
+                      disabled={isPromoting}
+                    />
+                  </div>
+                  <Button type="submit" disabled={isPromoting || !promotionEmail}>
+                    {isPromoting ? t('admin.users.promoteCard.promotingButton') : t('admin.users.promoteCard.promoteButton')}
+                  </Button>
+                </form>
               </CardContent>
             </Card>
           </TabsContent>

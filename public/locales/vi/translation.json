@@ -2,11 +2,11 @@
   "getStarted": "Bắt đầu",
   "exploreMarket": "Khám phá Thị trường",
   "heroTitle": "Tương lai của Kinh doanh Nông nghiệp là Phi tập trung",
-  "heroSubtitle": "DAN kết nối nông dân, nhà phân phối và nhà đầu tư tr��n một nền tảng an toàn, minh bạch. Giao dịch, theo dõi và thực hiện giao dịch một cách tự tin.",
+  "heroSubtitle": "DAN kết nối nông dân, nhà phân phối và nhà đầu tư tr����n một nền tảng an toàn, minh bạch. Giao dịch, theo dõi và thực hiện giao dịch một cách tự tin.",
   "featuresTitle": "Một Kỷ nguyên Mới của Thương mại Nông nghiệp",
   "featuresSubtitle": "Nền tảng của chúng tôi được xây dựng trên công nghệ tiên tiến để đảm bảo sự công bằng, minh bạch và hiệu quả.",
   "featureDirectSourcingTitle": "Nguồn cung ��ng trực tiếp",
-  "featureDirectSourcingDesc": "Kết nối trực tiếp với nông dân để có được những vụ mùa tươi ngon nhất mà không cần qua trung gian.",
+  "featureDirectSourcingDesc": "Kết nối trực tiếp với nông dân để có được những vụ mùa tư��i ngon nhất mà không cần qua trung gian.",
   "featureSecureEscrowTitle": "Ký quỹ an toàn",
   "featureSecureEscrowDesc": "Các khoản thanh toán được giữ an toàn trong ký quỹ và được giải ngân tự động khi xác nhận giao hàng.",
   "featureTransparentLogisticsTitle": "Hậu cần minh bạch",
@@ -156,9 +156,18 @@
       },
       "toast": {
         "roleSuccess": "Cập nhật vai trò người dùng thành công.",
-        "roleError": "Không thể cập nhật vai trò người dùng."
+        "roleError": "Không thể cập nhật vai trò người dùng.",
+        "promoteSuccess": "Thăng cấp người dùng lên Admin thành công.",
+        "promoteError": "Không thể thăng cấp người dùng."
       },
-      "error": "Không thể tải người dùng."
+      "error": "Không thể tải người dùng.",
+      "promoteCard": {
+        "title": "Thăng cấp người dùng lên Admin",
+        "description": "Nhập địa ch��� email của người dùng để cấp quyền quản trị viên.",
+        "emailLabel": "Email người dùng",
+        "promoteButton": "Thăng cấp",
+        "promotingButton": "Đang thăng cấp..."
+      }
     },
     "transactions": {
       "title": "Giao dịch",

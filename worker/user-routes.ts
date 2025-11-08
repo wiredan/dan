@@ -41,6 +41,22 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
     await user.patch({ role });
     return ok(c, await user.getState());
   });
+  app.post('/api/users/promote', async (c) => {
+    const { email } = await c.req.json<{ email: string }>();
+    if (!isStr(email)) return bad(c, 'Email is required');
+    // In our mock setup, the user ID is often the email.
+    const userId = email;
+    const user = new UserEntity(c.env, userId);
+    if (!(await user.exists())) {
+      return notFound(c, 'User with that email not found');
+    }
+    const userState = await user.getState();
+    if (userState.role === 'Admin') {
+      return bad(c, 'User is already an admin');
+    }
+    await user.patch({ role: 'Admin' });
+    return ok(c, await user.getState());
+  });
   // LISTING ROUTES
   app.get('/api/listings', async (c) => {
     await ensureSeedData(c.env);

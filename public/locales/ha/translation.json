@@ -31,7 +31,9 @@
       "dashboard": "Dashboard",
       "marketplace": "Kasuwa",
       "educationHub": "Cibiyar Ilimi",
-      "danAI": "DAN. AI"
+      "aiTools": "Kayan Aikin AI",
+      "danAI": "Mataimakin DAN. AI",
+      "cropHealthAI": "Lafiyar Amfanin Gona AI"
     },
     "createListing": "Ƙirƙiri Lissafi",
     "signIn": "Shiga ciki",
@@ -61,6 +63,11 @@
       "marketActivity": {
         "title": "Ayyukan Kasuwa",
         "subtitle": "+2 tun sa'a ta ƙarshe"
+      },
+      "cropHealth": {
+        "title": "Lafiyar Amfanin Gona AI",
+        "description": "Bincika hotunan tauraron dan adam don gano cututtuka da wuri.",
+        "button": "Bincika Yanzu"
       }
     },
     "overview": {
@@ -280,6 +287,33 @@
       "price": "Farashi (USD)",
       "change": "Canjin 24h",
       "lastUpdated": "An sabunta a: {{time}}"
+    }
+  },
+  "cropHealthAI": {
+    "title": "Lafiyar Amfanin Gona AI",
+    "description": "Yi amfani da AI don gano cututtukan amfanin gona da wuri daga hotunan tauraron dan adam.",
+    "uploadTitle": "Bincika Hoton Amfanin Gona",
+    "uploadDesc": "Zaɓi samfurin hoton tauraron dan adam na gonarka don fara bincike.",
+    "sampleImages": "Hotunan Samfura",
+    "analyzeButton": "Bincika Lafiyar Amfanin Gona",
+    "analyzing": "Ana Bincike...",
+    "resultsTitle": "Sakamakon Bincike",
+    "disease": "Bincike",
+    "confidence": "Kwarin Gwiwa",
+    "recommendation": "Shawara",
+    "results": {
+      "healthy": {
+        "disease": "Babu (Lafiyayye)",
+        "recommendation": "Amfanin gona yana da lafiya. Ci gaba da sa ido na yau da kullun da jadawalin ban ruwa. Babu buƙatar wani mataki na gaggawa."
+      },
+      "stress": {
+        "disease": "An Gano Damuwar Ruwa",
+        "recommendation": "An gano matsakaiciyar damuwar ruwa a yankin arewa maso yamma. Ana ba da shawarar ƙara yawan ban ruwa da 15% da kuma sa ido."
+      },
+      "fungus": {
+        "disease": "Mai Yiwuwa Kamuwa da Cutar Fungal",
+        "recommendation": "Alamun da suka dace da cutar fungal a matakin farko. Ana ba da shawarar binciken samfurin ƙasa da kuma yin la'akari da amfani da maganin fungicides."
+      }
     }
   },
   "currency": {

@@ -31,7 +31,9 @@
       "dashboard": "Bảng điều khiển",
       "marketplace": "Thị trường",
       "educationHub": "Trung tâm Gi��o dục",
-      "danAI": "DAN. AI"
+      "aiTools": "Công cụ AI",
+      "danAI": "Trợ lý DAN. AI",
+      "cropHealthAI": "Sức khỏe Cây trồng AI"
     },
     "createListing": "Tạo danh s��ch",
     "signIn": "Đăng nhập",
@@ -61,6 +63,11 @@
       "marketActivity": {
         "title": "Hoạt động thị trường",
         "subtitle": "+2 kể từ giờ trước"
+      },
+      "cropHealth": {
+        "title": "Sức khỏe Cây trồng AI",
+        "description": "Phân tích hình ảnh vệ tinh để phát hiện bệnh sớm.",
+        "button": "Phân tích ngay"
       }
     },
     "overview": {
@@ -212,7 +219,7 @@
       "table": {
         "orderId": "ID Đơn hàng",
         "buyer": "Người mua",
-        "seller": "Người bán",
+        "seller": "Người b��n",
         "amount": "Số tiền",
         "status": "Trạng thái"
       },
@@ -280,6 +287,33 @@
       "price": "Giá (USD)",
       "change": "Thay đổi 24h",
       "lastUpdated": "Cập nhật lần cuối: {{time}}"
+    }
+  },
+  "cropHealthAI": {
+    "title": "Sức khỏe Cây trồng AI",
+    "description": "Tận dụng AI để phát hiện sớm bệnh cây trồng từ hình ảnh vệ tinh.",
+    "uploadTitle": "Phân tích Hình ảnh Cây trồng",
+    "uploadDesc": "Chọn một hình ảnh vệ tinh mẫu của cánh đồng của bạn để bắt đầu phân tích.",
+    "sampleImages": "Hình ảnh Mẫu",
+    "analyzeButton": "Phân tích Sức khỏe Cây trồng",
+    "analyzing": "Đang phân tích...",
+    "resultsTitle": "Kết quả Phân tích",
+    "disease": "Chẩn đoán",
+    "confidence": "Độ tin cậy",
+    "recommendation": "Khuyến nghị",
+    "results": {
+      "healthy": {
+        "disease": "Không có (Khỏe mạnh)",
+        "recommendation": "Cây trồng có vẻ khỏe mạnh. Tiếp tục theo dõi và lịch tr��nh tưới tiêu tiêu chuẩn. Không cần hành động ngay lập tức."
+      },
+      "stress": {
+        "disease": "Phát hiện Căng th��ng Nước",
+        "recommendation": "Phát hiện căng thẳng nước mức độ vừa phải ở góc phần tư phía tây bắc. Khuyến nghị tăng tần suất tưới tiêu lên 15% và theo dõi."
+      },
+      "fungus": {
+        "disease": "Nghi ngờ Bệnh Nấm",
+        "recommendation": "Các dấu hiệu phù hợp với bệnh nấm giai đoạn đầu. Khuyến nghị phân tích mẫu đất và xem xét áp dụng thuốc trừ nấm phổ rộng có mục tiêu."
+      }
     }
   },
   "currency": {

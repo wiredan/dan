@@ -1,7 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, Leaf, User, LogOut, PlusCircle, Shield } from 'lucide-react';
+import { Menu, Leaf, User, LogOut, PlusCircle, Shield, Bot, ChevronDown } from 'lucide-react';
 import { useAuthStore } from '@/lib/authStore';
 import {
   DropdownMenu,
@@ -25,7 +25,6 @@ export function Navbar() {
     { to: '/dashboard', label: t('navbar.links.dashboard') },
     { to: '/marketplace', label: t('navbar.links.marketplace') },
     { to: '/education', label: t('navbar.links.educationHub') },
-    { to: '/dan-ai', label: t('navbar.links.danAI') },
   ];
   const getInitials = (name: string) => {
     const names = name.split(' ');
@@ -44,17 +43,37 @@ export function Navbar() {
               <span>DAN</span>
             </Link>
             <nav className="hidden md:flex md:ml-10 md:space-x-8">
-              {isAuthenticated && navLinks.map(link => (
-                <NavLink
-                  key={link.to}
-                  to={link.to}
-                  className={({ isActive }) =>
-                    `text-sm font-medium transition-colors hover:text-primary ${isActive ? 'text-primary' : 'text-muted-foreground'}`
-                  }
-                >
-                  {link.label}
-                </NavLink>
-              ))}
+              {isAuthenticated && (
+                <>
+                  {navLinks.map(link => (
+                    <NavLink
+                      key={link.to}
+                      to={link.to}
+                      className={({ isActive }) =>
+                        `text-sm font-medium transition-colors hover:text-primary ${isActive ? 'text-primary' : 'text-muted-foreground'}`
+                      }
+                    >
+                      {link.label}
+                    </NavLink>
+                  ))}
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button variant="ghost" className="text-sm font-medium text-muted-foreground hover:text-primary p-0">
+                        {t('navbar.links.aiTools')}
+                        <ChevronDown className="ml-1 h-4 w-4" />
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="start">
+                      <DropdownMenuItem asChild>
+                        <Link to="/dan-ai">{t('navbar.links.danAI')}</Link>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem asChild>
+                        <Link to="/crop-health-ai">{t('navbar.links.cropHealthAI')}</Link>
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </>
+              )}
             </nav>
           </div>
           <div className="flex items-center gap-2">
@@ -123,6 +142,8 @@ export function Navbar() {
                       {navLinks.map(link => (
                         <Link key={link.to} to={link.to} className="text-muted-foreground hover:text-foreground">{link.label}</Link>
                       ))}
+                      <Link to="/dan-ai" className="text-muted-foreground hover:text-foreground">{t('navbar.links.danAI')}</Link>
+                      <Link to="/crop-health-ai" className="text-muted-foreground hover:text-foreground">{t('navbar.links.cropHealthAI')}</Link>
                       <Link to="/profile" className="text-muted-foreground hover:text-foreground">{t('navbar.dropdown.profile')}</Link>
                     </>
                   ) : (

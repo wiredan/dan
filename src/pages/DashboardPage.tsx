@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Activity, CreditCard, DollarSign, Users } from "lucide-react";
+import { Activity, CreditCard, DollarSign, Users, ScanLine, ArrowRight } from "lucide-react";
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis, Tooltip } from "recharts";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { useAuthStore } from "@/lib/authStore";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { api } from "@/lib/api-client";
 import { Order } from "@shared/types";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useTranslation } from "react-i18next";
 import { useCurrencyStore } from "@/lib/currencyStore";
+import { Button } from "@/components/ui/button";
 const chartData = [
   { name: "Jan", total: Math.floor(Math.random() * 5000) + 1000 },
   { name: "Feb", total: Math.floor(Math.random() * 5000) + 1000 },
@@ -117,34 +118,50 @@ export function DashboardPage() {
               </ResponsiveContainer>
             </CardContent>
           </Card>
-          <Card className="col-span-4 lg:col-span-3">
-            <CardHeader>
-              <CardTitle>{t('dashboard.recentOrders.title')}</CardTitle>
-              <CardDescription>{t('dashboard.recentOrders.description')}</CardDescription>
-            </CardHeader>
-            <CardContent>
-              {isLoading ? <Skeleton className="h-40 w-full" /> : (
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>{t('dashboard.recentOrders.table.id')}</TableHead>
-                      <TableHead>{t('dashboard.recentOrders.table.status')}</TableHead>
-                      <TableHead className="text-right">{t('dashboard.recentOrders.table.amount')}</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {orders.slice(0, 5).map(order => (
-                      <TableRow key={order.id}>
-                        <TableCell className="font-medium">{order.id.substring(0, 8)}</TableCell>
-                        <TableCell><Badge variant={order.status === 'Delivered' ? 'default' : 'secondary'}>{order.status}</Badge></TableCell>
-                        <TableCell className="text-right">{formatCurrency(order.total)}</TableCell>
+          <div className="col-span-4 lg:col-span-3 space-y-4">
+            <Card>
+              <CardHeader>
+                <CardTitle>{t('dashboard.recentOrders.title')}</CardTitle>
+                <CardDescription>{t('dashboard.recentOrders.description')}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                {isLoading ? <Skeleton className="h-40 w-full" /> : (
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead>{t('dashboard.recentOrders.table.id')}</TableHead>
+                        <TableHead>{t('dashboard.recentOrders.table.status')}</TableHead>
+                        <TableHead className="text-right">{t('dashboard.recentOrders.table.amount')}</TableHead>
                       </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              )}
-            </CardContent>
-          </Card>
+                    </TableHeader>
+                    <TableBody>
+                      {orders.slice(0, 5).map(order => (
+                        <TableRow key={order.id}>
+                          <TableCell className="font-medium">{order.id.substring(0, 8)}</TableCell>
+                          <TableCell><Badge variant={order.status === 'Delivered' ? 'default' : 'secondary'}>{order.status}</Badge></TableCell>
+                          <TableCell className="text-right">{formatCurrency(order.total)}</TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                )}
+              </CardContent>
+            </Card>
+            <Card className="bg-primary/10 border-primary/20 hover:border-primary/50 transition-colors">
+              <CardHeader className="flex flex-row items-center justify-between">
+                <div className="space-y-1">
+                  <CardTitle>{t('dashboard.cards.cropHealth.title')}</CardTitle>
+                  <CardDescription>{t('dashboard.cards.cropHealth.description')}</CardDescription>
+                </div>
+                <ScanLine className="h-8 w-8 text-primary" />
+              </CardHeader>
+              <CardContent>
+                <Button asChild>
+                  <Link to="/crop-health-ai">{t('dashboard.cards.cropHealth.button')} <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </div>
     </div>

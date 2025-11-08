@@ -2,8 +2,8 @@
   "getStarted": "���始���用",
   "exploreMarket": "探��市场",
   "heroTitle": "��业综合���业���未来是去中心化的",
-  "heroSubtitle": "DAN 在一个安���、�������平台上连接农民、分销商和投资者。充满信心地进行贸易、追踪和交易。",
-  "featuresTitle": "农产品贸易的新��元",
+  "heroSubtitle": "DAN 在一个安���、���������台上连接农民、分销商和投资者。充满信心地进行贸易、追踪和交易。",
+  "featuresTitle": "农产���贸易的新��元",
   "featuresSubtitle": "���们的平台建立在尖端技术��上，��确保公平、透明和高效。",
   "featureDirectSourcingTitle": "直接��购",
   "featureDirectSourcingDesc": "直接������民联���，无���中间商即可采购最新鲜的农作物。",
@@ -24,14 +24,16 @@
   "testimonial3Author": "法蒂玛·赛义��",
   "testimonial3Role": "投资者，阿联酋",
   "ctaTitle": "��备好加入���场��命了吗？",
-  "ctaSubtitle": "立���创建账户，体验农业综合企业的未来。",
+  "ctaSubtitle": "�����创建账户，体验农业综合企业的未来。",
   "ctaButton": "立即���册",
   "navbar": {
     "links": {
       "dashboard": "仪表���",
       "marketplace": "市场",
       "educationHub": "教育中心",
-      "danAI": "DAN. AI"
+      "aiTools": "AI 工具",
+      "danAI": "DAN. AI 助手",
+      "cropHealthAI": "作物健康 AI"
     },
     "createListing": "创建���表",
     "signIn": "登录",
@@ -44,7 +46,7 @@
   },
   "dashboard": {
     "title": "仪表盘",
-    "welcome": "欢迎���来，{{name}}��这是您的账户摘要。",
+    "welcome": "��迎���来，{{name}}��这是您的账户摘要。",
     "cards": {
       "revenue": {
         "title": "总收入",
@@ -52,7 +54,7 @@
       },
       "activeOrders": {
         "title": "活动������",
-        "subtitle": "总共 {{count}} 个订单"
+        "subtitle": "总共 {{count}} 个订��"
       },
       "connections": {
         "title": "连接",
@@ -61,6 +63,11 @@
       "marketActivity": {
         "title": "市场活动",
         "subtitle": "���上一小时���来新增2个"
+      },
+      "cropHealth": {
+        "title": "作物健康 AI",
+        "description": "分析卫星图像以早期发现��病。",
+        "button": "立即分析"
       }
     },
     "overview": {
@@ -68,7 +75,7 @@
     },
     "recentOrders": {
       "title": "最��订单",
-      "description": "您最近的���易。",
+      "description": "您最近的�����。",
       "table": {
         "id": "订单ID",
         "status": "������",
@@ -85,7 +92,7 @@
       "allCategories": "所有类别",
       "sortByPlaceholder": "排序方式",
       "priceAsc": "价格：��低到���",
-      "priceDesc": "价格：从高到低",
+      "priceDesc": "价格：从高到��",
       "nameAsc": "���称：A-Z"
     },
     "card": {
@@ -149,7 +156,7 @@
       "title": "参与者",
       "buyer": "买家",
       "seller": "卖家",
-      "logistics": "物流",
+      "logistics": "���流",
       "logisticsPartner": "DAN 物流合作�����"
     },
     "actions": {
@@ -158,9 +165,9 @@
       "confirmDelivery": "确认收货",
       "confirmPickup": "确认取货",
       "dispute": "����订单",
-      "resolveRelease": "解决�����放资金",
+      "resolveRelease": "解决�������资金",
       "resolveRefund": "解决并退款给买家",
-      "cancelOrder": "取消订单�����������）"
+      "cancelOrder": "取消订单�������������"
     },
     "error": {
       "fetch": "获取订单详情失败"
@@ -179,13 +186,13 @@
       "resolveFailed": "解决争议失败。"
     },
     "disputeModal": {
-      "title": "发起争议",
+      "title": "发��争议",
       "description": "请描述您的���单问��。管理员将审核您的申诉。",
       "reasonLabel": "���因",
-      "reasonPlaceholder": "���如：商���与描述不符���未收���货...",
+      "reasonPlaceholder": "������：商���与描述不符���未收���货...",
       "evidenceLabel": "上传证据",
       "fileErrorType": "文件必����图片。",
-      "fileErrorSize": "文件必须小于 {{size}}KB。",
+      "fileErrorSize": "文件必���小于 {{size}}KB。",
       "cancel": "取消",
       "submit": "提交争议"
     },
@@ -225,7 +232,7 @@
           "label": "主题",
           "light": "浅��",
           "dark": "��色",
-          "system": "系统"
+          "system": "���统"
         }
       },
       "success": "个人资料更新成功！",
@@ -236,7 +243,7 @@
       "description": "验证您的身份以�����全部平台功能。",
       "verified": {
         "title": "���的账户已通过验证！",
-        "description": "您�������有平台功能的完全访���权��。"
+        "description": "您���������平台功能的完全访���权��。"
       },
       "form": {
         "docType": "文件类���",
@@ -276,7 +283,7 @@
   },
   "admin": {
     "title": "管理面板",
-    "description": "管理平台用户�����置。",
+    "description": "管理平台用户�������。",
     "tabs": {
       "users": "用户管理",
       "transactions": "交易"
@@ -293,7 +300,7 @@
         "actions": "操作"
       },
       "actions": {
-        "promote": "提升为管理员",
+        "promote": "��升为管理员",
         "demote": "��管理员����级"
       },
       "toast": {
@@ -305,7 +312,7 @@
       "error": "获取用户���败。",
       "promoteCard": {
         "title": "���升用户为管理员",
-        "description": "输入用户���电子邮������址以���予其管理员权限。",
+        "description": "输入用户���电子邮���������以���予其管理员权限。",
         "emailLabel": "用户邮箱",
         "promoteButton": "提升",
         "promotingButton": "提升中..."
@@ -336,7 +343,7 @@
     },
     "signup": {
       "title": "注册",
-      "description": "创建一�����账户以开始使用。",
+      "description": "创建一�����账户以���始使用。",
       "submit": "创建账户"
     },
     "form": {
@@ -381,11 +388,11 @@
       },
       "markets": {
         "title": "驾驭全���粮����物市场",
-        "description": "��析当前市场趋势���价格波动以及如何在���台上做出明智的交易决策。"
+        "description": "��析当前市场趋�����价格波动以及如何在���台上做出明智的交易决策。"
       },
       "kyc": {
-        "title": "KYC在建立信���中的作��",
-        "description": "为���么身份验证对于创建一个安全透明的农业综合企业市场至�����要。"
+        "title": "KYC在建立������中的作��",
+        "description": "为���么身份验证��于创建一个安全透明的农业综合企业市场至�����要。"
       },
       "logistics": {
         "title": "物流��供应链优化",
@@ -393,7 +400,7 @@
       },
       "tokenization": {
         "title": "农业��币化简��",
-        "description": "关于如何将农业资产���示为数��代币，从��释放流动性和投资的������者指���。"
+        "description": "关于如何将农业资产���示��数��代币，从��释放流动性和投资的������者指���。"
       }
     },
     "aiChat": {
@@ -408,10 +415,37 @@
     "description": "您的人工智能助手，提供���时市场数据和见解。",
     "marketData": {
       "title": "实时市场数据",
-      "crop": "作物",
+      "crop": "��物",
       "price": "价格 (���元)",
       "change": "24小时���化",
       "lastUpdated": "最后更新: {{time}}"
+    }
+  },
+  "cropHealthAI": {
+    "title": "作物健康 AI",
+    "description": "利用人工智能通过卫星图像及早发现作物病害。",
+    "uploadTitle": "分析作物图像",
+    "uploadDesc": "选择您田地的卫星图像样本以开始分析。",
+    "sampleImages": "样本图像",
+    "analyzeButton": "分析作物健康",
+    "analyzing": "分析中...",
+    "resultsTitle": "分析结果",
+    "disease": "诊断",
+    "confidence": "���信度",
+    "recommendation": "建议",
+    "results": {
+      "healthy": {
+        "disease": "无（健康）",
+        "recommendation": "作物看起来很健康。继续标准监测和灌溉计划。无需立即采取行动。"
+      },
+      "stress": {
+        "disease": "检测到水分���迫",
+        "recommendation": "在西北象限检测到中度水分胁迫。建议将灌溉频率增加15%并进行监测。"
+      },
+      "fungus": {
+        "disease": "潜在的真菌性���萎病",
+        "recommendation": "症状与早期真菌性枯萎病��致。建议进行土壤样本分析，并考虑有针对性地���用广谱杀菌剂。"
+      }
     }
   },
   "createListing": {
@@ -420,7 +454,7 @@
     "form": {
       "productName": {
         "label": "产品名称",
-        "placeholder": "例如：有机哈��牛����"
+        "placeholder": "例如：有机哈��������"
       },
       "description": {
         "label": "描述",
@@ -428,7 +462,7 @@
       },
       "category": {
         "label": "类���",
-        "placeholder": "选择一个类别"
+        "placeholder": "选择一个类���"
       },
       "grade": {
         "label": "等级",
@@ -460,7 +494,7 @@
     "success": "列表���建成功！"
   },
   "categories": {
-    "fruits": "���果",
+    "fruits": "������",
     "vegetables": "蔬菜",
     "grains": "谷物",
     "spices": "香料",

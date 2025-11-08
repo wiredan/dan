@@ -189,4 +189,15 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
     await new Promise(resolve => setTimeout(resolve, 1500));
     return ok(c, { reply });
   });
+  app.post('/api/ai/crop-health', async (c) => {
+    // Simulate AI analysis delay
+    await new Promise(resolve => setTimeout(resolve, 2500));
+    const mockResults = [
+      { disease: 'cropHealthAI.results.healthy.disease', confidence: 98.2, recommendation: 'cropHealthAI.results.healthy.recommendation' },
+      { disease: 'cropHealthAI.results.stress.disease', confidence: 85.5, recommendation: 'cropHealthAI.results.stress.recommendation' },
+      { disease: 'cropHealthAI.results.fungus.disease', confidence: 92.1, recommendation: 'cropHealthAI.results.fungus.recommendation' },
+    ];
+    const result = mockResults[Math.floor(Math.random() * mockResults.length)];
+    return ok(c, result);
+  });
 }

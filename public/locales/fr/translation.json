@@ -31,7 +31,9 @@
       "dashboard": "Tableau de bord",
       "marketplace": "Marché",
       "educationHub": "Pôle Éducatif",
-      "danAI": "DAN. AI"
+      "aiTools": "Outils IA",
+      "danAI": "Assistant DAN. AI",
+      "cropHealthAI": "Santé des Cultures IA"
     },
     "createListing": "Créer une Annonce",
     "signIn": "Se connecter",
@@ -61,6 +63,11 @@
       "marketActivity": {
         "title": "Activité du Marché",
         "subtitle": "+2 depuis la dernière heure"
+      },
+      "cropHealth": {
+        "title": "Santé des Cultures IA",
+        "description": "Analysez l'imagerie satellite pour une détection précoce des maladies.",
+        "button": "Analyser maintenant"
       }
     },
     "overview": {
@@ -414,6 +421,33 @@
       "lastUpdated": "Dernière mise à jour : {{time}}"
     }
   },
+  "cropHealthAI": {
+    "title": "Santé des Cultures IA",
+    "description": "Tirez parti de l'IA pour détecter précocement les maladies des cultures à partir d'images satellites.",
+    "uploadTitle": "Analyser l'Image de la Culture",
+    "uploadDesc": "Sélectionnez un échantillon d'image satellite de votre champ pour commencer l'analyse.",
+    "sampleImages": "Images d'Exemple",
+    "analyzeButton": "Analyser la Santé de la Culture",
+    "analyzing": "Analyse en cours...",
+    "resultsTitle": "Résultats de l'Analyse",
+    "disease": "Diagnostic",
+    "confidence": "Confiance",
+    "recommendation": "Recommandation",
+    "results": {
+      "healthy": {
+        "disease": "Aucune (Saine)",
+        "recommendation": "La culture semble saine. Continuez la surveillance standard et les calendriers d'irrigation. Aucune action immédiate requise."
+      },
+      "stress": {
+        "disease": "Stress Hydrique Détecté",
+        "recommendation": "Un stress hydrique modéré a été détecté dans le quadrant nord-ouest. Il est recommandé d'augmenter la fréquence d'irrigation de 15% et de surveiller."
+      },
+      "fungus": {
+        "disease": "Mildiou Fongique Potentiel",
+        "recommendation": "Signes compatibles avec un mildiou fongique à un stade précoce. Il est recommandé d'analyser un échantillon de sol et d'envisager l'application ciblée d'un fongicide à large spectre."
+      }
+    }
+  },
   "createListing": {
     "title": "Créer une Nouvelle Annonce",
     "description": "Remplissez les détails ci-dessous pour ajouter votre produit au marché.",
@@ -439,7 +473,7 @@
       },
       "unit": {
         "label": "Unité",
-        "placeholder": "Ex: kg, tonne, pièce"
+        "placeholder": "Ex: kg, tonne, pi��ce"
       },
       "quantity": {
         "label": "Quantité disponible"

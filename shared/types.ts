@@ -49,6 +49,11 @@ export interface Transaction {
   status: 'pending' | 'completed' | 'failed';
   timestamp: string; // ISO 8601
 }
+export interface CropHealthAnalysis {
+  disease: string;
+  confidence: number;
+  recommendation: string;
+}
 // Legacy types from template, can be removed later
 export interface Chat {
   id: string;

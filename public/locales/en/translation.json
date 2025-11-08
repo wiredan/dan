@@ -31,7 +31,9 @@
       "dashboard": "Dashboard",
       "marketplace": "Marketplace",
       "educationHub": "Education Hub",
-      "danAI": "DAN. AI"
+      "aiTools": "AI Tools",
+      "danAI": "DAN. AI Assistant",
+      "cropHealthAI": "Crop Health AI"
     },
     "createListing": "Create Listing",
     "signIn": "Sign In",
@@ -61,6 +63,11 @@
       "marketActivity": {
         "title": "Market Activity",
         "subtitle": "+2 since last hour"
+      },
+      "cropHealth": {
+        "title": "Crop Health AI",
+        "description": "Analyze satellite imagery for early disease detection.",
+        "button": "Analyze Now"
       }
     },
     "overview": {
@@ -412,6 +419,33 @@
       "price": "Price (USD)",
       "change": "24h Change",
       "lastUpdated": "Last updated: {{time}}"
+    }
+  },
+  "cropHealthAI": {
+    "title": "Crop Health AI",
+    "description": "Leverage AI to detect crop diseases early from satellite imagery.",
+    "uploadTitle": "Analyze Crop Image",
+    "uploadDesc": "Select a sample satellite image of your field to begin analysis.",
+    "sampleImages": "Sample Images",
+    "analyzeButton": "Analyze Crop Health",
+    "analyzing": "Analyzing...",
+    "resultsTitle": "Analysis Results",
+    "disease": "Diagnosis",
+    "confidence": "Confidence",
+    "recommendation": "Recommendation",
+    "results": {
+      "healthy": {
+        "disease": "None (Healthy)",
+        "recommendation": "Crop appears healthy. Continue standard monitoring and irrigation schedules. No immediate action required."
+      },
+      "stress": {
+        "disease": "Water Stress Detected",
+        "recommendation": "Moderate water stress detected in the northwest quadrant. Recommend increasing irrigation frequency by 15% and monitor."
+      },
+      "fungus": {
+        "disease": "Potential Fungal Blight",
+        "recommendation": "Signs consistent with early-stage fungal blight. Recommend soil sample analysis and consider targeted application of a broad-spectrum fungicide."
+      }
     }
   },
   "createListing": {

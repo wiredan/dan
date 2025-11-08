@@ -35,11 +35,23 @@ export function AuthPage() {
     }
     toast.success(t('auth.toast.signupSuccess'));
   };
-  const SocialButton = ({ children, provider }: { children: React.ReactNode; provider: string }) => (
-    <Button variant="outline" className="w-full" onClick={() => toast.info(t('auth.toast.socialNotImplemented', { provider }))}>
-      {children}
-    </Button>
-  );
+  const handleSocialLogin = (provider: 'google' | 'apple' | 'microsoft') => {
+    let userEmail = '';
+    switch (provider) {
+      case 'google':
+        userEmail = 'user-1'; // Corresponds to Amina Yusuf
+        break;
+      case 'apple':
+        userEmail = 'user-2'; // Corresponds to Carlos Gomez
+        break;
+      case 'microsoft':
+        userEmail = 'user-3'; // Corresponds to Fatima Al-Sayed
+        break;
+    }
+    toast.success(t('auth.toast.loginSuccess'));
+    login(userEmail);
+    setTimeout(() => navigate('/dashboard'), 1000);
+  };
   return (
     <div className="min-h-[calc(100vh-10rem)] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <Tabs defaultValue="login" className="w-full max-w-md">
@@ -70,9 +82,15 @@ export function AuthPage() {
                 <div className="relative flex justify-center text-xs uppercase"><span className="bg-background px-2 text-muted-foreground">{t('auth.social.divider')}</span></div>
               </div>
               <div className="flex flex-col space-y-2">
-                <SocialButton provider="Google">{t('auth.social.google')}</SocialButton>
-                <SocialButton provider="Apple">{t('auth.social.apple')}</SocialButton>
-                <SocialButton provider="Microsoft">{t('auth.social.microsoft')}</SocialButton>
+                <Button variant="outline" className="w-full" onClick={() => handleSocialLogin('google')}>
+                  {t('auth.social.google')}
+                </Button>
+                <Button variant="outline" className="w-full" onClick={() => handleSocialLogin('apple')}>
+                  {t('auth.social.apple')}
+                </Button>
+                <Button variant="outline" className="w-full" onClick={() => handleSocialLogin('microsoft')}>
+                  {t('auth.social.microsoft')}
+                </Button>
               </div>
             </CardContent>
           </Card>

@@ -7,7 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { Lock, CreditCard, Calendar, AlertCircle, Loader2, CheckCircle } from 'lucide-react';
+import { Lock, CreditCard, Calendar, AlertCircle, Loader2 } from 'lucide-react';
 import { useAuthStore } from '@/lib/authStore';
 import { useCurrencyStore } from '@/lib/currencyStore';
 import { api } from '@/lib/api-client';
@@ -17,13 +17,16 @@ export function PaymentPage() {
   const { t } = useTranslation();
   const { orderId } = useParams<{ orderId: string }>();
   const navigate = useNavigate();
-  const { isAuthenticated, user } = useAuthStore();
-  const { selectedCurrency, formatCurrency } = useCurrencyStore();
+  const { isAuthenticated } = useAuthStore();
+  const { selectedCurrency } = useCurrencyStore();
   const [order, setOrder] = useState<Order | null>(null);
   const [listing, setListing] = useState<Listing | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isProcessing, setIsProcessing] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const formatCurrency = (amount: number) => {
+    return `${selectedCurrency.symbol}${(amount * selectedCurrency.rate).toFixed(2)}`;
+  };
   useEffect(() => {
     if (!orderId) {
       setError(t('payment.error.missingOrderId'));
@@ -84,7 +87,7 @@ export function PaymentPage() {
       <div className="py-12 md:py-16">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold tracking-tight">{t('payment.title')}</h1>
-          <p className="text-muted-foreground mt-2">{t('payment.description')}</p>
+          <p className="text-muted-foreground mt-2">{t('payment.description', { orderId: order.id.substring(0, 8) })}</p>
         </div>
         <div className="grid md:grid-cols-2 gap-8 items-start">
           <Card>

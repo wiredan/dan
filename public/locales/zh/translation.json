@@ -3,27 +3,27 @@
   "exploreMarket": "探��市场",
   "heroTitle": "��业综合���业���未来���去中心化的",
   "heroSubtitle": "DAN 在一���安���、���������台上连接农���、分销商和投资者。充满信心地进行贸易、追踪和交易。",
-  "featuresTitle": "农产���贸易的�����元",
-  "featuresSubtitle": "���们的平台建���在尖端技术��上，��确保公平、透明和高效。",
+  "featuresTitle": "农产���贸易的��������",
+  "featuresSubtitle": "���们的平台建���在尖���技术��上，��确保公平、透明和高效。",
   "featureDirectSourcingTitle": "直接��购",
-  "featureDirectSourcingDesc": "直接������民联���，无���中间商即可采购最新鲜的农作物。",
+  "featureDirectSourcingDesc": "直接������民������，无���中间商即可采购最��鲜的农作物。",
   "featureSecureEscrowTitle": "安全托��",
   "featureSecureEscrowDesc": "付款被安全地保��在托管账户中，并在确���交货后自动释���。",
   "featureTransparentLogisticsTitle": "透明物流",
   "featureTransparentLogisticsDesc": "使用我们��进的追踪系��，实时追踪从农场到仓库的��单。",
   "featureMarketInsightsTitle": "市场��察",
-  "featureMarketInsightsDesc": "获取实时数据和分析，以做出更明智的采购和投资决策。",
+  "featureMarketInsightsDesc": "获取实时数据和分析，以做出���明智的采购和投资决策。",
   "testimonialsTitle": "深受��区信��",
-  "testimonial1Quote": "DAN 彻底改��了我销���农产品的方式。我获得了���好的价��和更快的付款。",
+  "testimonial1Quote": "DAN 彻底改��了我销���农产品的方式。我获得了���好的价��和更快的��款。",
   "testimonial1Author": "阿������·���素福",
   "testimonial1Role": "农民，�������亚",
   "testimonial2Quote": "平台的���明度和安全性改变了我们���销网络的游戏规则。",
   "testimonial2Author": "卡洛斯·戈麦斯",
   "testimonial2Role": "���销商，越��",
-  "testimonial3Quote": "作���一名投资者，�����������以充满信心和��晰地参与农��市场。",
+  "testimonial3Quote": "作���一名投资者，�����������以���满信心和��晰地参与农��市场。",
   "testimonial3Author": "法蒂玛·赛义��",
   "testimonial3Role": "投资者，阿联酋",
-  "ctaTitle": "��备好加入���场��命了吗？",
+  "ctaTitle": "��备好加入���场�����了吗？",
   "ctaSubtitle": "�����创建账户，体验农业综合���业的未来。",
   "ctaButton": "立即���册",
   "navbar": {
@@ -50,7 +50,7 @@
     "cards": {
       "revenue": {
         "title": "总收入",
-        "subtitle": "���上个���增长20.1%"
+        "subtitle": "���上个���增���20.1%"
       },
       "activeOrders": {
         "title": "活动������",
@@ -58,11 +58,11 @@
       },
       "connections": {
         "title": "连接",
-        "subtitle": "比上个���增长180.1%"
+        "subtitle": "���上个���增长180.1%"
       },
       "marketActivity": {
         "title": "市场����",
-        "subtitle": "���上一小时���来新增2个"
+        "subtitle": "���上一小时���来��增2个"
       },
       "cropHealth": {
         "title": "作物健康 AI",
@@ -121,7 +121,7 @@
       "logisticsPartner": "DAN 物流���作�����"
     },
     "actions": {
-      "updating": "更新中...",
+      "updating": "更��中...",
       "markShipped": "标����已发货",
       "confirmDelivery": "确认��货",
       "confirmPickup": "确认取货",
@@ -134,7 +134,7 @@
       "fetch": "获取订单详情失败"
     },
     "notFound": {
-      "title": "未找到订单",
+      "title": "未���到订单",
       "description": "您正在寻找的订单不存在。",
       "button": "返回仪表盘"
     },
@@ -148,10 +148,10 @@
     },
     "disputeModal": {
       "title": "发��争议",
-      "description": "请描述您的���单问��。管理员将审核您的申诉。",
+      "description": "请描述您的���单����。管理员将审核您的申诉。",
       "reasonLabel": "���因",
       "reasonPlaceholder": "������：商�����与描述不符���未收���货...",
-      "evidenceLabel": "上传证据",
+      "evidenceLabel": "上���证据",
       "fileErrorType": "文件必����图片。",
       "fileErrorSize": "文件必������于 {{size}}KB。",
       "cancel": "取消",
@@ -201,19 +201,28 @@
     },
     "kyc": {
       "title": "KYC 验证",
-      "description": "验证您的身份以�����全部平台功能。",
+      "description": "验证您的身份以�����全��平台功能。",
       "verified": {
         "title": "���的账户已通过验证！",
         "description": "您���������平台功能的完全访���权��。"
       },
+      "pending": {
+        "title": "正在验证中",
+        "description": "我们的人工智能正在分析您的文件。这可能需要几分钟时间。"
+      },
       "form": {
-        "docType": "文件类���",
-        "docTypePlaceholder": "例如：身份证、护��",
-        "docUpload": "上传文件",
-        "submit": "提交验证"
+        "docUpload": "上传身份证件",
+        "docTypePlaceholder": "国民身份证、护照、驾照",
+        "selfieUpload": "上传自拍照",
+        "selfiePlaceholder": "一张清晰的脸部照���",
+        "clickToUpload": "点击上传",
+        "submit": "提交验证",
+        "submitting": "提交中..."
       },
       "toast": {
-        "submitted": "KYC 文件������交审核。��此为��������"
+        "submitted": "KYC 文件������交审核。�����为��������",
+        "verified": "KYC 验证成功！",
+        "error": "KYC 提交失败。请重���。"
       }
     },
     "payment": {
@@ -238,13 +247,13 @@
         }
       },
       "toast": {
-        "connected": "{{method}} 连接成功！（演���）"
+        "connected": "{{method}} 连接成功！���演���）"
       }
     }
   },
   "admin": {
     "title": "管理面板",
-    "description": "管理平台用户�������。",
+    "description": "管理平台��户�������。",
     "tabs": {
       "users": "用户管理",
       "transactions": "交易"
@@ -262,7 +271,7 @@
       },
       "actions": {
         "promote": "��升为管理员",
-        "demote": "��管理员����级"
+        "demote": "��管理员�������"
       },
       "toast": {
         "roleSuccess": "用户角色更新成功。",
@@ -328,7 +337,7 @@
   },
   "education": {
     "title": "教育中��",
-    "description": "您的农业综合企业���识���见解资源。",
+    "description": "您的农业综合企业��������见解资源。",
     "readMore": "阅读更多",
     "categories": {
       "technology": "����",
@@ -349,14 +358,14 @@
       },
       "markets": {
         "title": "驾驭全���粮����物市场",
-        "description": "��析当前市场趋�����价格波动以及如何在���台上做��明智的交易决策。"
+        "description": "��析���前市场趋�����价格波动以及如何在���台上做��明智的交易决策。"
       },
       "kyc": {
         "title": "KYC在建立������中的作��",
         "description": "������么身份验证��于创建一个安全透明的农业综合企业市场�������要。"
       },
       "logistics": {
-        "title": "物流��供应链优化",
+        "title": "物流��供应链优���",
         "description": "���分������简化运营和降低成本的技巧和策略。"
       },
       "tokenization": {
@@ -366,7 +375,7 @@
     },
     "aiChat": {
       "title": "DAN AI 助手",
-      "greeting": "������������是去中心化农业综合企业网��AI。您可以�����任何关于������价格、物流或我们平台功能的问题。",
+      "greeting": "������������是去中心化农业综合企业网��AI。您可以�����任何关于���������格、物流或我们平台功能的问题。",
       "placeholder": "询问市场趋势...",
       "send": "�����"
     }
@@ -375,11 +384,11 @@
     "title": "DAN. AI",
     "description": "您的人工智能助手，提供���时市场数据和见解。",
     "marketData": {
-      "title": "实时市场数据",
+      "title": "���时市场数据",
       "crop": "��物",
       "price": "价格 (�����)",
       "change": "24小时���化",
-      "lastUpdated": "最后更新: {{time}}"
+      "lastUpdated": "��后更新: {{time}}"
     }
   },
   "cropHealthAI": {
@@ -391,31 +400,31 @@
     "detectingLocation": "正在检测您的位置...",
     "locationDetected": "已找到位置: {{lat}}, {{lon}}",
     "locationError": "无��获取位置: {{message}}",
-    "permissionDenied": "位置权限被���绝。请在���览器设置中启用。",
+    "permissionDenied": "位置权限�����绝。请在���览器设置中启用。",
     "analyzing": "分析中...",
     "mayTakeMoment": "这���能��要一些时间...",
     "resultsTitle": "分析结果",
     "resultsPlaceholder": "您的分析结果将���示在此处。",
-    "disease": "诊断",
+    "disease": "诊��",
     "confidence": "���信度",
     "recommendation": "建议",
     "results": {
       "healthy": {
         "disease": "无（健康）",
-        "recommendation": "作物��起来很健康。继续标���监测和灌溉计划。无需立即采取行动。"
+        "recommendation": "作物��起���很健康。继续标���监测和灌溉计划。无需立即���取行动。"
       },
       "stress": {
         "disease": "检测到水分���迫",
-        "recommendation": "在西北象限检测到中度水分胁迫。建议将灌溉频率增���15%并进行监测。"
+        "recommendation": "在西北象限检测到中度水分胁迫。建议将灌溉频率增���15%并��行监测。"
       },
       "fungus": {
         "disease": "潜在的真菌性������病",
-        "recommendation": "症状与早期真菌性��萎病��致。建议进行���壤样本分析，并考虑有针对性地���用广谱杀菌剂。"
+        "recommendation": "症状与早期真菌性��萎病��致。建议进行���壤样���分析，并考虑有针对性地���用广谱杀菌剂。"
       }
     }
   },
   "createListing": {
-    "title": "创建新列表",
+    "title": "创建新���表",
     "description": "填写以���详细信息，将您的产品����到市场。",
     "form": {
       "productName": {
@@ -427,7 +436,7 @@
         "placeholder": "详细描述您的产品..."
       },
       "category": {
-        "label": "类���",
+        "label": "������",
         "placeholder": "选择一个类���"
       },
       "grade": {
@@ -454,7 +463,7 @@
       }
     },
     "error": {
-      "notLoggedIn": "您�����登录才能创建列表。",
+      "notLoggedIn": "您��������录才能创建列表。",
       "failed": "创建列表失败。"
     },
     "success": "列表������成功！"
@@ -484,17 +493,17 @@
     }
   },
   "payment": {
-    "title": "完成您的付款",
+    "title": "���成您的付款",
     "description": "安全地完成您的订单 #{{orderId}} 交易。",
     "summary": {
       "title": "订单摘要",
       "quantity": "{{quantity}} {{unit}}",
       "subtotal": "小计",
-      "fees": "交易费用",
+      "fees": "交易费���",
       "total": "应付总额"
     },
     "form": {
-      "title": "使用卡支付",
+      "title": "使用卡���付",
       "description": "由 Paystack 提供支持",
       "cardNumber": "卡号",
       "expiry": "有效期",

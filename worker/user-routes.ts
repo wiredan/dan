@@ -57,6 +57,18 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
     await user.patch({ role: 'Admin' });
     return ok(c, await user.getState());
   });
+  app.post('/api/users/:id/submit-kyc', async (c) => {
+    const { id } = c.req.param();
+    const user = new UserEntity(c.env, id);
+    if (!(await user.exists())) return notFound(c, 'User not found');
+    // Set to pending immediately
+    await user.patch({ kycStatus: 'Pending' });
+    // Simulate AI processing delay
+    await new Promise(resolve => setTimeout(resolve, 3000));
+    // Update to verified
+    await user.patch({ kycStatus: 'Verified' });
+    return ok(c, await user.getState());
+  });
   // LISTING ROUTES
   app.get('/api/listings', async (c) => {
     await ensureSeedData(c.env);

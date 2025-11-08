@@ -245,14 +245,23 @@
         "title": "Your account is verified!",
         "description": "You have full access to all platform features."
       },
+      "pending": {
+        "title": "Verification in Progress",
+        "description": "Our AI is analyzing your documents. This may take a few minutes."
+      },
       "form": {
-        "docType": "Document Type",
-        "docTypePlaceholder": "e.g., National ID, Passport",
-        "docUpload": "Upload Document",
-        "submit": "Submit for Verification"
+        "docUpload": "Upload ID Document",
+        "docTypePlaceholder": "National ID, Passport, Driver's License",
+        "selfieUpload": "Upload a Selfie",
+        "selfiePlaceholder": "A clear photo of your face",
+        "clickToUpload": "Click to upload",
+        "submit": "Submit for Verification",
+        "submitting": "Submitting..."
       },
       "toast": {
-        "submitted": "KYC documents submitted for review. (This is a demo)"
+        "submitted": "KYC documents submitted for review. (This is a demo)",
+        "verified": "KYC verification successful!",
+        "error": "KYC submission failed. Please try again."
       }
     },
     "payment": {

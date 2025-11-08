@@ -139,7 +139,7 @@
     "tabs": {
       "profile": "Hồ sơ",
       "kyc": "Xác minh KYC",
-      "payment": "Phương thức thanh toán"
+      "payment": "Phương th��c thanh toán"
     },
     "profile": {
       "title": "Thông tin hồ sơ",
@@ -159,6 +159,32 @@
       },
       "success": "Cập nhật hồ sơ th��nh công!",
       "error": "Cập nhật hồ sơ thất bại."
+    },
+    "kyc": {
+      "title": "Xác minh KYC",
+      "description": "Xác minh danh tính của bạn để mở khóa đầy đủ các tính năng của nền tảng.",
+      "verified": {
+        "title": "Tài khoản của bạn đã được xác minh!",
+        "description": "Bạn có toàn quyền truy cập vào tất cả các tính năng của nền tảng."
+      },
+      "pending": {
+        "title": "Đang tiến hành xác minh",
+        "description": "AI của chúng tôi đang phân tích tài liệu của bạn. Việc này có thể mất vài ph��t."
+      },
+      "form": {
+        "docUpload": "Tải lên Giấy tờ Tùy thân",
+        "docTypePlaceholder": "CMND, Hộ chiếu, Bằng lái xe",
+        "selfieUpload": "Tải lên ảnh Selfie",
+        "selfiePlaceholder": "Một bức ảnh rõ mặt của bạn",
+        "clickToUpload": "Nhấn để tải lên",
+        "submit": "Gửi để xác minh",
+        "submitting": "Đang gửi..."
+      },
+      "toast": {
+        "submitted": "Tài liệu KYC đã được gửi để xem xét. (Đây là bản demo)",
+        "verified": "Xác minh KYC thành công!",
+        "error": "Gửi KYC thất bại. Vui lòng thử lại."
+      }
     },
     "payment": {
       "title": "Phương thức thanh toán",
@@ -273,7 +299,7 @@
       },
       "logistics": {
         "title": "Tối ưu hóa Hậu cần và Chuỗi cung ứng",
-        "description": "Mẹo và chiến lược cho các nhà phân phối để hợp lý hóa hoạt động và giảm chi phí."
+        "description": "M���o và chiến lược cho các nhà phân phối để hợp lý hóa hoạt động và giảm chi phí."
       },
       "tokenization": {
         "title": "Giới thiệu về Token hóa Nông nghiệp",
@@ -289,7 +315,7 @@
   },
   "danAI": {
     "title": "DAN. AI",
-    "description": "Trợ lý do AI cung cấp của bạn cho d�� liệu và thông tin chi tiết thị trường thời gian thực.",
+    "description": "Trợ lý do AI cung cấp của bạn cho d�� liệu và thông tin chi tiết thị trường thời gian th��c.",
     "marketData": {
       "title": "D��� liệu Thị trường Thời gian thực",
       "crop": "C��y trồng",
@@ -322,11 +348,11 @@
       },
       "stress": {
         "disease": "Phát hiện Căng th��ng Nước",
-        "recommendation": "Phát hiện căng thẳng nước mức độ vừa phải ở góc phần tư phía tây bắc. Khuyến nghị tăng tần suất tưới tiêu lên 15% và theo dõi."
+        "recommendation": "Phát hiện căng thẳng nước mức độ v��a phải ở góc phần tư phía tây bắc. Khuyến nghị tăng tần suất tưới tiêu lên 15% và theo dõi."
       },
       "fungus": {
         "disease": "Nghi ngờ Bệnh Nấm",
-        "recommendation": "Các dấu hiệu phù hợp với bệnh nấm giai đoạn đầu. Khuyến nghị phân tích mẫu đất và xem xét áp dụng thu���c trừ nấm phổ rộng có mục tiêu."
+        "recommendation": "Các dấu hiệu phù hợp với bệnh nấm giai đoạn đầu. Khuyến nghị phân tích m��u đất và xem xét áp dụng thu���c trừ nấm phổ rộng có mục tiêu."
       }
     }
   },

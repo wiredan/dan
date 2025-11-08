@@ -206,14 +206,23 @@
         "title": "Votre compte est vérifié !",
         "description": "Vous avez un accès complet à toutes les fonctionnalités de la plateforme."
       },
+      "pending": {
+        "title": "Vérification en cours",
+        "description": "Notre IA analyse vos documents. Cela peut prendre quelques minutes."
+      },
       "form": {
-        "docType": "Type de document",
-        "docTypePlaceholder": "Ex: Carte d'identité, Passeport",
-        "docUpload": "Télécharger le document",
-        "submit": "Soumettre pour vérification"
+        "docUpload": "Télécharger le document d'identité",
+        "docTypePlaceholder": "Carte d'identité, Passeport, Permis de conduire",
+        "selfieUpload": "Télécharger un selfie",
+        "selfiePlaceholder": "Une photo nette de votre visage",
+        "clickToUpload": "Cliquez pour télécharger",
+        "submit": "Soumettre pour vérification",
+        "submitting": "Soumission en cours..."
       },
       "toast": {
-        "submitted": "Documents KYC soumis pour examen. (Ceci est une démo)"
+        "submitted": "Documents KYC soumis pour examen. (Ceci est une démo)",
+        "verified": "Vérification KYC réussie !",
+        "error": "La soumission KYC a échoué. Veuillez réessayer."
       }
     },
     "payment": {
@@ -299,7 +308,7 @@
     },
     "login": {
       "title": "Connexion",
-      "description": "Entrez vos identifiants pour accéder à votre compte.",
+      "description": "Entrez vos identifiants pour accéder �� votre compte.",
       "submit": "Se connecter"
     },
     "signup": {
@@ -439,7 +448,7 @@
       },
       "unit": {
         "label": "Unité",
-        "placeholder": "Ex: kg, tonne, pi��ce"
+        "placeholder": "Ex: kg, tonne, pi���ce"
       },
       "quantity": {
         "label": "Quantité disponible"

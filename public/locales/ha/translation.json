@@ -160,6 +160,32 @@
       "success": "An sabunta bayanan martaba cikin nasara!",
       "error": "An kasa sabunta bayanan martaba."
     },
+    "kyc": {
+      "title": "Tabbatar da KYC",
+      "description": "Tabbatar da asalin ka don buɗe dukkan fasalulluka na dandamali.",
+      "verified": {
+        "title": "An tabbatar da asusunka!",
+        "description": "Kuna da cikakken damar zuwa dukkan fasalulluka na dandamali."
+      },
+      "pending": {
+        "title": "Tabbatarwa na Gudana",
+        "description": "AI ɗinmu na nazarin takardunku. Wannan na iya ɗaukar 'yan mintuna."
+      },
+      "form": {
+        "docUpload": "Dora Takardar Shaida",
+        "docTypePlaceholder": "Katin Shaida na Kasa, Fasfo, Lasisin Tuki",
+        "selfieUpload": "Dora Hoton Kai (Selfie)",
+        "selfiePlaceholder": "Hoto mai haske na fuskarka",
+        "clickToUpload": "Danna don dorawa",
+        "submit": "Mika don Tabbatarwa",
+        "submitting": "Ana Mikawa..."
+      },
+      "toast": {
+        "submitted": "An mika takardun KYC don dubawa. (Wannan demo ne)",
+        "verified": "An yi nasarar tabbatar da KYC!",
+        "error": "An kasa mika KYC. Da fatan za a sake gwadawa."
+      }
+    },
     "payment": {
       "title": "Hanyoyin Biyan Kuɗi",
       "description": "Sarrafa hanyoyin biyan kuɗi da aka haɗa.",

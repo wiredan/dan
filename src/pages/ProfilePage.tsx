@@ -12,6 +12,7 @@ import { User } from '@shared/types';
 import { useTranslation } from 'react-i18next';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { useTheme } from '@/hooks/use-theme';
+import { CheckCircle, Loader2, ShieldCheck, Upload, User as UserIcon } from 'lucide-react';
 export function ProfilePage() {
   const { t } = useTranslation();
   const user = useAuthStore(s => s.user);
@@ -21,6 +22,8 @@ export function ProfilePage() {
   const [location, setLocation] = useState(user?.location || '');
   const [isSaving, setIsSaving] = useState(false);
   const { theme, setTheme } = useTheme();
+  const [isSubmittingKyc, setIsSubmittingKyc] = useState(false);
+  const [kycStatus, setKycStatus] = useState(user?.kycStatus || 'Not Submitted');
   if (!isAuthenticated || !user) {
     return <Navigate to="/auth" replace />;
   }
@@ -41,13 +44,87 @@ export function ProfilePage() {
       setIsSaving(false);
     }
   };
-  const handleKycSubmit = (e: React.FormEvent) => {
+  const handleKycSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.info(t('profile.kyc.toast.submitted'));
+    setIsSubmittingKyc(true);
+    setKycStatus('Pending');
+    try {
+      const updatedUser = await api<User>(`/api/users/${user.id}/submit-kyc`, {
+        method: 'POST',
+      });
+      setKycStatus(updatedUser.kycStatus);
+      login(updatedUser.id); // Update auth store
+      toast.success(t('profile.kyc.toast.verified'));
+    } catch (error) {
+      toast.error(t('profile.kyc.toast.error'));
+      setKycStatus('Not Submitted');
+    } finally {
+      setIsSubmittingKyc(false);
+    }
   };
   const handlePaymentConnect = (e: React.FormEvent, method: string) => {
     e.preventDefault();
     toast.success(t('profile.payment.toast.connected', { method }));
+  };
+  const renderKycContent = () => {
+    if (kycStatus === 'Verified') {
+      return (
+        <div className="text-center p-8 bg-secondary rounded-lg flex flex-col items-center gap-4">
+          <ShieldCheck className="h-16 w-16 text-green-500" />
+          <h3 className="text-lg font-semibold text-green-500">{t('profile.kyc.verified.title')}</h3>
+          <p className="text-muted-foreground mt-2">{t('profile.kyc.verified.description')}</p>
+        </div>
+      );
+    }
+    if (kycStatus === 'Pending' || isSubmittingKyc) {
+      return (
+        <div className="text-center p-8 bg-secondary rounded-lg flex flex-col items-center gap-4">
+          <Loader2 className="h-16 w-16 animate-spin text-primary" />
+          <h3 className="text-lg font-semibold text-primary">{t('profile.kyc.pending.title')}</h3>
+          <p className="text-muted-foreground mt-2">{t('profile.kyc.pending.description')}</p>
+        </div>
+      );
+    }
+    return (
+      <form onSubmit={handleKycSubmit} className="space-y-6">
+        <div className="space-y-2">
+          <Label htmlFor="document-upload">{t('profile.kyc.form.docUpload')}</Label>
+          <div className="flex items-center justify-center w-full">
+            <label htmlFor="document-upload" className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed rounded-lg cursor-pointer bg-secondary hover:bg-muted">
+              <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                <Upload className="w-8 h-8 mb-2 text-muted-foreground" />
+                <p className="mb-2 text-sm text-muted-foreground"><span className="font-semibold">{t('profile.kyc.form.clickToUpload')}</span></p>
+                <p className="text-xs text-muted-foreground">{t('profile.kyc.form.docTypePlaceholder')}</p>
+              </div>
+              <Input id="document-upload" type="file" className="hidden" required />
+            </label>
+          </div>
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="selfie-upload">{t('profile.kyc.form.selfieUpload')}</Label>
+          <div className="flex items-center justify-center w-full">
+            <label htmlFor="selfie-upload" className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed rounded-lg cursor-pointer bg-secondary hover:bg-muted">
+              <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                <UserIcon className="w-8 h-8 mb-2 text-muted-foreground" />
+                <p className="mb-2 text-sm text-muted-foreground"><span className="font-semibold">{t('profile.kyc.form.clickToUpload')}</span></p>
+                <p className="text-xs text-muted-foreground">{t('profile.kyc.form.selfiePlaceholder')}</p>
+              </div>
+              <Input id="selfie-upload" type="file" className="hidden" required />
+            </label>
+          </div>
+        </div>
+        <Button type="submit" className="w-full" disabled={isSubmittingKyc}>
+          {isSubmittingKyc ? (
+            <>
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              {t('profile.kyc.form.submitting')}
+            </>
+          ) : (
+            t('profile.kyc.form.submit')
+          )}
+        </Button>
+      </form>
+    );
   };
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -115,26 +192,7 @@ export function ProfilePage() {
                 <CardTitle>{t('profile.kyc.title')}</CardTitle>
                 <CardDescription>{t('profile.kyc.description')}</CardDescription>
               </CardHeader>
-              <CardContent>
-                {user.kycStatus === 'Verified' ? (
-                  <div className="text-center p-8 bg-secondary rounded-lg">
-                    <h3 className="text-lg font-semibold text-green-500">{t('profile.kyc.verified.title')}</h3>
-                    <p className="text-muted-foreground mt-2">{t('profile.kyc.verified.description')}</p>
-                  </div>
-                ) : (
-                  <form onSubmit={handleKycSubmit} className="space-y-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="document-type">{t('profile.kyc.form.docType')}</Label>
-                      <Input id="document-type" placeholder={t('profile.kyc.form.docTypePlaceholder')} />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="document-upload">{t('profile.kyc.form.docUpload')}</Label>
-                      <Input id="document-upload" type="file" />
-                    </div>
-                    <Button type="submit">{t('profile.kyc.form.submit')}</Button>
-                  </form>
-                )}
-              </CardContent>
+              <CardContent>{renderKycContent()}</CardContent>
             </Card>
           </TabsContent>
           <TabsContent value="payment">

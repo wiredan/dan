@@ -430,7 +430,8 @@
       "ngn": "Nigerian Naira",
       "eur": "Euro",
       "usdt": "Tether",
-      "dan": "DAN Token"
+      "dan": "DAN Token",
+      "cny": "Chinese Yuan"
     }
   }
 }

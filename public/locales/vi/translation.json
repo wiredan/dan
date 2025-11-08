@@ -5,14 +5,14 @@
   "heroSubtitle": "DAN kết nối nông dân, nhà phân phối và nhà đầu tư tr����n một nền tảng an toàn, minh bạch. Giao dịch, theo dõi và thực hiện giao dịch một cách tự tin.",
   "featuresTitle": "Một Kỷ nguyên Mới của Thương mại Nông nghiệp",
   "featuresSubtitle": "Nền tảng của chúng tôi được xây dựng trên công nghệ tiên tiến để đảm bảo sự công bằng, minh bạch và hiệu quả.",
-  "featureDirectSourcingTitle": "Nguồn cung ��ng trực tiếp",
+  "featureDirectSourcingTitle": "Ngu��n cung ��ng trực tiếp",
   "featureDirectSourcingDesc": "Kết nối trực tiếp với nông dân để có được những vụ mùa tư��i ngon nhất mà không cần qua trung gian.",
-  "featureSecureEscrowTitle": "Ký quỹ an toàn",
+  "featureSecureEscrowTitle": "Ký qu��� an toàn",
   "featureSecureEscrowDesc": "Các khoản thanh toán được giữ an toàn trong ký quỹ và được giải ngân tự động khi xác nhận giao hàng.",
   "featureTransparentLogisticsTitle": "Hậu cần minh bạch",
   "featureTransparentLogisticsDesc": "Theo dõi đơn hàng của bạn trong thời gian thực từ trang trại đ��n kho của bạn với hệ thống theo dõi tiên tiến của chúng tôi.",
   "featureMarketInsightsTitle": "Thông tin chi tiết v�� thị trường",
-  "featureMarketInsightsDesc": "Truy cập dữ liệu và phân tích thời gian thực để đưa ra quyết định mua hàng và đầu tư thông minh hơn.",
+  "featureMarketInsightsDesc": "Truy cập d�� liệu và phân tích thời gian thực để đưa ra quyết định mua hàng và đầu tư thông minh hơn.",
   "testimonialsTitle": "Được cộng đồng tin cậy",
   "testimonial1Quote": "DAN đã cách mạng hóa cách tôi bán sản phẩm của m��nh. Tôi nhận được gi�� tốt hơn và thanh toán nhanh hơn.",
   "testimonial1Author": "Amina Yusuf",
@@ -92,7 +92,7 @@
     },
     "disputeModal": {
       "title": "Mở một tranh chấp",
-      "description": "Vui lòng mô tả vấn đề với đơn hàng của bạn. Quản trị viên s�� xem xét yêu cầu của bạn.",
+      "description": "Vui lòng mô tả vấn đề với đơn hàng của bạn. Quản trị viên s�� xem xét y��u cầu của bạn.",
       "reasonLabel": "Lý do",
       "reasonPlaceholder": "Ví dụ: Hàng không như mô tả, chưa được giao...",
       "cancel": "Hủy",
@@ -200,11 +200,12 @@
   "currency": {
     "switcherTooltip": "Thay đổi tiền tệ",
     "names": {
-      "usd": "Đô la Mỹ",
+      "usd": "Đ�� la Mỹ",
       "ngn": "Naira Nigeria",
       "eur": "Euro",
       "usdt": "Tether",
-      "dan": "DAN Token"
+      "dan": "DAN Token",
+      "cny": "Nhân dân tệ Trung Quốc"
     }
   }
 }

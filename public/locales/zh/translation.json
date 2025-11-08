@@ -1,42 +1,38 @@
 {
-  "getStarted": "开始���用",
+  "getStarted": "开始使用",
   "exploreMarket": "探索市场",
   "heroTitle": "农业综合企业的未来是去中心化的",
-  "heroSubtitle": "DAN 在一个安全、透明的平台上��接农民、分销商和投资者。充满信心地进行贸易、追踪和交易。",
-  "featuresTitle": "农产品贸易的新纪元",
-  "featuresSubtitle": "我们的平台建立在尖端技术之上，以确保公平、透明和高效。",
+  "heroSubtitle": "DAN 在一个安全、透���的平台上连接农民、分销商和投资者。充满信心地进行贸易、追踪和交易。",
+  "featuresTitle": "农产品贸易的新��元",
+  "featuresSubtitle": "我们的平台建立在尖端技术��上，以确保公平、透明和高效。",
   "featureDirectSourcingTitle": "直接采购",
-  "featureDirectSourcingDesc": "直接与农民联系，���需中间商即可采购最新鲜的农作物。",
+  "featureDirectSourcingDesc": "直接与农民联���，无需中间商即可采购最新鲜的农作物。",
   "featureSecureEscrowTitle": "安全托管",
   "featureSecureEscrowDesc": "付款被安全地保存在托管账户中，并在确认交货后自动释放。",
   "featureTransparentLogisticsTitle": "透明物流",
-  "featureTransparentLogisticsDesc": "使用我们先进的追踪系统，实时追踪从农场到仓库的订单。",
+  "featureTransparentLogisticsDesc": "使用我们先进的追踪系统，实时追踪从农场到仓库的��单。",
   "featureMarketInsightsTitle": "市场洞察",
-  "featureMarketInsightsDesc": "获取实时数据和分析，以���出更明智的采购和投资决策。",
-  "testimonialsTitle": "深受社区信赖",
-  "testimonial1Quote": "DAN 彻底改变了我销售农产品的方式。我获得了更好的价格和更快的��款。",
+  "featureMarketInsightsDesc": "获取实时数据和分析，以做出更明智的采购和投资决策。",
+  "testimonialsTitle": "深受社区信��",
+  "testimonial1Quote": "DAN 彻底改变了我销售农产品的方式。我获得了更好的价格和更快的付款。",
   "testimonial1Author": "阿米娜·优素福",
-  "testimonial1Role": "农民，尼日利��",
-  "testimonial2Quote": "平台的透明度和安全性改变了我们分销网络的游戏���则。",
+  "testimonial1Role": "农民，尼日��亚",
+  "testimonial2Quote": "平台的透明度和安全性改变了我们���销网络的游戏规则。",
   "testimonial2Author": "卡洛斯·戈麦斯",
   "testimonial2Role": "分销商，越南",
-  "testimonial3Quote": "作为一名投资者，我终于可以充满信心和清���地参与农业市场。",
+  "testimonial3Quote": "作为一名投资者，我终���可以充满信心和清晰地参与农业市场。",
   "testimonial3Author": "法蒂玛·赛义德",
-  "testimonial3Role": "投资者，阿联��",
+  "testimonial3Role": "投资者，阿联酋",
   "ctaTitle": "准备好加入这场革命了吗？",
-  "ctaSubtitle": "今天创建账户，体验农业综合企业的未来。",
+  "ctaSubtitle": "立即创建账户，体验农业综合企业的未来。",
   "ctaButton": "立即注册",
   "navbar": {
     "links": {
       "dashboard": "仪表盘",
       "marketplace": "市场",
-      "myOrders": "我的订单",
-      "educationHub": "教育中心",
-      "aiTools": "AI 工具",
-      "danAI": "DAN. AI 助手",
-      "cropHealthAI": "作物��康 AI"
+      "educationHub": "教育中心"
     },
-    "createListing": "创建列表",
+    "createListing": "创建���表",
     "signIn": "登录",
     "signUp": "注册",
     "dropdown": {
@@ -63,22 +59,7 @@
       },
       "marketActivity": {
         "title": "市场活动",
-        "subtitle": "自上一小时以来新增2个"
-      },
-      "cropHealth": {
-        "title": "作物健康 AI",
-        "description": "分析卫星图像以早��发现疾病。",
-        "button": "立即分析"
-      },
-      "marketplace": {
-        "title": "探索市场",
-        "description": "浏览和交易来自经认证农民的新鲜作物。",
-        "button": "前往市场"
-      },
-      "myOrders": {
-        "title": "查看我的订单",
-        "description": "追踪您当前和过去的交易历史。",
-        "button": "查看订单"
+        "subtitle": "自上一小时���来新增2个"
       }
     },
     "overview": {
@@ -94,9 +75,48 @@
       }
     }
   },
+  "marketplace": {
+    "title": "市场",
+    "description": "浏览和交易来自全��经过验证的农民的粮食作物。",
+    "filters": {
+      "searchPlaceholder": "搜索作物...",
+      "categoryPlaceholder": "类别",
+      "allCategories": "所有类别",
+      "sortByPlaceholder": "排序方式",
+      "priceAsc": "价格：从低到高",
+      "priceDesc": "价格：从高到低",
+      "nameAsc": "名称：A-Z"
+    },
+    "card": {
+      "available": "可用 {{quantity}} {{unit}}"
+    },
+    "error": {
+      "fetch": "获取列表失败"
+    }
+  },
   "listingDetail": {
+    "error": {
+      "fetch": "获取列表详情失败",
+      "invalidQuantity": "无效数量。"
+    },
+    "notFound": {
+      "title": "未找到列表",
+      "description": "您正在寻找的列表不存在。",
+      "button": "返回市场"
+    },
+    "sellerInfo": {
+      "title": "卖家信息"
+    },
+    "details": {
+      "quantity": "可用数量",
+      "grade": "等级",
+      "harvestDate": "收获日��"
+    },
+    "quantityInput": {
+      "label": "数量 ({{unit}})"
+    },
     "order": {
-      "success": "下单成功��正在跳转到支付页面...",
+      "success": "下���成功！",
       "error": "下单失败。",
       "placing": "正在下单...",
       "isOwner": "这是您的列表",
@@ -107,12 +127,12 @@
     "title": "订单追踪",
     "orderId": "订单ID",
     "orderComplete": "此订单已完成。",
-    "underReview": "此订单正在��核中。",
+    "underReview": "此订单正在审核中。",
     "status": {
       "title": "订单状态",
       "placed": "已下单",
-      "paid": "��项已托管",
-      "logisticsPickedUp": "已取货",
+      "paid": "付款已托管",
+      "logisticsPickedUp": "已��货",
       "shipped": "已发货",
       "delivered": "已送达"
     },
@@ -121,23 +141,23 @@
       "quantity": "数量",
       "price": "价格",
       "subtotal": "小计",
-      "fees": "手续费 (2.5%)",
+      "fees": "费用 (2.5%)",
       "total": "总计"
     },
     "participants": {
-      "title": "参与���",
+      "title": "参与者",
       "buyer": "买家",
       "seller": "卖家",
       "logistics": "物流",
-      "logisticsPartner": "DAN 物流合作伙���"
+      "logisticsPartner": "DAN 物流合作伙伴"
     },
     "actions": {
       "updating": "更新中...",
       "markShipped": "标记为已发货",
       "confirmDelivery": "确认收货",
       "confirmPickup": "确认取货",
-      "dispute": "争���订单",
-      "resolveRelease": "解决并释放资金",
+      "dispute": "争议订单",
+      "resolveRelease": "解决��释放资金",
       "resolveRefund": "解决并退款给买家",
       "cancelOrder": "取消订单（管理员）"
     },
@@ -159,29 +179,11 @@
     },
     "disputeModal": {
       "title": "发起争议",
-      "description": "请描述您的订单问题。管理员将审核您的申诉。",
+      "description": "请描述您的订单问��。管理员将审核您的申诉。",
       "reasonLabel": "原因",
-      "reasonPlaceholder": "例如：商品与描述不符、未收到货...",
-      "evidenceLabel": "上传证据",
-      "fileErrorType": "文件必须是图片。",
-      "fileErrorSize": "文件必须小于 {{size}}KB。",
+      "reasonPlaceholder": "例如：商���与描述不符、未收到货...",
       "cancel": "取消",
       "submit": "提交争议"
-    },
-    "timelineChart": {
-      "title": "订单时���线图表",
-      "tooltipLabel": "状态: {{status}}",
-      "tooltipIntro": "小时在��阶段"
-    },
-    "disputeDetails": {
-      "title": "争议详情",
-      "evidence": "已提交的���据"
-    },
-    "aiAnalysis": {
-      "title": "AI 争议分析",
-      "getAnalysis": "获取 AI 分析",
-      "analyzing": "正在分析争议...",
-      "recommendation": "AI 建议"
     }
   },
   "profile": {
@@ -193,20 +195,13 @@
     },
     "profile": {
       "title": "个人信息",
-      "description": "在此更新您的个人���细信息。",
+      "description": "在此更新您的个人详细信息。",
       "form": {
         "name": "全名",
-        "nameDisabledTooltip": "KYC 验证后无法更改姓名。",
         "email": "电子邮件",
-        "location": "地区",
+        "location": "地��",
         "save": "保存更改",
-        "saving": "保存中...",
-        "theme": {
-          "label": "��题",
-          "light": "浅色",
-          "dark": "深色",
-          "system": "系统"
-        }
+        "saving": "保存中..."
       },
       "success": "个人资料更新成功！",
       "error": "更新个人资料失败。"
@@ -216,54 +211,29 @@
       "description": "验证您的身份以解锁全部平台功能。",
       "verified": {
         "title": "您的账户已通过验证！",
-        "description": "您拥��全部平台功能的完全访问权限。"
-      },
-      "pending": {
-        "title": "正在验证中",
-        "description": "���们的人工智能正在分析您的文件。这可能需要几分钟时间。"
+        "description": "您拥��所有平台功能的完全访问权限。"
       },
       "form": {
-        "docUpload": "上传身份证件",
-        "docTypePlaceholder": "国民身份证、护照、驾照",
-        "selfieUpload": "上传自拍照",
-        "selfiePlaceholder": "一��清晰的脸部照片",
-        "clickToUpload": "点击上传",
-        "submit": "提交验证",
-        "submitting": "提交中..."
+        "docType": "文件类型",
+        "docTypePlaceholder": "例如：身份证、护照",
+        "docUpload": "上传文件",
+        "submit": "提交验证"
       },
       "toast": {
-        "submitted": "KYC 文件已提交审核。（此为演��）",
-        "verified": "KYC 验证成功！",
-        "error": "KYC 提交失败。请重试。"
+        "submitted": "KYC 文件已提交审核。（此为演示）"
       }
     },
     "payment": {
       "title": "支付方式",
-      "description": "管理您已连接的���付方式。",
-      "tabs": {
-        "bank": "银行账户",
-        "card": "卡",
-        "wallet": "Sidrachain 钱包"
-      },
+      "description": "管理您已连接的支付方式。",
       "form": {
+        "email": "Paystack 账户邮箱",
         "bankName": "银行名称",
-        "iban": "IBAN",
-        "cardNumber": "卡��",
-        "expiry": "有效期",
-        "cvc": "CVC",
-        "walletAddress": "钱包地址",
-        "submit": {
-          "bank": "连接账户",
-          "card": "连接卡",
-          "wallet": "连接钱包"
-        }
+        "accountNumber": "账号",
+        "submit": "连接 Paystack 账户"
       },
       "toast": {
-        "connected": "{{method}} 连接成功！（演示）"
-      },
-      "disabledAlert": {
-        "title": "管理已禁用",
-        "description": "您有活动订单���无法更改支付方式。请先完成或取消所有订单。"
+        "connected": "Paystack 账户连接成功！（演示）"
       }
     }
   },
@@ -282,23 +252,23 @@
         "name": "姓名",
         "role": "角色",
         "kyc": "KYC 状态",
-        "location": "地区",
+        "location": "地点",
         "actions": "操作"
       },
       "actions": {
         "promote": "提升为管理员",
-        "demote": "从管理员降级"
+        "demote": "从管理员��级"
       },
       "toast": {
         "roleSuccess": "用户角色更新成功。",
         "roleError": "更新用户角色失败。",
         "promoteSuccess": "用户成功提升为管理员。",
-        "promoteError": "提升用户失败。"
+        "promoteError": "提升用户���败。"
       },
       "error": "获取用户失败。",
       "promoteCard": {
         "title": "提升用户为管理员",
-        "description": "输入用户的电子邮件地址以授���其管理员权限。",
+        "description": "输入用户的电子邮件地址以授予其管理员权限。",
         "emailLabel": "用户邮箱",
         "promoteButton": "提升",
         "promotingButton": "提升中..."
@@ -339,13 +309,13 @@
       "namePlaceholder": "张三"
     },
     "social": {
-      "divider": "或使用以��方式继续",
+      "divider": "或使用其他方式继续",
       "google": "使用 Google 继续",
       "apple": "使用 Apple 继续",
       "microsoft": "使用 Microsoft 继续"
     },
     "toast": {
-      "fillFields": "请填写所有字段。",
+      "fillFields": "���填写所有字段。",
       "loginSuccess": "登录成功！正在重定向...",
       "signupSuccess": "注册成功！请登录。",
       "socialNotImplemented": "{{provider}} 登录尚未实现。"
@@ -353,9 +323,8 @@
   },
   "education": {
     "title": "教育中心",
-    "description": "您的农业综合企业知识和见解资源。",
+    "description": "您的农���综合企业知识和见解资源。",
     "readMore": "阅读更多",
-    "backToHub": "返回教育中心",
     "categories": {
       "technology": "技术",
       "farming": "农业",
@@ -367,181 +336,102 @@
     "articles": {
       "defi": {
         "title": "理解农业中的去中心化金融",
-        "description": "探索区块链和DeFi如何改变农业供应链，为农民和投资者提供新机遇。",
-        "content": ["[[中文翻译待定]]"]
+        "description": "探索区块链和DeFi���何改变农业供应链，为农民和投资者提供新机遇。"
       },
       "sustainable": {
         "title": "可持续农业的最佳实践",
-        "description": "了解提高作物产量同时保护环境以造福后代的现代技术。",
-        "content": ["[[中文翻译待定]]"]
+        "description": "了解提高作物产量同时保护环境以造福后代的现代技术。"
       },
       "markets": {
         "title": "驾驭全球粮食作物市场",
-        "description": "分析当前市场趋势、价格波动以及如何在平台上做出明智的交易决��。",
-        "content": ["[[中文翻译待定]]"]
+        "description": "分析当前市场趋势、价格波动以及如何在平台上做出明智的交易决策。"
       },
       "kyc": {
         "title": "KYC在建立信任中的作用",
-        "description": "为什么身份验证对于创建一个安全透明的农业综合企业市场至关重要。",
-        "content": ["[[中文翻译待定]]"]
+        "description": "为什么身份验证对于创建一个安全透明的农业综合企业市场至关重要。"
       },
       "logistics": {
-        "title": "物流和供应链优化",
-        "description": "为分销商简化运营和降低成本的技巧和策略。",
-        "content": ["[[中文翻译待定]]"]
+        "title": "物流与供应链优化",
+        "description": "为分销商简化运营和降低成本的技巧和策略。"
       },
       "tokenization": {
-        "title": "农业代币化简介",
-        "description": "关于如何将农业资产表���为数字代币，从而释放流动性和投资的初学者指南。",
-        "content": ["[[中文翻译待定]]"]
+        "title": "农业代币化简��",
+        "description": "关于如何将农业资产表示为数字代币，从��释放流动性和投资的初学者指南。"
       }
     },
     "aiChat": {
       "title": "DAN AI 助手",
-      "greeting": "您���！我是 DAN 的高级人工智能助手，由与大型语言模型的模拟连接提供支持。您可以向我询问有关市场分析、可持续农业实践、物流优化或农业中 DeFi 的复杂问题。",
+      "greeting": "您好！我是去中心化农业综合企业网络AI。您可以��我任何关于市场价格、物流或我们平台功能的问题。",
       "placeholder": "询问市场趋势...",
-      "send": "发送"
-    },
-    "voiceReader": {
-      "toggleLabel": "启用语音阅读器",
-      "readAloudTooltip": "朗读"
-    }
-  },
-  "danAI": {
-    "title": "DAN. AI",
-    "description": "您的人工智能助手，提供实时市场数据和见解。",
-    "marketData": {
-      "title": "实时市场数据",
-      "crop": "作物",
-      "price": "价格 (美元)",
-      "change": "24小时变化",
-      "lastUpdated": "��后更新: {{time}}"
-    },
-    "voiceReader": {
-      "toggleTooltip": "切换语音阅读器"
-    }
-  },
-  "cropHealthAI": {
-    "title": "作物健康 AI",
-    "description": "���用人工智能通过卫星图像及���发现作物病害。",
-    "analysisTitle": "开始分析",
-    "analysisDesc": "选择作物类型，然后���用您的位置进行卫星图像分析。",
-    "selectCrop": {
-      "label": "选择作物类型",
-      "placeholder": "选择要分析的作物"
-    },
-    "detectLocationButton": "检测位置并分析",
-    "detectingLocation": "正在检测您的位置...",
-    "locationDetected": "已找到位置: {{lat}}, {{lon}}",
-    "locationError": "无法获取位置: {{message}}",
-    "permissionDenied": "位置权限被拒绝。请在浏览器设置中启用。",
-    "analyzing": "分析中...",
-    "mayTakeMoment": "这可能需要一些时间...",
-    "resultsTitle": "分析结果",
-    "resultsPlaceholder": "您的分析结果将显示在此处。",
-    "disease": "诊断",
-    "confidence": "置信度",
-    "recommendation": "建议",
-    "results": {
-      "healthy": {
-        "disease": "无（健康）",
-        "recommendation": "作物看起来很健康。继续标准监测和灌溉计划。无需立即采取行动。"
-      },
-      "stress": {
-        "disease": "检测到水分胁迫",
-        "recommendation": "在西北象限检测到中��水分胁迫。建议将灌溉频率增加15%并进行监测。"
-      },
-      "fungus": {
-        "disease": "潜在的��菌性枯萎病",
-        "recommendation": "症状与��期真菌性枯萎病一致。建议进行土壤样本分析，并考虑有针对性地施用广谱杀菌剂。"
-      },
-      "corn_blight": {
-        "disease": "北方玉米叶枯病",
-        "recommendation": "病斑是 NCLB 的特征。如果病害普遍且作物处于抽雄前阶段，请考虑施用叶面杀菌剂。"
-      },
-      "avocado_rot": {
-        "disease": "鳄梨��腐病",
-        "recommendation": "症状表明是樟疫霉菌。立即改善土壤排水，并考虑施用亚磷酸盐类杀菌剂。"
-      },
-      "ginger_wilt": {
-        "disease": "细菌性枯萎病（姜）",
-        "recommendation": "极有���能是青枯雷尔氏菌。移除并销毁被感染的植物。实行轮作，并至少 3 年内避免在此田地种植。"
-      }
+      "send": "发���"
     }
   },
   "createListing": {
+    "title": "创建新列表",
+    "description": "填写以下详细信息，将您的产品添加到市场。",
+    "form": {
+      "productName": {
+        "label": "产品名称",
+        "placeholder": "例如：有机哈斯牛油果"
+      },
+      "description": {
+        "label": "描述",
+        "placeholder": "详细描述您的产品..."
+      },
+      "category": {
+        "label": "类别",
+        "placeholder": "选择一个类别"
+      },
+      "grade": {
+        "label": "等级",
+        "placeholder": "选择一个等级"
+      },
+      "price": {
+        "label": "价格"
+      },
+      "unit": {
+        "label": "单位",
+        "placeholder": "例如：公��、吨、个"
+      },
+      "quantity": {
+        "label": "可用数量"
+      },
+      "imageUrl": {
+        "label": "图片URL",
+        "placeholder": "https://example.com/image.jpg"
+      },
+      "submit": {
+        "default": "创建列表",
+        "submitting": "创建中..."
+      }
+    },
     "error": {
-      "openOrderExists": "您对此产品有一个未完成的订单。请在创建新列表前解决它。"
-    }
+      "notLoggedIn": "您必须登录才能创建列表。",
+      "failed": "创建列表失败。"
+    },
+    "success": "列表创建成功！"
   },
-  "crops": {
-    "corn": "玉米",
-    "avocados": "鳄梨",
-    "ginger": "姜"
+  "categories": {
+    "fruits": "水果",
+    "vegetables": "蔬菜",
+    "grains": "谷物",
+    "spices": "香料",
+    "nuts": "坚果"
+  },
+  "grades": {
+    "a": "A级",
+    "b": "B级",
+    "c": "C级"
   },
   "currency": {
     "switcherTooltip": "更改货币",
     "names": {
       "usd": "美元",
-      "ngn": "尼日利亚��拉",
+      "ngn": "尼日利亚奈拉",
       "eur": "欧元",
       "usdt": "泰达币",
       "dan": "DAN 代币",
-      "sda": "SDA 硬币",
       "cny": "人民币"
-    }
-  },
-  "payment": {
-    "title": "完成您的付款",
-    "description": "���全地完成您的订单 #{{orderId}} 交易。",
-    "summary": {
-      "title": "订单摘要",
-      "quantity": "{{quantity}} {{unit}}",
-      "subtotal": "小计",
-      "fees": "交易手续费",
-      "total": "应付总额"
-    },
-    "form": {
-      "title": "使用卡支付",
-      "description": "由 Paystack 提供支持",
-      "cardNumber": "卡号",
-      "expiry": "有效期",
-      "cvc": "CVC",
-      "submit": "支付 {{amount}}",
-      "processing": "��理中..."
-    },
-    "error": {
-      "title": "支付错误",
-      "missingOrderId": "订单ID缺���。",
-      "fetch": "无法加载订单详情。请重试。",
-      "generic": "发生未知错误。"
-    },
-    "toast": {
-      "success": "支付成功！正在跳转到您的订单..."
-    }
-  },
-  "ordersPage": {
-    "title": "我的订单",
-    "description": "查看��管理您所有过去和当前的交易。",
-    "noOrders": "您还没有下过或收到任何订单。",
-    "table": {
-      "orderId": "订单ID",
-      "product": "产品",
-      "role": "您的角色",
-      "status": "状态",
-      "total": "总计",
-      "action": "操作",
-      "view": "查看"
-    },
-    "roles": {
-      "buyer": "买家",
-      "seller": "卖家"
-    }
-  },
-  "footer": {
-    "social": {
-      "twitter": "推��",
-      "telegram": "电报"
     }
   }
 }

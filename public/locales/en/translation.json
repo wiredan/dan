@@ -437,7 +437,11 @@
     "title": "Crop Health AI",
     "description": "Leverage AI to detect crop diseases early from satellite imagery.",
     "analysisTitle": "Start Analysis",
-    "analysisDesc": "Use your current location to get a satellite image analysis of nearby fields.",
+    "analysisDesc": "Select a crop type, then use your location for a satellite image analysis.",
+    "selectCrop": {
+      "label": "Select Crop Type",
+      "placeholder": "Choose a crop to analyze"
+    },
     "detectLocationButton": "Detect Location & Analyze",
     "detectingLocation": "Detecting your location...",
     "locationDetected": "Location found: {{lat}}, {{lon}}",
@@ -462,6 +466,18 @@
       "fungus": {
         "disease": "Potential Fungal Blight",
         "recommendation": "Signs consistent with early-stage fungal blight. Recommend soil sample analysis and consider targeted application of a broad-spectrum fungicide."
+      },
+      "corn_blight": {
+        "disease": "Northern Corn Leaf Blight",
+        "recommendation": "Lesions are characteristic of NCLB. Consider applying a foliar fungicide if the disease is widespread and the crop is pre-tasseling."
+      },
+      "avocado_rot": {
+        "disease": "Avocado Root Rot",
+        "recommendation": "Symptoms suggest Phytophthora cinnamomi. Improve soil drainage immediately and consider applying a phosphite-based fungicide."
+      },
+      "ginger_wilt": {
+        "disease": "Bacterial Wilt (Ginger)",
+        "recommendation": "High probability of Ralstonia solanacearum. Remove and destroy infected plants. Implement crop rotation and avoid planting in this field for at least 3 years."
       }
     }
   },
@@ -522,6 +538,11 @@
     "a": "Grade A",
     "b": "Grade B",
     "c": "Grade C"
+  },
+  "crops": {
+    "corn": "Corn",
+    "avocados": "Avocados",
+    "ginger": "Ginger"
   },
   "currency": {
     "switcherTooltip": "Change Currency",

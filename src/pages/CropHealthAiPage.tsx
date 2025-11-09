@@ -4,21 +4,29 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { Lightbulb, Loader2, CheckCircle, AlertTriangle, ScanLine, MapPin } from 'lucide-react';
+import { Lightbulb, Loader2, CheckCircle, AlertTriangle, MapPin } from 'lucide-react';
 import { api } from '@/lib/api-client';
 import { CropHealthAnalysis } from '@shared/types';
 import { useGeolocation } from '@/hooks/useGeolocation';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Label } from '@/components/ui/label';
 const MOCK_SATELLITE_IMAGE = 'https://images.unsplash.com/photo-1560493676-04071c5f467b?q=80&w=800';
+const availableCrops = ['Corn', 'Avocados', 'Ginger'];
 export function CropHealthAiPage() {
   const { t } = useTranslation();
   const { loading: geoLoading, error: geoError, data: geoData, getLocation } = useGeolocation();
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [analysisResult, setAnalysisResult] = useState<CropHealthAnalysis | null>(null);
+  const [selectedCrop, setSelectedCrop] = useState<string>('');
   const handleAnalyze = async () => {
+    if (!selectedCrop || !geoData) return;
     setIsAnalyzing(true);
     setAnalysisResult(null);
     try {
-      const result = await api<CropHealthAnalysis>('/api/ai/crop-health', { method: 'POST' });
+      const result = await api<CropHealthAnalysis>('/api/ai/crop-health', {
+        method: 'POST',
+        body: JSON.stringify({ cropType: selectedCrop }),
+      });
       setAnalysisResult(result);
     } catch (error) {
       console.error("Analysis failed:", error);
@@ -27,10 +35,10 @@ export function CropHealthAiPage() {
     }
   };
   useEffect(() => {
-    if (geoData) {
+    if (geoData && selectedCrop) {
       handleAnalyze();
     }
-  }, [geoData]);
+  }, [geoData, selectedCrop]);
   const renderGeoStatus = () => {
     if (geoLoading) {
       return <p className="text-sm text-muted-foreground flex items-center justify-center gap-2"><Loader2 className="h-4 w-4 animate-spin" /> {t('cropHealthAI.detectingLocation')}</p>;
@@ -58,8 +66,21 @@ export function CropHealthAiPage() {
               <CardDescription>{t('cropHealthAI.analysisDesc')}</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6 flex flex-col items-center justify-center text-center h-full">
-              <div className="space-y-4">
-                <Button onClick={getLocation} disabled={geoLoading || isAnalyzing} size="lg">
+              <div className="w-full max-w-xs space-y-4">
+                <div className="space-y-2 text-left">
+                  <Label htmlFor="crop-select">{t('cropHealthAI.selectCrop.label')}</Label>
+                  <Select onValueChange={setSelectedCrop} value={selectedCrop}>
+                    <SelectTrigger id="crop-select">
+                      <SelectValue placeholder={t('cropHealthAI.selectCrop.placeholder')} />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {availableCrops.map(crop => (
+                        <SelectItem key={crop} value={crop}>{t(`crops.${crop.toLowerCase()}`)}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+                <Button onClick={getLocation} disabled={!selectedCrop || geoLoading || isAnalyzing} size="lg" className="w-full">
                   {geoLoading ? (
                     <>
                       <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -106,8 +127,8 @@ export function CropHealthAiPage() {
                       WebkitMaskImage: 'radial-gradient(circle at 60% 70%, black 0%, transparent 40%)',
                     }}></div>
                   </div>
-                  <Alert variant={t(analysisResult.disease).includes('Healthy') ? 'default' : 'destructive'}>
-                    {t(analysisResult.disease).includes('Healthy') ? <CheckCircle className="h-4 w-4" /> : <AlertTriangle className="h-4 w-4" />}
+                  <Alert variant={t(analysisResult.disease).includes('Healthy') || t(analysisResult.disease).includes('صحي') ? 'default' : 'destructive'}>
+                    {t(analysisResult.disease).includes('Healthy') || t(analysisResult.disease).includes('صحي') ? <CheckCircle className="h-4 w-4" /> : <AlertTriangle className="h-4 w-4" />}
                     <AlertTitle>{t('cropHealthAI.disease')}: {t(analysisResult.disease)}</AlertTitle>
                     <AlertDescription>
                       <div className="flex items-center justify-between">

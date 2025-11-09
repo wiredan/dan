@@ -91,8 +91,8 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
     );
     if (farmerListingsWithSameName.length > 0) {
       const { items: allOrders } = await OrderEntity.list(c.env);
-      const openOrderExists = allOrders.some(order => 
-        farmerListingsWithSameName.some(l => l.id === order.listingId) && 
+      const openOrderExists = allOrders.some(order =>
+        farmerListingsWithSameName.some(l => l.id === order.listingId) &&
         !['Delivered', 'Cancelled'].includes(order.status)
       );
       if (openOrderExists) {
@@ -214,13 +214,22 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
     return ok(c, { reply });
   });
   app.post('/api/ai/crop-health', async (c) => {
+    const { cropType } = await c.req.json<{ cropType: string }>();
     await new Promise(resolve => setTimeout(resolve, 2500));
-    const mockResults = [
-      { disease: 'cropHealthAI.results.healthy.disease', confidence: 98.2, recommendation: 'cropHealthAI.results.healthy.recommendation' },
-      { disease: 'cropHealthAI.results.stress.disease', confidence: 85.5, recommendation: 'cropHealthAI.results.stress.recommendation' },
-      { disease: 'cropHealthAI.results.fungus.disease', confidence: 92.1, recommendation: 'cropHealthAI.results.fungus.recommendation' },
-    ];
-    const result = mockResults[Math.floor(Math.random() * mockResults.length)];
+    const healthyResult = { disease: 'cropHealthAI.results.healthy.disease', confidence: 98.2, recommendation: 'cropHealthAI.results.healthy.recommendation' };
+    const stressResult = { disease: 'cropHealthAI.results.stress.disease', confidence: 85.5, recommendation: 'cropHealthAI.results.stress.recommendation' };
+    const cropSpecificResults = {
+      'Corn': { disease: 'cropHealthAI.results.corn_blight.disease', confidence: 92.1, recommendation: 'cropHealthAI.results.corn_blight.recommendation' },
+      'Avocados': { disease: 'cropHealthAI.results.avocado_rot.disease', confidence: 88.7, recommendation: 'cropHealthAI.results.avocado_rot.recommendation' },
+      'Ginger': { disease: 'cropHealthAI.results.ginger_wilt.disease', confidence: 95.3, recommendation: 'cropHealthAI.results.ginger_wilt.recommendation' },
+    };
+    const possibleResults = [healthyResult, stressResult];
+    if (cropType && cropSpecificResults[cropType as keyof typeof cropSpecificResults]) {
+      possibleResults.push(cropSpecificResults[cropType as keyof typeof cropSpecificResults]);
+    } else {
+      possibleResults.push({ disease: 'cropHealthAI.results.fungus.disease', confidence: 92.1, recommendation: 'cropHealthAI.results.fungus.recommendation' });
+    }
+    const result = possibleResults[Math.floor(Math.random() * possibleResults.length)];
     return ok(c, result);
   });
 }

@@ -33,7 +33,7 @@
       "educationHub": "Trung tâm Gi��o dục",
       "aiTools": "Công cụ AI",
       "danAI": "Trợ lý DAN. AI",
-      "cropHealthAI": "Sức khỏe Cây trồng AI"
+      "cropHealthAI": "Sức kh���e Cây trồng AI"
     },
     "createListing": "Tạo danh s��ch",
     "signIn": "Đăng nhập",
@@ -62,7 +62,7 @@
       },
       "marketActivity": {
         "title": "Hoạt động thị trường",
-        "subtitle": "+2 kể từ giờ trước"
+        "subtitle": "+2 kể từ gi�� trước"
       },
       "cropHealth": {
         "title": "Sức khỏe Cây trồng AI",
@@ -109,7 +109,7 @@
     },
     "disputeModal": {
       "title": "Mở một tranh chấp",
-      "description": "Vui l��ng mô tả vấn đề với đơn hàng của bạn. Quản trị viên s�� xem xét y��u cầu của bạn.",
+      "description": "Vui l��ng mô tả vấn đ�� với đơn hàng của bạn. Quản trị viên s�� xem xét y��u cầu của bạn.",
       "reasonLabel": "Lý do",
       "reasonPlaceholder": "Ví dụ: Hàng không như mô tả, chưa được giao...",
       "evidenceLabel": "Tải lên bằng chứng",
@@ -166,7 +166,7 @@
       "description": "Xác minh danh tính của bạn để mở khóa đầy đủ các tính năng của nền tảng.",
       "verified": {
         "title": "Tài khoản của bạn đã được xác minh!",
-        "description": "Bạn có toàn quyền truy cập vào tất cả các tính năng của nền tảng."
+        "description": "Bạn có toàn quyền truy cập vào tất c�� các tính năng của nền tảng."
       },
       "pending": {
         "title": "Đang tiến hành xác minh",
@@ -292,7 +292,7 @@
       },
       "sustainable": {
         "title": "Các phương pháp tốt nhất cho Nông nghiệp Bền vững",
-        "description": "Tìm hiểu về các kỹ thuật hiện đại giúp cải thiện năng suất cây trồng đồng thời bảo vệ môi trường."
+        "description": "Tìm hiểu về các kỹ thuật hiện đại giúp cải thiện năng suất cây trồng đ��ng thời bảo vệ môi trường."
       },
       "markets": {
         "title": "Điều hướng Thị trường Cây lương th��c Toàn cầu",
@@ -333,7 +333,11 @@
     "title": "Sức khỏe Cây trồng AI",
     "description": "Tận dụng AI để phát hiện sớm bệnh cây trồng từ hình ảnh vệ tinh.",
     "analysisTitle": "Bắt đầu Phân tích",
-    "analysisDesc": "Sử dụng vị trí hiện tại của bạn để nhận phân tích hình ảnh vệ tinh của các cánh đồng gần đó.",
+    "analysisDesc": "Chọn loại cây trồng, sau đó sử dụng vị trí của bạn để phân tích hình ảnh vệ tinh.",
+    "selectCrop": {
+      "label": "Chọn loại cây trồng",
+      "placeholder": "Chọn một loại cây để phân tích"
+    },
     "detectLocationButton": "Phát hiện Vị trí & Phân tích",
     "detectingLocation": "Đang phát hiện vị trí của bạn...",
     "locationDetected": "Đã tìm thấy vị trí: {{lat}}, {{lon}}",
@@ -343,7 +347,7 @@
     "mayTakeMoment": "Việc này có thể mất một lúc...",
     "resultsTitle": "Kết quả Phân tích",
     "resultsPlaceholder": "Kết quả phân tích của bạn sẽ xuất hiện ở đây.",
-    "disease": "Chẩn đoán",
+    "disease": "Ch��n đoán",
     "confidence": "Độ tin cậy",
     "recommendation": "Khuyến nghị",
     "results": {
@@ -358,6 +362,18 @@
       "fungus": {
         "disease": "Nghi ngờ Bệnh Nấm",
         "recommendation": "Các dấu hiệu phù hợp với b���nh nấm giai đoạn đầu. Khuyến nghị phân tích m��u đất và xem xét áp dụng thu���c trừ nấm phổ rộng có mục tiêu."
+      },
+      "corn_blight": {
+        "disease": "Bệnh Cháy l�� Ngô Phía Bắc",
+        "recommendation": "Các tổn thương đặc trưng của NCLB. Cân nhắc sử dụng thuốc trừ nấm lá nếu bệnh lan rộng và cây trồng đang ở giai đoạn trước trổ cờ."
+      },
+      "avocado_rot": {
+        "disease": "Bệnh Thối rễ Bơ",
+        "recommendation": "Các triệu chứng cho thấy nấm Phytophthora cinnamomi. Cải thiện thoát nước đất ngay lập tức và cân nhắc sử dụng thuốc trừ nấm gốc phosphite."
+      },
+      "ginger_wilt": {
+        "disease": "Bệnh Héo rũ Vi khuẩn (Gừng)",
+        "recommendation": "Khả năng cao là do vi khuẩn Ralstonia solanacearum. Loại bỏ và tiêu hủy cây bị bệnh. Thực hiện luân canh cây trồng và tránh trồng ở ruộng này ��t nhất 3 năm."
       }
     }
   },
@@ -365,6 +381,11 @@
     "error": {
       "openOrderExists": "Bạn có một đơn hàng đang mở cho sản phẩm này. Vui lòng giải quyết nó trước khi tạo danh sách mới."
     }
+  },
+  "crops": {
+    "corn": "Ngô",
+    "avocados": "Bơ",
+    "ginger": "Gừng"
   },
   "currency": {
     "switcherTooltip": "Thay đổi tiền tệ",

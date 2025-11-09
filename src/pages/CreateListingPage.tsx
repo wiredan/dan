@@ -18,9 +18,15 @@ const listingSchema = z.object({
   name: z.string().min(3, 'Name must be at least 3 characters'),
   description: z.string().min(10, 'Description must be at least 10 characters'),
   category: z.string().min(1, 'Please select a category'),
-  price: z.coerce.number().positive('Price must be a positive number'),
+  price: z.preprocess(
+    (val) => Number(String(val || 0)),
+    z.number().positive('Price must be a positive number')
+  ),
   unit: z.string().min(1, 'Unit is required'),
-  quantity: z.coerce.number().int().positive('Quantity must be a positive integer'),
+  quantity: z.preprocess(
+    (val) => Number(String(val || 0)),
+    z.number().int().positive('Quantity must be a positive integer')
+  ),
   grade: z.enum(['A', 'B', 'C']),
   imageUrl: z.string().url('Please enter a valid image URL'),
 });

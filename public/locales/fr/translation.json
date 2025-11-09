@@ -400,7 +400,11 @@
     "title": "Santé des Cultures IA",
     "description": "Tirez parti de l'IA pour détecter précocement les maladies des cultures à partir d'images satellites.",
     "analysisTitle": "Démarrer l'Analyse",
-    "analysisDesc": "Utilisez votre emplacement actuel pour obtenir une analyse d'image satellite des champs à proximité.",
+    "analysisDesc": "Sélectionnez un type de culture, puis utilisez votre emplacement pour une analyse d'image satellite.",
+    "selectCrop": {
+      "label": "Sélectionner le type de culture",
+      "placeholder": "Choisissez une culture à analyser"
+    },
     "detectLocationButton": "Détecter l'Emplacement & Analyser",
     "detectingLocation": "Détection de votre emplacement...",
     "locationDetected": "Emplacement trouvé : {{lat}}, {{lon}}",
@@ -425,6 +429,18 @@
       "fungus": {
         "disease": "Mildiou Fongique Potentiel",
         "recommendation": "Signes compatibles avec un mildiou fongique à un stade précoce. Il est recommandé d'analyser un échantillon de sol et d'envisager l'application ciblée d'un fongicide à large spectre."
+      },
+      "corn_blight": {
+        "disease": "Helminthosporiose du maïs",
+        "recommendation": "Les lésions sont caractéristiques de l'helminthosporiose. Envisagez d'appliquer un fongicide foliaire si la maladie est répandue et que la culture est en pré-floraison."
+      },
+      "avocado_rot": {
+        "disease": "Pourriture des racines de l'avocatier",
+        "recommendation": "Les symptômes suggèrent Phytophthora cinnamomi. Améliorez immédiatement le drainage du sol et envisagez d'appliquer un fongicide à base de phosphite."
+      },
+      "ginger_wilt": {
+        "disease": "Flétrissement bactérien (Gingembre)",
+        "recommendation": "Forte probabilité de Ralstonia solanacearum. Retirez et détruisez les plantes infectées. Mettez en œuvre la rotation des cultures et évitez de planter dans ce champ pendant au moins 3 ans."
       }
     }
   },
@@ -432,6 +448,11 @@
     "error": {
       "openOrderExists": "Vous avez une commande ouverte pour ce produit. Veuillez la résoudre avant de créer une nouvelle annonce."
     }
+  },
+  "crops": {
+    "corn": "Maïs",
+    "avocados": "Avocats",
+    "ginger": "Gingembre"
   },
   "currency": {
     "switcherTooltip": "Changer de devise",

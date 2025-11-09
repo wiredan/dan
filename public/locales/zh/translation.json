@@ -6,7 +6,7 @@
   "featuresTitle": "农产���贸易的��������",
   "featuresSubtitle": "���们的平台建���在尖���技术��上�����确保公平、透明和高效。",
   "featureDirectSourcingTitle": "直接��购",
-  "featureDirectSourcingDesc": "直接������民������，无���中间商即可采购最�����的农作物。",
+  "featureDirectSourcingDesc": "直接������民������，无���中间商即可采购最��������农作物。",
   "featureSecureEscrowTitle": "安全托��",
   "featureSecureEscrowDesc": "付款被安全地保��在托管账户中，并在确���交货后自动释���。",
   "featureTransparentLogisticsTitle": "透明物流",
@@ -30,7 +30,7 @@
     "links": {
       "dashboard": "仪表���",
       "marketplace": "市场",
-      "educationHub": "教���中心",
+      "educationHub": "�����中心",
       "aiTools": "AI 工具",
       "danAI": "DAN. AI 助手",
       "cropHealthAI": "作�����康 AI"
@@ -46,7 +46,7 @@
   },
   "dashboard": {
     "title": "仪表盘",
-    "welcome": "��迎�����，{{name}}��这是您的���户摘要。",
+    "welcome": "����������，{{name}}��这是您的���户摘要。",
     "cards": {
       "revenue": {
         "title": "总收入",
@@ -66,7 +66,7 @@
       },
       "cropHealth": {
         "title": "作物健康 AI",
-        "description": "分析卫星��像���早��发现��病。",
+        "description": "分析卫星��像���早��发�����病。",
         "button": "立即分析"
       }
     },
@@ -75,7 +75,7 @@
     },
     "recentOrders": {
       "title": "最�����单",
-      "description": "您最近的�����。",
+      "description": "您最��的�����。",
       "table": {
         "id": "订单ID",
         "status": "������",
@@ -96,7 +96,7 @@
     "title": "订单追踪",
     "orderId": "订单ID",
     "orderComplete": "���订单已完成。",
-    "underReview": "此订单正在审核中。",
+    "underReview": "此订单正在审���中。",
     "status": {
       "title": "订单状态",
       "placed": "��下单",
@@ -135,7 +135,7 @@
     },
     "notFound": {
       "title": "未���到订单",
-      "description": "您正在寻找的订单��存在。",
+      "description": "您正在寻找的订单�����在。",
       "button": "返回仪表盘"
     },
     "toast": {
@@ -150,7 +150,7 @@
       "title": "发��争议",
       "description": "请描述您的���单����。管理员将审核您的申诉。",
       "reasonLabel": "���因",
-      "reasonPlaceholder": "������：商�����与描述不符���未�����货...",
+      "reasonPlaceholder": "������：商�����与描述不符���未�������...",
       "evidenceLabel": "上���证据",
       "fileErrorType": "文件必�������片。",
       "fileErrorSize": "文件必������于 {{size}}KB。",
@@ -160,7 +160,7 @@
     "timelineChart": {
       "title": "订单时间��图表",
       "tooltipLabel": "状态: {{status}}",
-      "tooltipIntro": "小时在此�����"
+      "tooltipIntro": "小时在��������"
     },
     "disputeDetails": {
       "title": "争议详情",
@@ -202,7 +202,7 @@
     },
     "kyc": {
       "title": "KYC 验证",
-      "description": "验证您的身份以�����全��平台功能。",
+      "description": "验证您的身份以�����全�����台功能。",
       "verified": {
         "title": "���的账户已通过验证！",
         "description": "您���������平台功能的完全访���权��。"
@@ -257,15 +257,15 @@
     }
   },
   "admin": {
-    "title": "管理面板",
+    "title": "管理面��",
     "description": "管理平台��户�������。",
     "tabs": {
       "users": "用户管理",
-      "transactions": "交易"
+      "transactions": "交��"
     },
     "users": {
       "title": "用户管理",
-      "description": "查看和管理平台上的���������册用户。",
+      "description": "查看和管理平台上的�����������用户。",
       "table": {
         "id": "用户ID",
         "name": "姓名",
@@ -275,7 +275,7 @@
         "actions": "操作"
       },
       "actions": {
-        "promote": "��升为管理员",
+        "promote": "����为管理员",
         "demote": "��管理员�������"
       },
       "toast": {
@@ -287,7 +287,7 @@
       "error": "获取用户���败。",
       "promoteCard": {
         "title": "���升用户为管理员",
-        "description": "输入用户���电子邮���������以�����其管理员权限。",
+        "description": "输入用户���电子邮���������以�������管理员权限。",
         "emailLabel": "用户邮箱",
         "promoteButton": "提升",
         "promotingButton": "提升中..."
@@ -309,7 +309,7 @@
   "auth": {
     "tabs": {
       "login": "登��",
-      "signup": "注册"
+      "signup": "���册"
     },
     "login": {
       "title": "登��",
@@ -347,7 +347,7 @@
     "categories": {
       "technology": "����",
       "farming": "农业",
-      "markets": "市场",
+      "markets": "���场",
       "security": "��全",
       "logistics": "���流",
       "investment": "投资"
@@ -375,7 +375,7 @@
       },
       "tokenization": {
         "title": "农业��币化简��",
-        "description": "关于如何���农业资产��������数��代币，从��释放流动性和投资的������者������。"
+        "description": "关于如何���农业资产������������代币，从��释放流动性和投资的������者������。"
       }
     },
     "aiChat": {
@@ -400,7 +400,11 @@
     "title": "作物健康 AI",
     "description": "利用人工智能通过卫星图像及早���现作物病害。",
     "analysisTitle": "开始分析",
-    "analysisDesc": "使用您当前的位置获取附���田地的卫星图像分析。",
+    "analysisDesc": "���择作物类型，然后使用您的位置进行卫星图像分析。",
+    "selectCrop": {
+      "label": "选择作物类型",
+      "placeholder": "选择要分析的作物"
+    },
     "detectLocationButton": "检测位置并分析",
     "detectingLocation": "正在检测您的位置...",
     "locationDetected": "已找到位置: {{lat}}, {{lon}}",
@@ -416,22 +420,39 @@
     "results": {
       "healthy": {
         "disease": "无（健康）",
-        "recommendation": "作物��起���很健康。继续�����监测和灌溉计划。无需立即���取行动。"
+        "recommendation": "作物��起���很健康。继续�����监测和灌��计划。无需立即���取行动。"
       },
       "stress": {
         "disease": "检测到水分������",
-        "recommendation": "在西北象限检测到中度水分胁迫。建议将灌溉频率增���15%并��行监测。"
+        "recommendation": "在西北象限检测到中度水分胁迫。建议��灌溉频率增���15%并��行监测。"
       },
       "fungus": {
         "disease": "潜在的真菌性������病",
-        "recommendation": "症���与早期真菌性��萎病��致。建议进行���壤样���分析，并考虑有针对性地���用广谱杀菌剂。"
+        "recommendation": "症���与早期真菌性��萎病�����。建议进行���壤样���分析，并考虑有针对性地���用广谱��菌剂。"
+      },
+      "corn_blight": {
+        "disease": "北方玉米叶枯病",
+        "recommendation": "病斑是 NCLB 的特征。如果病害普遍且作物处于抽雄前阶段，请考虑施用叶面杀菌剂。"
+      },
+      "avocado_rot": {
+        "disease": "鳄梨��腐病",
+        "recommendation": "症状表明是樟疫��菌。立即改善土壤排水，并考虑施用亚磷酸盐类杀菌剂。"
+      },
+      "ginger_wilt": {
+        "disease": "细菌性枯萎病（姜）",
+        "recommendation": "极有可��是青枯雷尔氏菌。移除并销毁受感染的植物。实行轮作，并至少 3 年内避免在此田地种植。"
       }
     }
   },
   "createListing": {
     "error": {
-      "openOrderExists": "您对此产品有一个未完成的订单。请在创建新列表前解决它。"
+      "openOrderExists": "您对此��品有一个未完成的订单。请在创建新列表前解决它。"
     }
+  },
+  "crops": {
+    "corn": "玉米",
+    "avocados": "鳄梨",
+    "ginger": "姜"
   },
   "currency": {
     "switcherTooltip": "更改�������",
@@ -449,14 +470,14 @@
     "title": "���成您的付款",
     "description": "安全地完成您的订单 #{{orderId}} 交易。",
     "summary": {
-      "title": "订单摘要",
+      "title": "订单摘��",
       "quantity": "{{quantity}} {{unit}}",
       "subtotal": "小计",
       "fees": "交易�����",
       "total": "应付总额"
     },
     "form": {
-      "title": "使用卡���付",
+      "title": "���用卡���付",
       "description": "由 Paystack 提供支持",
       "cardNumber": "卡号",
       "expiry": "有效期",
@@ -468,7 +489,7 @@
       "title": "支付错误",
       "missingOrderId": "订单ID丢���。",
       "fetch": "无法加载订单详情。请重试。",
-      "generic": "发生未知错误。"
+      "generic": "发生���知错误。"
     },
     "toast": {
       "success": "支付成功！正在跳转到您的订单..."

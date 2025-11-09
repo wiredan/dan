@@ -333,7 +333,11 @@
     "title": "Lafiyar Amfanin Gona AI",
     "description": "Yi amfani da AI don gano cututtukan amfanin gona da wuri daga hotunan tauraron dan adam.",
     "analysisTitle": "Fara Bincike",
-    "analysisDesc": "Yi amfani da wurinka na yanzu don samun binciken hoton tauraron dan adam na gonaki da ke kusa.",
+    "analysisDesc": "Zaɓi nau'in amfanin gona, sannan yi amfani da wurinka don binciken hoton tauraron dan adam.",
+    "selectCrop": {
+      "label": "Zaɓi Nau'in Amfanin Gona",
+      "placeholder": "Zaɓi amfanin gona don bincike"
+    },
     "detectLocationButton": "Gano Wuri & Bincika",
     "detectingLocation": "Ana gano wurinka...",
     "locationDetected": "An samo wuri: {{lat}}, {{lon}}",
@@ -358,6 +362,18 @@
       "fungus": {
         "disease": "Mai Yiwuwa Kamuwa da Cutar Fungal",
         "recommendation": "Alamun da suka dace da cutar fungal a matakin farko. Ana ba da shawarar binciken samfurin ƙasa da kuma yin la'akari da amfani da maganin fungicides."
+      },
+      "corn_blight": {
+        "disease": "Cutar Ganyen Masara ta Arewa",
+        "recommendation": "Raunuka suna nuna NCLB. Yi la'akari da amfani da maganin fungicides na ganye idan cutar ta yadu kuma amfanin gona bai yi toho ba."
+      },
+      "avocado_rot": {
+        "disease": "Rubewar Saiwar Avocado",
+        "recommendation": "Alamun suna nuna Phytophthora cinnamomi. Inganta magudanar ruwa na ƙasa nan da nan kuma yi la'akari da amfani da maganin fungicide na tushen phosphite."
+      },
+      "ginger_wilt": {
+        "disease": "Yajewar Kwayan Citta",
+        "recommendation": "Babban yiwuwar Ralstonia solanacearum. Cire da lalata tsire-tsire masu cuta. Aiwatar da juyin amfanin gona kuma a guji shuka a wannan gonar na akalla shekaru 3."
       }
     }
   },
@@ -365,6 +381,11 @@
     "error": {
       "openOrderExists": "Kuna da oda a bude don wannan samfurin. Da fatan za a warware ta kafin ƙirƙirar sabon lissafi."
     }
+  },
+  "crops": {
+    "corn": "Masara",
+    "avocados": "Avocado",
+    "ginger": "Citta"
   },
   "currency": {
     "switcherTooltip": "Canja Kudi",

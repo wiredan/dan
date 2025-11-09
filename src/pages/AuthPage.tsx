@@ -61,8 +61,33 @@ export function AuthPage() {
       setIsLoading(false);
     }
   };
-  const handleSocialLogin = (provider: 'google' | 'apple' | 'microsoft') => {
-    toast.info(t('auth.toast.socialNotImplemented', { provider }));
+  const handleSocialLogin = async (provider: 'google' | 'apple' | 'microsoft') => {
+    let userEmail = '';
+    switch (provider) {
+      case 'google':
+        userEmail = 'user-1'; // Corresponds to Amina Yusuf
+        break;
+      case 'apple':
+        userEmail = 'user-2'; // Corresponds to Carlos Gomez
+        break;
+      case 'microsoft':
+        userEmail = 'user-3'; // Corresponds to Fatima Al-Sayed
+        break;
+    }
+    setIsLoading(true);
+    try {
+      const response = await api<AuthResponse>('/api/auth/login', {
+        method: 'POST',
+        body: JSON.stringify({ email: userEmail, password: 'social_login_mock_password' }),
+      });
+      authLogin(response);
+      toast.success(t('auth.toast.loginSuccess'));
+      setTimeout(() => navigate('/dashboard'), 500);
+    } catch (error) {
+      toast.error((error as Error).message || 'Login failed');
+    } finally {
+      setIsLoading(false);
+    }
   };
   return (
     <div className="min-h-[calc(100vh-10rem)] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">

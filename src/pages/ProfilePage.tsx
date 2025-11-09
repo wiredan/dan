@@ -17,9 +17,11 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/comp
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 export function ProfilePage() {
   const { t } = useTranslation();
-  const user = useAuthStore(s => s.user);
-  const isAuthenticated = useAuthStore(s => s.isAuthenticated);
-  const login = useAuthStore(s => s.login);
+  const { user, isAuthenticated, checkAuth } = useAuthStore(state => ({
+    user: state.user,
+    isAuthenticated: state.isAuthenticated,
+    checkAuth: state.checkAuth,
+  }));
   const [name, setName] = useState(user?.name || '');
   const [location, setLocation] = useState(user?.location || '');
   const [isSaving, setIsSaving] = useState(false);
@@ -27,6 +29,13 @@ export function ProfilePage() {
   const [isSubmittingKyc, setIsSubmittingKyc] = useState(false);
   const [kycStatus, setKycStatus] = useState(user?.kycStatus || 'Not Submitted');
   const [hasActiveOrders, setHasActiveOrders] = useState(false);
+  useEffect(() => {
+    if (user) {
+      setName(user.name);
+      setLocation(user.location);
+      setKycStatus(user.kycStatus);
+    }
+  }, [user]);
   useEffect(() => {
     if (!user) return;
     const checkActiveOrders = async () => {
@@ -48,11 +57,11 @@ export function ProfilePage() {
     e.preventDefault();
     setIsSaving(true);
     try {
-      const updatedUser = await api<User>(`/api/users/${user.id}`, {
+      await api<User>(`/api/users/${user.id}`, {
         method: 'POST',
         body: JSON.stringify({ name, location }),
       });
-      login(updatedUser.id);
+      await checkAuth(); // Re-fetch user data to update the store
       toast.success(t('profile.profile.success'));
     } catch (error) {
       toast.error(t('profile.profile.error'));
@@ -66,11 +75,10 @@ export function ProfilePage() {
     setIsSubmittingKyc(true);
     setKycStatus('Pending');
     try {
-      const updatedUser = await api<User>(`/api/users/${user.id}/submit-kyc`, {
+      await api<User>(`/api/users/${user.id}/submit-kyc`, {
         method: 'POST',
       });
-      setKycStatus(updatedUser.kycStatus);
-      login(updatedUser.id); // Update auth store
+      await checkAuth(); // Re-fetch user data to update the store
       toast.success(t('profile.kyc.toast.verified'));
     } catch (error) {
       toast.error(t('profile.kyc.toast.error'));

@@ -25,7 +25,6 @@ export function ProfilePage() {
   const [name, setName] = useState(user?.name || '');
   const [location, setLocation] = useState(user?.location || '');
   const [isSaving, setIsSaving] = useState(false);
-  const { theme, setTheme } = useTheme();
   const [isSubmittingKyc, setIsSubmittingKyc] = useState(false);
   const [kycStatus, setKycStatus] = useState(user?.kycStatus || 'Not Submitted');
   const [hasActiveOrders, setHasActiveOrders] = useState(false);
@@ -195,27 +194,6 @@ export function ProfilePage() {
                       <Label htmlFor="location">{t('profile.profile.form.location')}</Label>
                       <Input id="location" value={location} onChange={(e) => setLocation(e.target.value)} />
                     </div>
-                  </div>
-                  <div className="space-y-2 pt-4">
-                    <Label>{t('profile.profile.form.theme.label')}</Label>
-                    <RadioGroup
-                      value={theme}
-                      onValueChange={(value) => setTheme(value as 'light' | 'dark' | 'system')}
-                      className="flex space-x-4"
-                    >
-                      <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="light" id="light" />
-                        <Label htmlFor="light">{t('profile.profile.form.theme.light')}</Label>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="dark" id="dark" />
-                        <Label htmlFor="dark">{t('profile.profile.form.theme.dark')}</Label>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="system" id="system" />
-                        <Label htmlFor="system">{t('profile.profile.form.theme.system')}</Label>
-                      </div>
-                    </RadioGroup>
                   </div>
                   <Button type="submit" disabled={isSaving} className="mt-4">
                     {isSaving ? t('profile.profile.form.saving') : t('profile.profile.form.save')}

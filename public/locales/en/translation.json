@@ -613,5 +613,17 @@
       "buyer": "Buyer",
       "seller": "Seller"
     }
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "marketplace": "Marketplace",
+    "my_orders": "My Orders",
+    "education_hub": "Education Hub",
+    "ai_tools": "AI Tools",
+    "dan_ai_assistant": "DAN. AI Assistant",
+    "crop_health_ai": "Crop Health AI",
+    "support": "Support",
+    "twitter": "Twitter",
+    "settings": "Settings"
   }
 }

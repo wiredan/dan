@@ -1,21 +1,21 @@
 {
   "getStarted": "开始使用",
   "exploreMarket": "探索市���",
-  "heroTitle": "农业综合企业的未来是去中心化的",
-  "heroSubtitle": "DAN 在一个��全、透明的平台上连接农民、分销商和投资者。充满信心地进行贸易、追踪和交易。",
+  "heroTitle": "农业综合企业的未���是去中心化的",
+  "heroSubtitle": "DAN 在一个��全、透明的平台上连接农民、���销商和投资者。充满信心地进行贸易、追踪和交易。",
   "featuresTitle": "农产品贸易的新纪元",
   "featuresSubtitle": "我们的平台建立在���端技术之上，以确保公平、透明和高效。",
   "featureDirectSourcingTitle": "直接采购",
-  "featureDirectSourcingDesc": "直接与农民联系，无需中间商即可采购最新鲜的农作物。",
+  "featureDirectSourcingDesc": "直接与农民联系，���需中间商即可采购最新鲜的农作物。",
   "featureSecureEscrowTitle": "安全托管",
-  "featureSecureEscrowDesc": "付款被安全地保��在托管账户中，并在确认交货后自动释放。",
+  "featureSecureEscrowDesc": "付款被安全地保��在托管账户中，并在确���交货后自动释放。",
   "featureTransparentLogisticsTitle": "透明物流",
   "featureTransparentLogisticsDesc": "使用我们先进的追踪系统，实时追踪从农场到仓库的订单。",
   "featureMarketInsightsTitle": "市场洞察",
   "featureMarketInsightsDesc": "获取实时数据和分析，以做出更明智的采购和投资决策。",
   "testimonialsTitle": "深受社区信赖",
   "testimonial1Quote": "DAN 彻底改变了我销售农产品的方式。我获得了更好的价格和更快的付款。",
-  "testimonial1Author": "阿米娜·优素福",
+  "testimonial1Author": "阿���娜·优素福",
   "testimonial1Role": "农民，尼日利亚",
   "testimonial2Quote": "平台的透明度和安全性改变了我们分销网络的游戏规则。",
   "testimonial2Author": "卡洛斯·戈麦斯",
@@ -47,7 +47,7 @@
   },
   "dashboard": {
     "title": "仪表盘",
-    "welcome": "欢迎回来，{{name}}！这是您的账户摘要。",
+    "welcome": "欢迎回来，{{name}}���这是您的账户摘要。",
     "cards": {
       "revenue": {
         "title": "总��入",
@@ -89,7 +89,7 @@
       "description": "您最近的交易。",
       "table": {
         "id": "订单ID",
-        "status": "状态",
+        "status": "状���",
         "amount": "金额"
       }
     }
@@ -107,11 +107,11 @@
     "title": "订单追踪",
     "orderId": "订单ID",
     "orderComplete": "此订单已完成。",
-    "underReview": "此订单正在审核中。",
+    "underReview": "此订单正在审核���。",
     "status": {
       "title": "订单状态",
       "placed": "已下单",
-      "paid": "款项已托管",
+      "paid": "款���已托管",
       "logisticsPickedUp": "已取货",
       "shipped": "已发货",
       "delivered": "已��达"
@@ -120,9 +120,9 @@
       "title": "订单摘要",
       "quantity": "数量",
       "price": "价格",
-      "subtotal": "小计",
+      "subtotal": "���计",
       "fees": "手��费 (2.5%)",
-      "total": "总计"
+      "total": "���计"
     },
     "participants": {
       "title": "参与者",
@@ -136,7 +136,7 @@
       "markShipped": "标记为已发货",
       "confirmDelivery": "确认收货",
       "confirmPickup": "确认取货",
-      "dispute": "争议订单",
+      "dispute": "争���订单",
       "resolveRelease": "解决并释放资金",
       "resolveRefund": "解决并退款给买家",
       "cancelOrder": "取消订单（管理员）"
@@ -146,12 +146,12 @@
     },
     "notFound": {
       "title": "未找到订单",
-      "description": "您正在寻找的订单不存在。",
+      "description": "您正在寻找的订单���存在。",
       "button": "返回仪表盘"
     },
     "toast": {
       "statusUpdated": "订单状态已更新为 {{status}}",
-      "statusUpdateFailed": "更新订单状态失败。",
+      "statusUpdateFailed": "更新订单状态���败。",
       "disputeSubmitted": "争议提交成功。",
       "disputeFailed": "提交争议失败。",
       "disputeResolved": "争议解决成功。",
@@ -213,10 +213,10 @@
     },
     "kyc": {
       "title": "KYC 验证",
-      "description": "验证您的身份以解���全部平台功能。",
+      "description": "验证您的身份以������全部平台功能。",
       "verified": {
         "title": "您的账户已通过验证！",
-        "description": "您拥有全部平台功能的完全访问��限。"
+        "description": "您拥有全部平台功能的完全访����限。"
       },
       "pending": {
         "title": "正在验证中",
@@ -224,7 +224,7 @@
       },
       "form": {
         "docUpload": "上传身份证件",
-        "docTypePlaceholder": "国民身份证、护照、驾照",
+        "docTypePlaceholder": "国民身份证、��照、驾照",
         "selfieUpload": "上传自拍照",
         "selfiePlaceholder": "一张清晰的脸部照片",
         "clickToUpload": "点击上传",
@@ -262,8 +262,8 @@
         "connected": "{{method}} 连接成功！（演示）"
       },
       "disabledAlert": {
-        "title": "管理已禁用",
-        "description": "您有活动订单时无法更改付款方式。请��完成或取消所有订单。"
+        "title": "管理已禁��",
+        "description": "您有活动订单时无法更改付���方式。请��完成或取消所有订单。"
       }
     }
   },
@@ -353,7 +353,7 @@
   },
   "education": {
     "title": "教育中���",
-    "description": "您的农业综合企业知识和见解资源。",
+    "description": "您的农业综合企业知识和���解资源。",
     "readMore": "阅读更多",
     "categories": {
       "technology": "技术",
@@ -366,34 +366,38 @@
     "articles": {
       "defi": {
         "title": "理解��业中的去中心化金融",
-        "description": "探索区���链和DeFi如何改变农业供应链，为农民和投资者提供新机遇。"
+        "description": "探索区���链和DeFi如何改变农业供应链，为农民和投资者提供新机��。"
       },
       "sustainable": {
         "title": "可持续农业的最佳实践",
         "description": "了解提高作物产量同时保护环境以造福后代的现代技术。"
       },
       "markets": {
-        "title": "驾驭全球粮食作物市场",
+        "title": "驾驭全球粮��作物市场",
         "description": "分析当前市场趋势、价格波动以及如何在平台上做出明智的交易决策。"
       },
       "kyc": {
         "title": "KYC在建立信任中的作���",
-        "description": "为什么身份验证对于创建一个安全透明的农业综合企业市场至关重要。"
+        "description": "为什么身份验证对于创建一个安全透明的农业综合企业市场至��重要。"
       },
       "logistics": {
         "title": "物流和供应链优化",
         "description": "为分销商简化运营和降低成本的技巧和策略。"
       },
       "tokenization": {
-        "title": "农业代币化简介",
-        "description": "关于如何将农业资产表示为数字代币，从而释��流动性和投资的初学者指南。"
+        "title": "农业��币化简介",
+        "description": "关于如何将农业资产表���为数字代币，从而释��流动性和投资的初学者指南。"
       }
     },
     "aiChat": {
       "title": "DAN AI 助手",
-      "greeting": "您好！我是去中心化农业综合企业网络AI。您可以问我任何关于市场价格、物流或我们平台功能的问题。",
+      "greeting": "您好！我是去中心化农业综合企业网络AI。您可以问我任何关于市场价格、物流���我们平台功能的问题。",
       "placeholder": "询问市场趋势...",
       "send": "发���"
+    },
+    "voiceReader": {
+      "toggleLabel": "启用语音阅读器",
+      "readAloudTooltip": "朗读"
     }
   },
   "danAI": {
@@ -412,9 +416,9 @@
   },
   "cropHealthAI": {
     "title": "作物健康 AI",
-    "description": "利用人工智能通过���星图像及早发现作物病害。",
+    "description": "利用人工智能通过���星图像及早发现作物病���。",
     "analysisTitle": "开始分析",
-    "analysisDesc": "选择作物类型，然后使用您的位置进行���星图像分析。",
+    "analysisDesc": "选择作物类型，然后���用您的位置进行���星图像分析。",
     "selectCrop": {
       "label": "选择作物类型",
       "placeholder": "选择要分析的作物"
@@ -433,7 +437,7 @@
     "recommendation": "建议",
     "results": {
       "healthy": {
-        "disease": "无（健康）",
+        "disease": "无���健康）",
         "recommendation": "作物看起来很健康。继续标��监测和灌溉计划。无需立即采取行动。"
       },
       "stress": {
@@ -445,22 +449,22 @@
         "recommendation": "症状与早期真菌性枯萎病一致。建议进行土壤样本分析，并考虑有针对性地施用广谱杀菌剂。"
       },
       "corn_blight": {
-        "disease": "北方玉米叶枯病",
-        "recommendation": "病斑是 NCLB 的特征。如果病害普遍且作物处于抽雄前阶段，请考虑施用叶面杀菌剂。"
+        "disease": "北��玉米叶枯病",
+        "recommendation": "病斑是 NCLB 的特��。如果病害普遍且作物处于抽雄前阶段，请考虑施用叶面��菌剂。"
       },
       "avocado_rot": {
         "disease": "鳄梨根腐病",
         "recommendation": "症状表明是樟疫霉菌。���即改善土壤排水，并考虑施用亚磷酸盐类杀菌剂。"
       },
       "ginger_wilt": {
-        "disease": "细菌性枯萎病（姜）",
-        "recommendation": "极有可能是青枯雷尔氏菌。移除并销毁受感染的植物。��行轮作，并至少 3 年内避免在此田地种植。"
+        "disease": "细菌性枯萎病��姜）",
+        "recommendation": "极有可能是青枯雷尔氏菌。移除并销毁受感染的植物。��行轮作，并至少 3 年内避���在此田地种植。"
       }
     }
   },
   "createListing": {
     "error": {
-      "openOrderExists": "您对此产品有一个未完成的订单。请在创建新列表前解决它。"
+      "openOrderExists": "您对此产品有一个未完成的订单。请在创建新列表前解��它。"
     }
   },
   "crops": {
@@ -469,10 +473,10 @@
     "ginger": "姜"
   },
   "currency": {
-    "switcherTooltip": "更改货币",
+    "switcherTooltip": "���改货币",
     "names": {
       "usd": "���元",
-      "ngn": "尼日利亚奈拉",
+      "ngn": "尼日��亚奈拉",
       "eur": "欧元",
       "usdt": "泰达币",
       "dan": "DAN 代币",
@@ -492,7 +496,7 @@
     },
     "form": {
       "title": "使用卡支付",
-      "description": "由 Paystack 提供支持",
+      "description": "�� Paystack 提供支持",
       "cardNumber": "卡号",
       "expiry": "有效期",
       "cvc": "CVC",
@@ -502,7 +506,7 @@
     "error": {
       "title": "支付错误",
       "missingOrderId": "订单ID缺失。",
-      "fetch": "无法加载订单详情。请重试。",
+      "fetch": "无法���载订单详情。请重试。",
       "generic": "发生未知错误。"
     },
     "toast": {

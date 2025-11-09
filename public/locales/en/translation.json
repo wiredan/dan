@@ -431,6 +431,10 @@
       "greeting": "Hello! I'm the Decentralized Agribusiness Network AI. Ask me anything about market prices, logistics, or our platform features.",
       "placeholder": "Ask about market trends...",
       "send": "Send"
+    },
+    "voiceReader": {
+      "toggleLabel": "Enable Voice Reader",
+      "readAloudTooltip": "Read Aloud"
     }
   },
   "danAI": {

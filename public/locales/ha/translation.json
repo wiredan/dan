@@ -24,7 +24,7 @@
   "testimonial3Author": "Fatima Al-Sayed",
   "testimonial3Role": "Mai Saka Hannun Jari, UAE",
   "ctaTitle": "A Shirye kake ka Shiga Juyin Juya Halin?",
-  "ctaSubtitle": "Ƙirƙiri asusu a yau kuma ku fuskanci makomar kasuwancin noma.",
+  "ctaSubtitle": "Ƙir��iri asusu a yau kuma ku fuskanci makomar kasuwancin noma.",
   "ctaButton": "Yi Rajista Yanzu",
   "navbar": {
     "links": {
@@ -327,6 +327,10 @@
       "greeting": "Sannu! Ni ne AI na Decentralized Agribusiness Network. Tambaye ni komai game da farashin kasuwa, kayan aiki, ko fasalulluka na dandalinmu.",
       "placeholder": "Tambaya game da yanayin kasuwa...",
       "send": "Aika"
+    },
+    "voiceReader": {
+      "toggleLabel": "Kunna Mai Karanta Murya",
+      "readAloudTooltip": "Karanta da Murya"
     }
   },
   "danAI": {

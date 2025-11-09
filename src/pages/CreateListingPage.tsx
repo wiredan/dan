@@ -35,10 +35,10 @@ export function CreateListingPage() {
     defaultValues: {
       name: '',
       description: '',
-      category: undefined,
-      price: undefined,
+      category: '',
+      price: 0,
       unit: 'kg',
-      quantity: undefined,
+      quantity: 0,
       grade: 'A',
       imageUrl: 'https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?q=80&w=800',
     },

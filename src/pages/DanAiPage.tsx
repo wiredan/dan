@@ -68,14 +68,13 @@ export function DanAiPage() {
     setInput('');
     setIsLoading(true);
     try {
-      const response = await api<{ reply: string }>('/api/ai/chat', {
-        method: 'POST',
-        body: JSON.stringify({ message: input }),
-      });
+      console.log("handleSendMessage: Before API call");
+      const response = await api<{ reply: string }>(`/api/dan/message?message=${encodeURIComponent(input)}`);
       const aiMessage: ChatMessage = { sender: 'ai', text: response.reply };
       setMessages(prev => [...prev, aiMessage]);
       speak(response.reply);
     } catch (error) {
+      console.log("handleSendMessage: Error in API call", error);
       const errorMessage: ChatMessage = { sender: 'ai', text: "Sorry, I'm having trouble connecting right now." };
       setMessages(prev => [...prev, errorMessage]);
       speak(errorMessage.text);

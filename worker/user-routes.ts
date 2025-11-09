@@ -8,7 +8,7 @@ import { hashPassword, verifyPassword } from './auth-utils';
 export interface HonoEnv extends Env {
   WIREDAN_KV: KVNamespace;
 }
-export function userRoutes(app: Hono<{ Bindings: HonoEnv }>) {
+export function userRoutes(app: Hono<{ Bindings: Env }>) {
   const ensureSeedData = async (env: HonoEnv) => {
     await UserEntity.ensureSeed(env);
     await ListingEntity.ensureSeed(env);
@@ -18,7 +18,7 @@ export function userRoutes(app: Hono<{ Bindings: HonoEnv }>) {
   app.post('/api/auth/register', async (c) => {
     const { name, email, password } = await c.req.json<{ name?: string; email?: string; password?: string }>();
     if (!isStr(name) || !isStr(email) || !isStr(password)) return bad(c, 'Name, email, and password are required');
-    const userEntity = new UserEntity(c.env, email.toLowerCase());
+    const userEntity = new UserEntity(c.env as HonoEnv, email.toLowerCase());
     if (await userEntity.exists()) return bad(c, 'User with this email already exists');
     const { hash, salt } = await hashPassword(password);
     const newUser: User = {
@@ -30,14 +30,14 @@ export function userRoutes(app: Hono<{ Bindings: HonoEnv }>) {
       passwordHash: hash,
       passwordSalt: salt,
     };
-    await UserEntity.create(c.env, newUser);
+    await UserEntity.create(c.env as HonoEnv, newUser);
     const { passwordHash, passwordSalt, ...userResponse } = newUser;
     return ok(c, userResponse);
   });
   app.post('/api/auth/login', async (c) => {
     const { email, password } = await c.req.json<{ email?: string; password?: string }>();
     if (!isStr(email) || !isStr(password)) return bad(c, 'Email and password are required');
-    const userEntity = new UserEntity(c.env, email.toLowerCase());
+    const userEntity = new UserEntity(c.env as HonoEnv, email.toLowerCase());
     if (!(await userEntity.exists())) return bad(c, 'Invalid credentials');
     const user = await userEntity.getState();
     // Handle social login simulation
@@ -47,7 +47,7 @@ export function userRoutes(app: Hono<{ Bindings: HonoEnv }>) {
       if (!isPasswordValid) return bad(c, 'Invalid credentials');
     }
     const token = crypto.randomUUID();
-    await c.env.WIREDAN_KV.put(`session:${token}`, user.id, { expirationTtl: 60 * 60 * 24 * 7 }); // 7 days
+    await (c.env as HonoEnv).WIREDAN_KV.put(`session:${token}`, user.id, { expirationTtl: 60 * 60 * 24 * 7 }); // 7 days
     const { passwordHash, passwordSalt, ...userResponse } = user;
     return ok(c, { token, user: userResponse } as AuthResponse);
   });
@@ -55,7 +55,7 @@ export function userRoutes(app: Hono<{ Bindings: HonoEnv }>) {
     const authHeader = c.req.header('Authorization');
     const token = authHeader?.split(' ')[1];
     if (token) {
-      await c.env.WIREDAN_KV.delete(`session:${token}`);
+      await (c.env as HonoEnv).WIREDAN_KV.delete(`session:${token}`);
     }
     return ok(c, { message: 'Logged out' });
   });
@@ -63,9 +63,9 @@ export function userRoutes(app: Hono<{ Bindings: HonoEnv }>) {
     const authHeader = c.req.header('Authorization');
     const token = authHeader?.split(' ')[1];
     if (!token) return c.json({ success: false, error: 'Unauthorized' }, 401);
-    const userId = await c.env.WIREDAN_KV.get(`session:${token}`);
+    const userId = await (c.env as HonoEnv).WIREDAN_KV.get(`session:${token}`);
     if (!userId) return c.json({ success: false, error: 'Unauthorized' }, 401);
-    const userEntity = new UserEntity(c.env, userId);
+    const userEntity = new UserEntity(c.env as HonoEnv, userId);
     if (!(await userEntity.exists())) return c.json({ success: false, error: 'Unauthorized' }, 401);
     const user = await userEntity.getState();
     const { passwordHash, passwordSalt, ...userResponse } = user;
@@ -73,13 +73,13 @@ export function userRoutes(app: Hono<{ Bindings: HonoEnv }>) {
   });
   // USER ROUTES
   app.get('/api/users', async (c) => {
-    await ensureSeedData(c.env);
-    const { items } = await UserEntity.list(c.env);
+    await ensureSeedData(c.env as HonoEnv);
+    const { items } = await UserEntity.list(c.env as HonoEnv);
     return ok(c, items.map(({ passwordHash, passwordSalt, ...user }) => user));
   });
   app.get('/api/users/:id', async (c) => {
     const { id } = c.req.param();
-    const user = new UserEntity(c.env, id);
+    const user = new UserEntity(c.env as HonoEnv, id);
     if (!(await user.exists())) return notFound(c, 'user not found');
     const userData = await user.getState();
     const { passwordHash, passwordSalt, ...userResponse } = userData;
@@ -88,7 +88,7 @@ export function userRoutes(app: Hono<{ Bindings: HonoEnv }>) {
   app.post('/api/users/:id', async (c) => {
     const { id } = c.req.param();
     const body = await c.req.json<Partial<User>>();
-    const user = new UserEntity(c.env, id);
+    const user = new UserEntity(c.env as HonoEnv, id);
     if (!(await user.exists())) return notFound(c, 'user not found');
     const currentState = await user.getState();
     const updateData: Partial<User> = {};
@@ -105,7 +105,7 @@ export function userRoutes(app: Hono<{ Bindings: HonoEnv }>) {
     const { id } = c.req.param();
     const { role } = await c.req.json<{ role: UserRole }>();
     if (!role) return bad(c, 'Missing role');
-    const user = new UserEntity(c.env, id);
+    const user = new UserEntity(c.env as HonoEnv, id);
     if (!(await user.exists())) return notFound(c, 'User not found');
     await user.patch({ role });
     const updatedUser = await user.getState();
@@ -116,7 +116,7 @@ export function userRoutes(app: Hono<{ Bindings: HonoEnv }>) {
     const { email } = await c.req.json<{ email: string }>();
     if (!isStr(email)) return bad(c, 'Email is required');
     const userId = email;
-    const user = new UserEntity(c.env, userId);
+    const user = new UserEntity(c.env as HonoEnv, userId);
     if (!(await user.exists())) {
       return notFound(c, 'User with that email not found');
     }
@@ -131,7 +131,7 @@ export function userRoutes(app: Hono<{ Bindings: HonoEnv }>) {
   });
   app.post('/api/users/:id/submit-kyc', async (c) => {
     const { id } = c.req.param();
-    const user = new UserEntity(c.env, id);
+    const user = new UserEntity(c.env as HonoEnv, id);
     if (!(await user.exists())) return notFound(c, 'User not found');
     await user.patch({ kycStatus: 'Pending' });
     await new Promise(resolve => setTimeout(resolve, 3000));
@@ -142,25 +142,25 @@ export function userRoutes(app: Hono<{ Bindings: HonoEnv }>) {
   });
   // LISTING ROUTES
   app.get('/api/listings', async (c) => {
-    await ensureSeedData(c.env);
-    const { items } = await ListingEntity.list(c.env);
+    await ensureSeedData(c.env as HonoEnv);
+    const { items } = await ListingEntity.list(c.env as HonoEnv);
     return ok(c, items);
   });
   app.get('/api/listings/:id', async (c) => {
     const { id } = c.req.param();
-    const listing = new ListingEntity(c.env, id);
+    const listing = new ListingEntity(c.env as HonoEnv, id);
     if (!(await listing.exists())) return notFound(c, 'listing not found');
     return ok(c, await listing.getState());
   });
   app.post('/api/listings', async (c) => {
     const body = await c.req.json<Omit<Listing, 'id'>>();
     if (!body.name || !body.farmerId) return bad(c, 'Missing required fields');
-    const { items: allListings } = await ListingEntity.list(c.env);
+    const { items: allListings } = await ListingEntity.list(c.env as HonoEnv);
     const farmerListingsWithSameName = allListings.filter(
       l => l.farmerId === body.farmerId && l.name.toLowerCase() === body.name.toLowerCase()
     );
     if (farmerListingsWithSameName.length > 0) {
-      const { items: allOrders } = await OrderEntity.list(c.env);
+      const { items: allOrders } = await OrderEntity.list(c.env as HonoEnv);
       const openOrderExists = allOrders.some(order =>
         farmerListingsWithSameName.some(l => l.id === order.listingId) &&
         !['Delivered', 'Cancelled'].includes(order.status)
@@ -173,25 +173,25 @@ export function userRoutes(app: Hono<{ Bindings: HonoEnv }>) {
       id: crypto.randomUUID(),
       ...body
     };
-    await ListingEntity.create(c.env, newListing);
+    await ListingEntity.create(c.env as HonoEnv, newListing);
     return ok(c, newListing);
   });
   // ORDER ROUTES
   app.get('/api/orders', async (c) => {
-    await ensureSeedData(c.env);
-    const { items } = await OrderEntity.list(c.env);
+    await ensureSeedData(c.env as HonoEnv);
+    const { items } = await OrderEntity.list(c.env as HonoEnv);
     return ok(c, items);
   });
   app.get('/api/orders/:id', async (c) => {
     const { id } = c.req.param();
-    const order = new OrderEntity(c.env, id);
+    const order = new OrderEntity(c.env as HonoEnv, id);
     if (!(await order.exists())) return notFound(c, 'order not found');
     return ok(c, await order.getState());
   });
   app.post('/api/orders', async (c) => {
     const { listingId, buyerId, quantity } = await c.req.json<{ listingId: string; buyerId: string; quantity: number }>();
     if (!listingId || !buyerId || !quantity) return bad(c, 'Missing required fields');
-    const listingEntity = new ListingEntity(c.env, listingId);
+    const listingEntity = new ListingEntity(c.env as HonoEnv, listingId);
     if (!(await listingEntity.exists())) return notFound(c, 'Listing not found');
     const listing = await listingEntity.getState();
     if (quantity > listing.quantity) return bad(c, 'Not enough quantity available');
@@ -214,7 +214,7 @@ export function userRoutes(app: Hono<{ Bindings: HonoEnv }>) {
         { status: 'Paid', timestamp: new Date(Date.now() + 1000).toISOString() }
       ],
     };
-    await OrderEntity.create(c.env, newOrder);
+    await OrderEntity.create(c.env as HonoEnv, newOrder);
     await listingEntity.patch({ quantity: listing.quantity - quantity });
     return ok(c, newOrder);
   });
@@ -230,7 +230,7 @@ export function userRoutes(app: Hono<{ Bindings: HonoEnv }>) {
     const { id } = c.req.param();
     const { status } = await c.req.json<{ status: OrderStatus }>();
     if (!status) return bad(c, 'Missing status');
-    const order = new OrderEntity(c.env, id);
+    const order = new OrderEntity(c.env as HonoEnv, id);
     if (!(await order.exists())) return notFound(c, 'Order not found');
     const updatedOrder = await updateOrderStatus(order, status);
     return ok(c, updatedOrder);
@@ -239,7 +239,7 @@ export function userRoutes(app: Hono<{ Bindings: HonoEnv }>) {
     const { id } = c.req.param();
     const { reason, evidenceUrl } = await c.req.json<{ reason: string; evidenceUrl: string }>();
     if (!reason) return bad(c, 'Dispute reason is required');
-    const order = new OrderEntity(c.env, id);
+    const order = new OrderEntity(c.env as HonoEnv, id);
     if (!(await order.exists())) return notFound(c, 'Order not found');
     const updatedOrder = await updateOrderStatus(order, 'Disputed', { disputeReason: reason, disputeEvidenceUrl: evidenceUrl });
     return ok(c, updatedOrder);
@@ -248,14 +248,14 @@ export function userRoutes(app: Hono<{ Bindings: HonoEnv }>) {
     const { id } = c.req.param();
     const { status } = await c.req.json<{ status: 'Delivered' | 'Cancelled' }>();
     if (!status || !['Delivered', 'Cancelled'].includes(status)) return bad(c, 'Invalid resolution status');
-    const order = new OrderEntity(c.env, id);
+    const order = new OrderEntity(c.env as HonoEnv, id);
     if (!(await order.exists())) return notFound(c, 'Order not found');
     const updatedOrder = await updateOrderStatus(order, status);
     return ok(c, updatedOrder);
   });
   app.post('/api/orders/:id/ai-dispute-analysis', async (c) => {
     const { id } = c.req.param();
-    const orderEntity = new OrderEntity(c.env, id);
+    const orderEntity = new OrderEntity(c.env as HonoEnv, id);
     if (!(await orderEntity.exists())) return notFound(c, 'Order not found');
     const order = await orderEntity.getState();
     await new Promise(resolve => setTimeout(resolve, 1500));
@@ -268,8 +268,8 @@ export function userRoutes(app: Hono<{ Bindings: HonoEnv }>) {
     return ok(c, { recommendation });
   });
   // AI ROUTES
-  app.post('/api/ai/chat', async (c) => {
-    const { message } = await c.req.json<{ message: string }>();
+  app.get('/api/dan/message', async (c) => {
+    const message = c.req.query('message');
     if (!message) return bad(c, 'Message is required');
     const lowerCaseMessage = message.toLowerCase();
     let reply = "I'm sorry, I can only answer questions about agriculture, logistics, and decentralized finance. How can I help you with those topics?";

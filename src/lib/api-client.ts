@@ -9,12 +9,19 @@ export async function api<T>(path: string, init?: RequestInit): Promise<T> {
     headers.set('Authorization', `Bearer ${token}`);
   }
   const timeoutPromise = new Promise<never>((_, reject) =>
-    setTimeout(() => reject(new Error('Request timed out')), 8000)
+    setTimeout(() => reject(new Error('Request timed out')), 20000)
   );
 
   const fetchPromise = fetch(path, { ...init, headers });
 
-  const res = await Promise.race([fetchPromise, timeoutPromise]);
+  let res: Response;
+  try {
+    res = await Promise.race([fetchPromise, timeoutPromise]);
+  } catch (error) {
+    console.error('API request failed:', error);
+    throw error;
+  }
+
   console.log('Fetch completed with status:', res.status);
   if (!res.ok) {
     const contentType = res.headers.get('content-type');

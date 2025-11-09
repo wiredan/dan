@@ -382,7 +382,7 @@
       },
       "logistics": {
         "title": "Optimisation de la Logistique et de la Chaîne d'Approvisionnement",
-        "description": "Conseils et stratégies pour les distributeurs afin de rationaliser leurs opérations et de réduire les coûts."
+        "description": "Conseils et stratégies pour les distributeurs afin de rationaliser leurs opérations et de réduire les co��ts."
       },
       "tokenization": {
         "title": "Introduction à la Tokenisation Agricole",
@@ -446,10 +446,10 @@
       },
       "fungus": {
         "disease": "Mildiou Fongique Potentiel",
-        "recommendation": "Signes compatibles avec un mildiou fongique �� un stade précoce. Il est recommandé d'analyser un échantillon de sol et d'envisager l'application ciblée d'un fongicide à large spectre."
+        "recommendation": "Signes compatibles avec un mildiou fongique à un stade précoce. Il est recommandé d'analyser un échantillon de sol et d'envisager l'application ciblée d'un fongicide à large spectre."
       },
       "corn_blight": {
-        "disease": "Helminthosporiose du ma��s",
+        "disease": "Helminthosporiose du maïs",
         "recommendation": "Les lésions sont caractéristiques de l'helminthosporiose. Envisagez d'appliquer un fongicide foliaire si la maladie est répandue et que la culture est en pré-floraison."
       },
       "avocado_rot": {
@@ -529,6 +529,12 @@
     "roles": {
       "buyer": "Acheteur",
       "seller": "Vendeur"
+    }
+  },
+  "footer": {
+    "social": {
+      "twitter": "Twitter",
+      "telegram": "Telegram"
     }
   }
 }

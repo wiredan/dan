@@ -24,7 +24,7 @@
   "testimonial3Author": "Fatima Al-Sayed",
   "testimonial3Role": "Mai Saka Hannun Jari, UAE",
   "ctaTitle": "A Shirye kake ka Shiga Juyin Juya Halin?",
-  "ctaSubtitle": "Ƙir��iri asusu a yau kuma ku fuskanci makomar kasuwancin noma.",
+  "ctaSubtitle": "Ƙir����iri asusu a yau kuma ku fuskanci makomar kasuwancin noma.",
   "ctaButton": "Yi Rajista Yanzu",
   "navbar": {
     "links": {
@@ -462,6 +462,12 @@
     "roles": {
       "buyer": "Mai Siya",
       "seller": "Mai Siyarwa"
+    }
+  },
+  "footer": {
+    "social": {
+      "twitter": "Twitter",
+      "telegram": "Telegram"
     }
   }
 }

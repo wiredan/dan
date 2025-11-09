@@ -1,31 +1,31 @@
 {
-  "getStarted": "Bắt đ��u",
+  "getStarted": "Bắt đầu",
   "exploreMarket": "Khám phá Thị trường",
   "heroTitle": "Tương lai của Kinh doanh Nông nghiệp là Phi tập trung",
   "heroSubtitle": "DAN kết nối nông dân, nhà phân phối và nhà đầu tư trên một nền tảng an toàn, minh bạch. Giao dịch, theo dõi và thực hiện giao dịch một cách tự tin.",
   "featuresTitle": "Một Kỷ nguyên Mới của Thương mại Nông nghiệp",
   "featuresSubtitle": "Nền tảng của chúng tôi được xây dựng trên công nghệ tiên tiến để đảm bảo sự công bằng, minh bạch và hiệu quả.",
-  "featureDirectSourcingTitle": "Ngu��n cung ứng trực tiếp",
-  "featureDirectSourcingDesc": "Kết nối trực tiếp với nông dân để có được những vụ m��a tươi ngon nhất mà không cần qua trung gian.",
+  "featureDirectSourcingTitle": "Nguồn cung ứng trực tiếp",
+  "featureDirectSourcingDesc": "Kết nối trực tiếp với nông dân để có được những vụ mùa tươi ngon nhất mà không cần qua trung gian.",
   "featureSecureEscrowTitle": "Ký quỹ an toàn",
-  "featureSecureEscrowDesc": "Các khoản thanh toán được giữ an toàn trong ký quỹ và được gi���i ngân tự động khi xác nhận giao hàng.",
+  "featureSecureEscrowDesc": "Các khoản thanh toán được giữ an toàn trong ký quỹ và được giải ngân tự động khi xác nhận giao hàng.",
   "featureTransparentLogisticsTitle": "Hậu cần minh bạch",
   "featureTransparentLogisticsDesc": "Theo dõi đơn hàng của bạn trong thời gian thực từ trang trại đến kho của bạn với hệ thống theo dõi tiên tiến của chúng tôi.",
   "featureMarketInsightsTitle": "Thông tin chi tiết về thị trường",
-  "featureMarketInsightsDesc": "Truy cập dữ liệu và phân tích thời gian thực để đưa ra quyết định mua hàng và đầu tư thông minh hơn.",
-  "testimonialsTitle": "Được cộng đồng tin cậy",
+  "featureMarketInsightsDesc": "Truy cập dữ liệu và phân t��ch thời gian thực để đưa ra quyết định mua hàng và đầu tư thông minh hơn.",
+  "testimonialsTitle": "Được cộng đ��ng tin cậy",
   "testimonial1Quote": "DAN đã cách mạng hóa cách tôi bán sản phẩm của mình. Tôi nhận được giá tốt hơn và thanh toán nhanh hơn.",
   "testimonial1Author": "Amina Yusuf",
   "testimonial1Role": "Nông dân, Nigeria",
   "testimonial2Quote": "Sự minh bạch và an toàn của nền tảng là yếu tố thay đổi cuộc chơi cho mạng lưới phân phối của chúng tôi.",
   "testimonial2Author": "Carlos Gomez",
   "testimonial2Role": "Nhà phân phối, Việt Nam",
-  "testimonial3Quote": "Là một nhà đầu tư, cuối cùng tôi cũng có thể tham gia vào thị trường nông nghiệp một cách tự tin và rõ r��ng.",
+  "testimonial3Quote": "Là một nhà đầu tư, cuối cùng tôi cũng có thể tham gia vào thị trường nông nghiệp một cách tự tin và rõ ràng.",
   "testimonial3Author": "Fatima Al-Sayed",
   "testimonial3Role": "Nhà đầu tư, UAE",
   "ctaTitle": "Sẵn sàng tham gia cuộc cách mạng?",
   "ctaSubtitle": "Tạo tài khoản ngay hôm nay và trải nghiệm tương lai của kinh doanh nông nghiệp.",
-  "ctaButton": "��ăng ký ngay",
+  "ctaButton": "Đăng ký ngay",
   "navbar": {
     "links": {
       "dashboard": "Bảng điều khiển",
@@ -34,13 +34,13 @@
       "educationHub": "Trung tâm Giáo dục",
       "aiTools": "Công cụ AI",
       "danAI": "Trợ lý DAN. AI",
-      "cropHealthAI": "Sức kh���e Cây trồng AI"
+      "cropHealthAI": "Sức khỏe Cây trồng AI"
     },
     "createListing": "Tạo danh sách",
     "signIn": "Đăng nhập",
     "signUp": "Đăng ký",
     "dropdown": {
-      "profile": "Hồ sơ",
+      "profile": "H�� sơ",
       "adminPanel": "Bảng quản trị",
       "logout": "Đăng xuất"
     }
@@ -67,7 +67,7 @@
       },
       "cropHealth": {
         "title": "Sức khỏe Cây trồng AI",
-        "description": "Phân tích hình ảnh vệ tinh để phát hiện bệnh sớm.",
+        "description": "Phân tích hình ảnh v�� tinh để phát hiện bệnh sớm.",
         "button": "Phân tích ngay"
       },
       "marketplace": {
@@ -90,13 +90,13 @@
       "table": {
         "id": "ID Đơn hàng",
         "status": "Trạng thái",
-        "amount": "Số tiền"
+        "amount": "Số ti���n"
       }
     }
   },
   "listingDetail": {
     "order": {
-      "success": "Đặt hàng thành công! Đang chuyển hướng đến thanh toán...",
+      "success": "Đ��t hàng thành công! Đang chuyển hướng đến thanh toán...",
       "error": "Đặt hàng thất bại.",
       "placing": "Đang đặt hàng...",
       "isOwner": "Đây là danh sách của bạn",
@@ -120,7 +120,7 @@
     },
     "disputeModal": {
       "title": "Mở một tranh chấp",
-      "description": "Vui lòng mô tả vấn đề với đơn hàng của bạn. Quản trị viên sẽ xem xét y��u cầu của bạn.",
+      "description": "Vui lòng mô tả vấn đề với đơn hàng của bạn. Quản trị viên sẽ xem xét yêu cầu của bạn.",
       "reasonLabel": "Lý do",
       "reasonPlaceholder": "Ví dụ: Hàng không như mô tả, chưa được giao...",
       "evidenceLabel": "Tải lên bằng chứng",
@@ -150,13 +150,13 @@
     "tabs": {
       "profile": "Hồ sơ",
       "kyc": "Xác minh KYC",
-      "payment": "Phương th��c thanh toán"
+      "payment": "Phương thức thanh toán"
     },
     "profile": {
       "title": "Thông tin hồ sơ",
-      "description": "Cập nhật thông tin c�� nhân của bạn tại đây.",
+      "description": "Cập nhật thông tin cá nhân của bạn tại đây.",
       "form": {
-        "name": "H�� và tên",
+        "name": "Họ và tên",
         "nameDisabledTooltip": "Không thể thay đổi tên sau khi xác minh KYC.",
         "email": "Email",
         "location": "Vị trí",
@@ -165,7 +165,7 @@
         "theme": {
           "label": "Chủ đề",
           "light": "Sáng",
-          "dark": "Tối",
+          "dark": "T��i",
           "system": "Hệ thống"
         }
       },
@@ -177,7 +177,7 @@
       "description": "Xác minh danh tính của bạn để mở khóa đầy đủ các tính năng của nền tảng.",
       "verified": {
         "title": "Tài khoản của bạn đã được xác minh!",
-        "description": "Bạn có toàn quy���n truy cập vào tất cả các tính năng của nền tảng."
+        "description": "Bạn có toàn quyền truy cập vào tất cả các tính năng của nền tảng."
       },
       "pending": {
         "title": "Đang tiến hành xác minh",
@@ -270,7 +270,7 @@
       "table": {
         "orderId": "ID Đơn hàng",
         "buyer": "Người mua",
-        "seller": "Người b��n",
+        "seller": "Người bán",
         "amount": "Số tiền",
         "status": "Trạng thái"
       },
@@ -285,7 +285,7 @@
     }
   },
   "education": {
-    "title": "Trung t��m Giáo dục",
+    "title": "Trung tâm Giáo dục",
     "description": "Nguồn tài nguyên của bạn cho kiến thức và thông tin chi tiết về kinh doanh nông nghiệp.",
     "readMore": "Đọc thêm",
     "categories": {
@@ -302,15 +302,15 @@
         "description": "Khám phá cách blockchain và DeFi đang biến đổi chuỗi cung ứng nông nghiệp."
       },
       "sustainable": {
-        "title": "Các phương pháp t��t nhất cho Nông nghiệp Bền vững",
+        "title": "Các phương pháp tốt nhất cho Nông nghiệp Bền vững",
         "description": "Tìm hiểu về các kỹ thuật hiện đại giúp cải thiện năng suất cây trồng đồng thời bảo vệ môi trường."
       },
       "markets": {
         "title": "Điều hướng Thị trường Cây lương thực Toàn cầu",
-        "description": "Phân tích xu hướng thị trường hiện tại, biến động giá cả và c��ch đưa ra quyết định giao dịch."
+        "description": "Phân tích xu hướng thị trường hiện tại, biến động giá cả và cách đưa ra quyết định giao dịch."
       },
       "kyc": {
-        "title": "Vai trò của KYC trong việc Xây dựng Lòng tin",
+        "title": "Vai trò của KYC trong việc Xây d��ng Lòng tin",
         "description": "Tại sao xác minh danh tính lại quan trọng để tạo ra một thị trường kinh doanh nông nghiệp an toàn."
       },
       "logistics": {
@@ -319,12 +319,12 @@
       },
       "tokenization": {
         "title": "Giới thiệu về Token hóa Nông nghiệp",
-        "description": "Hướng dẫn cho người mới bắt đầu về cách tài sản nông nghiệp có thể được biểu diễn dưới d��ng token kỹ thuật số."
+        "description": "Hướng dẫn cho người mới bắt đầu về cách tài sản nông nghiệp có thể được biểu diễn dưới dạng token kỹ thuật số."
       }
     },
     "aiChat": {
       "title": "Trợ lý DAN AI",
-      "greeting": "Xin chào! Tôi là AI của Mạng lưới Kinh doanh Nông nghiệp Phi tập trung. H��y hỏi tôi bất cứ điều gì về giá cả thị trường, hậu cần, hoặc các tính năng của nền tảng.",
+      "greeting": "Xin chào! Tôi là AI của Mạng lưới Kinh doanh Nông nghiệp Phi tập trung. Hãy hỏi tôi bất cứ điều gì về giá cả thị trường, hậu cần, hoặc các tính năng của nền tảng.",
       "placeholder": "Hỏi về xu hướng thị trường...",
       "send": "Gửi"
     },
@@ -338,7 +338,7 @@
     "description": "Trợ lý do AI cung cấp của bạn cho dữ liệu và thông tin chi tiết thị trường thời gian thực.",
     "marketData": {
       "title": "Dữ liệu Thị trường Thời gian thực",
-      "crop": "Cây trồng",
+      "crop": "C��y trồng",
       "price": "Giá (USD)",
       "change": "Thay đổi 24h",
       "lastUpdated": "Cập nhật lần cuối: {{time}}"
@@ -351,9 +351,9 @@
     "title": "Sức khỏe Cây trồng AI",
     "description": "Tận dụng AI để phát hiện sớm bệnh cây trồng từ hình ảnh vệ tinh.",
     "analysisTitle": "Bắt đầu Phân tích",
-    "analysisDesc": "Chọn loại cây trồng, sau đó s�� dụng vị trí của bạn để phân tích hình ảnh vệ tinh.",
+    "analysisDesc": "Chọn loại cây trồng, sau đó sử dụng vị trí của bạn để phân tích hình ảnh vệ tinh.",
     "selectCrop": {
-      "label": "Chọn loại cây trồng",
+      "label": "Ch��n loại cây trồng",
       "placeholder": "Chọn một loại cây để phân tích"
     },
     "detectLocationButton": "Phát hiện Vị trí & Phân tích",
@@ -365,7 +365,7 @@
     "mayTakeMoment": "Việc này có thể mất một lúc...",
     "resultsTitle": "Kết quả Phân tích",
     "resultsPlaceholder": "Kết quả phân tích của bạn sẽ xuất hiện ở đây.",
-    "disease": "Ch��n đoán",
+    "disease": "Chẩn đoán",
     "confidence": "Độ tin cậy",
     "recommendation": "Khuyến nghị",
     "results": {
@@ -378,8 +378,8 @@
         "recommendation": "Phát hiện căng thẳng nước mức độ vừa phải ở góc phần tư phía tây bắc. Khuyến nghị tăng tần suất tưới tiêu lên 15% và theo dõi."
       },
       "fungus": {
-        "disease": "Nghi ng�� Bệnh Nấm",
-        "recommendation": "Các dấu hiệu ph�� hợp với bệnh nấm giai đoạn đầu. Khuyến nghị phân tích mẫu đất và xem x��t áp dụng thuốc trừ nấm phổ rộng có mục tiêu."
+        "disease": "Nghi ngờ Bệnh Nấm",
+        "recommendation": "Các dấu hiệu phù hợp với bệnh nấm giai đoạn đầu. Khuyến nghị phân tích m��u đất và xem xét áp dụng thuốc trừ nấm phổ rộng có mục tiêu."
       },
       "corn_blight": {
         "disease": "Bệnh Cháy lá Ngô Phía Bắc",
@@ -387,7 +387,7 @@
       },
       "avocado_rot": {
         "disease": "Bệnh Thối rễ Bơ",
-        "recommendation": "Các triệu ch��ng cho thấy nấm Phytophthora cinnamomi. Cải thiện thoát nước đất ngay lập tức và cân nhắc sử dụng thuốc trừ nấm gốc phosphite."
+        "recommendation": "Các triệu chứng cho thấy nấm Phytophthora cinnamomi. Cải thiện thoát nước đất ngay lập tức và cân nhắc sử dụng thuốc trừ nấm gốc phosphite."
       },
       "ginger_wilt": {
         "disease": "Bệnh Héo rũ Vi khuẩn (Gừng)",
@@ -397,7 +397,7 @@
   },
   "createListing": {
     "error": {
-      "openOrderExists": "B��n có một đơn hàng đang mở cho sản phẩm này. Vui lòng giải quyết nó trước khi tạo danh sách mới."
+      "openOrderExists": "Bạn có một đơn hàng đang mở cho sản phẩm này. Vui lòng giải quyết nó trước khi tạo danh sách mới."
     }
   },
   "crops": {
@@ -462,6 +462,12 @@
     "roles": {
       "buyer": "Người mua",
       "seller": "Người bán"
+    }
+  },
+  "footer": {
+    "social": {
+      "twitter": "Twitter",
+      "telegram": "Telegram"
     }
   }
 }

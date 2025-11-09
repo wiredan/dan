@@ -632,5 +632,11 @@
     "support": "Support",
     "twitter": "Twitter",
     "settings": "Settings"
+  },
+  "footer": {
+    "social": {
+      "twitter": "Twitter",
+      "telegram": "Telegram"
+    }
   }
 }

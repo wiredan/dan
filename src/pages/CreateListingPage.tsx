@@ -18,15 +18,9 @@ const listingSchema = z.object({
   name: z.string().min(3, 'Name must be at least 3 characters'),
   description: z.string().min(10, 'Description must be at least 10 characters'),
   category: z.string().min(1, 'Please select a category'),
-  price: z.preprocess(
-    (val) => Number(String(val || 0)),
-    z.number().positive('Price must be a positive number')
-  ),
+  price: z.coerce.number().positive('Price must be a positive number'),
   unit: z.string().min(1, 'Unit is required'),
-  quantity: z.preprocess(
-    (val) => Number(String(val || 0)),
-    z.number().int().positive('Quantity must be a positive integer')
-  ),
+  quantity: z.coerce.number().int().positive('Quantity must be a positive integer'),
   grade: z.enum(['A', 'B', 'C']),
   imageUrl: z.string().url('Please enter a valid image URL'),
 });
@@ -41,10 +35,10 @@ export function CreateListingPage() {
     defaultValues: {
       name: '',
       description: '',
-      category: '',
-      price: 0,
+      category: undefined,
+      price: undefined,
       unit: 'kg',
-      quantity: 0,
+      quantity: undefined,
       grade: 'A',
       imageUrl: 'https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?q=80&w=800',
     },
@@ -167,6 +161,7 @@ export function CreateListingPage() {
                             step="0.01"
                             placeholder="0.00"
                             {...field}
+                            onChange={event => field.onChange(+event.target.value)}
                           />
                         </FormControl>
                         <FormMessage />
@@ -195,6 +190,7 @@ export function CreateListingPage() {
                             type="number"
                             placeholder="1000"
                             {...field}
+                            onChange={event => field.onChange(+event.target.value)}
                           />
                         </FormControl>
                         <FormMessage />

@@ -36,6 +36,7 @@ export function AuthPage() {
       toast.success(t('auth.toast.loginSuccess'));
       setTimeout(() => navigate('/dashboard'), 500);
     } catch (error) {
+      console.error('Login API Error:', JSON.stringify(error, null, 2));
       toast.error((error as Error).message || 'Login failed');
     } finally {
       setIsLoading(false);
@@ -84,6 +85,7 @@ export function AuthPage() {
       toast.success(t('auth.toast.loginSuccess'));
       setTimeout(() => navigate('/dashboard'), 500);
     } catch (error) {
+      console.error('Login API Error:', JSON.stringify(error, null, 2));
       toast.error((error as Error).message || 'Login failed');
     } finally {
       setIsLoading(false);

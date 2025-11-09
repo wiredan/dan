@@ -30,6 +30,7 @@
     "links": {
       "dashboard": "Tableau de bord",
       "marketplace": "Marché",
+      "myOrders": "Mes Commandes",
       "educationHub": "Pôle Éducatif",
       "aiTools": "Outils IA",
       "danAI": "Assistant DAN. AI",
@@ -68,6 +69,16 @@
         "title": "Santé des Cultures IA",
         "description": "Analysez l'imagerie satellite pour une détection précoce des maladies.",
         "button": "Analyser maintenant"
+      },
+      "marketplace": {
+        "title": "Explorer le Marché",
+        "description": "Parcourez et échangez des cultures fraîches d'agriculteurs vérifiés.",
+        "button": "Aller au Marché"
+      },
+      "myOrders": {
+        "title": "Voir Mes Commandes",
+        "description": "Suivez l'historique de vos transactions actives et passées.",
+        "button": "Voir les Commandes"
       }
     },
     "overview": {
@@ -493,6 +504,24 @@
     },
     "toast": {
       "success": "Paiement réussi ! Redirection vers votre commande..."
+    }
+  },
+  "ordersPage": {
+    "title": "Mes Commandes",
+    "description": "Affichez et gérez toutes vos transactions passées et actuelles.",
+    "noOrders": "Vous n'avez pas encore passé ou re��u de commandes.",
+    "table": {
+      "orderId": "ID Commande",
+      "product": "Produit",
+      "role": "Votre Rôle",
+      "status": "Statut",
+      "total": "Total",
+      "action": "Action",
+      "view": "Voir"
+    },
+    "roles": {
+      "buyer": "Acheteur",
+      "seller": "Vendeur"
     }
   }
 }

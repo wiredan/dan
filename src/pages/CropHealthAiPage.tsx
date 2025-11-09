@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -18,7 +18,7 @@ export function CropHealthAiPage() {
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [analysisResult, setAnalysisResult] = useState<CropHealthAnalysis | null>(null);
   const [selectedCrop, setSelectedCrop] = useState<string>('');
-  const handleAnalyze = async () => {
+  const handleAnalyze = useCallback(async () => {
     if (!selectedCrop || !geoData) return;
     setIsAnalyzing(true);
     setAnalysisResult(null);
@@ -33,12 +33,12 @@ export function CropHealthAiPage() {
     } finally {
       setIsAnalyzing(false);
     }
-  };
+  }, [selectedCrop, geoData]);
   useEffect(() => {
     if (geoData && selectedCrop) {
       handleAnalyze();
     }
-  }, [geoData, selectedCrop]);
+  }, [geoData, selectedCrop, handleAnalyze]);
   const renderGeoStatus = () => {
     if (geoLoading) {
       return <p className="text-sm text-muted-foreground flex items-center justify-center gap-2"><Loader2 className="h-4 w-4 animate-spin" /> {t('cropHealthAI.detectingLocation')}</p>;

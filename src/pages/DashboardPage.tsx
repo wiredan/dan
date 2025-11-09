@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Activity, CreditCard, DollarSign, Users, ScanLine, ArrowRight } from "lucide-react";
+import { Activity, CreditCard, DollarSign, Users, ScanLine, ArrowRight, ShoppingBag, ListOrdered } from "lucide-react";
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis, Tooltip } from "recharts";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
@@ -145,6 +145,34 @@ export function DashboardPage() {
                     </TableBody>
                   </Table>
                 )}
+              </CardContent>
+            </Card>
+            <Card className="bg-primary/10 border-primary/20 hover:border-primary/50 transition-colors">
+              <CardHeader className="flex flex-row items-center justify-between">
+                <div className="space-y-1">
+                  <CardTitle>{t('dashboard.cards.marketplace.title')}</CardTitle>
+                  <CardDescription>{t('dashboard.cards.marketplace.description')}</CardDescription>
+                </div>
+                <ShoppingBag className="h-8 w-8 text-primary" />
+              </CardHeader>
+              <CardContent>
+                <Button asChild>
+                  <Link to="/marketplace">{t('dashboard.cards.marketplace.button')} <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                </Button>
+              </CardContent>
+            </Card>
+            <Card className="bg-primary/10 border-primary/20 hover:border-primary/50 transition-colors">
+              <CardHeader className="flex flex-row items-center justify-between">
+                <div className="space-y-1">
+                  <CardTitle>{t('dashboard.cards.myOrders.title')}</CardTitle>
+                  <CardDescription>{t('dashboard.cards.myOrders.description')}</CardDescription>
+                </div>
+                <ListOrdered className="h-8 w-8 text-primary" />
+              </CardHeader>
+              <CardContent>
+                <Button asChild>
+                  <Link to="/orders">{t('dashboard.cards.myOrders.button')} <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                </Button>
               </CardContent>
             </Card>
             <Card className="bg-primary/10 border-primary/20 hover:border-primary/50 transition-colors">

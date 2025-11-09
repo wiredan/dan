@@ -2,7 +2,7 @@
   "getStarted": "Bắt đ��u",
   "exploreMarket": "Khám phá Th�� trư��ng",
   "heroTitle": "Tương lai của Kinh doanh Nông nghiệp là Phi t���p trung",
-  "heroSubtitle": "DAN kết n��i nông dân, nhà phân phối và nhà ��ầu tư tr����n một n��n tảng an toàn, minh bạch. Giao dịch, theo dõi và th��c hiện giao dịch một cách tự tin.",
+  "heroSubtitle": "DAN kết n��i nông d��n, nhà phân phối và nhà ��ầu tư tr����n một n��n tảng an toàn, minh b���ch. Giao dịch, theo dõi và th��c hiện giao dịch một cách tự tin.",
   "featuresTitle": "Một Kỷ nguy��n Mới của Thương mại Nông nghiệp",
   "featuresSubtitle": "Nền tảng của chúng tôi đư��c xây dựng trên công nghệ tiên tiến để đảm bảo sự công bằng, minh bạch và hiệu quả.",
   "featureDirectSourcingTitle": "Ngu��n cung ��ng trực tiếp",
@@ -30,6 +30,7 @@
     "links": {
       "dashboard": "Bảng điều khiển",
       "marketplace": "Thị trường",
+      "myOrders": "Đơn hàng của tôi",
       "educationHub": "Trung tâm Gi��o dục",
       "aiTools": "Công cụ AI",
       "danAI": "Trợ lý DAN. AI",
@@ -68,6 +69,16 @@
         "title": "Sức khỏe Cây trồng AI",
         "description": "Phân tích hình ảnh vệ tinh để phát hiện bệnh sớm.",
         "button": "Phân tích ngay"
+      },
+      "marketplace": {
+        "title": "Khám phá Thị trường",
+        "description": "Duyệt và giao dịch các loại cây trồng tươi từ nông dân đã được xác minh.",
+        "button": "Đến Thị trường"
+      },
+      "myOrders": {
+        "title": "Xem Đơn hàng của tôi",
+        "description": "Theo dõi lịch sử giao dịch đang hoạt động và đã qua của bạn.",
+        "button": "Xem Đơn hàng"
       }
     },
     "overview": {
@@ -113,7 +124,7 @@
       "reasonLabel": "Lý do",
       "reasonPlaceholder": "Ví dụ: Hàng không như mô tả, chưa được giao...",
       "evidenceLabel": "Tải lên bằng chứng",
-      "fileErrorType": "Tệp phải là h��nh ảnh.",
+      "fileErrorType": "Tệp ph��i là h��nh ảnh.",
       "fileErrorSize": "Tệp phải nhỏ hơn {{size}}KB.",
       "cancel": "Hủy",
       "submit": "G���i tranh chấp"
@@ -174,7 +185,7 @@
       },
       "form": {
         "docUpload": "Tải lên Giấy tờ Tùy thân",
-        "docTypePlaceholder": "CMND, Hộ chiếu, Bằng lái xe",
+        "docTypePlaceholder": "CMND, Hộ chiếu, Bằng l��i xe",
         "selfieUpload": "Tải lên ảnh Selfie",
         "selfiePlaceholder": "Một bức ảnh rõ mặt của bạn",
         "clickToUpload": "Nhấn để tải lên",
@@ -308,7 +319,7 @@
       },
       "tokenization": {
         "title": "Giới thiệu về Token hóa Nông nghiệp",
-        "description": "Hướng d���n cho người mới bắt đầu về cách tài sản nông nghiệp có thể được biểu diễn dưới d��ng token kỹ thuật số."
+        "description": "Hướng d���n cho người mới bắt đầu về cách tài sản nông nghiệp có thể được biểu di��n dưới d��ng token kỹ thuật số."
       }
     },
     "aiChat": {
@@ -379,7 +390,7 @@
   },
   "createListing": {
     "error": {
-      "openOrderExists": "Bạn có một đơn hàng đang mở cho sản phẩm này. Vui lòng giải quyết nó trước khi tạo danh sách mới."
+      "openOrderExists": "B��n có một đơn hàng đang mở cho sản phẩm này. Vui lòng giải quyết nó trước khi tạo danh sách mới."
     }
   },
   "crops": {
@@ -426,6 +437,24 @@
     },
     "toast": {
       "success": "Thanh toán thành công! Đang chuyển hướng đến đơn hàng của bạn..."
+    }
+  },
+  "ordersPage": {
+    "title": "Đơn hàng của tôi",
+    "description": "Xem và quản lý tất cả các giao dịch trong quá khứ và hiện tại của bạn.",
+    "noOrders": "Bạn chưa đặt hoặc nhận bất kỳ đơn hàng nào.",
+    "table": {
+      "orderId": "ID Đơn hàng",
+      "product": "Sản phẩm",
+      "role": "Vai trò của bạn",
+      "status": "Trạng thái",
+      "total": "Tổng cộng",
+      "action": "Hành động",
+      "view": "Xem"
+    },
+    "roles": {
+      "buyer": "Người mua",
+      "seller": "Người bán"
     }
   }
 }

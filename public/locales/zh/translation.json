@@ -1,42 +1,43 @@
 {
   "getStarted": "���始���用",
-  "exploreMarket": "探��市场",
-  "heroTitle": "��业综合���业���未来���去中心化的",
-  "heroSubtitle": "DAN 在一���安���、���������台上连接农���、分销商和投资者。充满信心地进行贸易、追踪和交易。",
+  "exploreMarket": "探�����场",
+  "heroTitle": "��业综合���业���未来���去中心��的",
+  "heroSubtitle": "DAN 在一���安���、���������台上连接农���、分��商和投资者。充满信心地进行贸易、追踪和交易。",
   "featuresTitle": "农产���贸易的��������",
   "featuresSubtitle": "���们的平台建���在尖���技术��上�����确保公平、透明和高效。",
   "featureDirectSourcingTitle": "直接��购",
-  "featureDirectSourcingDesc": "直接������民������，无���中间商即可采购最��������农作物。",
+  "featureDirectSourcingDesc": "直接������民������，无������间商即可采购最��������农作物。",
   "featureSecureEscrowTitle": "安全托��",
-  "featureSecureEscrowDesc": "付款被安全地保��在托管账户中，并在确���交货后自动释���。",
+  "featureSecureEscrowDesc": "付款被安全地保��在托���账户中，并在确���交货后自动释���。",
   "featureTransparentLogisticsTitle": "透明物流",
-  "featureTransparentLogisticsDesc": "使用我们��进的追踪系��，实时追踪从农场到仓库的��单。",
+  "featureTransparentLogisticsDesc": "使用我们��进的追踪系��，实时追踪从农场���仓库的��单。",
   "featureMarketInsightsTitle": "市场��察",
   "featureMarketInsightsDesc": "获取实时数据和分析，以做出���明智的采购和投资决策。",
   "testimonialsTitle": "深受��区信��",
   "testimonial1Quote": "DAN 彻底改��了我销���农产品的方式。我获得了���好的价��和更快的��款。",
   "testimonial1Author": "阿������·���素福",
   "testimonial1Role": "农民，�������亚",
-  "testimonial2Quote": "平台的���明度和安全性改变了我们���销网络的游戏规则。",
+  "testimonial2Quote": "平台的���明度和���全性改变了我们���销网络的游戏规则。",
   "testimonial2Author": "卡洛斯·戈麦斯",
   "testimonial2Role": "���销商，越��",
-  "testimonial3Quote": "作���一名投资者，�����������以���满信心和��晰地参与农��市场。",
+  "testimonial3Quote": "作���一��投资者，�����������以���满信心和��晰地参与农��市场。",
   "testimonial3Author": "法蒂玛·赛义��",
   "testimonial3Role": "投资者，阿联酋",
-  "ctaTitle": "��备好加入�����������了吗？",
+  "ctaTitle": "��备好加入�����������了吗��",
   "ctaSubtitle": "�����创建账户，体验农���综合���业的未来。",
   "ctaButton": "立即���册",
   "navbar": {
     "links": {
       "dashboard": "仪表���",
       "marketplace": "市场",
+      "myOrders": "我的订单",
       "educationHub": "�����中心",
       "aiTools": "AI 工具",
       "danAI": "DAN. AI 助手",
       "cropHealthAI": "作�����康 AI"
     },
     "createListing": "创建���表",
-    "signIn": "登录",
+    "signIn": "���录",
     "signUp": "注册",
     "dropdown": {
       "profile": "个人资料",
@@ -68,6 +69,16 @@
         "title": "作物健康 AI",
         "description": "分析卫星��像���早��发�����病。",
         "button": "立即分析"
+      },
+      "marketplace": {
+        "title": "探索市场",
+        "description": "浏览和交易来自经认证农民的新鲜作物。",
+        "button": "前往市场"
+      },
+      "myOrders": {
+        "title": "查看我的订单",
+        "description": "追踪您当前和过去的交易历史。",
+        "button": "查看订单"
       }
     },
     "overview": {
@@ -122,8 +133,8 @@
     },
     "actions": {
       "updating": "更��中...",
-      "markShipped": "标����已发货",
-      "confirmDelivery": "确认��货",
+      "markShipped": "�������已发货",
+      "confirmDelivery": "确认�����",
       "confirmPickup": "确认取货",
       "dispute": "����订单",
       "resolveRelease": "解决����������金",
@@ -150,7 +161,7 @@
       "title": "发��争议",
       "description": "请描述您的���单����。管理员将审核您的申诉。",
       "reasonLabel": "���因",
-      "reasonPlaceholder": "������：商�����与描述不符���未�������...",
+      "reasonPlaceholder": "������：商�������与描述不符���未�������...",
       "evidenceLabel": "上���证据",
       "fileErrorType": "文件必�������片。",
       "fileErrorSize": "文件必������于 {{size}}KB。",
@@ -168,7 +179,7 @@
     },
     "aiAnalysis": {
       "title": "AI 争议分析",
-      "getAnalysis": "获取 AI 分析",
+      "getAnalysis": "获取 AI ���析",
       "analyzing": "正在分析争议...",
       "recommendation": "AI 建议"
     }
@@ -209,13 +220,13 @@
       },
       "pending": {
         "title": "正在验证中",
-        "description": "我们的人工智能正在分析您的文件。这可能需要几分钟时间。"
+        "description": "我们的人��智能正在分析您的文件。这可能需要几分���时间。"
       },
       "form": {
         "docUpload": "上传身份证件",
-        "docTypePlaceholder": "国民身份证、护照、驾照",
+        "docTypePlaceholder": "国民身份证、��照、驾照",
         "selfieUpload": "上传自拍照",
-        "selfiePlaceholder": "一��清晰的脸部照���",
+        "selfiePlaceholder": "一��清��的脸部照���",
         "clickToUpload": "点击上传",
         "submit": "提交验证",
         "submitting": "提交中..."
@@ -272,7 +283,7 @@
         "role": "角色",
         "kyc": "KYC 状态",
         "location": "地���",
-        "actions": "操作"
+        "actions": "操��"
       },
       "actions": {
         "promote": "����为管理员",
@@ -287,7 +298,7 @@
       "error": "获取用户���败。",
       "promoteCard": {
         "title": "���升用户为管理员",
-        "description": "输入用户���电子邮���������以�������管理员权限。",
+        "description": "输入用户���电子邮���������以����������理员权限。",
         "emailLabel": "用户邮箱",
         "promoteButton": "提升",
         "promotingButton": "提升中..."
@@ -318,7 +329,7 @@
     },
     "signup": {
       "title": "注册",
-      "description": "创建一�����账户以������使用。",
+      "description": "创建一�������户以������使用。",
       "submit": "创建账户"
     },
     "form": {
@@ -337,12 +348,12 @@
       "fillFields": "���填写所有字段。",
       "loginSuccess": "���录成功！正在重定���...",
       "signupSuccess": "注册成功！请登录。",
-      "socialNotImplemented": "{{provider}} 登录尚未实现。"
+      "socialNotImplemented": "{{provider}} 登录��未实现。"
     }
   },
   "education": {
     "title": "教育中��",
-    "description": "您的农���综合企业��������见解资源。",
+    "description": "您的农������合企业��������见解资源。",
     "readMore": "阅读更多",
     "categories": {
       "technology": "����",
@@ -370,8 +381,8 @@
         "description": "������么身份验证��于创建一个��全透明的农业综合企业市场�������要。"
       },
       "logistics": {
-        "title": "物流��供应链优���",
-        "description": "���分������简化运营和降低成本的��巧和策略。"
+        "title": "物流��供应链�����",
+        "description": "���分������简化运营和降低成本的�����和策略。"
       },
       "tokenization": {
         "title": "农业��币化简��",
@@ -393,7 +404,7 @@
       "crop": "��物",
       "price": "价格 (�����)",
       "change": "24小时���化",
-      "lastUpdated": "�����更新: {{time}}"
+      "lastUpdated": "��������新: {{time}}"
     }
   },
   "cropHealthAI": {
@@ -420,19 +431,19 @@
     "results": {
       "healthy": {
         "disease": "无（健康）",
-        "recommendation": "作物��起���很健康。继续�����监测和灌��计划。无需立即���取行动。"
+        "recommendation": "作物�������很健康。继续�����监测和灌��计划。无需立�����取行动。"
       },
       "stress": {
         "disease": "检测到水分������",
         "recommendation": "在西北象限检测到中度水分胁迫。建议��灌溉频率增���15%并��行监测。"
       },
       "fungus": {
-        "disease": "潜在的真菌性������病",
+        "disease": "潜在的真菌性��������",
         "recommendation": "症���与早期真菌性��萎病�����。建议进行���壤样���分析，并考虑有针对性地���用广谱��菌剂。"
       },
       "corn_blight": {
         "disease": "北方玉米叶枯病",
-        "recommendation": "病斑是 NCLB 的特征。如果病害普遍且作物处于抽雄前阶段，请考虑施用叶面杀菌剂。"
+        "recommendation": "病��是 NCLB 的特征。如果病害普遍且作物处于抽雄前阶段，请考虑施用叶面杀菌剂。"
       },
       "avocado_rot": {
         "disease": "鳄梨��腐病",
@@ -440,13 +451,13 @@
       },
       "ginger_wilt": {
         "disease": "细菌性枯萎病（姜）",
-        "recommendation": "极有可��是青枯雷尔氏菌。移除并销毁受感染的植物。实行轮作，并至少 3 年内避免在此田地种植。"
+        "recommendation": "极有可��是青枯雷尔氏菌。移除并销毁受感��的植物。实行轮作，并至少 3 年内避免在此田地种植。"
       }
     }
   },
   "createListing": {
     "error": {
-      "openOrderExists": "您对此��品有一个未完成的订单。请在创建新列表前解决它。"
+      "openOrderExists": "您对此�����有一个未完成的订单。请在创建新列表前解决它。"
     }
   },
   "crops": {
@@ -472,7 +483,7 @@
     "summary": {
       "title": "订单摘��",
       "quantity": "{{quantity}} {{unit}}",
-      "subtotal": "小计",
+      "subtotal": "小���",
       "fees": "交易�����",
       "total": "应付总额"
     },
@@ -480,19 +491,37 @@
       "title": "���用卡���付",
       "description": "由 Paystack 提供支持",
       "cardNumber": "卡号",
-      "expiry": "有效期",
+      "expiry": "有效��",
       "cvc": "CVC",
       "submit": "支付 {{amount}}",
       "processing": "处理中..."
     },
     "error": {
       "title": "支付错误",
-      "missingOrderId": "订单ID丢���。",
-      "fetch": "无法加载订单详情。请重试。",
+      "missingOrderId": "订单ID������。",
+      "fetch": "无法加载订单详���。请重试。",
       "generic": "发生���知错误。"
     },
     "toast": {
       "success": "支付成功！正在跳转到您的订单..."
+    }
+  },
+  "ordersPage": {
+    "title": "我的订单",
+    "description": "查看���管理您所有过去和当前的交易。",
+    "noOrders": "您还没有下过或收到任何订单。",
+    "table": {
+      "orderId": "订单ID",
+      "product": "产品",
+      "role": "您的角色",
+      "status": "状态",
+      "total": "总计",
+      "action": "操作",
+      "view": "查看"
+    },
+    "roles": {
+      "buyer": "买家",
+      "seller": "卖家"
     }
   }
 }

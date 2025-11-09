@@ -30,6 +30,7 @@
     "links": {
       "dashboard": "Dashboard",
       "marketplace": "Kasuwa",
+      "myOrders": "Ododi Na",
       "educationHub": "Cibiyar Ilimi",
       "aiTools": "Kayan Aikin AI",
       "danAI": "Mataimakin DAN. AI",
@@ -68,6 +69,16 @@
         "title": "Lafiyar Amfanin Gona AI",
         "description": "Bincika hotunan tauraron dan adam don gano cututtuka da wuri.",
         "button": "Bincika Yanzu"
+      },
+      "marketplace": {
+        "title": "Bincika Kasuwa",
+        "description": "Bincika da siyar da amfanin gona daga manoma da aka tabbatar.",
+        "button": "Je zuwa Kasuwa"
+      },
+      "myOrders": {
+        "title": "Duba Ododi Na",
+        "description": "Bibiyi tarihin ma'amaloli na yanzu da na baya.",
+        "button": "Duba Ododi"
       }
     },
     "overview": {
@@ -426,6 +437,24 @@
     },
     "toast": {
       "success": "An yi nasarar biyan kuɗi! Ana tura ka zuwa odarka..."
+    }
+  },
+  "ordersPage": {
+    "title": "Ododi Na",
+    "description": "Duba da sarrafa duk ma'amaloli na baya da na yanzu.",
+    "noOrders": "Ba ku taɓa yin ko karɓar wata oda ba tukuna.",
+    "table": {
+      "orderId": "ID na Oda",
+      "product": "Samfur",
+      "role": "Matsayinka",
+      "status": "Matsayi",
+      "total": "Jimilla",
+      "action": "Aiki",
+      "view": "Duba"
+    },
+    "roles": {
+      "buyer": "Mai Siya",
+      "seller": "Mai Siyarwa"
     }
   }
 }

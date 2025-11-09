@@ -30,6 +30,7 @@
     "links": {
       "dashboard": "Dashboard",
       "marketplace": "Marketplace",
+      "myOrders": "My Orders",
       "educationHub": "Education Hub",
       "aiTools": "AI Tools",
       "danAI": "DAN. AI Assistant",
@@ -68,6 +69,16 @@
         "title": "Crop Health AI",
         "description": "Analyze satellite imagery for early disease detection.",
         "button": "Analyze Now"
+      },
+      "marketplace": {
+        "title": "Explore Marketplace",
+        "description": "Browse and trade fresh crops from verified farmers.",
+        "button": "Go to Marketplace"
+      },
+      "myOrders": {
+        "title": "View My Orders",
+        "description": "Track your active and past transaction history.",
+        "button": "View Orders"
       }
     },
     "overview": {
@@ -583,6 +594,24 @@
     },
     "toast": {
       "success": "Payment successful! Redirecting to your order..."
+    }
+  },
+  "ordersPage": {
+    "title": "My Orders",
+    "description": "View and manage all your past and current transactions.",
+    "noOrders": "You have not placed or received any orders yet.",
+    "table": {
+      "orderId": "Order ID",
+      "product": "Product",
+      "role": "Your Role",
+      "status": "Status",
+      "total": "Total",
+      "action": "Action",
+      "view": "View"
+    },
+    "roles": {
+      "buyer": "Buyer",
+      "seller": "Seller"
     }
   }
 }

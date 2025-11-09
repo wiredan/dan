@@ -24,6 +24,7 @@ export function Navbar() {
   const navLinks = [
     { to: '/dashboard', label: t('navbar.links.dashboard') },
     { to: '/marketplace', label: t('navbar.links.marketplace') },
+    { to: '/orders', label: t('navbar.links.myOrders') },
     { to: '/education', label: t('navbar.links.educationHub') },
   ];
   const getInitials = (name: string) => {

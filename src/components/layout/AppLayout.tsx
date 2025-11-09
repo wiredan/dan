@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Toaster } from "@/components/ui/sonner";
+import { useAuthStore } from "@/lib/authStore";
 type AppLayoutProps = {
   children: React.ReactNode;
 };
@@ -20,8 +21,14 @@ export function AppLayout({ children }: AppLayoutProps): JSX.Element {
   );
 }
 // This is the root layout component for the router
-export const AppRoot = () => (
-  <AppLayout>
-    <Outlet />
-  </AppLayout>
-);
+export const AppRoot = () => {
+  const checkAuth = useAuthStore(s => s.checkAuth);
+  useEffect(() => {
+    checkAuth();
+  }, [checkAuth]);
+  return (
+    <AppLayout>
+      <Outlet />
+    </AppLayout>
+  );
+};

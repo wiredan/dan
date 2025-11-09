@@ -2,24 +2,85 @@ import { Hono } from "hono";
 import type { Env } from './core-utils';
 import { UserEntity, ListingEntity, OrderEntity } from "./entities";
 import { ok, bad, notFound, isStr } from './core-utils';
-import type { Listing, Order, User, OrderStatus, UserRole } from "@shared/types";
-export function userRoutes(app: Hono<{ Bindings: Env }>) {
-  const ensureSeedData = async (env: Env) => {
+import type { Listing, Order, User, OrderStatus, UserRole, AuthResponse } from "@shared/types";
+import { hashPassword, verifyPassword } from './auth-utils';
+// KV Namespace binding is now WIREDAN_KV
+interface HonoEnv extends Env {
+  WIREDAN_KV: KVNamespace;
+}
+export function userRoutes(app: Hono<{ Bindings: HonoEnv }>) {
+  const ensureSeedData = async (env: HonoEnv) => {
     await UserEntity.ensureSeed(env);
     await ListingEntity.ensureSeed(env);
     await OrderEntity.ensureSeed(env);
   };
+  // AUTH ROUTES
+  app.post('/api/auth/register', async (c) => {
+    const { name, email, password } = await c.req.json<{ name?: string; email?: string; password?: string }>();
+    if (!isStr(name) || !isStr(email) || !isStr(password)) return bad(c, 'Name, email, and password are required');
+    const userEntity = new UserEntity(c.env, email.toLowerCase());
+    if (await userEntity.exists()) return bad(c, 'User with this email already exists');
+    const { hash, salt } = await hashPassword(password);
+    const newUser: User = {
+      id: email.toLowerCase(),
+      name,
+      role: 'Farmer',
+      kycStatus: 'Not Submitted',
+      location: '',
+      passwordHash: hash,
+      passwordSalt: salt,
+    };
+    await UserEntity.create(c.env, newUser);
+    const { passwordHash, passwordSalt, ...userResponse } = newUser;
+    return ok(c, userResponse);
+  });
+  app.post('/api/auth/login', async (c) => {
+    const { email, password } = await c.req.json<{ email?: string; password?: string }>();
+    if (!isStr(email) || !isStr(password)) return bad(c, 'Email and password are required');
+    const userEntity = new UserEntity(c.env, email.toLowerCase());
+    if (!(await userEntity.exists())) return bad(c, 'Invalid credentials');
+    const user = await userEntity.getState();
+    if (!user.passwordHash || !user.passwordSalt) return bad(c, 'Invalid credentials');
+    const isPasswordValid = await verifyPassword(password, user.passwordHash, user.passwordSalt);
+    if (!isPasswordValid) return bad(c, 'Invalid credentials');
+    const token = crypto.randomUUID();
+    await c.env.WIREDAN_KV.put(`session:${token}`, user.id, { expirationTtl: 60 * 60 * 24 * 7 }); // 7 days
+    const { passwordHash, passwordSalt, ...userResponse } = user;
+    return ok(c, { token, user: userResponse } as AuthResponse);
+  });
+  app.post('/api/auth/logout', async (c) => {
+    const authHeader = c.req.header('Authorization');
+    const token = authHeader?.split(' ')[1];
+    if (token) {
+      await c.env.WIREDAN_KV.delete(`session:${token}`);
+    }
+    return ok(c, { message: 'Logged out' });
+  });
+  app.get('/api/auth/me', async (c) => {
+    const authHeader = c.req.header('Authorization');
+    const token = authHeader?.split(' ')[1];
+    if (!token) return c.json({ success: false, error: 'Unauthorized' }, 401);
+    const userId = await c.env.WIREDAN_KV.get(`session:${token}`);
+    if (!userId) return c.json({ success: false, error: 'Unauthorized' }, 401);
+    const userEntity = new UserEntity(c.env, userId);
+    if (!(await userEntity.exists())) return c.json({ success: false, error: 'Unauthorized' }, 401);
+    const user = await userEntity.getState();
+    const { passwordHash, passwordSalt, ...userResponse } = user;
+    return ok(c, userResponse);
+  });
   // USER ROUTES
   app.get('/api/users', async (c) => {
     await ensureSeedData(c.env);
     const { items } = await UserEntity.list(c.env);
-    return ok(c, items);
+    return ok(c, items.map(({ passwordHash, passwordSalt, ...user }) => user));
   });
   app.get('/api/users/:id', async (c) => {
     const { id } = c.req.param();
     const user = new UserEntity(c.env, id);
     if (!(await user.exists())) return notFound(c, 'user not found');
-    return ok(c, await user.getState());
+    const userData = await user.getState();
+    const { passwordHash, passwordSalt, ...userResponse } = userData;
+    return ok(c, userResponse);
   });
   app.post('/api/users/:id', async (c) => {
     const { id } = c.req.param();
@@ -28,13 +89,14 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
     if (!(await user.exists())) return notFound(c, 'user not found');
     const currentState = await user.getState();
     const updateData: Partial<User> = {};
-    // Prevent name change if KYC is verified
     if (isStr(body.name) && currentState.kycStatus !== 'Verified') {
       updateData.name = body.name;
     }
     if (isStr(body.location)) updateData.location = body.location;
     await user.patch(updateData);
-    return ok(c, await user.getState());
+    const updatedUser = await user.getState();
+    const { passwordHash, passwordSalt, ...userResponse } = updatedUser;
+    return ok(c, userResponse);
   });
   app.post('/api/users/:id/role', async (c) => {
     const { id } = c.req.param();
@@ -43,7 +105,9 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
     const user = new UserEntity(c.env, id);
     if (!(await user.exists())) return notFound(c, 'User not found');
     await user.patch({ role });
-    return ok(c, await user.getState());
+    const updatedUser = await user.getState();
+    const { passwordHash, passwordSalt, ...userResponse } = updatedUser;
+    return ok(c, userResponse);
   });
   app.post('/api/users/promote', async (c) => {
     const { email } = await c.req.json<{ email: string }>();
@@ -58,7 +122,9 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
       return bad(c, 'User is already an admin');
     }
     await user.patch({ role: 'Admin' });
-    return ok(c, await user.getState());
+    const updatedUser = await user.getState();
+    const { passwordHash, passwordSalt, ...userResponse } = updatedUser;
+    return ok(c, userResponse);
   });
   app.post('/api/users/:id/submit-kyc', async (c) => {
     const { id } = c.req.param();
@@ -67,7 +133,9 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
     await user.patch({ kycStatus: 'Pending' });
     await new Promise(resolve => setTimeout(resolve, 3000));
     await user.patch({ kycStatus: 'Verified' });
-    return ok(c, await user.getState());
+    const updatedUser = await user.getState();
+    const { passwordHash, passwordSalt, ...userResponse } = updatedUser;
+    return ok(c, userResponse);
   });
   // LISTING ROUTES
   app.get('/api/listings', async (c) => {
@@ -84,7 +152,6 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
   app.post('/api/listings', async (c) => {
     const body = await c.req.json<Omit<Listing, 'id'>>();
     if (!body.name || !body.farmerId) return bad(c, 'Missing required fields');
-    // Business logic: Prevent creating a listing if an open order for the same product exists
     const { items: allListings } = await ListingEntity.list(c.env);
     const farmerListingsWithSameName = allListings.filter(
       l => l.farmerId === body.farmerId && l.name.toLowerCase() === body.name.toLowerCase()

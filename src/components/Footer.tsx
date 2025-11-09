@@ -14,7 +14,7 @@ export function Footer() {
               Decentralized Agribusiness Network connecting farmers, distributors, and investors.
             </p>
             <div className="flex space-x-6">
-              <a href="https://twitter.com/wilaya90" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary">
+              <a href="https://twitter.com/wilaya90" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-400">
                 <span className="sr-only">Twitter</span>
                 <Twitter className="h-6 w-6" />
               </a>
@@ -49,7 +49,7 @@ export function Footer() {
         </div>
         <div className="mt-12 border-t border-border pt-8">
           <p className="text-base text-muted-foreground xl:text-center">&copy; {new Date().getFullYear()} DAN Platform. All rights reserved.</p>
-          <p className="text-sm text-muted-foreground/80 xl:text-center mt-2">Built with ��️ at Cloudflare</p>
+          <p className="text-sm text-muted-foreground/80 xl:text-center mt-2">Built with ❤️ at Cloudflare</p>
         </div>
       </div>
     </footer>

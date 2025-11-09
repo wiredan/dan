@@ -5,7 +5,15 @@ import { MOCK_USERS, MOCK_LISTINGS, MOCK_ORDERS } from "@shared/mock-data";
 export class UserEntity extends IndexedEntity<User> {
   static readonly entityName = "user";
   static readonly indexName = "users";
-  static readonly initialState: User = { id: "", name: "", role: 'Farmer', kycStatus: 'Not Submitted', location: '' };
+  static readonly initialState: User = { 
+    id: "", 
+    name: "", 
+    role: 'Farmer', 
+    kycStatus: 'Not Submitted', 
+    location: '',
+    passwordHash: undefined,
+    passwordSalt: undefined,
+  };
   static seedData = MOCK_USERS;
 }
 // LISTING ENTITY

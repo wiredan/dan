@@ -7,12 +7,14 @@ export type UserRole = 'Farmer' | 'Distributor' | 'Investor' | 'Admin' | 'Logist
 export type KycStatus = 'Not Submitted' | 'Pending' | 'Verified' | 'Rejected';
 export type OrderStatus = 'Placed' | 'Paid' | 'LogisticsPickedUp' | 'Shipped' | 'Delivered' | 'Disputed' | 'Cancelled';
 export interface User {
-  id: string;
+  id: string; // email address
   name: string;
   role: UserRole;
   kycStatus: KycStatus;
   location: string;
   avatarUrl?: string;
+  passwordHash?: string;
+  passwordSalt?: string;
 }
 export interface Listing {
   id: string;
@@ -53,6 +55,10 @@ export interface CropHealthAnalysis {
   disease: string;
   confidence: number;
   recommendation: string;
+}
+export interface AuthResponse {
+  token: string;
+  user: User;
 }
 // Legacy types from template, can be removed later
 export interface Chat {

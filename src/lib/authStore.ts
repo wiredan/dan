@@ -1,45 +1,45 @@
 import { create } from 'zustand';
-import { User } from '@shared/types';
-import { MOCK_USERS } from '@shared/mock-data';
+import { User, AuthResponse } from '@shared/types';
+import { api } from './api-client';
 interface AuthState {
   isAuthenticated: boolean;
   user: User | null;
-  login: (email: string) => void;
-  logout: () => void;
+  token: string | null;
+  login: (authResponse: AuthResponse) => void;
+  logout: () => Promise<void>;
+  checkAuth: () => Promise<void>;
 }
-const getInitialState = () => {
-  try {
-    const authData = localStorage.getItem('agrilink_auth');
-    if (authData) {
-      const { state } = JSON.parse(authData);
-      if (state.isAuthenticated && state.user) {
-        return { isAuthenticated: true, user: state.user as User };
-      }
-    }
-  } catch (error) {
-    console.error("Could not parse auth data from localStorage", error);
-  }
-  return { isAuthenticated: false, user: null };
-};
-export const useAuthStore = create<AuthState>((set) => ({
-  ...getInitialState(),
-  login: (email) => {
-    const foundUser = MOCK_USERS.find(u => u.id.toLowerCase().includes(email.toLowerCase()) || u.name.toLowerCase().includes(email.split('@')[0])) || MOCK_USERS[0];
-    const newState = { isAuthenticated: true, user: foundUser };
-    set(newState);
+export const useAuthStore = create<AuthState>((set, get) => ({
+  isAuthenticated: false,
+  user: null,
+  token: localStorage.getItem('agrilink_token'),
+  login: (authResponse) => {
+    const { token, user } = authResponse;
+    localStorage.setItem('agrilink_token', token);
+    set({ isAuthenticated: true, user, token });
+  },
+  logout: async () => {
     try {
-      localStorage.setItem('agrilink_auth', JSON.stringify({ state: newState }));
+      await api('/api/auth/logout', { method: 'POST' });
     } catch (error) {
-      console.error("Could not save auth data to localStorage", error);
+      console.error("Logout failed:", error);
+    } finally {
+      localStorage.removeItem('agrilink_token');
+      set({ isAuthenticated: false, user: null, token: null });
     }
   },
-  logout: () => {
-    const newState = { isAuthenticated: false, user: null };
-    set(newState);
+  checkAuth: async () => {
+    const token = get().token;
+    if (!token) {
+      return set({ isAuthenticated: false, user: null, token: null });
+    }
     try {
-      localStorage.removeItem('agrilink_auth');
+      const user = await api<User>('/api/auth/me');
+      set({ isAuthenticated: true, user, token });
     } catch (error) {
-      console.error("Could not remove auth data from localStorage", error);
+      console.error("Session validation failed:", error);
+      localStorage.removeItem('agrilink_token');
+      set({ isAuthenticated: false, user: null, token: null });
     }
   },
 }));

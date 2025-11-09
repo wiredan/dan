@@ -8,7 +8,7 @@
   "featureDirectSourcingTitle": "Samun Kai tsaye",
   "featureDirectSourcingDesc": "Haɗa kai tsaye da manoma don samun amfanin gona mafi sabo ba tare da masu shiga tsakani ba.",
   "featureSecureEscrowTitle": "Escrow Mai Aminci",
-  "featureSecureEscrowDesc": "Ana riƙe biyan ku��i a cikin escrow kuma ana sakewa ta atomatik bayan an tabbatar da isarwa.",
+  "featureSecureEscrowDesc": "Ana riƙe biyan kuɗi a cikin escrow kuma ana sakewa ta atomatik bayan an tabbatar da isarwa.",
   "featureTransparentLogisticsTitle": "Kayan Aiki na Gaskiya",
   "featureTransparentLogisticsDesc": "Bibiyi odar ku a ainihin lokacin daga gona zuwa sito ɗinku tare da ingantaccen tsarin bibiyar mu.",
   "featureMarketInsightsTitle": "Fahimtar Kasuwa",
@@ -338,6 +338,9 @@
       "price": "Farashi (USD)",
       "change": "Canjin 24h",
       "lastUpdated": "An sabunta a: {{time}}"
+    },
+    "voiceReader": {
+      "toggleTooltip": "Canza Mai Karanta Murya"
     }
   },
   "cropHealthAI": {

@@ -3,12 +3,12 @@
   "exploreMarket": "Explorer le Marché",
   "heroTitle": "L'avenir de l'agro-industrie est décentralisé",
   "heroSubtitle": "DAN connecte les agriculteurs, les distributeurs et les investisseurs sur une plateforme sécurisée et transparente. Échangez, suivez et effectuez des transactions en toute confiance.",
-  "featuresTitle": "Une nouvelle ��re du commerce agricole",
+  "featuresTitle": "Une nouvelle ère du commerce agricole",
   "featuresSubtitle": "Notre plateforme est construite sur une technologie de pointe pour garantir l'équité, la transparence et l'efficacité.",
   "featureDirectSourcingTitle": "Approvisionnement Direct",
   "featureDirectSourcingDesc": "Connectez-vous directement avec les agriculteurs pour obtenir les récoltes les plus fraîches sans intermédiaires.",
   "featureSecureEscrowTitle": "Séquestre Sécurisé",
-  "featureSecureEscrowDesc": "Les paiements sont conserv��s en toute sécurité sous séquestre et libérés automatiquement après confirmation de la livraison.",
+  "featureSecureEscrowDesc": "Les paiements sont conservés en toute sécurité sous séquestre et libérés automatiquement après confirmation de la livraison.",
   "featureTransparentLogisticsTitle": "Logistique Transparente",
   "featureTransparentLogisticsDesc": "Suivez vos commandes en temps réel de la ferme à votre entrepôt grâce à notre système de suivi avancé.",
   "featureMarketInsightsTitle": "Aperçus du Marché",
@@ -324,7 +324,7 @@
     },
     "login": {
       "title": "Connexion",
-      "description": "Entrez vos identifiants pour accéder �� votre compte.",
+      "description": "Entrez vos identifiants pour accéder à votre compte.",
       "submit": "Se connecter"
     },
     "signup": {
@@ -405,6 +405,9 @@
       "price": "Prix (USD)",
       "change": "Changement 24h",
       "lastUpdated": "Dernière mise à jour : {{time}}"
+    },
+    "voiceReader": {
+      "toggleTooltip": "Activer/Désactiver le lecteur vocal"
     }
   },
   "cropHealthAI": {
@@ -424,7 +427,7 @@
     "analyzing": "Analyse en cours...",
     "mayTakeMoment": "Cela peut prendre un moment...",
     "resultsTitle": "Résultats de l'Analyse",
-    "resultsPlaceholder": "Les résultats de votre analyse apparaîtront ici.",
+    "resultsPlaceholder": "Les résultats de votre analyse appara��tront ici.",
     "disease": "Diagnostic",
     "confidence": "Confiance",
     "recommendation": "Recommandation",
@@ -439,7 +442,7 @@
       },
       "fungus": {
         "disease": "Mildiou Fongique Potentiel",
-        "recommendation": "Signes compatibles avec un mildiou fongique à un stade précoce. Il est recommandé d'analyser un échantillon de sol et d'envisager l'application ciblée d'un fongicide à large spectre."
+        "recommendation": "Signes compatibles avec un mildiou fongique �� un stade précoce. Il est recommandé d'analyser un échantillon de sol et d'envisager l'application ciblée d'un fongicide à large spectre."
       },
       "corn_blight": {
         "disease": "Helminthosporiose du maïs",
@@ -509,7 +512,7 @@
   "ordersPage": {
     "title": "Mes Commandes",
     "description": "Affichez et gérez toutes vos transactions passées et actuelles.",
-    "noOrders": "Vous n'avez pas encore passé ou re��u de commandes.",
+    "noOrders": "Vous n'avez pas encore passé ou reçu de commandes.",
     "table": {
       "orderId": "ID Commande",
       "product": "Produit",

@@ -442,6 +442,9 @@
       "price": "Price (USD)",
       "change": "24h Change",
       "lastUpdated": "Last updated: {{time}}"
+    },
+    "voiceReader": {
+      "toggleTooltip": "Toggle Voice Reader"
     }
   },
   "cropHealthAI": {

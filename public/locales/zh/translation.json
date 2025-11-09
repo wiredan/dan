@@ -1,73 +1,73 @@
 {
-  "getStarted": "���始���用",
-  "exploreMarket": "探�����场",
-  "heroTitle": "��业综合���业���未来���去中心��的",
-  "heroSubtitle": "DAN 在一���安���、���������台上连接农���、分��商和投资者。充满信心地进行贸易、追踪和交易。",
-  "featuresTitle": "农产���贸易的��������",
-  "featuresSubtitle": "���们的平台建���在尖���技术��上�����确保公平、透明和高效。",
-  "featureDirectSourcingTitle": "直接��购",
-  "featureDirectSourcingDesc": "直接������民������，无������间商即可采购最��������农作物。",
-  "featureSecureEscrowTitle": "安全托��",
-  "featureSecureEscrowDesc": "付款被安全地保��在托���账户中，并在确���交货后自动释���。",
+  "getStarted": "开始使用",
+  "exploreMarket": "探索市���",
+  "heroTitle": "农业综合企业的未来是去中心化的",
+  "heroSubtitle": "DAN 在一个��全、透明的平台上连接农民、分销商和投资者。充满信心地进行贸易、追踪和交易。",
+  "featuresTitle": "农产品贸易的新纪元",
+  "featuresSubtitle": "我们的平台建立在���端技术之上，以确保公平、透明和高效。",
+  "featureDirectSourcingTitle": "直接采购",
+  "featureDirectSourcingDesc": "直接与农民联系，无需中间商即可采购最新鲜的农作物。",
+  "featureSecureEscrowTitle": "安全托管",
+  "featureSecureEscrowDesc": "付款被安全地保��在托管账户中，并在确认交货后自动释放。",
   "featureTransparentLogisticsTitle": "透明物流",
-  "featureTransparentLogisticsDesc": "使用我们��进的追踪系��，实时追踪从农场���仓库的��单。",
-  "featureMarketInsightsTitle": "市场��察",
-  "featureMarketInsightsDesc": "获取实时数据和分析，以做出���明智的采购和投资决策。",
-  "testimonialsTitle": "深受��区信��",
-  "testimonial1Quote": "DAN 彻底改��了我销���农产品的方式。我获得了���好的价��和更快的��款。",
-  "testimonial1Author": "阿������·���素福",
-  "testimonial1Role": "农民，�������亚",
-  "testimonial2Quote": "平台的���明度和���全性改变了我们���销网络的游戏规则。",
+  "featureTransparentLogisticsDesc": "使用我们先进的追踪系统，实时追踪从农场到仓库的订单。",
+  "featureMarketInsightsTitle": "市场洞察",
+  "featureMarketInsightsDesc": "获取实时数据和分析，以做出更明智的采购和投资决策。",
+  "testimonialsTitle": "深受社区信赖",
+  "testimonial1Quote": "DAN 彻底改变了我销售农产品的方式。我获得了更好的价格和更快的付款。",
+  "testimonial1Author": "阿米娜·优素福",
+  "testimonial1Role": "农民，尼日利亚",
+  "testimonial2Quote": "平台的透明度和安全性改变了我们分销网络的游戏规则。",
   "testimonial2Author": "卡洛斯·戈麦斯",
-  "testimonial2Role": "���销商，越��",
-  "testimonial3Quote": "作���一��投资者，�����������以���满信心和��晰地参与农��市场。",
-  "testimonial3Author": "法蒂玛·赛义��",
+  "testimonial2Role": "分销商，越南",
+  "testimonial3Quote": "作为一名投资者，��终于可以充满信心和清晰地参与农业市场。",
+  "testimonial3Author": "法蒂玛·赛义德",
   "testimonial3Role": "投资者，阿联酋",
-  "ctaTitle": "��备好加入�����������了吗��",
-  "ctaSubtitle": "�����创建账户，体验农���综合���业的未来。",
-  "ctaButton": "立即���册",
+  "ctaTitle": "准备好加入���场革命了吗？",
+  "ctaSubtitle": "今天创建账户，体验农业综合企业的未来。",
+  "ctaButton": "立即注册",
   "navbar": {
     "links": {
-      "dashboard": "仪表���",
+      "dashboard": "仪表盘",
       "marketplace": "市场",
       "myOrders": "我的订单",
-      "educationHub": "�����中心",
+      "educationHub": "教育中心",
       "aiTools": "AI 工具",
       "danAI": "DAN. AI 助手",
-      "cropHealthAI": "作�����康 AI"
+      "cropHealthAI": "作物健康 AI"
     },
-    "createListing": "创建���表",
+    "createListing": "创建列表",
     "signIn": "���录",
     "signUp": "注册",
     "dropdown": {
       "profile": "个人资料",
-      "adminPanel": "管理面���",
+      "adminPanel": "管理面板",
       "logout": "登出"
     }
   },
   "dashboard": {
     "title": "仪表盘",
-    "welcome": "����������，{{name}}��这是您的���户摘要。",
+    "welcome": "欢迎回来，{{name}}！这是您的账户摘要。",
     "cards": {
       "revenue": {
-        "title": "总收入",
-        "subtitle": "���上个���增���20.1%"
+        "title": "总��入",
+        "subtitle": "比上个月增长20.1%"
       },
       "activeOrders": {
-        "title": "活动������",
-        "subtitle": "总共 {{count}} 个订��"
+        "title": "活动订单",
+        "subtitle": "总共 {{count}} 个订单"
       },
       "connections": {
         "title": "连接",
-        "subtitle": "���上个���增长180.1%"
+        "subtitle": "比上个月增长180.1%"
       },
       "marketActivity": {
-        "title": "市场����",
-        "subtitle": "���上一小�����来��增2个"
+        "title": "市场活动",
+        "subtitle": "自上一小时以来新增2个"
       },
       "cropHealth": {
         "title": "作物健康 AI",
-        "description": "分析卫星��像���早��发�����病。",
+        "description": "分析卫星图像以早期发现疾病。",
         "button": "立即分析"
       },
       "marketplace": {
@@ -77,7 +77,7 @@
       },
       "myOrders": {
         "title": "查看我的订单",
-        "description": "追踪您当前和过去的交易历史。",
+        "description": "追踪您当前���过去的交易历史。",
         "button": "查看订单"
       }
     },
@@ -85,93 +85,93 @@
       "title": "概览"
     },
     "recentOrders": {
-      "title": "最�����单",
-      "description": "您最��的�����。",
+      "title": "最近订单",
+      "description": "您最近的交易。",
       "table": {
         "id": "订单ID",
-        "status": "������",
-        "amount": "金���"
+        "status": "状态",
+        "amount": "金额"
       }
     }
   },
   "listingDetail": {
     "order": {
-      "success": "下单成功��正���跳转到支付页面...",
+      "success": "下单��功！正在跳转到支付页面...",
       "error": "下单失败。",
-      "placing": "正在��单...",
-      "isOwner": "这是您的���表",
+      "placing": "正在下单...",
+      "isOwner": "这是您的列表",
       "place": "下单"
     }
   },
   "orderTracking": {
     "title": "订单追踪",
     "orderId": "订单ID",
-    "orderComplete": "���订单已完成。",
-    "underReview": "此订单正在审���中。",
+    "orderComplete": "此订单已完成。",
+    "underReview": "此订单正在审核中。",
     "status": {
       "title": "订单状态",
-      "placed": "��下单",
-      "paid": "����已托管",
-      "logisticsPickedUp": "已����",
+      "placed": "已下单",
+      "paid": "款项已托管",
+      "logisticsPickedUp": "已取货",
       "shipped": "已发货",
-      "delivered": "已送达"
+      "delivered": "已��达"
     },
     "summary": {
       "title": "订单摘要",
       "quantity": "数量",
-      "price": "��格",
+      "price": "价格",
       "subtotal": "小计",
-      "fees": "����� (2.5%)",
+      "fees": "手��费 (2.5%)",
       "total": "总计"
     },
     "participants": {
       "title": "参与者",
       "buyer": "买家",
       "seller": "卖家",
-      "logistics": "���流",
-      "logisticsPartner": "DAN 物流���作�����"
+      "logistics": "物流",
+      "logisticsPartner": "DAN 物流合作���伴"
     },
     "actions": {
-      "updating": "更��中...",
-      "markShipped": "�������已发货",
-      "confirmDelivery": "确认�����",
+      "updating": "更新中...",
+      "markShipped": "标记为已发货",
+      "confirmDelivery": "确认收货",
       "confirmPickup": "确认取货",
-      "dispute": "����订单",
-      "resolveRelease": "解决����������金",
+      "dispute": "争议订单",
+      "resolveRelease": "解决并释放资金",
       "resolveRefund": "解决并退款给买家",
-      "cancelOrder": "取消订单���������������"
+      "cancelOrder": "取消订单（管理员）"
     },
     "error": {
       "fetch": "获取订单详情失败"
     },
     "notFound": {
-      "title": "未���到订单",
-      "description": "您正在寻找的订单�����在。",
+      "title": "未找到订单",
+      "description": "您正在寻找的订单不存在。",
       "button": "返回仪表盘"
     },
     "toast": {
-      "statusUpdated": "订单状态已������为 {{status}}",
-      "statusUpdateFailed": "更新订单状态���败。",
-      "disputeSubmitted": "争议提�����功。",
+      "statusUpdated": "订单状态已更新为 {{status}}",
+      "statusUpdateFailed": "更新订单状态失败。",
+      "disputeSubmitted": "争议提交成功。",
       "disputeFailed": "提交争议失败。",
       "disputeResolved": "争议解决成功。",
       "resolveFailed": "解决争议失败。"
     },
     "disputeModal": {
-      "title": "发��争议",
-      "description": "请描述您的���单����。管理员将审核您的申诉。",
-      "reasonLabel": "���因",
-      "reasonPlaceholder": "������：商�������与描述不符���未�������...",
-      "evidenceLabel": "上���证据",
-      "fileErrorType": "文件必�������片。",
-      "fileErrorSize": "文件必������于 {{size}}KB。",
+      "title": "发起争议",
+      "description": "请描述您的���单问题。管理员将审核您的申诉。",
+      "reasonLabel": "原因",
+      "reasonPlaceholder": "例如：商品与描述不符、未收到货...",
+      "evidenceLabel": "上传证据",
+      "fileErrorType": "文件必须是图片。",
+      "fileErrorSize": "文件必须小于 {{size}}KB。",
       "cancel": "取消",
       "submit": "提交争议"
     },
     "timelineChart": {
-      "title": "订单时间��图表",
+      "title": "订单时间线图表",
       "tooltipLabel": "状态: {{status}}",
-      "tooltipIntro": "小时在��������"
+      "tooltipIntro": "小时在此阶段"
     },
     "disputeDetails": {
       "title": "争议详情",
@@ -189,23 +189,23 @@
     "tabs": {
       "profile": "个人资料",
       "kyc": "KYC 验证",
-      "payment": "�����方式"
+      "payment": "支付方式"
     },
     "profile": {
-      "title": "个人��息",
-      "description": "在此更新您的个人详��信息。",
+      "title": "个人信息",
+      "description": "在此更新您的个人详细信息。",
       "form": {
-        "name": "���名",
-        "nameDisabledTooltip": "KYC 验证后无法更改姓名。",
-        "email": "电子��件",
-        "location": "地��",
+        "name": "全名",
+        "nameDisabledTooltip": "KYC 验证后无��更改姓名。",
+        "email": "电子邮件",
+        "location": "地区",
         "save": "保存更改",
         "saving": "保存中...",
         "theme": {
-          "label": "���题",
-          "light": "浅��",
-          "dark": "��色",
-          "system": "���统"
+          "label": "主题",
+          "light": "浅色",
+          "dark": "深色",
+          "system": "系统"
         }
       },
       "success": "个人资料更新成功！",
@@ -213,45 +213,45 @@
     },
     "kyc": {
       "title": "KYC 验证",
-      "description": "验证您的身份以�����全�����台功能。",
+      "description": "验证您的身份以解���全部平台功能。",
       "verified": {
-        "title": "���的账户已通过验证！",
-        "description": "您���������平台功能的完全访���权��。"
+        "title": "您的账户已通过验证！",
+        "description": "您拥有全部平台功能的完全访问��限。"
       },
       "pending": {
         "title": "正在验证中",
-        "description": "我们的人��智能正在分析您的文件。这可能需要几分���时间。"
+        "description": "我们的人工智能正在分析您的文件。这可能需要几分钟时间。"
       },
       "form": {
         "docUpload": "上传身份证件",
-        "docTypePlaceholder": "国民身份证、��照、驾照",
+        "docTypePlaceholder": "国民身份证、护照、驾照",
         "selfieUpload": "上传自拍照",
-        "selfiePlaceholder": "一��清��的脸部照���",
+        "selfiePlaceholder": "一张清晰的脸部照片",
         "clickToUpload": "点击上传",
         "submit": "提交验证",
-        "submitting": "提交中..."
+        "submitting": "���交中..."
       },
       "toast": {
-        "submitted": "KYC 文件������交审核。�����为��������",
+        "submitted": "KYC 文件已提交审核。（此为演示）",
         "verified": "KYC 验证成功！",
-        "error": "KYC 提交失败。请重���。"
+        "error": "KYC 提交失败。请���试。"
       }
     },
     "payment": {
-      "title": "��付方式",
-      "description": "管理您已连接的���付方式。",
+      "title": "支付方式",
+      "description": "管理您已连接的支付方式。",
       "tabs": {
         "bank": "银行账户",
-        "card": "��",
+        "card": "卡",
         "wallet": "Sidrachain 钱包"
       },
       "form": {
         "bankName": "银行名称",
         "iban": "IBAN",
-        "cardNumber": "卡��",
+        "cardNumber": "卡号",
         "expiry": "有效期",
         "cvc": "CVC",
-        "walletAddress": "钱包地��",
+        "walletAddress": "钱包地址",
         "submit": {
           "bank": "连接账户",
           "card": "连接卡",
@@ -259,46 +259,46 @@
         }
       },
       "toast": {
-        "connected": "{{method}} 连接成功！���演���）"
+        "connected": "{{method}} 连接成功！（演示）"
       },
       "disabledAlert": {
         "title": "管理已禁用",
-        "description": "您有活动订单时无法更改付��方式。请先完成或取消所有订单。"
+        "description": "您有活动订单时无法更改付款方式。请��完成或取消所有订单。"
       }
     }
   },
   "admin": {
-    "title": "管理面��",
-    "description": "管理平台��户�������。",
+    "title": "管理面板",
+    "description": "管理平台用户和设置。",
     "tabs": {
       "users": "用户管理",
-      "transactions": "交��"
+      "transactions": "交易"
     },
     "users": {
       "title": "用户管理",
-      "description": "查看和管理平台上的�����������用户。",
+      "description": "查看和管理平台上的所有注册用户。",
       "table": {
         "id": "用户ID",
         "name": "姓名",
         "role": "角色",
         "kyc": "KYC 状态",
-        "location": "地���",
-        "actions": "操��"
+        "location": "地区",
+        "actions": "操作"
       },
       "actions": {
-        "promote": "����为管理员",
-        "demote": "��管理员�������"
+        "promote": "提升为管理员",
+        "demote": "从管理员降级"
       },
       "toast": {
         "roleSuccess": "用户角色更新成功。",
         "roleError": "更新用户角色失败。",
         "promoteSuccess": "用户成功提升为管理员。",
-        "promoteError": "提升用户������。"
+        "promoteError": "提升用户失败。"
       },
-      "error": "获取用户���败。",
+      "error": "获取用户失败。",
       "promoteCard": {
-        "title": "���升用户为管理员",
-        "description": "输入用户���电子邮���������以����������理员权限。",
+        "title": "提升用户为管理员",
+        "description": "输入用户的��子邮件地址以授予其管理员权限。",
         "emailLabel": "用户邮箱",
         "promoteButton": "提升",
         "promotingButton": "提升中..."
@@ -319,99 +319,102 @@
   },
   "auth": {
     "tabs": {
-      "login": "登��",
-      "signup": "���册"
+      "login": "登录",
+      "signup": "注册"
     },
     "login": {
-      "title": "登��",
-      "description": "输入您的凭据以访问���的账户。",
+      "title": "登录",
+      "description": "输入您的凭据以访问您的账户。",
       "submit": "登录"
     },
     "signup": {
       "title": "注册",
-      "description": "创建一�������户以������使用。",
+      "description": "创建一个新账户以开始使用。",
       "submit": "创建账户"
     },
     "form": {
       "email": "电子邮件",
-      "password": "�����",
-      "name": "������",
-      "namePlaceholder": "������"
+      "password": "密码",
+      "name": "姓名",
+      "namePlaceholder": "张三"
     },
     "social": {
-      "divider": "��使用����方式��续",
+      "divider": "或使用以下方式继续",
       "google": "使用 Google 继续",
       "apple": "使用 Apple 继续",
       "microsoft": "使用 Microsoft 继续"
     },
     "toast": {
-      "fillFields": "���填写所有字段。",
-      "loginSuccess": "���录成功！正在重定���...",
+      "fillFields": "请填写所有字段。",
+      "loginSuccess": "登录成功！正在重定向...",
       "signupSuccess": "注册成功！请登录。",
-      "socialNotImplemented": "{{provider}} 登录��未实现。"
+      "socialNotImplemented": "{{provider}} 登录尚未实现。"
     }
   },
   "education": {
-    "title": "教育中��",
-    "description": "您的农������合企业��������见解资源。",
+    "title": "教育中���",
+    "description": "您的农业综合企业知识和见解资源。",
     "readMore": "阅读更多",
     "categories": {
-      "technology": "����",
+      "technology": "技术",
       "farming": "农业",
-      "markets": "���场",
-      "security": "��全",
+      "markets": "市场",
+      "security": "安全",
       "logistics": "���流",
       "investment": "投资"
     },
     "articles": {
       "defi": {
-        "title": "��解农业中的去中����金���",
-        "description": "探索区块链和DeFi���何改变农业供���链，为农民和投资者提供新机��。"
+        "title": "理解��业中的去中心化金融",
+        "description": "探索区���链和DeFi如何改变农业供应链，为农民和投资者提供新机遇。"
       },
       "sustainable": {
-        "title": "可持续农业��最佳实���",
-        "description": "了解提���作物��量���时保护环境以造福后��的现代技术。"
+        "title": "可持续农业的最佳实践",
+        "description": "了解提高作物产量同时保护环境以造福后代的现代技术。"
       },
       "markets": {
-        "title": "驾驭全���粮����物市场",
-        "description": "��析���前市场趋�����价格波动以及如何在���台上做��明智的交易决策。"
+        "title": "驾驭全球粮食作物市场",
+        "description": "分析当前市场趋势、价格波动以及如何在平台上做出明智的交易决策。"
       },
       "kyc": {
-        "title": "KYC在建立������中的作��",
-        "description": "������么身份验证��于创建一个��全透明的农业综合企业市场�������要。"
+        "title": "KYC在建立信任中的作���",
+        "description": "为什么身份验证对于创建一个安全透明的农业综合企业市场至关重要。"
       },
       "logistics": {
-        "title": "物流��供应链�����",
-        "description": "���分������简化运营和降低成本的�����和策略。"
+        "title": "物流和供应链优化",
+        "description": "为分销商简化运营和降低成本的技巧和策略。"
       },
       "tokenization": {
-        "title": "农业��币化简��",
-        "description": "关于如何���农业资产������������代币，从��释放流动性和投资的������者������。"
+        "title": "农业代币化简介",
+        "description": "关于如何将农业资产表示为数字代币，从而释��流动性和投资的初学者指南。"
       }
     },
     "aiChat": {
       "title": "DAN AI 助手",
-      "greeting": "������������是去中心化农业综合企业网��AI。您可以�����任何���于���������格、物流或我们平台功能的问题。",
+      "greeting": "您好！我是去中心化农业综合企业网络AI。您可以问我任何关于市场价格、物流或我们平台功能的问题。",
       "placeholder": "询问市场趋势...",
-      "send": "�����"
+      "send": "发���"
     }
   },
   "danAI": {
     "title": "DAN. AI",
-    "description": "您的人工智能助手，提供���时市场数据和见解。",
+    "description": "您的人工智能助手，提供实时市场数据和见解。",
     "marketData": {
-      "title": "���时市场数据",
-      "crop": "��物",
-      "price": "价格 (�����)",
-      "change": "24小时���化",
-      "lastUpdated": "��������新: {{time}}"
+      "title": "实时市场数据",
+      "crop": "作物",
+      "price": "价格 (���元)",
+      "change": "24小时变化",
+      "lastUpdated": "最后���新: {{time}}"
+    },
+    "voiceReader": {
+      "toggleTooltip": "切换语音阅读器"
     }
   },
   "cropHealthAI": {
     "title": "作物健康 AI",
-    "description": "利用人工智能通过卫星图像及早���现作物病害。",
+    "description": "利用人工智能通过���星图像及早发现作物病害。",
     "analysisTitle": "开始分析",
-    "analysisDesc": "���择作物类型，然后使用您的位置进行卫星图像分析。",
+    "analysisDesc": "选择作物类型，然后使用您的位置进行���星图像分析。",
     "selectCrop": {
       "label": "选择作物类型",
       "placeholder": "选择要分析的作物"
@@ -419,45 +422,45 @@
     "detectLocationButton": "检测位置并分析",
     "detectingLocation": "正在检测您的位置...",
     "locationDetected": "已找到位置: {{lat}}, {{lon}}",
-    "locationError": "无��获取位置: {{message}}",
-    "permissionDenied": "位置权限��������。请在���览器设置中启用。",
+    "locationError": "���法获取位置: {{message}}",
+    "permissionDenied": "位置权限被拒绝。请在浏览器设置中启用。",
     "analyzing": "分析中...",
-    "mayTakeMoment": "�����能��要一些时间...",
+    "mayTakeMoment": "这可能需要一些时间...",
     "resultsTitle": "分析结果",
-    "resultsPlaceholder": "您的分析结果������示在此处。",
-    "disease": "诊��",
-    "confidence": "���信度",
+    "resultsPlaceholder": "您的分析结果将���示在此处。",
+    "disease": "诊断",
+    "confidence": "置信度",
     "recommendation": "建议",
     "results": {
       "healthy": {
         "disease": "无（健康）",
-        "recommendation": "作物�������很健康。继续�����监测和灌��计划。无需立�����取行动。"
+        "recommendation": "作物看起来很健康。继续标��监测和灌溉计划。无需立即采取行动。"
       },
       "stress": {
-        "disease": "检测到水分������",
-        "recommendation": "在西北象限检测到中度水分胁迫。建议��灌溉频率增���15%并��行监测。"
+        "disease": "检测到水分胁迫",
+        "recommendation": "在西北象限检测到中度水分胁迫。建议将灌溉频率��加15%并进行监测。"
       },
       "fungus": {
-        "disease": "潜在的真菌性��������",
-        "recommendation": "症���与早期真菌性��萎病�����。建议进行���壤样���分析，并考虑有针对性地���用广谱��菌剂。"
+        "disease": "潜在的真菌性枯���病",
+        "recommendation": "症状与早期真菌性枯萎病一致。建议进行土壤样本分析，并考虑有针对性地施用广谱杀菌剂。"
       },
       "corn_blight": {
         "disease": "北方玉米叶枯病",
-        "recommendation": "病��是 NCLB 的特征。如果病害普遍且作物处于抽雄前阶段，请考虑施用叶面杀菌剂。"
+        "recommendation": "病斑是 NCLB 的特征。如果病害普遍且作物处于抽雄前阶段，请考虑施用叶面杀菌剂。"
       },
       "avocado_rot": {
-        "disease": "鳄梨��腐病",
-        "recommendation": "症状表明是樟疫��菌。立即改善土壤排水，并考虑施用亚磷酸盐类杀菌剂。"
+        "disease": "鳄梨根腐病",
+        "recommendation": "症状表明是樟疫霉菌。���即改善土壤排水，并考虑施用亚磷酸盐类杀菌剂。"
       },
       "ginger_wilt": {
         "disease": "细菌性枯萎病（姜）",
-        "recommendation": "极有可��是青枯雷尔氏菌。移除并销毁受感��的植物。实行轮作，并至少 3 年内避免在此田地种植。"
+        "recommendation": "极有可能是青枯雷尔氏菌。移除并销毁受感染的植物。��行轮作，并至少 3 年内避免在此田地种植。"
       }
     }
   },
   "createListing": {
     "error": {
-      "openOrderExists": "您对此�����有一个未完成的订单。请在创建新列表前解决它。"
+      "openOrderExists": "您对此产品有一个未完成的订单。请在创建新列表前解决它。"
     }
   },
   "crops": {
@@ -466,41 +469,41 @@
     "ginger": "姜"
   },
   "currency": {
-    "switcherTooltip": "更改�������",
+    "switcherTooltip": "更改货币",
     "names": {
       "usd": "���元",
-      "ngn": "尼��利�����拉",
-      "eur": "��元",
-      "usdt": "泰达���",
+      "ngn": "尼日利亚奈拉",
+      "eur": "欧元",
+      "usdt": "泰达币",
       "dan": "DAN 代币",
-      "sda": "SDA ��币",
-      "cny": "人民���"
+      "sda": "SDA 硬币",
+      "cny": "人民币"
     }
   },
   "payment": {
-    "title": "���成您的付款",
+    "title": "完成您的付款",
     "description": "安全地完成您的订单 #{{orderId}} 交易。",
     "summary": {
-      "title": "订单摘��",
+      "title": "订单摘要",
       "quantity": "{{quantity}} {{unit}}",
-      "subtotal": "小���",
-      "fees": "交易�����",
+      "subtotal": "小计",
+      "fees": "交易手续���",
       "total": "应付总额"
     },
     "form": {
-      "title": "���用卡���付",
+      "title": "使用卡支付",
       "description": "由 Paystack 提供支持",
       "cardNumber": "卡号",
-      "expiry": "有效��",
+      "expiry": "有效期",
       "cvc": "CVC",
       "submit": "支付 {{amount}}",
       "processing": "处理中..."
     },
     "error": {
       "title": "支付错误",
-      "missingOrderId": "订单ID������。",
-      "fetch": "无法加载订单详���。请重试。",
-      "generic": "发生���知错误。"
+      "missingOrderId": "订单ID缺失。",
+      "fetch": "无法加载订单详情。请重试。",
+      "generic": "发生未知错误。"
     },
     "toast": {
       "success": "支付成功！正在跳转到您的订单..."
@@ -508,12 +511,12 @@
   },
   "ordersPage": {
     "title": "我的订单",
-    "description": "查看���管理您所有过去和当前的交易。",
-    "noOrders": "您还没有下过或收到任何订单。",
+    "description": "查看和管理您所有过去和当前的交易。",
+    "noOrders": "您还没有下过或收到���何订单。",
     "table": {
       "orderId": "订单ID",
       "product": "产品",
-      "role": "您的角色",
+      "role": "您的角���",
       "status": "状态",
       "total": "总计",
       "action": "操作",

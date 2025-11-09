@@ -8,8 +8,19 @@ export async function api<T>(path: string, init?: RequestInit): Promise<T> {
     headers.set('Authorization', `Bearer ${token}`);
   }
   const res = await fetch(path, { ...init, headers });
+  if (!res.ok) {
+    const contentType = res.headers.get('content-type');
+    if (contentType && contentType.includes('application/json')) {
+      const errorJson = await res.json();
+      throw new Error(errorJson.error || 'Request failed');
+    } else {
+      const errorText = await res.text();
+      throw new Error(errorText || 'Request failed');
+    }
+  }
+
   const json = (await res.json()) as ApiResponse<T>;
-  if (!res.ok || !json.success) {
+  if (!json.success) {
     throw new Error(json.error || 'Request failed');
   }
   return json.data;

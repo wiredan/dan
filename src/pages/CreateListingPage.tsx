@@ -36,9 +36,9 @@ export function CreateListingPage() {
       name: '',
       description: '',
       category: undefined,
-      price: undefined,
+      price: 0,
       unit: 'kg',
-      quantity: undefined,
+      quantity: 0,
       grade: 'A',
       imageUrl: 'https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?q=80&w=800',
     },
@@ -161,7 +161,6 @@ export function CreateListingPage() {
                             step="0.01"
                             placeholder="0.00"
                             {...field}
-                            value={field.value ?? ''}
                           />
                         </FormControl>
                         <FormMessage />
@@ -190,7 +189,6 @@ export function CreateListingPage() {
                             type="number"
                             placeholder="1000"
                             {...field}
-                            value={field.value ?? ''}
                           />
                         </FormControl>
                         <FormMessage />

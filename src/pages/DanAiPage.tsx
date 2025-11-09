@@ -67,12 +67,14 @@ export function DanAiPage() {
     setMessages(prev => [...prev, userMessage]);
     setInput('');
     setIsLoading(true);
+    console.log("handleSendMessage: Before API call");
     try {
       const response = await api<{ reply: string }>('/api/dan/message', { method: 'POST', body: JSON.stringify({ message: input }) });
       const aiMessage: ChatMessage = { sender: 'ai', text: response.reply };
       setMessages(prev => [...prev, aiMessage]);
       speak(response.reply);
     } catch (error) {
+      console.log("handleSendMessage: Error in API call", error);
       const errorMessage: ChatMessage = { sender: 'ai', text: "Sorry, the AI assistant is currently offline. Please try again later." };
       setMessages(prev => [...prev, errorMessage]);
       speak(errorMessage.text);

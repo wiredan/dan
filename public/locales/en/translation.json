@@ -392,6 +392,7 @@
     "title": "Education Hub",
     "description": "Your resource for agribusiness knowledge and insights.",
     "readMore": "Read more",
+    "backToHub": "Back to Education Hub",
     "categories": {
       "technology": "Technology",
       "farming": "Farming",
@@ -403,27 +404,57 @@
     "articles": {
       "defi": {
         "title": "Understanding Decentralized Finance in Agriculture",
-        "description": "Explore how blockchain and DeFi are transforming agricultural supply chains, providing new opportunities for farmers and investors."
+        "description": "Explore how blockchain and DeFi are transforming agricultural supply chains, providing new opportunities for farmers and investors.",
+        "content": [
+          "Decentralized Finance, or DeFi, represents a paradigm shift from traditional, centralized financial systems. Built on blockchain technology, DeFi aims to create an open, transparent, and permissionless financial ecosystem. In the context of agriculture, this means removing intermediaries like banks and large corporations that often create bottlenecks and extract value from the supply chain.",
+          "One of the core applications of DeFi in agribusiness is providing access to capital for smallholder farmers. Through decentralized lending protocols, farmers can secure loans using their future harvests as collateral, represented as digital tokens. This process is faster, more transparent, and often offers better rates than traditional banking, especially in regions with underdeveloped financial infrastructure.",
+          "Furthermore, smart contracts—self-executing contracts with the terms of the agreement directly written into code—automate many processes. For instance, a smart contract can automatically trigger payment to a farmer from an escrow account the moment a shipment is verified as delivered by a logistics partner. This reduces counterparty risk, eliminates payment delays, and builds trust between all participants in the network."
+        ]
       },
       "sustainable": {
         "title": "Best Practices for Sustainable Farming",
-        "description": "Learn about modern techniques that improve crop yield while protecting the environment for future generations."
+        "description": "Learn about modern techniques that improve crop yield while protecting the environment for future generations.",
+        "content": [
+          "Sustainable farming is a holistic approach to agriculture that focuses on long-term ecological balance. It's about producing food in a way that is healthy for consumers, humane for workers, and environmentally friendly. This involves a combination of traditional knowledge and modern innovation.",
+          "Key practices include crop rotation, where different crops are planted in the same area in sequential seasons. This helps to replenish soil nutrients, reduce the buildup of pests and diseases, and improve soil health. Another technique is conservation tillage, which minimizes soil disturbance to prevent erosion and improve water retention.",
+          "Integrated Pest Management (IPM) is another cornerstone of sustainable agriculture. Instead of relying solely on chemical pesticides, IPM uses a combination of biological controls, habitat manipulation, and resistant crop varieties. This reduces the environmental impact of farming and creates a more resilient ecosystem. By adopting these practices, farmers can increase their yields, reduce their costs, and become better stewards of the land."
+        ]
       },
       "markets": {
         "title": "Navigating Global Food Crop Markets",
-        "description": "An analysis of current market trends, price fluctuations, and how to make informed trading decisions on the platform."
+        "description": "An analysis of current market trends, price fluctuations, and how to make informed trading decisions on the platform.",
+        "content": [
+          "The global food crop market is a complex and dynamic system influenced by a multitude of factors, including weather patterns, geopolitical events, supply chain disruptions, and changing consumer demands. Understanding these factors is crucial for making profitable trading decisions.",
+          "On the DAN platform, we provide access to real-time market data and analytics. This includes price history charts, volume indicators, and market sentiment analysis. By studying these tools, you can identify trends and potential trading opportunities. For example, a sudden drop in supply for a particular crop due to adverse weather in a major producing region could signal a potential price increase.",
+          "It's also important to diversify your portfolio. Instead of focusing on a single crop, consider trading a variety of commodities across different regions. This helps to mitigate risk and capitalize on opportunities in different market segments. Our platform makes it easy to browse listings from around the world, allowing you to build a diversified and resilient trading strategy."
+        ]
       },
       "kyc": {
         "title": "The Role of KYC in Building Trust",
-        "description": "Why identity verification is crucial for creating a secure and transparent agribusiness marketplace."
+        "description": "Why identity verification is crucial for creating a secure and transparent agribusiness marketplace.",
+        "content": [
+          "Know Your Customer (KYC) is a mandatory process of identifying and verifying the identity of each participant on our platform. While it may seem like an extra step, it is a fundamental pillar of security and trust in any marketplace, especially in a decentralized environment.",
+          "By ensuring that all users are who they say they are, we significantly reduce the risk of fraud, money laundering, and other illicit activities. This creates a safer environment for everyone. When you transact with a KYC-verified farmer or distributor, you can have confidence that you are dealing with a legitimate entity.",
+          "Our KYC process is designed to be as seamless as possible, using AI-powered tools to quickly and securely verify documents. We are committed to protecting your data and privacy while upholding the highest standards of compliance. Ultimately, a robust KYC process is what enables a truly trustworthy and transparent global marketplace to thrive."
+        ]
       },
       "logistics": {
         "title": "Logistics and Supply Chain Optimization",
-        "description": "Tips and strategies for distributors to streamline their operations and reduce costs."
+        "description": "Tips and strategies for distributors to streamline their operations and reduce costs.",
+        "content": [
+          "Efficient logistics are the lifeblood of the agribusiness supply chain. For distributors, optimizing this process is key to profitability and customer satisfaction. The DAN platform integrates logistics tracking to provide end-to-end visibility, but there are additional strategies you can employ.",
+          "Route optimization is a critical first step. Using modern software, you can plan the most efficient routes for your delivery fleet, taking into account traffic, delivery windows, and vehicle capacity. This not only saves time and fuel but also reduces your carbon footprint.",
+          "Warehouse management is another crucial area. Implementing a 'first-in, first-out' (FIFO) system is essential for perishable goods to minimize spoilage. Furthermore, leveraging real-time inventory tracking, which can be integrated with our platform's data, allows you to anticipate demand, reduce holding costs, and avoid stockouts. By focusing on these key areas, you can build a more resilient and efficient supply chain."
+        ]
       },
       "tokenization": {
         "title": "Introduction to Agri-Tokenization",
-        "description": "A beginner's guide to how agricultural assets can be represented as digital tokens, unlocking liquidity and investment."
+        "description": "A beginner's guide to how agricultural assets can be represented as digital tokens, unlocking liquidity and investment.",
+        "content": [
+          "Tokenization is the process of converting rights to an asset into a digital token on a blockchain. In agriculture, this can apply to anything from a future harvest of a specific crop to a share in a piece of farming equipment or land. These tokens can then be traded on a decentralized marketplace like DAN.",
+          "This innovation has profound implications. For farmers, it provides a new way to raise capital. Instead of seeking a traditional loan, a farmer could tokenize a portion of their upcoming harvest and sell these 'harvest tokens' to investors. This provides them with upfront capital for seeds, fertilizer, and labor.",
+          "For investors, agri-tokenization opens up a new, highly accessible asset class. You no longer need to be a large corporation to invest in agriculture. You can buy tokens representing a small fraction of a crop from a farm across the world. This fractional ownership democratizes investment in agriculture, increases market liquidity, and allows for the creation of diversified portfolios of agricultural assets."
+        ]
       }
     },
     "aiChat": {

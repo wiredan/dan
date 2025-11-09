@@ -288,6 +288,8 @@
     "title": "Trung tâm Giáo dục",
     "description": "Nguồn tài nguyên của bạn cho kiến thức và thông tin chi tiết về kinh doanh nông nghiệp.",
     "readMore": "Đọc thêm",
+    "readMore": "Đọc thêm",
+    "backToHub": "Quay lại Trung tâm Giáo dục",
     "categories": {
       "technology": "Công nghệ",
       "farming": "Nông nghiệp",
@@ -299,27 +301,33 @@
     "articles": {
       "defi": {
         "title": "Hiểu về Tài chính Phi tập trung trong Nông nghiệp",
-        "description": "Khám phá cách blockchain và DeFi đang biến đổi chuỗi cung ứng nông nghiệp."
+        "description": "Khám phá cách blockchain và DeFi đang biến đổi chuỗi cung ứng nông nghiệp.",
+        "content": ["[[Bản dịch tiếng Việt đang chờ xử lý]]"]
       },
       "sustainable": {
         "title": "Các phương pháp tốt nhất cho Nông nghiệp Bền vững",
-        "description": "Tìm hiểu về các kỹ thuật hiện đại giúp cải thiện năng suất cây trồng đồng thời bảo vệ môi trường."
+        "description": "Tìm hiểu về các kỹ thuật hiện đại giúp cải thiện năng suất cây trồng đồng thời bảo vệ môi trường.",
+        "content": ["[[Bản dịch tiếng Việt đang chờ xử lý]]"]
       },
       "markets": {
         "title": "Điều hướng Thị trường Cây lương thực Toàn cầu",
-        "description": "Phân tích xu hướng thị trường hiện tại, biến động giá cả và cách đưa ra quyết định giao dịch."
+        "description": "Phân tích xu hướng thị trường hiện tại, biến động giá cả và cách đưa ra quyết định giao dịch.",
+        "content": ["[[Bản dịch tiếng Việt đang chờ xử lý]]"]
       },
       "kyc": {
         "title": "Vai trò của KYC trong việc Xây d��ng Lòng tin",
-        "description": "Tại sao xác minh danh tính lại quan trọng để tạo ra một thị trường kinh doanh nông nghiệp an toàn."
+        "description": "Tại sao xác minh danh tính lại quan trọng để tạo ra một thị trường kinh doanh nông nghiệp an toàn.",
+        "content": ["[[Bản dịch tiếng Việt đang chờ xử lý]]"]
       },
       "logistics": {
         "title": "Tối ưu hóa Hậu cần và Chuỗi cung ứng",
-        "description": "Mẹo và chiến lược cho các nhà phân phối để hợp lý hóa hoạt động và giảm chi phí."
+        "description": "Mẹo và chiến lược cho các nhà phân phối để hợp lý hóa hoạt động và giảm chi phí.",
+        "content": ["[[Bản dịch tiếng Việt đang chờ xử lý]]"]
       },
       "tokenization": {
         "title": "Giới thiệu về Token hóa Nông nghiệp",
-        "description": "Hướng dẫn cho người mới bắt đầu về cách tài sản nông nghiệp có thể được biểu diễn dưới dạng token kỹ thuật số."
+        "description": "Hướng dẫn cho người mới bắt đầu về cách tài sản nông nghiệp có thể được biểu diễn dưới dạng token kỹ thuật số.",
+        "content": ["[[Bản dịch tiếng Việt đang chờ xử lý]]"]
       }
     },
     "aiChat": {

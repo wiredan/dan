@@ -25,6 +25,7 @@ import { DanAiPage } from './pages/DanAiPage';
 import { CropHealthAiPage } from './pages/CropHealthAiPage';
 import { PaymentPage } from './pages/PaymentPage';
 import { OrdersPage } from './pages/OrdersPage';
+import { ArticleDetailPage } from './pages/ArticleDetailPage';
 const router = createBrowserRouter([
   {
     element: <AppRoot />,
@@ -40,6 +41,7 @@ const router = createBrowserRouter([
       { path: "/pay/:orderId", element: <PaymentPage /> },
       { path: "/profile", element: <ProfilePage /> },
       { path: "/education", element: <EducationHubPage /> },
+      { path: "/education/:articleId", element: <ArticleDetailPage /> },
       { path: "/dan-ai", element: <DanAiPage /> },
       { path: "/crop-health-ai", element: <CropHealthAiPage /> },
       { path: "/create-listing", element: <CreateListingPage /> },

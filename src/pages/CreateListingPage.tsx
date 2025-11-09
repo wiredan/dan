@@ -41,7 +41,7 @@ export function CreateListingPage() {
       quantity: undefined,
       grade: 'A',
       imageUrl: 'https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?q=80&w=800',
-    } as any,
+    },
   });
   if (!isAuthenticated) {
     return <Navigate to="/auth" replace />;

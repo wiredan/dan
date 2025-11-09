@@ -288,6 +288,8 @@
     "title": "Cibiyar Ilimi",
     "description": "Makamashin ku don ilimin kasuwancin noma da basira.",
     "readMore": "Kara karantawa",
+    "readMore": "Kara karantawa",
+    "backToHub": "Koma Cibiyar Ilimi",
     "categories": {
       "technology": "Fasaha",
       "farming": "Noma",
@@ -299,27 +301,33 @@
     "articles": {
       "defi": {
         "title": "Fahimtar Kuɗin da aka Rarraba a Aikin Noma",
-        "description": "Bincika yadda blockchain da DeFi ke canza hanyoyin samar da noma."
+        "description": "Bincika yadda blockchain da DeFi ke canza hanyoyin samar da noma.",
+        "content": ["[Fassarar Hausa na jiran aiki]"]
       },
       "sustainable": {
         "title": "Mafi Kyawun Ayyuka don Noma Mai Dorewa",
-        "description": "Koyi game da dabarun zamani da ke inganta amfanin gona yayin kare muhalli."
+        "description": "Koyi game da dabarun zamani da ke inganta amfanin gona yayin kare muhalli.",
+        "content": ["[Fassarar Hausa na jiran aiki]"]
       },
       "markets": {
         "title": "Kewaya Kasuwannin Abinci na Duniya",
-        "description": "Binciken yanayin kasuwa na yanzu, sauye-sauyen farashi, da yadda ake yanke shawara."
+        "description": "Binciken yanayin kasuwa na yanzu, sauye-sauyen farashi, da yadda ake yanke shawara.",
+        "content": ["[Fassarar Hausa na jiran aiki]"]
       },
       "kyc": {
         "title": "Matsayin KYC wajen Gina Amincewa",
-        "description": "Dalilin da ya sa tabbatar da ainihi yana da mahimmanci don ƙirƙirar kasuwar noma mai aminci."
+        "description": "Dalilin da ya sa tabbatar da ainihi yana da mahimmanci don ƙirƙirar kasuwar noma mai aminci.",
+        "content": ["[Fassarar Hausa na jiran aiki]"]
       },
       "logistics": {
         "title": "Inganta Kayan Aiki da Sarkar Samarwa",
-        "description": "Tukwici da dabaru ga masu rarrabawa don daidaita ayyukansu da rage farashi."
+        "description": "Tukwici da dabaru ga masu rarrabawa don daidaita ayyukansu da rage farashi.",
+        "content": ["[Fassarar Hausa na jiran aiki]"]
       },
       "tokenization": {
         "title": "Gabatarwa ga Tokenization na Noma",
-        "description": "Jagora ga masu farawa kan yadda za a iya wakiltar kadarorin noma a matsayin alamun dijital."
+        "description": "Jagora ga masu farawa kan yadda za a iya wakiltar kadarorin noma a matsayin alamun dijital.",
+        "content": ["[Fassarar Hausa na jiran aiki]"]
       }
     },
     "aiChat": {

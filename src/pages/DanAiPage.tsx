@@ -69,7 +69,7 @@ export function DanAiPage() {
     setIsLoading(true);
     try {
       console.log("handleSendMessage: Before API call");
-      const response = await api<{ reply: string }>(`/api/dan/message?message=${encodeURIComponent(input)}`);
+      const response = await api<{ reply: string }>('/api/dan/message', { method: 'POST', body: JSON.stringify({ message: input }) });
       const aiMessage: ChatMessage = { sender: 'ai', text: response.reply };
       setMessages(prev => [...prev, aiMessage]);
       speak(response.reply);

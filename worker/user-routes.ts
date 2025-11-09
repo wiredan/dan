@@ -268,9 +268,9 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
     return ok(c, { recommendation });
   });
   // AI ROUTES
-  app.get('/api/dan/message', async (c) => {
-    const message = c.req.query('message');
-    if (!message) return bad(c, 'Message is required');
+  app.post('/api/dan/message', async (c) => {
+    const { message } = await c.req.json<{ message?: string }>();
+    if (!isStr(message)) return bad(c, 'Message is required');
 
     const lowerCaseMessage = message.toLowerCase();
 
@@ -290,7 +290,7 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
         () => {
           const crop1 = crops[Math.floor(Math.random() * crops.length)];
           const crop2 = crops.filter(c => c.name !== crop1.name)[Math.floor(Math.random() * (crops.length - 1))];
-          return `Market update: ${crop1.name} prices are currently ${crop1.trend} at around $${crop1.price.toFixed(2)}/${crop1.unit}. Meanwhile, ${crop2.name} prices are ${crop2.trend}.`;
+          return `Market update: ${crop1.name} prices are currently ${crop1.trend} at around ${crop1.price.toFixed(2)}/${crop1.unit}. Meanwhile, ${crop2.name} prices are ${crop2.trend}.`;
         },
         "Our secure escrow system holds your payment until you confirm delivery. Funds are then automatically released to the farmer, minus a 2.5% platform fee. This protects both buyers and sellers.",
         "You can add payment methods in your profile. We support various options including credit cards and crypto tokens like USDT and our native DAN token.",

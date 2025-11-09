@@ -271,15 +271,55 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
   app.get('/api/dan/message', async (c) => {
     const message = c.req.query('message');
     if (!message) return bad(c, 'Message is required');
+
     const lowerCaseMessage = message.toLowerCase();
-    let reply = "I'm sorry, I can only answer questions about agriculture, logistics, and decentralized finance. How can I help you with those topics?";
-    if (lowerCaseMessage.includes('price') || lowerCaseMessage.includes('market')) {
-      reply = "Based on current trends, the price for Grade A avocados is stable at around $2.50/kg. However, ginger prices are expected to rise by 5% next month due to increased demand.";
-    } else if (lowerCaseMessage.includes('logistics') || lowerCaseMessage.includes('shipping')) {
-      reply = "For shipments to Europe, we recommend using our refrigerated container service. The average transit time from Nigeria to the Port of Rotterdam is approximately 18-22 days.";
-    } else if (lowerCaseMessage.includes('payment') || lowerCaseMessage.includes('escrow')) {
-      reply = "Our secure escrow system holds your payment until you confirm delivery. Funds are then automatically released to the farmer, minus a 2.5% platform fee. This protects both buyers and sellers.";
+
+    const crops = [
+      { name: 'avocados', price: 2.50, unit: 'kg', trend: 'stable' },
+      { name: 'ginger', price: 4.00, unit: 'kg', trend: 'rising' },
+      { name: 'corn', price: 0.20, unit: 'kg', trend: 'stable' },
+      { name: 'soybeans', price: 0.50, unit: 'kg', trend: 'falling' },
+    ];
+
+    const responses = {
+      greeting: [
+        "Hello! How can I assist you with agribusiness today?",
+        "Welcome to the Decentralized Agribusiness Network. What can I help you with?",
+      ],
+      finance: [
+        () => {
+          const crop1 = crops[Math.floor(Math.random() * crops.length)];
+          const crop2 = crops.filter(c => c.name !== crop1.name)[Math.floor(Math.random() * (crops.length - 1))];
+          return `Market update: ${crop1.name} prices are currently ${crop1.trend} at around $${crop1.price.toFixed(2)}/${crop1.unit}. Meanwhile, ${crop2.name} prices are ${crop2.trend}.`;
+        },
+        "Our secure escrow system holds your payment until you confirm delivery. Funds are then automatically released to the farmer, minus a 2.5% platform fee. This protects both buyers and sellers.",
+        "You can add payment methods in your profile. We support various options including credit cards and crypto tokens like USDT and our native DAN token.",
+      ],
+      logistics: [
+        "For shipments to Europe, we recommend using our refrigerated container service. The average transit time from Nigeria to the Port of Rotterdam is approximately 18-22 days.",
+        "Our logistics partners provide real-time tracking. You can view the status of your shipment on the order tracking page.",
+        "We handle all customs documentation for international shipments to ensure a smooth process.",
+      ],
+      default: [
+        "I'm sorry, I can only answer questions about agriculture, logistics, and decentralized finance. How can I help you with those topics?",
+        "That's an interesting question. My expertise is in agribusiness, finance, and logistics. Could you ask something related to those areas?",
+        "I can provide market data, explain our escrow process, or give you logistics information. What would you like to know?",
+      ],
+    };
+
+    let replyPool: (string | (() => string))[] = responses.default;
+
+    if (lowerCaseMessage.includes('price') || lowerCaseMessage.includes('market') || lowerCaseMessage.includes('payment') || lowerCaseMessage.includes('escrow')) {
+      replyPool = responses.finance;
+    } else if (lowerCaseMessage.includes('logistics') || lowerCaseMessage.includes('shipping') || lowerCaseMessage.includes('delivery')) {
+      replyPool = responses.logistics;
+    } else if (lowerCaseMessage.includes('hello') || lowerCaseMessage.includes('hi') || lowerCaseMessage.includes('hey')) {
+      replyPool = responses.greeting;
     }
+
+    const selectedResponse = replyPool[Math.floor(Math.random() * replyPool.length)];
+    const reply = typeof selectedResponse === 'function' ? selectedResponse() : selectedResponse;
+
     await new Promise(resolve => setTimeout(resolve, 1500));
     return ok(c, { reply });
   });

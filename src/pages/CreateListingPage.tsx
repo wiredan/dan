@@ -161,7 +161,7 @@ export function CreateListingPage() {
                             step="0.01"
                             placeholder="0.00"
                             {...field}
-                            onChange={event => field.onChange(+event.target.value)}
+                            value={field.value ?? ''}
                           />
                         </FormControl>
                         <FormMessage />
@@ -190,7 +190,7 @@ export function CreateListingPage() {
                             type="number"
                             placeholder="1000"
                             {...field}
-                            onChange={event => field.onChange(+event.target.value)}
+                            value={field.value ?? ''}
                           />
                         </FormControl>
                         <FormMessage />

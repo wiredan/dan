@@ -271,55 +271,27 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
   app.post('/api/dan/message', async (c) => {
     const { message } = await c.req.json<{ message?: string }>();
     if (!isStr(message)) return bad(c, 'Message is required');
-
     const lowerCaseMessage = message.toLowerCase();
-
-    const crops = [
-      { name: 'avocados', price: 2.50, unit: 'kg', trend: 'stable' },
-      { name: 'ginger', price: 4.00, unit: 'kg', trend: 'rising' },
-      { name: 'corn', price: 0.20, unit: 'kg', trend: 'stable' },
-      { name: 'soybeans', price: 0.50, unit: 'kg', trend: 'falling' },
-    ];
-
     const responses = {
-      greeting: [
-        "Hello! How can I assist you with agribusiness today?",
-        "Welcome to the Decentralized Agribusiness Network. What can I help you with?",
-      ],
-      finance: [
-        () => {
-          const crop1 = crops[Math.floor(Math.random() * crops.length)];
-          const crop2 = crops.filter(c => c.name !== crop1.name)[Math.floor(Math.random() * (crops.length - 1))];
-          return `Market update: ${crop1.name} prices are currently ${crop1.trend} at around ${crop1.price.toFixed(2)}/${crop1.unit}. Meanwhile, ${crop2.name} prices are ${crop2.trend}.`;
-        },
-        "Our secure escrow system holds your payment until you confirm delivery. Funds are then automatically released to the farmer, minus a 2.5% platform fee. This protects both buyers and sellers.",
-        "You can add payment methods in your profile. We support various options including credit cards and crypto tokens like USDT and our native DAN token.",
-      ],
-      logistics: [
-        "For shipments to Europe, we recommend using our refrigerated container service. The average transit time from Nigeria to the Port of Rotterdam is approximately 18-22 days.",
-        "Our logistics partners provide real-time tracking. You can view the status of your shipment on the order tracking page.",
-        "We handle all customs documentation for international shipments to ensure a smooth process.",
-      ],
-      default: [
-        "I'm sorry, I can only answer questions about agriculture, logistics, and decentralized finance. How can I help you with those topics?",
-        "That's an interesting question. My expertise is in agribusiness, finance, and logistics. Could you ask something related to those areas?",
-        "I can provide market data, explain our escrow process, or give you logistics information. What would you like to know?",
-      ],
+      marketAnalysis: `Based on current data, the global market for Nigerian Ginger is showing a strong upward trend, with prices increasing by approximately 5% over the last quarter due to increased demand from European markets. Avocados remain stable, but a projected surplus from South America may cause a slight price dip in the coming months. For a detailed analysis, I recommend comparing the historical price charts available in the Education Hub.`,
+      logistics: `For shipping from West Africa to Asia, we recommend a combination of sea and air freight for optimal cost and speed. Our logistics partners can provide refrigerated containers for perishable goods like avocados. The typical transit time for sea freight to Ho Chi Minh City is 25-30 days. All customs documentation is handled automatically through the platform when you place an order with a logistics partner.`,
+      sustainableFarming: `Sustainable farming practices are crucial for long-term profitability. Key techniques include crop rotation to replenish soil nutrients, integrated pest management (IPM) to reduce reliance on chemical pesticides, and conservation tillage to prevent soil erosion. For example, planting legumes like soybeans after a corn harvest can naturally fix nitrogen in the soil, reducing the need for artificial fertilizers. Our Education Hub has several articles detailing these methods.`,
+      defi: `Decentralized Finance (DeFi) on our platform allows farmers to tokenize their future harvests to secure upfront capital. This process, known as "agri-tokenization," provides liquidity without relying on traditional banks. Investors can purchase these tokens, representing a share of the future crop, creating a new, accessible asset class. All transactions are secured by smart contracts, which automatically handle payments upon fulfillment of contract terms, such as confirmed delivery.`,
+      greeting: `Hello! I am DAN's advanced AI assistant. How can I help you today with market analysis, logistics, sustainable farming, or DeFi concepts?`,
+      default: `I can provide detailed information on market trends, logistics optimization, sustainable farming practices, and how Decentralized Finance is integrated into our platform. Please ask me a specific question about one of these topics.`
     };
-
-    let replyPool: (string | (() => string))[] = responses.default;
-
-    if (lowerCaseMessage.includes('price') || lowerCaseMessage.includes('market') || lowerCaseMessage.includes('payment') || lowerCaseMessage.includes('escrow')) {
-      replyPool = responses.finance;
-    } else if (lowerCaseMessage.includes('logistics') || lowerCaseMessage.includes('shipping') || lowerCaseMessage.includes('delivery')) {
-      replyPool = responses.logistics;
-    } else if (lowerCaseMessage.includes('hello') || lowerCaseMessage.includes('hi') || lowerCaseMessage.includes('hey')) {
-      replyPool = responses.greeting;
+    let reply = responses.default;
+    if (lowerCaseMessage.includes('hello') || lowerCaseMessage.includes('hi')) {
+      reply = responses.greeting;
+    } else if (lowerCaseMessage.includes('price') || lowerCaseMessage.includes('market') || lowerCaseMessage.includes('trend') || lowerCaseMessage.includes('analysis')) {
+      reply = responses.marketAnalysis;
+    } else if (lowerCaseMessage.includes('shipping') || lowerCaseMessage.includes('logistics') || lowerCaseMessage.includes('transport') || lowerCaseMessage.includes('delivery')) {
+      reply = responses.logistics;
+    } else if (lowerCaseMessage.includes('sustainable') || lowerCaseMessage.includes('farming') || lowerCaseMessage.includes('crop rotation') || lowerCaseMessage.includes('environment')) {
+      reply = responses.sustainableFarming;
+    } else if (lowerCaseMessage.includes('defi') || lowerCaseMessage.includes('token') || lowerCaseMessage.includes('blockchain') || lowerCaseMessage.includes('finance')) {
+      reply = responses.defi;
     }
-
-    const selectedResponse = replyPool[Math.floor(Math.random() * replyPool.length)];
-    const reply = typeof selectedResponse === 'function' ? selectedResponse() : selectedResponse;
-
     await new Promise(resolve => setTimeout(resolve, 1500));
     return ok(c, { reply });
   });

@@ -24,7 +24,7 @@
   "testimonial3Author": "Fatima Al-Sayed",
   "testimonial3Role": "Mai Saka Hannun Jari, UAE",
   "ctaTitle": "A Shirye kake ka Shiga Juyin Juya Halin?",
-  "ctaSubtitle": "Ƙir����iri asusu a yau kuma ku fuskanci makomar kasuwancin noma.",
+  "ctaSubtitle": "Ƙirƙiri asusu a yau kuma ku fuskanci makomar kasuwancin noma.",
   "ctaButton": "Yi Rajista Yanzu",
   "navbar": {
     "links": {
@@ -288,7 +288,6 @@
     "title": "Cibiyar Ilimi",
     "description": "Makamashin ku don ilimin kasuwancin noma da basira.",
     "readMore": "Kara karantawa",
-    "readMore": "Kara karantawa",
     "backToHub": "Koma Cibiyar Ilimi",
     "categories": {
       "technology": "Fasaha",
@@ -332,7 +331,7 @@
     },
     "aiChat": {
       "title": "Mataimakin DAN AI",
-      "greeting": "Sannu! Ni ne AI na Decentralized Agribusiness Network. Tambaye ni komai game da farashin kasuwa, kayan aiki, ko fasalulluka na dandalinmu.",
+      "greeting": "Sannu! Ni ne babban mataimakin AI na DAN, wanda ke aiki da haɗin gwiwa da aka kwaikwaya zuwa babban tsarin harshe. Tambaye ni hadaddun tambayoyi game da nazarin kasuwa, ayyukan noma mai dorewa, inganta kayan aiki, ko DeFi a aikin noma.",
       "placeholder": "Tambaya game da yanayin kasuwa...",
       "send": "Aika"
     },
@@ -446,7 +445,7 @@
     },
     "error": {
       "title": "Kuskuren Biyan Kuɗi",
-      "missingOrderId": "ID na Oda ya ɓace.",
+      "missingOrderId": "ID na Oda ya ��ace.",
       "fetch": "An kasa loda bayanan oda. Da fatan za a sake gwadawa.",
       "generic": "An sami kuskuren da ba a sani ba."
     },

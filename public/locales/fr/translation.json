@@ -355,6 +355,7 @@
     "title": "Pôle Éducatif",
     "description": "Votre ressource pour la connaissance et les aperçus de l'agro-industrie.",
     "readMore": "Lire la suite",
+    "backToHub": "Retour au Pôle Éducatif",
     "categories": {
       "technology": "Technologie",
       "farming": "Agriculture",
@@ -366,32 +367,38 @@
     "articles": {
       "defi": {
         "title": "Comprendre la Finance Décentralisée dans l'Agriculture",
-        "description": "Découvrez comment la blockchain et la DeFi transforment les chaînes d'approvisionnement agricoles."
+        "description": "Découvrez comment la blockchain et la DeFi transforment les chaînes d'approvisionnement agricoles.",
+        "content": ["[[Traduction française en attente]]"]
       },
       "sustainable": {
         "title": "Meilleures Pratiques pour une Agriculture Durable",
-        "description": "Apprenez les techniques modernes qui améliorent le rendement des cultures tout en protégeant l'environnement."
+        "description": "Apprenez les techniques modernes qui améliorent le rendement des cultures tout en protégeant l'environnement.",
+        "content": ["[[Traduction française en attente]]"]
       },
       "markets": {
         "title": "Naviguer sur les Marchés Mondiaux des Cultures Vivrières",
-        "description": "Une analyse des tendances actuelles du marché, des fluctuations de prix et comment prendre des décisions éclairées."
+        "description": "Une analyse des tendances actuelles du marché, des fluctuations de prix et comment prendre des décisions éclairées.",
+        "content": ["[[Traduction française en attente]]"]
       },
       "kyc": {
         "title": "Le Rôle du KYC dans la Construction de la Confiance",
-        "description": "Pourquoi la vérification d'identité est cruciale pour créer un marché agro-industriel sécurisé et transparent."
+        "description": "Pourquoi la vérification d'identité est cruciale pour créer un marché agro-industriel sécurisé et transparent.",
+        "content": ["[[Traduction française en attente]]"]
       },
       "logistics": {
         "title": "Optimisation de la Logistique et de la Chaîne d'Approvisionnement",
-        "description": "Conseils et stratégies pour les distributeurs afin de rationaliser leurs opérations et de réduire les co��ts."
+        "description": "Conseils et stratégies pour les distributeurs afin de rationaliser leurs opérations et de réduire les coûts.",
+        "content": ["[[Traduction française en attente]]"]
       },
       "tokenization": {
         "title": "Introduction à la Tokenisation Agricole",
-        "description": "Un guide pour débutants sur la façon dont les actifs agricoles peuvent être représentés sous forme de jetons numériques."
+        "description": "Un guide pour débutants sur la façon dont les actifs agricoles peuvent être représentés sous forme de jetons numériques.",
+        "content": ["[[Traduction française en attente]]"]
       }
     },
     "aiChat": {
       "title": "Assistant IA DAN",
-      "greeting": "Bonjour ! Je suis l'IA du Réseau Agro-industriel Décentralisé. Posez-moi des questions sur les prix du marché, la logistique ou les fonctionnalités de notre plateforme.",
+      "greeting": "Bonjour ! Je suis l'assistant IA avancé de DAN, alimenté par une connexion simulée à un grand modèle de langage. Posez-moi des questions complexes sur l'analyse de marché, les pratiques agricoles durables, l'optimisation logistique ou la DeFi dans l'agriculture.",
       "placeholder": "Posez une question sur les tendances du marché...",
       "send": "Envoyer"
     },
@@ -449,7 +456,7 @@
         "recommendation": "Signes compatibles avec un mildiou fongique à un stade précoce. Il est recommandé d'analyser un échantillon de sol et d'envisager l'application ciblée d'un fongicide à large spectre."
       },
       "corn_blight": {
-        "disease": "Helminthosporiose du maïs",
+        "disease": "Helminthosporiose du ma��s",
         "recommendation": "Les lésions sont caractéristiques de l'helminthosporiose. Envisagez d'appliquer un fongicide foliaire si la maladie est répandue et que la culture est en pré-floraison."
       },
       "avocado_rot": {

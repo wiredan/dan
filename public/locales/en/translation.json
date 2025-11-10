@@ -459,7 +459,7 @@
     },
     "aiChat": {
       "title": "DAN AI Assistant",
-      "greeting": "Hello! I'm the Decentralized Agribusiness Network AI. Ask me anything about market prices, logistics, or our platform features.",
+      "greeting": "Hello! I am DAN's advanced AI assistant, powered by a simulated connection to a large language model. Ask me complex questions about market analysis, sustainable farming practices, logistics optimization, or DeFi in agriculture.",
       "placeholder": "Ask about market trends...",
       "send": "Send"
     },

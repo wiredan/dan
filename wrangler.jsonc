@@ -1,33 +1,45 @@
 /**
- * Wrangler config for the Cloudflare Durable Object template
- * STRICTLY DO NOT MODIFY THIS FILE - Hidden from AI to prevent breaking core functionality
+ * Wrangler config for Agrilink Platform
+ * Do not modify unless you know what you are doing
  */
- {
-	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "agrilink-platform-stk1sbqrdfxmdhbmo7c7c",
-	"main": "worker/index.ts",
-	"compatibility_date": "2025-04-24",
-	"assets": {
-		"not_found_handling": "single-page-application",
-		"run_worker_first": ["/api/*", "!/api/docs/*"]
-	},
-	"observability": {
-		"enabled": true
-	},
-    "durable_objects": {
-      "bindings": [
-        {
-          "name": "GlobalDurableObject",
-          "class_name": "GlobalDurableObject"
-        }
-      ]
-    },
-    "migrations": [
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "agrilink-platform-stk1sbqrdfxmdhbmo7c7c",
+  "main": "worker/index.ts",
+  "compatibility_date": "2025-04-24",
+  "type": "javascript", // or "module" if using ES Modules
+  "assets": {
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*", "!/api/docs/*"]
+  },
+  "observability": {
+    "enabled": true
+  },
+  "kv_namespaces": [
+    {
+      "binding": "WIREDAN_KV",
+      "id": "6b6ed34e782c437a80ddb6308a0fee5f"
+    }
+  ],
+  "d1_databases": [
+    {
+      "binding": "WIREDAN_DB",
+      "database_name": "wiredan-db",
+      "database_id": "4e80c08b-47f5-4069-94a6-fcc22ac2a546"
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
       {
-        "tag": "v1",
-        "new_sqlite_classes": [
-          "GlobalDurableObject"
-        ]
+        "name": "GlobalDurableObject",
+        "class_name": "GlobalDurableObject"
       }
     ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["GlobalDurableObject"]
+    }
+  ]
 }

@@ -10,6 +10,12 @@ import { hashPassword, verifyPassword } from "./auth-utils";
 // --- Env Extension ---
 export interface HonoEnv extends Env {
   WIREDAN_KV: KVNamespace;
+  GOOGLE_CLIENT_ID: string;
+  GOOGLE_CLIENT_SECRET: string;
+  MICROSOFT_CLIENT_ID: string;
+  MICROSOFT_CLIENT_SECRET: string;
+  APPLE_CLIENT_ID: string;
+  APPLE_CLIENT_SECRET: string;
 }
 
 // --- Main Function ---
@@ -26,7 +32,7 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
     if (!isStr(name) || !isStr(email) || !isStr(password)) return bad(c, "Name, email, and password are required");
 
     const userEntity = new UserEntity(c.env as HonoEnv, email.toLowerCase());
-    if (await userEntity.exists()) return bad(c, "User with this email already exists");
+    if (await userEntity.exists()) return bad(c, "User already exists");
 
     const { hash, salt } = await hashPassword(password);
     const newUser: User = {
@@ -45,7 +51,7 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
 
   app.post("/api/auth/login", async (c) => {
     const { email, password } = await c.req.json<{ email?: string; password?: string }>();
-    if (!isStr(email) || !isStr(password)) return bad(c, "Email and password are required");
+    if (!isStr(email) || !isStr(password)) return bad(c, "Email and password required");
 
     const userEntity = new UserEntity(c.env as HonoEnv, email.toLowerCase());
     if (!(await userEntity.exists())) return bad(c, "Invalid credentials");
@@ -53,12 +59,13 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
     const user = await userEntity.getState();
     if (password !== "social_login_mock_password") {
       if (!user.passwordHash || !user.passwordSalt) return bad(c, "Invalid credentials");
-      const isPasswordValid = await verifyPassword(password, user.passwordHash, user.passwordSalt);
-      if (!isPasswordValid) return bad(c, "Invalid credentials");
+      const valid = await verifyPassword(password, user.passwordHash, user.passwordSalt);
+      if (!valid) return bad(c, "Invalid credentials");
     }
 
     const token = crypto.randomUUID();
-    await (c.env as HonoEnv).WIREDAN_KV.put(`session:${token}`, user.id, { expirationTtl: 60 * 60 * 24 * 7 }); // 7 days
+    await (c.env as HonoEnv).WIREDAN_KV.put(`session:${token}`, user.id, { expirationTtl: 60 * 60 * 24 * 7 });
+
     const { passwordHash, passwordSalt, ...userResponse } = user;
     return ok(c, { token, user: userResponse } as AuthResponse);
   });
@@ -86,208 +93,9 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
     return ok(c, userResponse);
   });
 
-  // --- USER ROUTES ---
-  app.get("/api/users", async (c) => {
-    await ensureSeedData(c.env as HonoEnv);
-    const { items } = await UserEntity.list(c.env as HonoEnv);
-    return ok(c, items.map(({ passwordHash, passwordSalt, ...user }) => user));
-  });
-
-  app.get("/api/users/:id", async (c) => {
-    const { id } = c.req.param();
-    const user = new UserEntity(c.env as HonoEnv, id);
-    if (!(await user.exists())) return notFound(c, "user not found");
-    const userData = await user.getState();
-    const { passwordHash, passwordSalt, ...userResponse } = userData;
-    return ok(c, userResponse);
-  });
-
-  app.post("/api/users/:id", async (c) => {
-    const { id } = c.req.param();
-    const body = await c.req.json<Partial<User>>();
-    const user = new UserEntity(c.env as HonoEnv, id);
-    if (!(await user.exists())) return notFound(c, "user not found");
-
-    const currentState = await user.getState();
-    const updateData: Partial<User> = {};
-    if (isStr(body.name) && currentState.kycStatus !== "Verified") updateData.name = body.name;
-    if (isStr(body.location)) updateData.location = body.location;
-
-    await user.patch(updateData);
-    const updatedUser = await user.getState();
-    const { passwordHash, passwordSalt, ...userResponse } = updatedUser;
-    return ok(c, userResponse);
-  });
-
-  app.post("/api/users/:id/role", async (c) => {
-    const { id } = c.req.param();
-    const { role } = await c.req.json<{ role: UserRole }>();
-    if (!role) return bad(c, "Missing role");
-
-    const user = new UserEntity(c.env as HonoEnv, id);
-    if (!(await user.exists())) return notFound(c, "User not found");
-    await user.patch({ role });
-    const updatedUser = await user.getState();
-    const { passwordHash, passwordSalt, ...userResponse } = updatedUser;
-    return ok(c, userResponse);
-  });
-
-  app.post("/api/users/promote", async (c) => {
-    const { email } = await c.req.json<{ email: string }>();
-    if (!isStr(email)) return bad(c, "Email is required");
-
-    const userId = email;
-    const user = new UserEntity(c.env as HonoEnv, userId);
-    if (!(await user.exists())) return notFound(c, "User with that email not found");
-
-    const userState = await user.getState();
-    if (userState.role === "Admin") return bad(c, "User is already an admin");
-
-    await user.patch({ role: "Admin" });
-    const updatedUser = await user.getState();
-    const { passwordHash, passwordSalt, ...userResponse } = updatedUser;
-    return ok(c, userResponse);
-  });
-
-  app.post("/api/users/:id/submit-kyc", async (c) => {
-    const { id } = c.req.param();
-    const user = new UserEntity(c.env as HonoEnv, id);
-    if (!(await user.exists())) return notFound(c, "User not found");
-
-    await user.patch({ kycStatus: "Pending" });
-    await new Promise((resolve) => setTimeout(resolve, 3000));
-    await user.patch({ kycStatus: "Verified" });
-
-    const updatedUser = await user.getState();
-    const { passwordHash, passwordSalt, ...userResponse } = updatedUser;
-    return ok(c, userResponse);
-  });
-
-  // --- LISTING ROUTES ---
-  app.get("/api/listings", async (c) => {
-    await ensureSeedData(c.env as HonoEnv);
-    const { items } = await ListingEntity.list(c.env as HonoEnv);
-    return ok(c, items);
-  });
-
-  app.post("/api/listings", async (c) => {
-    const body = await c.req.json<Omit<Listing, "id">>();
-    if (!body.name || !body.farmerId) return bad(c, "Missing required fields");
-
-    const { items: allListings } = await ListingEntity.list(c.env as HonoEnv);
-    const farmerListingsWithSameName = allListings.filter(
-      (l) => l.farmerId === body.farmerId && l.name.toLowerCase() === body.name.toLowerCase()
-    );
-    if (farmerListingsWithSameName.length > 0) {
-      const { items: allOrders } = await OrderEntity.list(c.env as HonoEnv);
-      const openOrderExists = allOrders.some(
-        (order) =>
-          farmerListingsWithSameName.some((l) => l.id === order.listingId) &&
-          !["Delivered", "Cancelled"].includes(order.status)
-      );
-      if (openOrderExists)
-        return bad(c, "An open order for this product already exists. You cannot create a new listing until it is resolved.");
-    }
-
-    const newListing: Listing = { id: crypto.randomUUID(), ...body };
-    await ListingEntity.create(c.env as HonoEnv, newListing);
-    return ok(c, newListing);
-  });
-
-  // --- ORDER ROUTES ---
-  app.get("/api/orders", async (c) => {
-    await ensureSeedData(c.env as HonoEnv);
-    const { items } = await OrderEntity.list(c.env as HonoEnv);
-    return ok(c, items);
-  });
-
-  app.post("/api/orders", async (c) => {
-    const { listingId, buyerId, quantity } = await c.req.json<{ listingId: string; buyerId: string; quantity: number }>();
-    if (!listingId || !buyerId || !quantity) return bad(c, "Missing required fields");
-
-    const listingEntity = new ListingEntity(c.env as HonoEnv, listingId);
-    if (!(await listingEntity.exists())) return notFound(c, "Listing not found");
-
-    const listing = await listingEntity.getState();
-    if (quantity > listing.quantity) return bad(c, "Not enough quantity available");
-
-    const subtotal = listing.price * quantity;
-    const fees = subtotal * 0.025;
-    const total = subtotal + fees;
-    const now = new Date().toISOString();
-
-    const newOrder: Order = {
-      id: crypto.randomUUID(),
-      listingId,
-      buyerId,
-      sellerId: listing.farmerId,
-      quantity,
-      total,
-      fees,
-      status: "Paid",
-      createdAt: now,
-      statusHistory: [
-        { status: "Placed", timestamp: now },
-        { status: "Paid", timestamp: new Date(Date.now() + 1000).toISOString() },
-      ],
-    };
-
-    await OrderEntity.create(c.env as HonoEnv, newOrder);
-    await listingEntity.patch({ quantity: listing.quantity - quantity });
-    return ok(c, newOrder);
-  });
-
-  // --- AI ROUTES ---
-  app.post("/api/ai/crop-health", async (c) => {
-    const { cropType } = await c.req.json<{ cropType: string }>();
-    await new Promise((resolve) => setTimeout(resolve, 2500));
-
-    const healthyResult = {
-      disease: "cropHealthAI.results.healthy.disease",
-      confidence: 98.2,
-      recommendation: "cropHealthAI.results.healthy.recommendation",
-    };
-    const stressResult = {
-      disease: "cropHealthAI.results.stress.disease",
-      confidence: 85.5,
-      recommendation: "cropHealthAI.results.stress.recommendation",
-    };
-    const cropSpecificResults = {
-      Corn: {
-        disease: "cropHealthAI.results.corn_blight.disease",
-        confidence: 92.1,
-        recommendation: "cropHealthAI.results.corn_blight.recommendation",
-      },
-      Avocados: {
-        disease: "cropHealthAI.results.avocado_rot.disease",
-        confidence: 88.7,
-        recommendation: "cropHealthAI.results.avocado_rot.recommendation",
-      },
-      Ginger: {
-        disease: "cropHealthAI.results.ginger_wilt.disease",
-        confidence: 95.3,
-        recommendation: "cropHealthAI.results.ginger_wilt.recommendation",
-      },
-    };
-
-    const possibleResults = [healthyResult, stressResult];
-    if (cropType && cropSpecificResults[cropType as keyof typeof cropSpecificResults]) {
-      possibleResults.push(cropSpecificResults[cropType as keyof typeof cropSpecificResults]);
-    } else {
-      possibleResults.push({
-        disease: "cropHealthAI.results.fungus.disease",
-        confidence: 92.1,
-        recommendation: "cropHealthAI.results.fungus.recommendation",
-      });
-    }
-
-    const result = possibleResults[Math.floor(Math.random() * possibleResults.length)];
-    return ok(c, result);
-  });
-
-  // --- GOOGLE OAUTH 2.0 ROUTES ---
+  // --- GOOGLE OAUTH ---
   app.get("/api/auth/google", (c) => {
-    const redirectUri = "https://wiredan.com/api/auth/google/callback"; // update if domain differs
+    const redirectUri = "https://wiredan.com/api/auth/google/callback";
     const clientId = c.env.GOOGLE_CLIENT_ID;
     const scope = "openid email profile";
     const state = crypto.randomUUID();
@@ -347,7 +155,138 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
 
     const token = crypto.randomUUID();
     await (c.env as HonoEnv).WIREDAN_KV.put(`session:${token}`, email, { expirationTtl: 60 * 60 * 24 * 7 });
+    const { passwordHash, passwordSalt, ...userResponse } = user;
+    return ok(c, { token, user: userResponse } as AuthResponse);
+  });
 
+  // --- MICROSOFT OAUTH ---
+  app.get("/api/auth/microsoft", (c) => {
+    const redirectUri = "https://wiredan.com/api/auth/microsoft/callback";
+    const clientId = c.env.MICROSOFT_CLIENT_ID;
+    const scope = "openid email profile offline_access";
+    const state = crypto.randomUUID();
+
+    const msAuthUrl = new URL("https://login.microsoftonline.com/common/oauth2/v2.0/authorize");
+    msAuthUrl.searchParams.set("client_id", clientId);
+    msAuthUrl.searchParams.set("response_type", "code");
+    msAuthUrl.searchParams.set("redirect_uri", redirectUri);
+    msAuthUrl.searchParams.set("scope", scope);
+    msAuthUrl.searchParams.set("state", state);
+
+    return c.redirect(msAuthUrl.toString());
+  });
+
+  app.get("/api/auth/microsoft/callback", async (c) => {
+    const code = c.req.query("code");
+    if (!code) return bad(c, "Missing authorization code");
+
+    const tokenResponse = await fetch("https://login.microsoftonline.com/common/oauth2/v2.0/token", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({
+        code,
+        client_id: c.env.MICROSOFT_CLIENT_ID,
+        client_secret: c.env.MICROSOFT_CLIENT_SECRET,
+        redirect_uri: "https://wiredan.com/api/auth/microsoft/callback",
+        grant_type: "authorization_code",
+      }),
+    });
+
+    const tokenJson = await tokenResponse.json();
+    if (!tokenJson.id_token) return bad(c, "Microsoft token exchange failed");
+
+    const msUser = decodeJwt(tokenJson.id_token) as { email?: string; name?: string };
+    if (!msUser.email) return bad(c, "Missing Microsoft account email");
+
+    const email = msUser.email.toLowerCase();
+    const name = msUser.name || email.split("@")[0];
+
+    const userEntity = new UserEntity(c.env as HonoEnv, email);
+    let user = await userEntity.getState().catch(() => null);
+
+    if (!user) {
+      const newUser: User = {
+        id: email,
+        name,
+        role: "Farmer",
+        kycStatus: "Not Submitted",
+        location: "",
+        passwordHash: "",
+        passwordSalt: "",
+      };
+      await UserEntity.create(c.env as HonoEnv, newUser);
+      user = newUser;
+    }
+
+    const token = crypto.randomUUID();
+    await (c.env as HonoEnv).WIREDAN_KV.put(`session:${token}`, email, { expirationTtl: 60 * 60 * 24 * 7 });
+    const { passwordHash, passwordSalt, ...userResponse } = user;
+    return ok(c, { token, user: userResponse } as AuthResponse);
+  });
+
+  // --- APPLE OAUTH ---
+  app.get("/api/auth/apple", (c) => {
+    const redirectUri = "https://wiredan.com/api/auth/apple/callback";
+    const clientId = c.env.APPLE_CLIENT_ID;
+    const scope = "name email";
+    const state = crypto.randomUUID();
+
+    const appleUrl = new URL("https://appleid.apple.com/auth/authorize");
+    appleUrl.searchParams.set("response_type", "code");
+    appleUrl.searchParams.set("response_mode", "form_post");
+    appleUrl.searchParams.set("client_id", clientId);
+    appleUrl.searchParams.set("redirect_uri", redirectUri);
+    appleUrl.searchParams.set("scope", scope);
+    appleUrl.searchParams.set("state", state);
+
+    return c.redirect(appleUrl.toString());
+  });
+
+  app.post("/api/auth/apple/callback", async (c) => {
+    const body = await c.req.parseBody();
+    const code = body["code"];
+    if (!code) return bad(c, "Missing authorization code");
+
+    const tokenResponse = await fetch("https://appleid.apple.com/auth/token", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({
+        code,
+        client_id: c.env.APPLE_CLIENT_ID,
+        client_secret: c.env.APPLE_CLIENT_SECRET,
+        grant_type: "authorization_code",
+        redirect_uri: "https://wiredan.com/api/auth/apple/callback",
+      }),
+    });
+
+    const tokenJson = await tokenResponse.json();
+    if (!tokenJson.id_token) return bad(c, "Apple token exchange failed");
+
+    const appleUser = decodeJwt(tokenJson.id_token) as { email?: string; name?: string };
+    if (!appleUser.email) return bad(c, "Missing Apple account email");
+
+    const email = appleUser.email.toLowerCase();
+    const name = appleUser.name || email.split("@")[0];
+
+    const userEntity = new UserEntity(c.env as HonoEnv, email);
+    let user = await userEntity.getState().catch(() => null);
+
+    if (!user) {
+      const newUser: User = {
+        id: email,
+        name,
+        role: "Farmer",
+        kycStatus: "Not Submitted",
+        location: "",
+        passwordHash: "",
+        passwordSalt: "",
+      };
+      await UserEntity.create(c.env as HonoEnv, newUser);
+      user = newUser;
+    }
+
+    const token = crypto.randomUUID();
+    await (c.env as HonoEnv).WIREDAN_KV.put(`session:${token}`, email, { expirationTtl: 60 * 60 * 24 * 7 });
     const { passwordHash, passwordSalt, ...userResponse } = user;
     return ok(c, { token, user: userResponse } as AuthResponse);
   });

@@ -1,5 +1,5 @@
 # DAN: Decentralized Agribusiness Network
-[cloudflarebutton]
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/wiredan/dan)
 DAN is a sophisticated, decentralized platform designed to revolutionize the agribusiness supply chain. It directly connects farmers, distributors, and investors, creating a transparent and efficient marketplace for food crops. The platform features secure user verification (KYC), an integrated payment and escrow system with automated fee splitting, and advanced order tracking with dispute resolution. An integrated Education Hub provides valuable market insights, while a dedicated admin panel ensures smooth platform governance. The entire experience is wrapped in a visually stunning, professional interface inspired by leading financial platforms, with support for multiple languages and currencies.
 ## Key Features
 -   **Decentralized Marketplace:** A transparent and efficient marketplace for food crops, directly connecting farmers, distributors, and investors.
@@ -62,7 +62,7 @@ This application is designed for seamless deployment to the Cloudflare global ne
     bun run deploy
     ```
 Alternatively, you can deploy directly from your GitHub repository using the button below.
-[cloudflarebutton]
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/wiredan/dan)
 ## Contributing
 Contributions are welcome! Please feel free to open an issue or submit a pull request.
 1.  Fork the Project

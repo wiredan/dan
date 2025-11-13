@@ -1,3 +1,5 @@
+// --- OAuth 2.0 Imports ---
+import { decodeJwt } from "jose"; // for verifying Google ID token
 import { Hono } from "hono";
 import type { Env } from './core-utils';
 import { UserEntity, ListingEntity, OrderEntity } from "./entities";
@@ -312,6 +314,74 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
       possibleResults.push({ disease: 'cropHealthAI.results.fungus.disease', confidence: 92.1, recommendation: 'cropHealthAI.results.fungus.recommendation' });
     }
     const result = possibleResults[Math.floor(Math.random() * possibleResults.length)];
-    return ok(c, result);
+    return ok(c, result);export function userRoutes(app: Hono<{ Bindings: Env }>) {
+  ...
+}
   });
 }
+// --- GOOGLE OAUTH 2.0 ROUTES ---
+
+  // Step 1: Redirect user to Google for authentication
+  app.get('/api/auth/google', (c) => {
+    const redirectUri = 'https://wiredan.com/api/auth/google/callback'; // update if domain differs
+    const clientId = c.env.GOOGLE_CLIENT_ID;
+    const scope = 'openid email profile';
+    const state = crypto.randomUUID();
+
+    const googleAuthUrl = new URL('https://accounts.google.com/o/oauth2/v2/auth');
+    googleAuthUrl.searchParams.set('client_id', clientId);
+    googleAuthUrl.searchParams.set('redirect_uri', redirectUri);
+    googleAuthUrl.searchParams.set('response_type', 'code');
+    googleAuthUrl.searchParams.set('scope', scope);
+    googleAuthUrl.searchParams.set('state', state);
+    googleAuthUrl.searchParams.set('access_type', 'offline');
+
+    return c.redirect(googleAuthUrl.toString());
+  });
+
+  // Step 2: Handle Google callback and issue our session token
+  app.get('/api/auth/google/callback', async (c) => {
+    const code = c.req.query('code');
+    if (!code) return bad(c, 'Missing authorization code');
+
+    const tokenResponse = await fetch('https://oauth2.googleapis.com/token', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({
+        code,
+        client_id: c.env.GOOGLE_CLIENT_ID,
+        client_secret: c.env.GOOGLE_CLIENT_SECRET,
+        redirect_uri: 'https://wiredan.com/api/auth/google/callback',
+        grant_type: 'authorization_code'
+      })
+    });
+    const tokenJson = await tokenResponse.json();
+    if (!tokenJson.id_token) return bad(c, 'Google token exchange failed');
+
+    // Decode the Google ID token
+    const googleUser = decodeJwt(tokenJson.id_token) as { email?: string; name?: string };
+    if (!googleUser.email) return bad(c, 'Missing Google account email');
+
+    const email = googleUser.email.toLowerCase();
+    const userEntity = new UserEntity(c.env as HonoEnv, email);
+
+    // Create user if first-time login
+    if (!(await userEntity.exists())) {
+      await UserEntity.create(c.env as HonoEnv, {
+        id: email,
+        name: googleUser.name || email.split('@')[0],
+        role: 'Farmer',
+        kycStatus: 'Not Submitted',
+        location: '',
+        passwordHash: '',
+        passwordSalt: '',
+      });
+    }
+
+    // Create app session
+    const token = crypto.randomUUID();
+    await (c.env as HonoEnv).WIREDAN_KV.put(`session:${token}`, email, { expirationTtl: 60 * 60 * 24 * 7 });
+
+    // Return token directly (for frontend use)
+    return ok(c, { token, user: { email, name: googleUser.name } });
+  });

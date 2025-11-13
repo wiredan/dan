@@ -7,9 +7,9 @@ import { cloudflare } from "@cloudflare/vite-plugin";
 
 const logger = pino();
 
+// Strip ANSI codes from logs
 const stripAnsi = (str: string) =>
   str.replace(
-    // eslint-disable-next-line no-control-regex -- Allow ANSI escape stripping
     /[\u001b\u009b][[()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-ORZcf-nqry=><]/g,
     ""
   );
@@ -33,24 +33,20 @@ const emitLog = (level: "info" | "warn" | "error", rawMessage: string) => {
   }
 };
 
-// 3. Create the custom logger for Vite
+// Custom Vite logger
 const customLogger = {
   warnOnce: (msg: string) => emitLog("warn", msg),
-
-  // Use Pino's methods, passing the cleaned message
   info: (msg: string) => emitLog("info", msg),
   warn: (msg: string) => emitLog("warn", msg),
   error: (msg: string) => emitLog("error", msg),
   hasErrorLogged: () => false,
-
-  // Keep these as-is
   clearScreen: () => {},
   hasWarned: false,
 };
 
+// Plugin to watch dependency changes and clear cache
 function watchDependenciesPlugin() {
   return {
-    // Plugin to clear caches when dependencies change
     name: "watch-dependencies",
     configureServer(server: any) {
       const filesToWatch = [
@@ -68,7 +64,6 @@ function watchDependenciesPlugin() {
             )}. Clearing caches...`
           );
 
-          // Run the cache-clearing command
           exec(
             "rm -f .eslintcache tsconfig.tsbuildinfo",
             (err, stdout, stderr) => {
@@ -85,22 +80,24 @@ function watchDependenciesPlugin() {
   };
 }
 
-// https://vite.dev/config/
+// Final Vite configuration
 export default ({ mode }: { mode: string }) => {
   const env = loadEnv(mode, process.cwd());
+
   return defineConfig({
     plugins: [react(), cloudflare(), watchDependenciesPlugin()],
     build: {
+      target: "esnext",
       minify: true,
-      sourcemap: "inline", // Use inline source maps for better error reporting
+      outDir: "dist/client",
+      sourcemap: "inline",
       rollupOptions: {
         output: {
-          sourcemapExcludeSources: false, // Include original source in source maps
+          sourcemapExcludeSources: false,
         },
       },
     },
-    customLogger: env.VITE_LOGGER_TYPE === 'json' ? customLogger : undefined,
-    // Enable source maps in development too
+    customLogger: env.VITE_LOGGER_TYPE === "json" ? customLogger : undefined,
     css: {
       devSourcemap: true,
     },
@@ -114,17 +111,13 @@ export default ({ mode }: { mode: string }) => {
       },
     },
     optimizeDeps: {
-      // This is still crucial for reducing the time from when `bun run dev`
-      // is executed to when the server is actually ready.
       include: ["react", "react-dom", "react-router-dom"],
-      exclude: ["agents"], // Exclude agents package from pre-bundling due to Node.js dependencies
+      exclude: ["agents"],
       force: true,
     },
     define: {
-      // Define Node.js globals for the agents package
       global: "globalThis",
     },
-    // Clear cache more aggressively
     cacheDir: "node_modules/.vite",
   });
 };

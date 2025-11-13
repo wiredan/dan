@@ -18,9 +18,9 @@ const listingSchema = z.object({
   name: z.string().min(3, 'Name must be at least 3 characters'),
   description: z.string().min(10, 'Description must be at least 10 characters'),
   category: z.string().min(1, 'Please select a category'),
-  price: z.coerce.number().positive('Price must be a positive number'),
+  price: z.string().min(1, 'Price is required'),
   unit: z.string().min(1, 'Unit is required'),
-  quantity: z.coerce.number().int().positive('Quantity must be a positive integer'),
+  quantity: z.string().min(1, 'Quantity is required'),
   grade: z.enum(['A', 'B', 'C']),
   imageUrl: z.string().url('Please enter a valid image URL'),
 });
@@ -36,9 +36,9 @@ export function CreateListingPage() {
       name: '',
       description: '',
       category: '',
-      price: 0,
+      price: '',
       unit: 'kg',
-      quantity: 0,
+      quantity: '',
       grade: 'A',
       imageUrl: 'https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?q=80&w=800',
     },
@@ -54,6 +54,8 @@ export function CreateListingPage() {
     setIsSubmitting(true);
     const newListingData: Omit<Listing, 'id'> = {
       ...data,
+      price: parseFloat(data.price),
+      quantity: parseInt(data.quantity, 10),
       farmerId: user.id,
       harvestDate: new Date().toISOString(),
     };

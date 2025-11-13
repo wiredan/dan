@@ -1,43 +1,52 @@
-import { ApiResponse } from "../../shared/types";
-import { useAuthStore } from "./authStore";
-export async function api<T>(path: string, init?: RequestInit): Promise<T> {
-  console.log('API call initiated for path:', path);
-  const token = useAuthStore.getState().token;
-  const headers = new Headers(init?.headers);
-  headers.set('Content-Type', 'application/json');
-  if (token) {
-    headers.set('Authorization', `Bearer ${token}`);
-  }
-  const timeoutPromise = new Promise<never>((_, reject) =>
-    setTimeout(() => reject(new Error('Request timed out')), 20000)
-  );
+// src/lib/api-client.ts
+import type { ApiResponse } from "../../shared/types";
 
-  const fetchPromise = fetch(path, { ...init, headers });
+export async function api<T>(
+  path: string,
+  init?: RequestInit
+): Promise<T> {
+  const baseUrl =
+    import.meta.env.VITE_API_BASE_URL ||
+    "https://wiredan.com/api";
 
-  let res: Response;
+  const res = await fetch(`${baseUrl}${path}`, {
+    headers: {
+      "Content-Type": "application/json",
+      ...(init?.headers || {}),
+    },
+    credentials: "include", // so cookies (sessions) work!
+    ...init,
+  });
+
+  let json: ApiResponse<T>;
   try {
-    res = await Promise.race([fetchPromise, timeoutPromise]);
-  } catch (error) {
-    console.error('API request failed:', error);
-    throw error;
+    json = (await res.json()) as ApiResponse<T>;
+  } catch {
+    throw new Error("Invalid JSON response");
   }
 
-  console.log('Fetch completed with status:', res.status);
-  if (!res.ok) {
-    const contentType = res.headers.get('content-type');
-    if (contentType && contentType.includes('application/json')) {
-      const errorJson = await res.json();
-      throw new Error(errorJson.error || 'Request failed');
-    } else {
-      const errorText = await res.text();
-      throw new Error(errorText || 'Request failed');
-    }
+  if (!res.ok || !json.success || json.data === undefined) {
+    throw new Error(json.error || "Request failed");
   }
 
-  const json = (await res.json()) as ApiResponse<T>;
-  console.log('JSON parsing successful:', JSON.stringify(json));
-  if (!json.success) {
-    throw new Error(json.error || 'Request failed');
-  }
   return json.data;
 }
+
+// --- Helper methods ---
+export const apiGet = <T>(path: string) =>
+  api<T>(path, { method: "GET" });
+
+export const apiPost = <T, B = any>(path: string, body: B) =>
+  api<T>(path, {
+    method: "POST",
+    body: JSON.stringify(body),
+  });
+
+export const apiPut = <T, B = any>(path: string, body: B) =>
+  api<T>(path, {
+    method: "PUT",
+    body: JSON.stringify(body),
+  });
+
+export const apiDelete = <T>(path: string) =>
+  api<T>(path, { method: "DELETE" });

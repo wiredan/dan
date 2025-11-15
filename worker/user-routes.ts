@@ -313,3 +313,20 @@ router.post('/auth/logout', async (req, res) => {
   // Clear session or invalidate token
   res.json({ message: 'Logged out successfully' });
 });
+import { verifyToken } from './auth-utils';
+
+router.get('/auth/me', async (req, res) => {
+  const token = req.headers.authorization?.split(' ')[1];
+  if (!token) {
+    return res.status(401).json({ error: 'No token provided' });
+  }
+
+  try {
+    const decoded = verifyToken(token);
+    // Fetch user from DB using decoded.id
+    const user = await getUserById(decoded.id);
+    res.json({ user });
+  } catch {
+    res.status(401).json({ error: 'Invalid token' });
+  }
+});

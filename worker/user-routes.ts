@@ -1,3 +1,21 @@
+import { Router } from 'express';
+import { validateUser, generateToken } from './auth-utils';
+
+const router = Router();
+
+router.post('/auth/login', async (req, res) => {
+  const { username, password } = req.body;
+
+  const user = await validateUser(username, password);
+  if (!user) {
+    return res.status(401).json({ error: 'Invalid credentials' });
+  }
+
+  const token = generateToken(user);
+  res.json({ token, user });
+});
+
+export default router;
 // --- Imports ---
 import { decodeJwt } from "jose"; // for verifying Google ID token
 import { Hono } from "hono";

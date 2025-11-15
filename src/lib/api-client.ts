@@ -1,4 +1,17 @@
-// src/lib/api-client.ts
+// src/lib/api-client.ts export async function login(credentials: { email: string; password: string }) {
+  const response = await fetch('/api/auth/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(credentials),
+  });
+
+  if (!response.ok) {
+    throw new Error('Login failed');
+  }
+
+  return response.json(); // { token, user }
+}
+
 import type { ApiResponse } from "../../shared/types";
 
 export async function api<T>(

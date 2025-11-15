@@ -1,44 +1,17 @@
-// src/store/AuthStore.ts import { login } from './api-client';
-
-interface AuthState {
-  user: any | null;
-  token: string | null;
-}
-
-const authState: AuthState = {
-  user: null,
-  token: null,
-};
-
-export async function loginUser(email: string, password: string) {
-  try {
-    const { token, user } = await login({ email, password });
-    authState.user = user;
-    authState.token = token;
-
-    // Optionally persist token in localStorage
-    localStorage.setItem('authToken', token);
-
-    return user;
-  } catch (err) {
-    console.error('Login failed:', err);
-    throw err;
-  }
-}
-
-export function logoutUser() {
-  authState.user = null;
-  authState.token = null;
-  localStorage.removeItem('authToken');
-}
-
+// src/store/AuthStore.ts
 import { create } from "zustand";
 import { User } from "@shared/types";
-import { apiGet, apiPost } from "../lib/api-client";
+import { apiGet } from "../lib/api-client";
+
+interface AuthResponse {
+  token: string;
+  user: User;
+}
 
 interface AuthState {
   isAuthenticated: boolean;
   user: User | null;
+
   loginWithEmail: (email: string, password: string) => Promise<void>;
   signupWithEmail: (name: string, email: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
@@ -49,73 +22,84 @@ export const useAuthStore = create<AuthState>((set) => ({
   isAuthenticated: false,
   user: null,
 
-  // --- Email/Password Signup ---
+  // -----------------------------
+  // SIGNUP
+  // -----------------------------
   signupWithEmail: async (name, email, password) => {
-    try {
-      const user = await apiPost<User>("/auth/signup", { name, email, password });
-      set({ isAuthenticated: true, user });
-    } catch (error) {
-      console.error("Signup failed:", error);
-      throw error;
-    }
+    const res = await fetch("https://wiredan.com/api/auth/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, password }),
+    });
+
+    const json = await res.json();
+    if (!json.ok) throw new Error(json.error || "Signup failed");
+
+    // Signup doesn't log them in
   },
 
-  // --- Email/Password Login ---
+  // -----------------------------
+  // LOGIN
+  // -----------------------------
   loginWithEmail: async (email, password) => {
-    try {
-      const user = await apiPost<User>("/auth/login", { email, password });
-      set({ isAuthenticated: true, user });
-    } catch (error) {
-      console.error("Login failed:", error);
-      throw error;
-    }
+    const res = await fetch("https://wiredan.com/api/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    });
+
+    const json = await res.json();
+    if (!json.ok) throw new Error(json.error || "Login failed");
+
+    const data: AuthResponse = json.data;
+
+    localStorage.setItem("authToken", data.token);
+
+    set({
+      isAuthenticated: true,
+      user: data.user,
+    });
   },
 
-  // --- Logout (clears KV session) ---
+  // -----------------------------
+  // LOGOUT
+  // -----------------------------
   logout: async () => {
-    try {
-      await apiPost("/auth/logout", {});
-    } catch (error) {
-      console.error("Logout failed:", error);
-    } finally {
-      set({ isAuthenticated: false, user: null });
+    const token = localStorage.getItem("authToken");
+    if (token) {
+      await fetch("https://wiredan.com/api/auth/logout", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${token}` },
+      });
     }
+
+    localStorage.removeItem("authToken");
+    set({ isAuthenticated: false, user: null });
   },
 
-  // --- Check Session ---
+  // -----------------------------
+  // CHECK SESSION
+  // -----------------------------
   checkAuth: async () => {
-    try {
-      const user = await apiGet<User>("/auth/me");
-      set({ isAuthenticated: true, user });
-    } catch {
+    const token = localStorage.getItem("authToken");
+    if (!token) {
       set({ isAuthenticated: false, user: null });
+      return;
     }
+
+    const res = await fetch("https://wiredan.com/api/auth/me", {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+
+    const json = await res.json();
+    if (!json.ok) {
+      set({ isAuthenticated: false, user: null });
+      return;
+    }
+
+    set({
+      isAuthenticated: true,
+      user: json.data,
+    });
   },
 }));
-import { logout } from './api-client';
-
-export async function logoutUser() {
-  try {
-    await logout();
-  } catch (err) {
-    console.error('Logout failed:', err);
-  } finally {
-    // Clear local state regardless
-    authState.user = null;
-    authState.token = null;
-    localStorage.removeItem('authToken');
-  }import { checkAuth } from './api-client';
-
-export async function restoreSession() {
-  const user = await checkAuth();
-  if (user) {
-    authState.user = user;
-    authState.token = localStorage.getItem('authToken');
-  } else {
-    authState.user = null;
-    authState.token = null;
-    localStorage.removeItem('authToken');
-  }
-}
-
-}

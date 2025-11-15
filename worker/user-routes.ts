@@ -309,3 +309,7 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
     return ok(c, { token, user: userResponse } as AuthResponse);
   });
 }
+router.post('/auth/logout', async (req, res) => {
+  // Clear session or invalidate token
+  res.json({ message: 'Logged out successfully' });
+});

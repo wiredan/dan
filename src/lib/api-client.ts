@@ -63,3 +63,15 @@ export const apiPut = <T, B = any>(path: string, body: B) =>
 
 export const apiDelete = <T>(path: string) =>
   api<T>(path, { method: "DELETE" });
+export async function logout() {
+  const response = await fetch('/api/auth/logout', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+  });
+
+  if (!response.ok) {
+    throw new Error('Logout failed');
+  }
+
+  return response.json();
+}

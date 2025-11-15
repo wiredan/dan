@@ -1,6 +1,15 @@
-   jobs:
+name: Lint and Deduplicate
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
   lint-and-deduplicate:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -13,10 +22,10 @@
       - name: Install dependencies
         run: npm install
 
-      - name: Run ESLint
+      - name: Run ESLint (fail on duplicates)
         run: npx eslint "src/**/*.ts" --max-warnings=0
 
-      - name: Run deduplication script
+      - name: Run deduplication script (cleanup legacy code)
         run: npm run deduplicate
 
       - name: Commit changes if duplicates removed
@@ -26,4 +35,3 @@
           git add .
           git commit -m "chore: auto-remove duplicates" || echo "No changes to commit"
           git push
-     

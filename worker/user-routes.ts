@@ -1,31 +1,12 @@
-import { Router } from 'express';
-import { validateUser, generateToken } from './auth-utils';
-
-const router = Router();
-
-router.post('/auth/login', async (req, res) => {
-  const { username, password } = req.body;
-
-  const user = await validateUser(username, password);
-  if (!user) {
-    return res.status(401).json({ error: 'Invalid credentials' });
-  }
-
-  const token = generateToken(user);
-  res.json({ token, user });
-});
-
-export default router;
-// --- Imports ---
-import { decodeJwt } from "jose"; // for verifying Google ID token
+// userRoutes.ts
 import { Hono } from "hono";
+import { decodeJwt } from "jose";
 import type { Env } from "./core-utils";
 import { UserEntity, ListingEntity, OrderEntity } from "./entities";
 import { ok, bad, notFound, isStr } from "./core-utils";
-import type { Listing, Order, User, OrderStatus, UserRole, AuthResponse } from "@shared/types";
 import { hashPassword, verifyPassword } from "./auth-utils";
+import type { User, AuthResponse } from "@shared/types";
 
-// --- Env Extension ---
 export interface HonoEnv extends Env {
   WIREDAN_KV: KVNamespace;
   GOOGLE_CLIENT_ID: string;
@@ -36,23 +17,20 @@ export interface HonoEnv extends Env {
   APPLE_CLIENT_SECRET: string;
 }
 
-// --- Main Function ---
-export function userRoutes(app: Hono<{ Bindings: Env }>) {
-  const ensureSeedData = async (env: HonoEnv) => {
-    await UserEntity.ensureSeed(env);
-    await ListingEntity.ensureSeed(env);
-    await OrderEntity.ensureSeed(env);
-  };
-
-  // --- AUTH ROUTES ---
+export function userRoutes(app: Hono<{ Bindings: HonoEnv }>) {
+  // ---------------------------
+  // REGISTER
+  // ---------------------------
   app.post("/api/auth/register", async (c) => {
-    const { name, email, password } = await c.req.json<{ name?: string; email?: string; password?: string }>();
-    if (!isStr(name) || !isStr(email) || !isStr(password)) return bad(c, "Name, email, and password are required");
+    const { name, email, password } = await c.req.json();
+    if (!isStr(name) || !isStr(email) || !isStr(password))
+      return bad(c, "Name, email, and password required");
 
-    const userEntity = new UserEntity(c.env as HonoEnv, email.toLowerCase());
+    const userEntity = new UserEntity(c.env, email.toLowerCase());
     if (await userEntity.exists()) return bad(c, "User already exists");
 
     const { hash, salt } = await hashPassword(password);
+
     const newUser: User = {
       id: email.toLowerCase(),
       name,
@@ -62,103 +40,99 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
       passwordHash: hash,
       passwordSalt: salt,
     };
-    await UserEntity.create(c.env as HonoEnv, newUser);
-    const { passwordHash, passwordSalt, ...userResponse } = newUser;
-    return ok(c, userResponse);
+
+    await UserEntity.create(c.env, newUser);
+    const { passwordHash, passwordSalt, ...safeUser } = newUser;
+
+    return ok(c, safeUser);
   });
 
+  // ---------------------------
+  // EMAIL + PASSWORD LOGIN
+  // ---------------------------
   app.post("/api/auth/login", async (c) => {
-    const { email, password } = await c.req.json<{ email?: string; password?: string }>();
-    if (!isStr(email) || !isStr(password)) return bad(c, "Email and password required");
+    const { email, password } = await c.req.json();
+    if (!isStr(email) || !isStr(password))
+      return bad(c, "Email and password required");
 
-    const userEntity = new UserEntity(c.env as HonoEnv, email.toLowerCase());
+    const userEntity = new UserEntity(c.env, email.toLowerCase());
     if (!(await userEntity.exists())) return bad(c, "Invalid credentials");
 
     const user = await userEntity.getState();
-    if (password !== "social_login_mock_password") {
-      if (!user.passwordHash || !user.passwordSalt) return bad(c, "Invalid credentials");
-      const valid = await verifyPassword(password, user.passwordHash, user.passwordSalt);
-      if (!valid) return bad(c, "Invalid credentials");
-    }
+    if (!user.passwordHash || !user.passwordSalt)
+      return bad(c, "Invalid credentials");
+
+    const valid = await verifyPassword(password, user.passwordHash, user.passwordSalt);
+    if (!valid) return bad(c, "Invalid credentials");
 
     const token = crypto.randomUUID();
-    await (c.env as HonoEnv).WIREDAN_KV.put(`session:${token}`, user.id, { expirationTtl: 60 * 60 * 24 * 7 });
+    await c.env.WIREDAN_KV.put(`session:${token}`, user.id, {
+      expirationTtl: 60 * 60 * 24 * 7, // 7 days
+    });
 
-    const { passwordHash, passwordSalt, ...userResponse } = user;
-    return ok(c, { token, user: userResponse } as AuthResponse);
+    const { passwordHash, passwordSalt, ...safeUser } = user;
+
+    return ok(c, { token, user: safeUser } as AuthResponse);
   });
 
+  // ---------------------------
+  // LOGOUT
+  // ---------------------------
   app.post("/api/auth/logout", async (c) => {
-    const authHeader = c.req.header("Authorization");
-    const token = authHeader?.split(" ")[1];
-    if (token) await (c.env as HonoEnv).WIREDAN_KV.delete(`session:${token}`);
+    const token = c.req.header("Authorization")?.split(" ")[1];
+    if (token) await c.env.WIREDAN_KV.delete(`session:${token}`);
     return ok(c, { message: "Logged out" });
   });
 
+  // ---------------------------
+  // /ME — Validate Session
+  // ---------------------------
   app.get("/api/auth/me", async (c) => {
-    const authHeader = c.req.header("Authorization");
-    const token = authHeader?.split(" ")[1];
-    if (!token) return c.json({ success: false, error: "Unauthorized" }, 401);
+    const token = c.req.header("Authorization")?.split(" ")[1];
+    if (!token) return bad(c, "Unauthorized");
 
-    const userId = await (c.env as HonoEnv).WIREDAN_KV.get(`session:${token}`);
-    if (!userId) return c.json({ success: false, error: "Unauthorized" }, 401);
+    const userId = await c.env.WIREDAN_KV.get(`session:${token}`);
+    if (!userId) return bad(c, "Unauthorized");
 
-    const userEntity = new UserEntity(c.env as HonoEnv, userId);
-    if (!(await userEntity.exists())) return c.json({ success: false, error: "Unauthorized" }, 401);
+    const userEntity = new UserEntity(c.env, userId);
+    if (!(await userEntity.exists())) return bad(c, "Unauthorized");
 
     const user = await userEntity.getState();
-    const { passwordHash, passwordSalt, ...userResponse } = user;
-    return ok(c, userResponse);
+    const { passwordHash, passwordSalt, ...safeUser } = user;
+
+    return ok(c, safeUser);
   });
 
-  // --- GOOGLE OAUTH ---
-  app.get("/api/auth/google", (c) => {
-    const redirectUri = "https://wiredan.com/api/auth/google/callback";
-    const clientId = c.env.GOOGLE_CLIENT_ID;
-    const scope = "openid email profile";
-    const state = crypto.randomUUID();
+  // ------------------------------------------------------
+  // GOOGLE / MICROSOFT / APPLE OAUTH (shared pattern)
+  // ------------------------------------------------------
 
-    const googleAuthUrl = new URL("https://accounts.google.com/o/oauth2/v2/auth");
-    googleAuthUrl.searchParams.set("client_id", clientId);
-    googleAuthUrl.searchParams.set("redirect_uri", redirectUri);
-    googleAuthUrl.searchParams.set("response_type", "code");
-    googleAuthUrl.searchParams.set("scope", scope);
-    googleAuthUrl.searchParams.set("state", state);
-    googleAuthUrl.searchParams.set("access_type", "offline");
-
-    return c.redirect(googleAuthUrl.toString());
-  });
-
-  app.get("/api/auth/google/callback", async (c) => {
-    const code = c.req.query("code");
-    if (!code) return bad(c, "Missing authorization code");
-
-    const tokenResponse = await fetch("https://oauth2.googleapis.com/token", {
+  async function oauthHandler(
+    c: any,
+    provider: "google" | "microsoft" | "apple",
+    tokenUrl: string,
+    params: Record<string, string>
+  ) {
+    const tokenResponse = await fetch(tokenUrl, {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams({
-        code,
-        client_id: c.env.GOOGLE_CLIENT_ID,
-        client_secret: c.env.GOOGLE_CLIENT_SECRET,
-        redirect_uri: "https://wiredan.com/api/auth/google/callback",
-        grant_type: "authorization_code",
-      }),
+      body: new URLSearchParams(params),
     });
 
     const tokenJson = await tokenResponse.json();
-    if (!tokenJson.id_token) return bad(c, "Google token exchange failed");
+    if (!tokenJson.id_token) return bad(c, `${provider} token exchange failed`);
 
-    const googleUser = decodeJwt(tokenJson.id_token) as { email?: string; name?: string };
-    if (!googleUser.email) return bad(c, "Missing Google account email");
+    const profile = decodeJwt(tokenJson.id_token) as { email?: string; name?: string };
+    if (!profile.email) return bad(c, `Missing ${provider} account email`);
 
-    const email = googleUser.email.toLowerCase();
-    const name = googleUser.name || email.split("@")[0];
+    const email = profile.email.toLowerCase();
+    const name = profile.name || email.split("@")[0];
 
-    const userEntity = new UserEntity(c.env as HonoEnv, email);
+    const userEntity = new UserEntity(c.env, email);
     let user = await userEntity.getState().catch(() => null);
 
     if (!user) {
-      const newUser: User = {
+      user = {
         id: email,
         name,
         role: "Farmer",
@@ -167,176 +141,52 @@ export function userRoutes(app: Hono<{ Bindings: Env }>) {
         passwordHash: "",
         passwordSalt: "",
       };
-      await UserEntity.create(c.env as HonoEnv, newUser);
-      user = newUser;
+      await UserEntity.create(c.env, user);
     }
 
     const token = crypto.randomUUID();
-    await (c.env as HonoEnv).WIREDAN_KV.put(`session:${token}`, email, { expirationTtl: 60 * 60 * 24 * 7 });
-    const { passwordHash, passwordSalt, ...userResponse } = user;
-    return ok(c, { token, user: userResponse } as AuthResponse);
-  });
-
-  // --- MICROSOFT OAUTH ---
-  app.get("/api/auth/microsoft", (c) => {
-    const redirectUri = "https://wiredan.com/api/auth/microsoft/callback";
-    const clientId = c.env.MICROSOFT_CLIENT_ID;
-    const scope = "openid email profile offline_access";
-    const state = crypto.randomUUID();
-
-    const msAuthUrl = new URL("https://login.microsoftonline.com/common/oauth2/v2.0/authorize");
-    msAuthUrl.searchParams.set("client_id", clientId);
-    msAuthUrl.searchParams.set("response_type", "code");
-    msAuthUrl.searchParams.set("redirect_uri", redirectUri);
-    msAuthUrl.searchParams.set("scope", scope);
-    msAuthUrl.searchParams.set("state", state);
-
-    return c.redirect(msAuthUrl.toString());
-  });
-
-  app.get("/api/auth/microsoft/callback", async (c) => {
-    const code = c.req.query("code");
-    if (!code) return bad(c, "Missing authorization code");
-
-    const tokenResponse = await fetch("https://login.microsoftonline.com/common/oauth2/v2.0/token", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams({
-        code,
-        client_id: c.env.MICROSOFT_CLIENT_ID,
-        client_secret: c.env.MICROSOFT_CLIENT_SECRET,
-        redirect_uri: "https://wiredan.com/api/auth/microsoft/callback",
-        grant_type: "authorization_code",
-      }),
+    await c.env.WIREDAN_KV.put(`session:${token}`, email, {
+      expirationTtl: 60 * 60 * 24 * 7,
     });
 
-    const tokenJson = await tokenResponse.json();
-    if (!tokenJson.id_token) return bad(c, "Microsoft token exchange failed");
+    const { passwordHash, passwordSalt, ...safeUser } = user;
+    return ok(c, { token, user: safeUser } as AuthResponse);
+  }
 
-    const msUser = decodeJwt(tokenJson.id_token) as { email?: string; name?: string };
-    if (!msUser.email) return bad(c, "Missing Microsoft account email");
+  // GOOGLE
+  app.get("/api/auth/google/callback", (c) =>
+    oauthHandler(c, "google", "https://oauth2.googleapis.com/token", {
+      code: c.req.query("code")!,
+      client_id: c.env.GOOGLE_CLIENT_ID,
+      client_secret: c.env.GOOGLE_CLIENT_SECRET,
+      redirect_uri: "https://wiredan.com/api/auth/google/callback",
+      grant_type: "authorization_code",
+    })
+  );
 
-    const email = msUser.email.toLowerCase();
-    const name = msUser.name || email.split("@")[0];
+  // MICROSOFT
+  app.get("/api/auth/microsoft/callback", (c) =>
+    oauthHandler(c, "microsoft", "https://login.microsoftonline.com/common/oauth2/v2.0/token", {
+      code: c.req.query("code")!,
+      client_id: c.env.MICROSOFT_CLIENT_ID,
+      client_secret: c.env.MICROSOFT_CLIENT_SECRET,
+      redirect_uri: "https://wiredan.com/api/auth/microsoft/callback",
+      grant_type: "authorization_code",
+    })
+  );
 
-    const userEntity = new UserEntity(c.env as HonoEnv, email);
-    let user = await userEntity.getState().catch(() => null);
-
-    if (!user) {
-      const newUser: User = {
-        id: email,
-        name,
-        role: "Farmer",
-        kycStatus: "Not Submitted",
-        location: "",
-        passwordHash: "",
-        passwordSalt: "",
-      };
-      await UserEntity.create(c.env as HonoEnv, newUser);
-      user = newUser;
-    }
-
-    const token = crypto.randomUUID();
-    await (c.env as HonoEnv).WIREDAN_KV.put(`session:${token}`, email, { expirationTtl: 60 * 60 * 24 * 7 });
-    const { passwordHash, passwordSalt, ...userResponse } = user;
-    return ok(c, { token, user: userResponse } as AuthResponse);
-  });
-
-  // --- APPLE OAUTH ---
-  app.get("/api/auth/apple", (c) => {
-    const redirectUri = "https://wiredan.com/api/auth/apple/callback";
-    const clientId = c.env.APPLE_CLIENT_ID;
-    const scope = "name email";
-    const state = crypto.randomUUID();
-
-    const appleUrl = new URL("https://appleid.apple.com/auth/authorize");
-    appleUrl.searchParams.set("response_type", "code");
-    appleUrl.searchParams.set("response_mode", "form_post");
-    appleUrl.searchParams.set("client_id", clientId);
-    appleUrl.searchParams.set("redirect_uri", redirectUri);
-    appleUrl.searchParams.set("scope", scope);
-    appleUrl.searchParams.set("state", state);
-
-    return c.redirect(appleUrl.toString());
-  });
-
+  // APPLE
   app.post("/api/auth/apple/callback", async (c) => {
     const body = await c.req.parseBody();
     const code = body["code"];
     if (!code) return bad(c, "Missing authorization code");
 
-    const tokenResponse = await fetch("https://appleid.apple.com/auth/token", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams({
-        code,
-        client_id: c.env.APPLE_CLIENT_ID,
-        client_secret: c.env.APPLE_CLIENT_SECRET,
-        grant_type: "authorization_code",
-        redirect_uri: "https://wiredan.com/api/auth/apple/callback",
-      }),
+    return oauthHandler(c, "apple", "https://appleid.apple.com/auth/token", {
+      code,
+      client_id: c.env.APPLE_CLIENT_ID,
+      client_secret: c.env.APPLE_CLIENT_SECRET,
+      grant_type: "authorization_code",
+      redirect_uri: "https://wiredan.com/api/auth/apple/callback",
     });
-
-    const tokenJson = await tokenResponse.json();
-    if (!tokenJson.id_token) return bad(c, "Apple token exchange failed");
-
-    const appleUser = decodeJwt(tokenJson.id_token) as { email?: string; name?: string };
-    if (!appleUser.email) return bad(c, "Missing Apple account email");
-
-    const email = appleUser.email.toLowerCase();
-    const name = appleUser.name || email.split("@")[0];
-
-    const userEntity = new UserEntity(c.env as HonoEnv, email);
-    let user = await userEntity.getState().catch(() => null);
-
-    if (!user) {
-      const newUser: User = {
-        id: email,
-        name,
-        role: "Farmer",
-        kycStatus: "Not Submitted",
-        location: "",
-        passwordHash: "",
-        passwordSalt: "",
-      };
-      await UserEntity.create(c.env as HonoEnv, newUser);
-      user = newUser;
-    }
-
-    const token = crypto.randomUUID();
-    await (c.env as HonoEnv).WIREDAN_KV.put(`session:${token}`, email, { expirationTtl: 60 * 60 * 24 * 7 });
-    const { passwordHash, passwordSalt, ...userResponse } = user;
-    return ok(c, { token, user: userResponse } as AuthResponse);
   });
 }
-router.post('/auth/logout', async (req, res) => {
-  // Clear session or invalidate token
-  res.json({ message: 'Logged out successfully' });
-});
-import { verifyToken } from './auth-utils';
-
-router.get('/auth/me', async (req, res) => {
-  const token = req.headers.authorization?.split(' ')[1];
-  if (!token) {
-    return res.status(401).json({ error: 'No token provided' });
-  }
-
-  try {
-    const decoded = verifyToken(token);
-    // Fetch user from DB using decoded.id
-    const user = await getUserById(decoded.id);
-    res.json({ user });
-  } catch {
-    res.status(401).json({ error: 'Invalid token' });
-  }
-});
-import { Router } from 'express';
-const router = Router();
-
-router.post('/client-errors', (req, res) => {
-  const { error } = req.body;
-  console.error('Client error reported:', error);
-  res.status(200).json({ message: 'Error logged' });
-});
-
-export default router;

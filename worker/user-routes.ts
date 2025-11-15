@@ -330,3 +330,13 @@ router.get('/auth/me', async (req, res) => {
     res.status(401).json({ error: 'Invalid token' });
   }
 });
+import { Router } from 'express';
+const router = Router();
+
+router.post('/client-errors', (req, res) => {
+  const { error } = req.body;
+  console.error('Client error reported:', error);
+  res.status(200).json({ message: 'Error logged' });
+});
+
+export default router;

@@ -1,4 +1,37 @@
-// src/store/AuthStore.ts
+// src/store/AuthStore.ts import { login } from './api-client';
+
+interface AuthState {
+  user: any | null;
+  token: string | null;
+}
+
+const authState: AuthState = {
+  user: null,
+  token: null,
+};
+
+export async function loginUser(email: string, password: string) {
+  try {
+    const { token, user } = await login({ email, password });
+    authState.user = user;
+    authState.token = token;
+
+    // Optionally persist token in localStorage
+    localStorage.setItem('authToken', token);
+
+    return user;
+  } catch (err) {
+    console.error('Login failed:', err);
+    throw err;
+  }
+}
+
+export function logoutUser() {
+  authState.user = null;
+  authState.token = null;
+  localStorage.removeItem('authToken');
+}
+
 import { create } from "zustand";
 import { User } from "@shared/types";
 import { apiGet, apiPost } from "../lib/api-client";

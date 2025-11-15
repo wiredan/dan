@@ -94,3 +94,6 @@ export async function checkAuth() {
   const data = await response.json();
   return data.user;
 }
+fetch('/api/client-errors', {
+  method: 'GET', // instead of POST
+});

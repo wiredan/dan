@@ -75,3 +75,22 @@ export async function logout() {
 
   return response.json();
 }
+export async function checkAuth() {
+  const token = localStorage.getItem('authToken');
+  if (!token) return null;
+
+  const response = await fetch('/api/auth/me', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
+    },
+  });
+
+  if (!response.ok) {
+    return null;
+  }
+
+  const data = await response.json();
+  return data.user;
+}

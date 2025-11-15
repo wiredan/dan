@@ -1,3 +1,4 @@
+
 const fs = require("fs");
 const path = require("path");
 const parser = require("@babel/parser");
@@ -19,9 +20,13 @@ files.forEach((filePath) => {
   });
 
   const seenFunctions = new Map();
+  const seenImports = new Set();
+  const seenConstants = new Map();
+
   const duplicates = [];
 
   traverse(ast, {
+    // Detect duplicate function declarations
     FunctionDeclaration(path) {
       const name = path.node.id?.name;
       if (!name) return;
@@ -35,6 +40,34 @@ files.forEach((filePath) => {
       } else {
         seenFunctions.set(name, signature);
       }
+    },
+
+    // Detect duplicate imports
+    ImportDeclaration(path) {
+      const importKey = generator(path.node).code;
+      if (seenImports.has(importKey)) {
+        duplicates.push(path);
+      } else {
+        seenImports.add(importKey);
+      }
+    },
+
+    // Detect duplicate constants (variable declarations)
+    VariableDeclaration(path) {
+      path.node.declarations.forEach((decl) => {
+        if (t.isIdentifier(decl.id)) {
+          const name = decl.id.name;
+          const signature = generator(path.node).code;
+          if (seenConstants.has(name)) {
+            const existing = seenConstants.get(name);
+            if (existing === signature) {
+              duplicates.push(path);
+            }
+          } else {
+            seenConstants.set(name, signature);
+          }
+        }
+      });
     },
   });
 

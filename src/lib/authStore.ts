@@ -92,3 +92,17 @@ export const useAuthStore = create<AuthState>((set) => ({
     }
   },
 }));
+import { logout } from './api-client';
+
+export async function logoutUser() {
+  try {
+    await logout();
+  } catch (err) {
+    console.error('Logout failed:', err);
+  } finally {
+    // Clear local state regardless
+    authState.user = null;
+    authState.token = null;
+    localStorage.removeItem('authToken');
+  }
+}

@@ -81,4 +81,6 @@
     "typescript": "^5.8",
     "vite": "^6.3.1"
   }
+}"scripts": {
+  "deduplicate": "node scripts/deduplicate.js"
 }

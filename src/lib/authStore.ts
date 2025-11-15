@@ -104,5 +104,18 @@ export async function logoutUser() {
     authState.user = null;
     authState.token = null;
     localStorage.removeItem('authToken');
+  }import { checkAuth } from './api-client';
+
+export async function restoreSession() {
+  const user = await checkAuth();
+  if (user) {
+    authState.user = user;
+    authState.token = localStorage.getItem('authToken');
+  } else {
+    authState.user = null;
+    authState.token = null;
+    localStorage.removeItem('authToken');
   }
+}
+
 }
